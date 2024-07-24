@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../scss/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <script defer src="../../common/functionalities/activeWishlist.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <section id="sidebar-section">
+            <div class="content">
+                <div class="sidebar-navarea">
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-house"></i>
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <a href="#">Search</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sidebar-mainarea">
+                <div class="main">
+                    <div class="library">
+                        <div class="own-library">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <span>Your Library</span>
+                        </div>
+                        <div class="right-side">
+                            <button><i class="fa-solid fa-plus"></i></button>
+                            <button id="arrow"><i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="create-side">
+                        <div class="content">
+                            <div class="create-playlist">
+                                <div class="paragraphy">
+                                    <p>Create your first playlist</p>
+                                    <p>It's easy, we'll help you</p>
+                                </div>
+                                <button><span>Create playlist</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="mobile-sidebar">
+            <div class="content">
+                <div class="nav">
+                    <div id="homeicon-mobile">
+                        <i class="fa-solid fa-house"></i>
+                        <a href="#">Home</a>
+                    </div>
+                    <div id="searchicon-mobile">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <a href="#">Search</a>
+                    </div>
+                    <!-- <div id="libraryicon-mobile">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <a href="#">Your Library</a>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+        <section id="main-side">
+            <header id="spotify-header">
+                <div class="content">
+                    <div class="left-side">
+                        <button id="left"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button id="right"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    <div class="right-side">
+                        <!-- <a href="#">
+                            <button id="signUp">Sign up</button>
+                        </a>
+                        <a href="#">
+                            <button id="signIn">Log in</button>
+                        </a> -->
+                        <button id="premium"><span>Explore Premium</span></button>
+                        <button id="notification"><i class="fa-regular fa-bell"></i></button>
+                        <button id="user"><span>L</span></button>
+                    </div>
+                </div>
+            </header>
+            <section id="navbar-mobile">
+                <div class="content">
+                    <div class="left-side">
+                        <p>Recently played</p>
+                    </div>
+                    <div class="right-side">
+                        <!-- <a href="#">
+                            <button id="signUp">Sign up</button>
+                        </a>
+                        <a href="#">
+                            <button id="signIn">Log in</button>
+                        </a> -->
+                        <a href="#">
+                            <button id="notification"><i class="fa-regular fa-bell"></i></button>
+                        </a>
+                        <a href="#">
+                            <button id="recently"><i class="fa-solid fa-clock-rotate-left"></i></button>
+                        </a>
+                        <a href="#">
+                            <button id="setting"><i class="fa-solid fa-gear"></i></button>
+                        </a>
+                    </div>
+                    <div class="setting-menu">
+                        <a href="#">
+                            <span>View Account</span>
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                        </a>
+                        <a href="#">Profile</a>
+                        <button id="logout"><span>Log Out</span></button>
+                    </div>
+                </div>
+            </section>
+           <section id="all-p">
+            <section id="premium-page">
+                <div class="context">
+                    <div class="header-view">
+                        <div class="premium-hero-badge">
+                            <p>Your plan: <span>Spotify Free</span></p>
+                        </div>
+                        <div class="premium-plans">
+                            <div class="p">
+                                <h1>Listen without limits. Try 1 month of Premium Individual for free.</h1>
+                                <p id="price">Only $4.99/month after. Cancel anytime. </p>
+                                <div class="buttons-premium">
+                                    <button class="try-free">
+                                        <p>Try free for 1 month</p>
+                                    </button>
+                                    <button class="all-premium">
+                                        <p>View all Premium plans</p>
+                                    </button>
+                                </div>
+                                <p>Free for 1 month, then $4.99 per month after. Offer only available if you haven't
+                                    tried Premium before. </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <section id="premium-cards">
+                <div class="context">
+                    <div class="plans-forsituation">
+                        <h1>Affordable plans for any situation</h1>
+                        <p>Choose a Premium plan and listen to ad-free music without limits on your phone, speaker, and
+                            other devices. Pay in various ways. Cancel anytime.</p>
+                    </div>
+                    <div class="premium-plans">
+                        <h2>All Premium plans include</h2>
+                        <div class="list">
+                            <ul>
+                                <div>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span>Ad-free music listening</span>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span>Download to listen offline</span>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span>Play songs in any order</span>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span>High audio quality</span>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span>Listen with friends in real time</span>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-check"></i>
+                                    <span>Organize listening queue</span>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cards-premium">
+                        <div class="plan-card">
+                            <div class="month">
+                                <p>Free for 1 month</p>
+                            </div>
+                            <div class="card-name">
+                                <h3>Premium Individual</h3>
+                                <div class="free">
+                                    <p>FREE</p>
+                                    <span>FOR 1 MONTH</span>
+                                </div>
+                            </div>
+                            <ul>
+                                <li>1 Premium account</li>
+                                <li>Cancel anytime</li>
+                            </ul>
+                            <button>
+                                <span>Try free for 1 month</span>
+                            </button>
+                            <div class="card-footer">
+                                <p>Free for 1 month, then $4.99 per month after. Offer only available if you haven't
+                                    tried Premium before. </p>
+                            </div>
+                        </div>
+                        <div class="plan-card">
+                            <div class="month">
+                                <p>Free for 1 month</p>
+                            </div>
+                            <div class="card-name">
+                                <h3>Premium Student</h3>
+                                <div class="free">
+                                    <p>FREE</p>
+                                    <span>FOR 1 MONTH</span>
+                                </div>
+                            </div>
+                            <ul>
+                                <li>1 verified Premium account</li>
+                                <li>Discount for eligible students</li>
+                                <li>Cancel anytime</li>
+                            </ul>
+                            <button>
+                                <span>Try free for 1 month</span>
+                            </button>
+                            <div class="card-footer">
+                                <p>Free for 1 month, then $2.49 per month after. Offer available only to students at an
+                                    accredited higher education institution and if you haven't tried Premium before.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="plan-card">
+                            <div class="month">
+                                <p>Free for 1 month</p>
+                            </div>
+                            <div class="card-name">
+                                <h3>Premium Duo</h3>
+                                <div class="free">
+                                    <p>$6.49</p>
+                                    <span>PER MONTH</span>
+                                </div>
+                            </div>
+                            <ul>
+                                <li>2 Premium accounts</li>
+                                <li>Cancel anytime</li>
+                            </ul>
+                            <button>
+                                <span>Try free for 1 month</span>
+                            </button>
+                            <div class="card-footer">
+                                <p>
+                                    For couples who reside at the same address. Terms apply.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="plan-card">
+                            <div class="month">
+                                <p>Free for 1 month</p>
+                            </div>
+                            <div class="card-name">
+                                <h3>Premium Family</h3>
+                                <div class="free">
+                                    <p>$6.49</p>
+                                    <span>PER MONTH</span>
+                                </div>
+                            </div>
+                            <ul>
+                                <li>Up to 6 Premium accounts</li>
+                                <li>Block explicit music</li>
+                                <li>Cancel anytime</li>
+                            </ul>
+                            <button>
+                                <span>Try free for 1 month</span>
+                            </button>
+                            <div class="card-footer">
+                                <p>
+                                    For up to 6 family members residing at the same address. Terms apply.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+           </section>
+
+
+
+            <section id="footer">
+                <div class="content">
+                    <div class="all-footer">
+                        <div class="footer-info">
+                            <div class="companies">
+                                <h3>Company</h3>
+                                <a href="#">About</a>
+                                <a href="#">Jobs</a>
+                                <a href="#">For the Record</a>
+                            </div>
+                            <div class="communities">
+                                <h3>Communities</h3>
+                                <a href="#">For Artist</a>
+                                <a href="#">Developers</a>
+                                <a href="#">Advertising</a>
+                                <a href="#">Inverstors</a>
+                            </div>
+                            <div class="useful">
+                                <h3>Contact Info</h3>
+                               <div class="mail">
+                                <i class="fa-regular fa-envelope"></i>
+                                <span>office@spotify.com</span>
+                               </div>
+                              <div class="adress">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>591 Meadowbrook Street
+                                    Toms River, NJ </span>
+                              </div>
+                              <div class="number">
+                                <i class="fa-solid fa-phone"></i>
+                                <span>(201) 874-8593</span>
+                              </div>
+                            </div>
+                            <div class="socialMedia-icons">
+                                <button><a href="#"><i class="fa-brands fa-instagram"></i></a></button>
+                                <button><a href="#"><i class="fa-brands fa-twitter"></i></a></button>
+                                <button><a href="#"><i class="fa-brands fa-facebook"></i></a></button>
+                            </div>
+                        </div>
+                        <div class="footer-divide">
+                            <div class="dvide">
+                                <p>© 2024 Spotify AB</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+    </div>
+    <section id="music-player">
+        <div class="content">
+            <div class="player-song">
+                <div class="images">
+                    <a href="#"><img src="../../assets/images/ViralHits.jpg" alt="song-img"></a>
+                </div>
+                <div class="song-info">
+                    <a id="song-name" href="#"><span>California Love</span></a>
+                    <div class="artist-name">
+                        <a href="#"><span>2Pac , </span></a>
+                        <a href="#"><span>Roger</span></a>
+                    </div>
+                </div>
+                <button id="wishlist"><i class="fa-regular fa-heart"></i></button>
+                <div class="mobile-buttons">
+                    <!-- <button id="wishlist-mob"><i class="fa-regular fa-heart"></i></button>
+                <button id="play-music-mob"> <i class="fa-solid fa-play"></i></button> -->
+                    <!-- <button id="stop-music-mob">
+                    <i class="fa-solid fa-pause"></i>
+                </button> -->
+                </div>
+            </div>
+            <div class="player-control">
+                <div class="first-side">
+                    <div class="left-side">
+                        <button id="random"><i class="fa-solid fa-shuffle"></i></button>
+                        <button style="font-size: 25px;" id="backward-step"><i
+                                class="fa-solid fa-backward-step"></i></button>
+                    </div>
+                    <button class="play">
+                        <i id="play-icon" class="fa-solid fa-play"></i>
+                        <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                    </button>
+                    <div class="right-side">
+                        <button style="font-size: 25px;" id="forward-step"><i
+                                class="fa-solid fa-forward-step"></i></button>
+                        <button id="repeat"><i class="fa-solid fa-repeat"></i></button>
+                    </div>
+                </div>
+                <div class="second-side">
+                    <span>1:28</span>
+                    <div id="playback-progressbar">
+                        <div class="progress"></div>
+                    </div>
+                    <span>3:15</span>
+                </div>
+            </div>
+            <div class="control-buttons">
+
+            </div>
+        </div>
+    </section>
+    <!-- <div class="mobile-playercontroller">
+        <div class="content">
+            <div class="left-side">
+                <div class="mobile-images">
+                    <a href="#"><img src="../../assets/images/ViralHits.jpg" alt="song-img"></a>
+                </div>
+                <div class="mobile-song-info">
+                    <a id="mobile-song-name" href="#"><span>California Love</span></a>
+                    <div class="mobile-artist-name">
+                        <a href="#"><span>2Pac , </span></a>
+                        <a href="#"><span>Roger</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="right-side">
+                <button id="wishlist"><i class="fa-regular fa-heart"></i></button>
+                <button id="play-music"> <i class="fa-solid fa-play"></i></button>
+            </div>
+        </div>
+    </div> -->
+</body>
+
+</html>

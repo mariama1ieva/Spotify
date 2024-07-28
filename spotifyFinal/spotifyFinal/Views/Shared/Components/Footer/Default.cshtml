@@ -1,0 +1,60 @@
+﻿@using Service.ViewModels.Setting
+ @model List<SettingVM>
+
+
+
+
+<section id="footer">
+    <div class="content">
+        <div class="all-footer">
+            <div class="footer-info">
+                <div class="companies">
+                    <h3>Company</h3>
+                    <a href="#">About</a>
+                    <a href="#">Jobs</a>
+                    <a href="#">For the Record</a>
+                </div>
+                <div class="communities">
+                    <h3>Communities</h3>
+                    <a href="#">For Artist</a>
+                    <a href="#">Developers</a>
+                    <a href="#">Advertising</a>
+                    <a href="#">Inverstors</a>
+                </div>
+                <div class="useful">
+                    <h3>Contact Info</h3>
+                   @foreach (var item in Model)
+                    {
+                        <div class="mail">
+                            <i class="fa-regular fa-envelope"></i>
+                            <span>
+
+                                 @if (item.Key == "Email" || item.Key == "Address" || item.Key == "Number")
+                                {
+                                    <span>@item.Value</span>
+                                }
+                            </span>
+                        </div>
+                    }
+                 
+                </div>
+                <div class="socialMedia-icons">
+                    <button><a href="#"><i class="fa-brands fa-instagram"></i></a></button>
+                    <button><a href="#"><i class="fa-brands fa-twitter"></i></a></button>
+                    <button><a href="#"><i class="fa-brands fa-facebook"></i></a></button>
+                </div>
+            </div>
+            <div class="footer-divide">
+                <div class="dvide">
+                    <p>© 2024 Spotify AB</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        </section>
+
+    </div>
+
+
+</html>

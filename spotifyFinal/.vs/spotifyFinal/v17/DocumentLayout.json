@@ -1,0 +1,172 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\final\\spotifyfinal\\spotifyfinal\\areas\\admin\\controllers\\settingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\areas\\admin\\controllers\\settingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77D8E049-8674-4FDB-9205-37D39DB487D4}|Service\\Service.csproj|c:\\users\\asus\\onedrive\\desktop\\final\\spotifyfinal\\service\\services\\settingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77D8E049-8674-4FDB-9205-37D39DB487D4}|Service\\Service.csproj|solutionrelative:service\\services\\settingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\final\\spotifyfinal\\spotifyfinal\\areas\\admin\\views\\setting\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\areas\\admin\\views\\setting\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77D8E049-8674-4FDB-9205-37D39DB487D4}|Service\\Service.csproj|c:\\users\\asus\\onedrive\\desktop\\final\\spotifyfinal\\service\\services\\interfaces\\isettingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77D8E049-8674-4FDB-9205-37D39DB487D4}|Service\\Service.csproj|solutionrelative:service\\services\\interfaces\\isettingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4CA49FC9-A08D-4B85-AE90-B672D7DB6CD6}|Repository\\Repository.csproj|c:\\users\\asus\\onedrive\\desktop\\final\\spotifyfinal\\repository\\repositories\\interfaces\\isettingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CA49FC9-A08D-4B85-AE90-B672D7DB6CD6}|Repository\\Repository.csproj|solutionrelative:repository\\repositories\\interfaces\\isettingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4CA49FC9-A08D-4B85-AE90-B672D7DB6CD6}|Repository\\Repository.csproj|c:\\users\\asus\\onedrive\\desktop\\final\\spotifyfinal\\repository\\repositories\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CA49FC9-A08D-4B85-AE90-B672D7DB6CD6}|Repository\\Repository.csproj|solutionrelative:repository\\repositories\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4CA49FC9-A08D-4B85-AE90-B672D7DB6CD6}|Repository\\Repository.csproj|c:\\users\\asus\\onedrive\\desktop\\final\\spotifyfinal\\repository\\repositories\\settingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CA49FC9-A08D-4B85-AE90-B672D7DB6CD6}|Repository\\Repository.csproj|solutionrelative:repository\\repositories\\settingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4CA49FC9-A08D-4B85-AE90-B672D7DB6CD6}|Repository\\Repository.csproj|c:\\users\\asus\\onedrive\\desktop\\final\\spotifyfinal\\repository\\repositories\\interfaces\\ibaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4CA49FC9-A08D-4B85-AE90-B672D7DB6CD6}|Repository\\Repository.csproj|solutionrelative:repository\\repositories\\interfaces\\ibaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\final\\spotifyfinal\\spotifyfinal\\areas\\admin\\views\\setting\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\areas\\admin\\views\\setting\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ISettingRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\Repository\\Repositories\\Interfaces\\ISettingRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\Repositories\\Interfaces\\ISettingRepository.cs",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\Repository\\Repositories\\Interfaces\\ISettingRepository.cs",
+              "RelativeToolTip": "Repository\\Repositories\\Interfaces\\ISettingRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-28T08:06:25.658Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ISettingService.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\Service\\Services\\Interfaces\\ISettingService.cs",
+              "RelativeDocumentMoniker": "Service\\Services\\Interfaces\\ISettingService.cs",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\Service\\Services\\Interfaces\\ISettingService.cs",
+              "RelativeToolTip": "Service\\Services\\Interfaces\\ISettingService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-28T07:31:58.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IBaseRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\Repository\\Repositories\\Interfaces\\IBaseRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\Repositories\\Interfaces\\IBaseRepository.cs",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\Repository\\Repositories\\Interfaces\\IBaseRepository.cs",
+              "RelativeToolTip": "Repository\\Repositories\\Interfaces\\IBaseRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAcAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-28T07:56:14.768Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BaseRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\Repository\\Repositories\\BaseRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\Repositories\\BaseRepository.cs",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\Repository\\Repositories\\BaseRepository.cs",
+              "RelativeToolTip": "Repository\\Repositories\\BaseRepository.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAsAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-28T07:54:26.48Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SettingService.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\Service\\Services\\SettingService.cs",
+              "RelativeDocumentMoniker": "Service\\Services\\SettingService.cs",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\Service\\Services\\SettingService.cs",
+              "RelativeToolTip": "Service\\Services\\SettingService.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAACYAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-27T19:22:10.552Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SettingRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\Repository\\Repositories\\SettingRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\Repositories\\SettingRepository.cs",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\Repository\\Repositories\\SettingRepository.cs",
+              "RelativeToolTip": "Repository\\Repositories\\SettingRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-27T19:20:54.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SettingController.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Controllers\\SettingController.cs",
+              "RelativeDocumentMoniker": "spotifyFinal\\Areas\\Admin\\Controllers\\SettingController.cs",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Controllers\\SettingController.cs",
+              "RelativeToolTip": "spotifyFinal\\Areas\\Admin\\Controllers\\SettingController.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAAAowEAAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-27T09:48:48.796Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Views\\Setting\\Edit.cshtml",
+              "RelativeDocumentMoniker": "spotifyFinal\\Areas\\Admin\\Views\\Setting\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Views\\Setting\\Edit.cshtml",
+              "RelativeToolTip": "spotifyFinal\\Areas\\Admin\\Views\\Setting\\Edit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-27T18:04:24.01Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Views\\Setting\\Detail.cshtml",
+              "RelativeDocumentMoniker": "spotifyFinal\\Areas\\Admin\\Views\\Setting\\Detail.cshtml",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Views\\Setting\\Detail.cshtml",
+              "RelativeToolTip": "spotifyFinal\\Areas\\Admin\\Views\\Setting\\Detail.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-27T18:35:42.173Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

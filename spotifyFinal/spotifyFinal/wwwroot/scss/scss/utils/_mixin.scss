@@ -1,0 +1,38 @@
+@mixin for-size($screen) {
+    @if $screen==tablet {
+      @media screen and (max-width: $desktop-container-widht) {
+        @content;
+      }
+    } @else if $screen==mobile {
+      @media screen and (max-width: $tablet-container-widht) {
+        @content;
+      }
+    }
+  }
+  
+  @mixin container() {
+    width: $desktop-container-widht;
+    margin: auto;
+  
+    @include for-size(tablet) {
+      width: $tablet-container-widht;
+      margin: auto;
+    }
+    @include for-size(mobile) {
+      width: $mobile-container-widht;
+      margin: auto;
+    }
+  }
+  
+  
+  @mixin box(){
+    .box{
+      padding: 8px;
+      display: flex;
+      gap: 8px;
+      z-index: 1;
+      @include for-size(mobile){
+        gap: 0;
+      }
+    }
+  }

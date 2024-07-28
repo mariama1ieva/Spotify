@@ -1,0 +1,28 @@
+﻿@using Service.ViewModels.Setting
+@model SettingVM
+
+
+<div class="x_content container mx-5">
+    <div class="col-md-9 col-sm-9 center-margin mt-3">
+        <a asp-action="Index" asp-area="Admin" asp-controller="Setting">
+            <i class="fa-solid fa-right-from-bracket fa-rotate-180 fa-2xl " style="color:#121212;"></i>
+        </a>
+
+<form class="forms-sample" method="post">
+    <div class="form-group">
+                <label >@Model.Key</label>
+                <input asp-for="Key" class="form-control" placeholder="Add Key...">
+                <span class="text-danger mt-2" asp-validation-for="Key"></span>
+    </div>
+    <div class="form-group">
+                <label >@Model.Value</label>
+                <input asp-for="Value" class="form-control" placeholder="Add Value...">
+                <span class="text-danger mt-2" asp-validation-for="Value"></span>
+    </div>
+
+    <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+    <a class="btn btn-light" asp-area="Admin" asp-controller="Setting" asp-action="Index">Back</a>
+</form>
+</div>
+</div>
+<script src="https://kit.fontawesome.com/680cf1a7ac.js" crossorigin="anonymous"></script>

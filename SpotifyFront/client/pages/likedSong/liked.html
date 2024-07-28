@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../scss/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <script defer src="../../common/functionalities/activeWishlist.js"></script>
+    <script defer src="../../common/functionalities/playMusic.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <section id="sidebar-section">
+            <div class="content">
+                <div class="sidebar-navarea">
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-house"></i>
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <a href="#">Search</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sidebar-mainarea">
+                <div class="main">
+                    <div class="library">
+                        <div class="own-library">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <span>Your Library</span>
+                        </div>
+                        <div class="right-side">
+                            <button><i class="fa-solid fa-plus"></i></button>
+                            <button id="arrow"><i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="create-side">
+                        <div class="content">
+                            <div class="create-playlist">
+                                <div class="paragraphy">
+                                    <p>Create your first playlist</p>
+                                    <p>It's easy, we'll help you</p>
+                                </div>
+                                <button><span>Create playlist</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="mobile-sidebar">
+            <div class="content">
+                <div class="nav">
+                    <div id="homeicon-mobile">
+                        <i class="fa-solid fa-house"></i>
+                        <a href="#">Home</a>
+                    </div>
+                    <div id="searchicon-mobile">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <a href="#">Search</a>
+                    </div>
+                    <!-- <div id="libraryicon-mobile">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <a href="#">Your Library</a>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+        <section id="main-side">
+            <header id="spotify-header" style="background:rgb(80, 58, 157);">
+                <div class="content">
+                    <div class="left-side">
+                        <button id="left"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button id="right"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                    <div class="right-side">
+                        <!-- <a href="#">
+                            <button id="signUp">Sign up</button>
+                        </a>
+                        <a href="#">
+                            <button id="signIn">Log in</button>
+                        </a> -->
+                        <button id="premium"><span>Explore Premium</span></button>
+                        <button id="notification"><i class="fa-regular fa-bell"></i></button>
+                        <button id="user"><span>L</span></button>
+                    </div>
+                </div>
+            </header>
+            <section id="profileliked-area"
+                style="background: linear-gradient(transparent 0,rgba(0,0,0,.5) 100%),rgb(80, 58, 157);">
+                <div class="content">
+                    <div class="left-side">
+                        <button class="liked-songs">
+                            <img src="../../assets/images/liked-songs-300.png" alt="">
+                        </button>
+                    </div>
+                    <div class="right-side">
+                        <p>Profile</p>
+                        <h1>Liked Songs</h1>
+                        <a>Leman</a>
+                        <span>2 <span>song</span></span>
+                    </div>
+                </div>
+            </section>
+            <!-- <section id="empty-area" >
+                <div class="content">
+                    <h1>Songs you like will appear here</h1>
+                    <p>Save songs by tapping the heart icon.</p>
+                    <button><a href="">Find songs</a></button>
+                </div>
+            </section> -->
+            <section id="top-music">
+                <div class="context">
+                    <div class="liked-music-header">
+                        <div class="left-side">
+                            <p>#</p>
+                            <p>Title</p>
+                        </div>
+                        <div class="right-side">
+                            <p>Album</p>
+                            <p>Date added</p>
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
+                    </div>
+                    <div class="liked-music">
+                        <div id="songs">
+                            <div class="music-row" src="../../assets/music/song2.mp3">
+                                <div class="left-side">
+                                    <div class="count">
+                                        <p>1</p>
+                                        <button class="play">
+                                            <i id="play-icon" class="fa-solid fa-play"></i>
+                                            <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                                        </button>
+                                    </div>
+                                    <div class="music-info">
+                                        <img src="../../assets/images/rihanna.jpg" alt="">
+                                        <div class="names">
+                                            <div class="music-name">
+                                                <p>Love On The Brain</p>
+                                            </div>
+                                            <a class="artist-name">
+                                                <p>Rihanna</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right-side">
+                                    <div class="albom-name">
+                                        <a>RCVBGHJKL</a>
+                                    </div>
+                                    <div class="add-date">
+                                        <p>1 hours ago</p>
+                                        <!-- <button id="wishlist">
+                                            <i class="fa-solid fa-heart"></i>
+                                        </button> -->
+                                        <button class="dlt-wish">
+                                            <i class="fa-solid fa-circle-xmark"></i>
+                                        </button>
+                                    </div>
+                                    <div class="music-time">
+                                        <p>3:49</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="music-row" src="../../assets/music/spotifydown.com - Superstar.mp3">
+                                <div class="left-side">
+                                    <div class="count">
+                                        <p>2</p>
+                                        <button class="play">
+                                            <i id="play-icon" class="fa-solid fa-play"></i>
+                                            <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                                        </button>
+                                    </div>
+                                    <div class="music-info">
+                                        <img src="../../assets/images/Jazz.jpg" alt="">
+                                        <div class="names">
+                                            <div class="music-name">
+                                                <p>Love On The Brain</p>
+                                            </div>
+                                            <a class="artist-name">
+                                                <p>Rihanna</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right-side">
+                                    <div class="albom-name">
+                                        <a>RCVBGHJKL</a>
+                                    </div>
+                                    <div class="add-date">
+                                        <p>1 hours ago</p>
+                                        <button class="dlt-wish">
+                                            <i class="fa-solid fa-circle-xmark"></i>
+                                        </button>
+                                    </div>
+                                    <div class="music-time">
+                                        <p>3:49</p>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="music-row" src="../../assets/music/spotifydown.com - Praise Jah In The Moonlight.mp3">
+                                <div class="left-side">
+                                    <div class="count">
+                                        <p>1</p>
+                                        <button class="play">
+                                            <i id="play-icon" class="fa-solid fa-play"></i>
+                                            <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                                        </button>
+                                    </div>
+                                    <div class="music-info">
+                                        <img src="../../assets/images/Electronic.jpg" alt="">
+                                        <div class="names">
+                                            <div class="music-name">
+                                                <p>Love On The Brain</p>
+                                            </div>
+                                            <a class="artist-name">
+                                                <p>Rihanna</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right-side">
+                                    <div class="albom-name">
+                                        <a>RCVBGHJKL</a>
+                                    </div>
+                                    <div class="add-date">
+                                        <p>1 hours ago</p>
+                                        <button class="dlt-wish">
+                                            <i class="fa-solid fa-circle-xmark"></i>
+                                        </button>
+                                    </div>
+                                    <div class="music-time">
+                                        <p>3:49</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="music-row" src="../../assets/music/spotifydown.com - Halo.mp3">
+                                <div class="left-side">
+                                    <div class="count">
+                                        <p>1</p>
+                                        <button class="play">
+                                            <i id="play-icon" class="fa-solid fa-play"></i>
+                                            <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                                        </button>
+                                    </div>
+                                    <div class="music-info">
+                                        <img src="../../assets/images/Music.jpg" alt="">
+                                        <div class="names">
+                                            <div class="music-name">
+                                                <p>Love On The Brain</p>
+                                            </div>
+                                            <a class="artist-name">
+                                                <p>Rihanna</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right-side">
+                                    <div class="albom-name">
+                                        <a>RCVBGHJKL</a>
+                                    </div>
+                                    <div class="add-date">
+                                        <p>1 hours ago</p>
+                                        <button class="dlt-wish">
+                                            <i class="fa-solid fa-circle-xmark"></i>
+                                        </button>
+                                    </div>
+                                    <div class="music-time">
+                                        <p>3:49</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="footer">
+                <div class="content">
+                    <div class="all-footer">
+                        <div class="footer-info">
+                            <div class="companies">
+                                <h3>Company</h3>
+                                <a href="#">About</a>
+                                <a href="#">Jobs</a>
+                                <a href="#">For the Record</a>
+                            </div>
+                            <div class="communities">
+                                <h3>Communities</h3>
+                                <a href="#">For Artist</a>
+                                <a href="#">Developers</a>
+                                <a href="#">Advertising</a>
+                                <a href="#">Inverstors</a>
+                            </div>
+                            <div class="useful">
+                                <h3>Contact Info</h3>
+                               <div class="mail">
+                                <i class="fa-regular fa-envelope"></i>
+                                <span>office@spotify.com</span>
+                               </div>
+                              <div class="adress">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>591 Meadowbrook Street
+                                    Toms River, NJ </span>
+                              </div>
+                              <div class="number">
+                                <i class="fa-solid fa-phone"></i>
+                                <span>(201) 874-8593</span>
+                              </div>
+                            </div>
+                            <div class="socialMedia-icons">
+                                <button><a href="#"><i class="fa-brands fa-instagram"></i></a></button>
+                                <button><a href="#"><i class="fa-brands fa-twitter"></i></a></button>
+                                <button><a href="#"><i class="fa-brands fa-facebook"></i></a></button>
+                            </div>
+                        </div>
+                        <div class="footer-divide">
+                            <div class="dvide">
+                                <p>© 2024 Spotify AB</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+    </div>
+    <section id="music-player">
+        <div class="content">
+            <div class="player-song">
+                <div class="images">
+                    <a href="#"><img src="../../assets/images/ViralHits.jpg" alt="song-img"></a>
+                </div>
+                <div class="song-info">
+                    <a id="song-name" href="#"><span>California Love</span></a>
+                    <div class="artist-name">
+                        <a href="#"><span>2Pac , </span></a>
+                        <a href="#"><span>Roger</span></a>
+                    </div>
+                </div>
+                <button id="wishlist"><i class="fa-regular fa-heart"></i></button>
+                <div class="mobile-buttons">
+                    <!-- <button id="wishlist-mob"><i class="fa-regular fa-heart"></i></button>
+                <button id="play-music-mob"> <i class="fa-solid fa-play"></i></button> -->
+                    <!-- <button id="stop-music-mob">
+                    <i class="fa-solid fa-pause"></i>
+                </button> -->
+                </div>
+            </div>
+            <div class="player-control">
+                <audio id="audio" src=""></audio>
+                <div class="first-side">
+                    <div class="left-side">
+                        <button id="random"><i class="fa-solid fa-shuffle"></i></button>
+                        <button style="font-size: 25px;" id="backward-step"><i
+                                class="fa-solid fa-backward-step"></i></button>
+                    </div>
+                    <button class="play" id="play-pause">
+                        <i id="play-icon" class="fa-solid fa-play"></i>
+                        <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                    </button>
+                    <div class="right-side">
+                        <button style="font-size: 25px;" id="forward-step"><i
+                                class="fa-solid fa-forward-step"></i></button>
+                        <button id="repeat"><i class="fa-solid fa-repeat"></i></button>
+                    </div>
+                </div>
+                <div class="second-side">
+                    <span id="current-time">00:00</span>
+                    <div id="playback-progressbar">
+                        <div class="progress"></div>
+                    </div>
+                    <span id="duration">00:00</span>
+                </div>
+            </div>
+            <div class="control-buttons">
+                <i class="fa-solid fa-volume-low"></i>
+                <input type="range" id="volume" style="height: 4px;" min="0" max="1" step="0.1" value="1">
+                <!-- <div class="volume-progressbar">
+                    <div class="progress"></div>
+                </div>  -->
+
+            </div>
+        </div>
+    </section>
+    <div class="mobile-playercontroller">
+        <div class="content">
+            <div class="left-side">
+                <div class="mobile-images">
+                    <a href="#"><img src="../../assets/images/ViralHits.jpg" alt="song-img"></a>
+                </div>
+                <div class="mobile-song-info">
+                    <a id="mobile-song-name" href="#"><span>California Love</span></a>
+                    <div class="mobile-artist-name">
+                        <a href="#"><span>2Pac , </span></a>
+                        <a href="#"><span>Roger</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="right-side">
+                <button class="play">
+                    <i id="play-icon" class="fa-solid fa-play"></i>
+                    <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../scss/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <script defer src="../../pages/profile/navbar.js"></script>
+    <script defer src="../../common/functionalities/activeWishlist.js"></script>
+    <script defer src="../../pages/search/searchInput.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <section id="sidebar-section">
+            <div class="content">
+                <div class="sidebar-navarea">
+                    <ul>
+                        <li>
+                            <i class="fa-solid fa-house"></i>
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <a href="#">Search</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sidebar-mainarea">
+                <div class="main">
+                    <div class="library">
+                        <div class="own-library">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <span>Your Library</span>
+                        </div>
+                        <div class="right-side">
+                            <button><i class="fa-solid fa-plus"></i></button>
+                            <button id="arrow"><i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="create-side">
+                        <div class="content">
+                            <div class="create-playlist">
+                                <div class="paragraphy">
+                                    <p>Create your first playlist</p>
+                                    <p>It's easy, we'll help you</p>
+                                </div>
+                                <button><span>Create playlist</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="mobile-sidebar">
+            <div class="content">
+                <div class="nav">
+                    <div id="homeicon-mobile">
+                        <i class="fa-solid fa-house"></i>
+                        <a href="#">Home</a>
+                    </div>
+                    <div id="searchicon-mobile">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <a href="#">Search</a>
+                    </div>
+                    <div id="libraryicon-mobile">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <a href="#">Your Library</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="main-side">
+            <header id="spotify-header" style=" background-color: rgb(83, 83, 83);">
+                <div class="content">
+                    <div class="left-side">
+
+                        <button id="left"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button id="right"><i class="fa-solid fa-chevron-right"></i></button>
+
+                    </div>
+                    <span>User</span>
+
+                    <div class="right-side">
+                        <!-- <a href="#">
+                            <button id="signUp">Sign up</button>
+                        </a>
+                        <a href="#">
+                            <button id="signIn">Log in</button>
+                        </a> -->
+                        <button id="premium"><span>Explore Premium</span></button>
+                        <button id="notification"><i class="fa-regular fa-bell"></i></button>
+                        <button id="user"><span>L</span></button>
+                    </div>
+                </div>
+            </header>
+
+            <section id="profile-area">
+                <div class="content">
+                    <div class="left-side">
+                        <button class="account">
+                            <i class="fa-regular fa-user user"></i>
+                            <a class="choose-photo">
+                                <i class="fa-solid fa-pen"></i>
+                                <span>Choose photo</span>
+                            </a>
+                        </button>
+                    </div>
+                    <div class="right-side">
+                        <p>Playlist</p>
+                        <h1>Playlist Name</h1>
+                        <p>User</p>
+                    </div>
+                </div>
+            </section>
+            <section id="top-music">
+                <div class="context">
+                    <div class="liked-music-header">
+                        <div class="left-side">
+                            <p>#</p>
+                            <p>Title</p>
+                        </div>
+                        <div class="right-side">
+                            <p>Album</p>
+                            <p>Date added</p>
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
+                    </div>
+                    <div class="liked-music">
+                        <div class="music-row">
+                            <div class="left-side">
+                                <div class="count">
+                                    <p>1</p>
+                                    <button class="play">
+                                        <i id="play-icon" class="fa-solid fa-play"></i>
+                                        <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                                    </button>
+                                </div>
+                                <div class="music-info">
+                                    <img src="../../assets/images/rihanna.jpg" alt="">
+                                    <div class="names">
+                                        <div class="music-name">
+                                            <p>Love On The Brain</p>
+                                        </div>
+                                        <a class="artist-name">
+                                            <p>Rihanna</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right-side">
+                                <div class="albom-name">
+                                    <a>RCVBGHJKL</a>
+                                </div>
+                                <div class="add-date">
+                                    <p>1 hours ago</p>
+                                    <button id="wishlist">
+                                        <i class="fa-solid fa-heart"></i>
+                                    </button>
+                                </div>
+                                <div class="music-time">
+                                    <p>3:49</p>
+                                </div>
+                                <button id="remove">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="music-row">
+                            <div class="left-side">
+                                <div class="count">
+                                    <p>2</p>
+                                    <button class="play">
+                                        <i id="play-icon" class="fa-solid fa-play"></i>
+                                        <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                                    </button>
+                                </div>
+                                <div class="music-info">
+                                    <img src="../../assets/images/Jazz.jpg" alt="">
+                                    <div class="names">
+                                        <div class="music-name">
+                                            <p>Love On The Brain</p>
+                                        </div>
+                                        <a class="artist-name">
+                                            <p>Rihanna</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right-side">
+                                <div class="albom-name">
+                                    <a>RCVBGHJKL</a>
+                                </div>
+                                <div class="add-date">
+                                    <p>1 hours ago</p>
+                                    <button id="wishlist">
+                                        <i class="fa-solid fa-heart"></i>
+                                    </button>
+                                </div>
+                                <div class="music-time">
+                                    <p>3:49</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="search-area-playlist">
+                <div class="content">
+                    <h2>Let's find something for your playlist</h2>
+                    <div class="search-area">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="searchInput" placeholder="Search for song">
+                        <i class="fa-solid fa-xmark delete"></i>
+                    </div>
+                    <div class="search-result">
+                        <div class="music-row">
+                            <div class="left-side">
+                                
+                                <div class="music-info">
+                                    <img src="../../assets/images/Jazz.jpg" alt="">
+                                    <div class="names">
+                                        <div class="music-name">
+                                            <p>Love On The Brain</p>
+                                        </div>
+                                        <a class="artist-name">
+                                            <p>Rihanna</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right-side">
+                                <div class="albom-name">
+                                    <a>RCVBGHJKL</a>
+                                </div>
+                                <button id="add">
+                                    <span>Add</span>
+                                </button>
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="footer">
+                <div class="content">
+                    <div class="all-footer">
+                        <div class="footer-info">
+                            <div class="companies">
+                                <h3>Company</h3>
+                                <a href="#">About</a>
+                                <a href="#">Jobs</a>
+                                <a href="#">For the Record</a>
+                            </div>
+                            <div class="communities">
+                                <h3>Communities</h3>
+                                <a href="#">For Artist</a>
+                                <a href="#">Developers</a>
+                                <a href="#">Advertising</a>
+                                <a href="#">Inverstors</a>
+                            </div>
+                            <div class="useful">
+                                <h3>Useful links</h3>
+                                <a href="#">Support</a>
+                                <a href="#">Free Mobile App</a>
+                            </div>
+                            <div class="socialMedia-icons">
+                                <button><a href="#"><i class="fa-brands fa-instagram"></i></a></button>
+                                <button><a href="#"><i class="fa-brands fa-twitter"></i></a></button>
+                                <button><a href="#"><i class="fa-brands fa-facebook"></i></a></button>
+                            </div>
+                        </div>
+                        <div class="footer-divide">
+                            <div class="dvide">
+                                <p>© 2024 Spotify AB</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+    </div>
+</body>
+
+</html>

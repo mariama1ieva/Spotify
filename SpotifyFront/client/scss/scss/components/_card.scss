@@ -1,0 +1,82 @@
+.box{
+  padding: 8px;
+  display: flex;
+  gap: 8px;
+  z-index: 1;
+  @include for-size(mobile){
+    gap: 0;
+  }
+}
+.card-container {
+  width: 206.21px;
+  height: 286.89px;
+  cursor: pointer;
+  background: #181818;
+  border-radius: 8px;
+  padding: 16px;
+  transition: 0.3s;
+  @include for-size(mobile) {
+    width: 168px;
+    /* background-color: transparent; */
+    height: 220px;
+  }
+
+  &:hover {
+    background-color: rgb(36, 36, 36);
+  }
+  .card {
+    position: relative;
+    &:hover .play {
+      opacity: 1;
+      bottom: 43%;
+    }
+    img {
+      width: 174px;
+      @include for-size(mobile){
+        width: 136px;
+      }
+    }
+    h3 {
+      font-size: 16px;
+      color: white;
+      margin-top: 12px;
+      @include for-size(mobile){
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+    p {
+      color: gray;
+      font-family: Poppins;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 8px;
+      @include for-size(mobile){
+        display: none;
+      }
+    }
+
+    .play {
+      width: 48px;
+      height: 48px;
+      background-color: #1ed760;
+      border-radius: 50%;
+      position: absolute;
+      border: none;
+      bottom: 94px;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      left: 114px;
+      opacity: 0;
+      // display: none;
+      //   transition: opacity 0.3s ease;
+      transition: bottom 0.5s;
+      transform: translateY(17px);
+      i {
+        font-size: 21px;
+      }
+    }
+  }
+}

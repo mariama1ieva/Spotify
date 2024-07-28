@@ -1,0 +1,15 @@
+@font-face {
+    font-family: "Circular";
+    src: url("../assets/fonts/CircularStd-Bold.otf") format("truetype");
+    font-weight: 600;
+  }
+
+  @font-face {
+    font-family: "Poppins";
+    src: url("../assets/fonts/Poppins-Regular.ttf") format("truetype");
+    font-weight: 400;
+  }
+
+html{
+    font-family:"Circular";
+}

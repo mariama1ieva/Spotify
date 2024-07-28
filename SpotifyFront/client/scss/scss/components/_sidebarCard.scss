@@ -1,0 +1,81 @@
+#sidebar-section {
+  .sidebar-mainarea {
+    .create-side {
+      .content {
+        .sidebar-playlist-cards {
+          display: flex;
+          flex-direction: column;
+          .card {
+            height: 64px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            padding: 0px 8px;
+            border-radius: 4px;
+            transition: 0.3s;
+            &:hover {
+              background-color: rgb(42, 42, 42);
+              #delete {
+                display: inline !important;
+              }
+            }
+            .left-side {
+              width: 48px;
+              height: 48px;
+              background-color: rgb(40, 40, 40);
+              border-radius: 4px;
+img{
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+              i {
+                font-size: 23px;
+                color: rgb(157, 157, 157);
+                // padding: 0px 9px;
+                padding-top: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+            }
+            .right-side {
+              width: 188px;
+              height: 48px;
+              flex-wrap: wrap;
+              display: flex;
+              gap: 3px;
+              flex-direction: column;
+              .playlist-name {
+                color: white;
+                font-family: "Poppins";
+                font-size: 14px;
+              }
+              p {
+                color: rgb(157, 157, 157);
+                font-size: 12px;
+              }
+              #delete {
+                border: none;
+                background-color: transparent;
+                margin-left: auto;
+                display: none;
+                i {
+                  margin-top: 15px;
+                  color: rgb(157, 157, 157);
+                  font-size: 13px;
+                  cursor: pointer;
+                  &:hover {
+                    transform: scale(0.95);
+                    transition: 0.3s;
+                    color: white;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

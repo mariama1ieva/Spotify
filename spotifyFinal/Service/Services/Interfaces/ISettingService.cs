@@ -4,11 +4,13 @@ namespace Service.Services.Interfaces
 {
     public interface ISettingService
     {
-        Task<IEnumerable<SettingVM>> GetAllAsync();
+        Task<IEnumerable<SettingListVM>> GetAllAsync();
+        Task<bool> AnyAsync(string key);
         Task<Dictionary<string, string>> GetAll();
         Task<SettingVM> GetByIdAsync(int id);
-        Task CreateAsync(SettingVM setting);
+        Task CreateAsync(SettingCreateVM model);
         //Task<SettingVM> GetEqualId(int id);
-        Task UpdateAsync(SettingVM model);
+        Task UpdateAsync(SettingEditVM model);
+        Task DeleteAsync(int id);
     }
 }

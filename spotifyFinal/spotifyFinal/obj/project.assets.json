@@ -10588,11 +10588,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\spotifyFinal\\spotifyFinal.csproj",
+      "projectUniqueName": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\spotifyFinal.csproj",
       "projectName": "spotifyFinal",
-      "projectPath": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\spotifyFinal\\spotifyFinal.csproj",
+      "projectPath": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\spotifyFinal.csproj",
       "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\spotifyFinal\\obj\\",
+      "outputPath": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10609,8 +10609,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\Service\\Service.csproj": {
-              "projectPath": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\Service\\Service.csproj"
+            "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\Service\\Service.csproj": {
+              "projectPath": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\Service\\Service.csproj"
             }
           }
         }

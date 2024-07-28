@@ -11,7 +11,6 @@ namespace Service.Services
         private readonly ISettingRepository _repository;
         public readonly IMapper _mapper;
 
-
         public SettingService(ISettingRepository settingRepository, IMapper mapper)
         {
             _repository = settingRepository;
@@ -24,23 +23,34 @@ namespace Service.Services
 
         }
 
-        public async Task<IEnumerable<SettingVM>> GetAllAsync()
+        public async Task<IEnumerable<SettingListVM>> GetAllAsync()
         {
-            return _mapper.Map<IEnumerable<SettingVM>>(await _repository.GetAllAsync());
+            return _mapper.Map<IEnumerable<SettingListVM>>(await _repository.GetAllAsync());
         }
+
         public async Task<SettingVM> GetByIdAsync(int id)
         {
             return _mapper.Map<SettingVM>(await _repository.GetByIdAsync(id));
         }
 
-        public async Task CreateAsync(SettingVM setting)
+        public async Task CreateAsync(SettingCreateVM model)
         {
-            await _repository.CreateAsync(_mapper.Map<Setting>(setting));
+            await _repository.CreateAsync(_mapper.Map<Setting>(model));
         }
 
-        public async Task UpdateAsync(SettingVM model)
+        public async Task UpdateAsync(SettingEditVM model)
         {
             await _repository.UpdateAsync(_mapper.Map<Setting>(model));
+        }
+
+        public async Task<bool> AnyAsync(string key)
+        {
+            return await _repository.AnyAsync(key);
+        }
+
+        public Task DeleteAsync(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

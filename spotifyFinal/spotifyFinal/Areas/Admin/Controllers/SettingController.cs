@@ -36,12 +36,16 @@ namespace spotifyFinal.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(SettingVM request)
+        public async Task<IActionResult> Create(SettingCreateVM request)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) return View();
+
+            if (await _settingService.AnyAsync(request.Key))
             {
-                return View();
+                ModelState.AddModelError("Key", $"{request.Key} is already exist!");
+                return View(request);
             }
+
             await _settingService.CreateAsync(request);
             return RedirectToAction("Index");
         }
@@ -62,15 +66,15 @@ namespace spotifyFinal.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(SettingVM request)
+        public async Task<IActionResult> Edit(int? id, SettingEditVM request)
         {
             if (!ModelState.IsValid) return View(request);
 
-            if (request.Id == null) return BadRequest();
+            if (id == null) return BadRequest();
 
-            var setting = await _settingService.GetByIdAsync((int)request.Id);
+            //var setting = await _settingService.GetByIdAsync((int)id);
 
-            if (setting == null) return NotFound();
+            //if (setting == null) return NotFound();
 
             await _settingService.UpdateAsync(request);
 

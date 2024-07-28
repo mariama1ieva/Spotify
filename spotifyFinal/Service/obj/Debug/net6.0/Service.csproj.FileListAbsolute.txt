@@ -15,3 +15,21 @@ C:\Users\Asus\OneDrive\Desktop\Final\spotifyFinal\Service\obj\Debug\net6.0\Servi
 C:\Users\Asus\OneDrive\Desktop\Final\spotifyFinal\Service\obj\Debug\net6.0\refint\Service.dll
 C:\Users\Asus\OneDrive\Desktop\Final\spotifyFinal\Service\obj\Debug\net6.0\Service.pdb
 C:\Users\Asus\OneDrive\Desktop\Final\spotifyFinal\Service\obj\Debug\net6.0\ref\Service.dll
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\Service\bin\Debug\net6.0\Service.deps.json
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\Service\bin\Debug\net6.0\Service.dll
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\Service\bin\Debug\net6.0\Service.pdb
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\Service\bin\Debug\net6.0\Domain.dll
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\Service\bin\Debug\net6.0\Repository.dll
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\Service\bin\Debug\net6.0\Repository.pdb
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\Service\bin\Debug\net6.0\Domain.pdb
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\Service\obj\Debug\net6.0\Service.csproj.AssemblyReference.cache
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\Service\obj\Debug\net6.0\Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\Service\obj\Debug\net6.0\Service.AssemblyInfoInputs.cache
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\Service\obj\Debug\net6.0\Service.AssemblyInfo.cs
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\Service\obj\Debug\net6.0\Service.csproj.CoreCompileInputs.cache
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\Service\obj\Debug\net6.0\Service.sourcelink.json
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\Service\obj\Debug\net6.0\Service.csproj.Up2Date
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\Service\obj\Debug\net6.0\Service.dll
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\Service\obj\Debug\net6.0\refint\Service.dll
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\Service\obj\Debug\net6.0\Service.pdb
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\Service\obj\Debug\net6.0\ref\Service.dll

@@ -10,9 +10,9 @@ namespace Service.Helpers
         public MappingProfile()
         {
             CreateMap<Setting, SettingVM>();
-            CreateMap<SettingVM, Setting>();
-
-
+            CreateMap<SettingEditVM, Setting>();
+            CreateMap<Setting, SettingListVM>();
+            CreateMap<Setting, SettingCreateVM>();
 
         }
     }

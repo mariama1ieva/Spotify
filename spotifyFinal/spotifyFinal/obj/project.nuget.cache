@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XUFrql0JMYwIuK2WlGXDegpsEXBDWRF7OdUa3UajFDGqEmsn4agHBeK7jU6/BtvDToCzUNXpYuDYJ4yV/fkSFw==",
+  "dgSpecHash": "hTms+3ZfV+ism3QYJjFMqwampyt5OlxheWjkp5SSsbr+5LDaKGzRftoNahD4A/Hh8aSd0FBC5Nx5C5gUPnvV1Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\spotifyFinal\\spotifyFinal.csproj",
+  "projectFilePath": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\spotifyFinal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",

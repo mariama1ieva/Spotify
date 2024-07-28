@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "s2/e4LUVO13xjvZkjGuHaLLrwOauehP3QQQNhMwct+rtLaHNbEVYzQcnpASS7Y4Npo1UECaHAZHrxie4ySNuZA==",
+  "dgSpecHash": "DHH8mUCrXBB1ofZ9WJ/myP72eyEeQAdPvu4o+Crh2FIMkcjWmfJN4HL/64Xii+47OmYfT0s4iF3ptKFIOY9uiA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Asus\\OneDrive\\Desktop\\Final\\spotifyFinal\\Domain\\Domain.csproj",
+  "projectFilePath": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.32\\microsoft.aspnetcore.cryptography.internal.6.0.32.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.32\\microsoft.aspnetcore.cryptography.keyderivation.6.0.32.nupkg.sha512",

@@ -12,7 +12,7 @@ namespace Service.Helpers
             CreateMap<Setting, SettingVM>();
             CreateMap<SettingEditVM, Setting>();
             CreateMap<Setting, SettingListVM>();
-            CreateMap<Setting, SettingCreateVM>();
+            CreateMap<SettingCreateVM, Setting>();
 
         }
     }

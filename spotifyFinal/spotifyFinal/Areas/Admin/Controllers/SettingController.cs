@@ -76,9 +76,28 @@ namespace spotifyFinal.Areas.Admin.Controllers
 
             //if (setting == null) return NotFound();
 
-            await _settingService.UpdateAsync(request);
+            await _settingService.UpdateAsync((int)id, request);
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (!ModelState.IsValid) return View();
+
+            if (id == null) return BadRequest();
+            var setting = await _settingService.GetByIdAsync((int)id);
+
+            if (setting == null) return NotFound();
+
+            await _settingService.DeleteAsync((int)id);
+            return RedirectToAction(nameof(Index));
+
+
+        }
+
     }
 }

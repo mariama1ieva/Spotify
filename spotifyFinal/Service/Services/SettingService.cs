@@ -38,9 +38,13 @@ namespace Service.Services
             await _repository.CreateAsync(_mapper.Map<Setting>(model));
         }
 
-        public async Task UpdateAsync(SettingEditVM model)
+        public async Task UpdateAsync(int id, SettingEditVM model)
         {
-            await _repository.UpdateAsync(_mapper.Map<Setting>(model));
+            var dbSetting = await _repository.GetByIdAsync(id);
+
+            var mapSetting = _mapper.Map(model, dbSetting);
+
+            await _repository.UpdateAsync(mapSetting);
         }
 
         public async Task<bool> AnyAsync(string key)
@@ -48,9 +52,9 @@ namespace Service.Services
             return await _repository.AnyAsync(key);
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            await _repository.DeleteAsync(await _repository.GetByIdAsync(id));
         }
     }
 }

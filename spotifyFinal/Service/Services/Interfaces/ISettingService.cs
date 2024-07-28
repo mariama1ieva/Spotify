@@ -9,8 +9,7 @@ namespace Service.Services.Interfaces
         Task<Dictionary<string, string>> GetAll();
         Task<SettingVM> GetByIdAsync(int id);
         Task CreateAsync(SettingCreateVM model);
-        //Task<SettingVM> GetEqualId(int id);
-        Task UpdateAsync(SettingEditVM model);
+        Task UpdateAsync(int id, SettingEditVM model);
         Task DeleteAsync(int id);
     }
 }

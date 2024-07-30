@@ -5,7 +5,7 @@ using Repository.Repositories.Interfaces;
 
 namespace Repository.Repositories
 {
-    public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntitiy
+    public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
     {
 
         protected readonly AppDbContext _context;
@@ -38,10 +38,7 @@ namespace Repository.Repositories
             return await _entities.FindAsync(id);
         }
 
-        //public async Task<T> GetEqualId(int id)
-        //{
-        //    return await _entities.Where(m => m.Id == id).FirstOrDefaultAsync();
-        //}
+
 
         public async Task UpdateAsync(T entity)
         {

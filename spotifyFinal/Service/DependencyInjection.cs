@@ -12,6 +12,8 @@ namespace Repository
         {
             services.AddAutoMapper(typeof(MappingProfile));
             services.AddScoped<ISettingService, SettingService>();
+            services.AddScoped<ICategoryService, CategoryService>();
+
             return services;
         }
     }

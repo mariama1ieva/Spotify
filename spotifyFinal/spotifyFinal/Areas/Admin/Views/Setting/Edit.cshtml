@@ -1,14 +1,14 @@
 ﻿@using Service.ViewModels.Setting
-@model SettingVM
+@model SettingEditVM
 
 
-<div class="x_content container mx-5">
-    <div class="col-md-9 col-sm-9 center-margin mt-3">
-        <a asp-action="Index" asp-area="Admin" asp-controller="Setting">
+<div class="x_content container ">
+    <div class="col-md-9 col-sm-9 center-margin mt-3" >
+        <a asp-action="Index" asp-area="Admin" asp-controller="Setting" style="margin-left:100px;">
             <i class="fa-solid fa-right-from-bracket fa-rotate-180 fa-2xl " style="color:#121212;"></i>
         </a>
 
-<form class="forms-sample" method="post">
+        <form class="forms-sample" method="post" style="margin-left:100px;">
     <div class="form-group">
                 <label >@Model.Key</label>
                 <input asp-for="Key" class="form-control" placeholder="Add Key...">

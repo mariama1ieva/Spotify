@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace Domain.Entities
 {
-    public class Album : BaseEntitiy
+    public class Album : BaseEntity
     {
         public string Name { get; set; }
         public string Image { get; set; }

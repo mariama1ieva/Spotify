@@ -2,7 +2,7 @@
 
 namespace Domain.Entities
 {
-    public class Song : BaseEntitiy
+    public class Song : BaseEntity
     {
         public string Name { get; set; }
         public string Path { get; set; }

@@ -28,9 +28,9 @@ namespace Service.Services
             return _mapper.Map<IEnumerable<SettingListVM>>(await _repository.GetAllAsync());
         }
 
-        public async Task<SettingVM> GetByIdAsync(int id)
+        public async Task<SettingEditVM> GetByIdAsync(int id)
         {
-            return _mapper.Map<SettingVM>(await _repository.GetByIdAsync(id));
+            return _mapper.Map<SettingEditVM>(await _repository.GetByIdAsync(id));
         }
 
         public async Task CreateAsync(SettingCreateVM model)

@@ -2,7 +2,7 @@
 
 namespace Domain.Entities
 {
-    public class GroupArtist : BaseEntitiy
+    public class GroupArtist : BaseEntity
     {
         public string FullName { get; set; }
         public string ImageUrl { get; set; }

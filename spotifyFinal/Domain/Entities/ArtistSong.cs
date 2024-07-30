@@ -2,7 +2,7 @@
 
 namespace Domain.Entities
 {
-    public class ArtistSong : BaseEntitiy
+    public class ArtistSong : BaseEntity
     {
         public int ArtistId { get; set; }
         public Artist Artist { get; set; }

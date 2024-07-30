@@ -9,5 +9,6 @@ namespace Service.ViewModels.Setting
 
         [Required]
         public string Value { get; set; }
+
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Domain.Entities
 {
-    public class Category : BaseEntitiy
+    public class Category : BaseEntity
     {
         public string Name { get; set; }
         public string Color { get; set; }

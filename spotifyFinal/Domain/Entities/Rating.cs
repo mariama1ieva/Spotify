@@ -2,7 +2,7 @@
 
 namespace Domain.Entities
 {
-    public class Rating : BaseEntitiy
+    public class Rating : BaseEntity
     {
         public double Point { get; set; }
         public int CommentId { get; set; }

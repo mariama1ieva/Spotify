@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{77D8E049-8674-4FDB-9205-37D39DB487D4}|Service\\Service.csproj|c:\\users\\asus\\onedrive\\desktop\\new folder\\spotify\\spotifyfinal\\service\\helpers\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77D8E049-8674-4FDB-9205-37D39DB487D4}|Service\\Service.csproj|solutionrelative:service\\helpers\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\new folder\\spotify\\spotifyfinal\\spotifyfinal\\areas\\admin\\views\\category\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\areas\\admin\\views\\category\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\new folder\\spotify\\spotifyfinal\\spotifyfinal\\areas\\admin\\views\\category\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\areas\\admin\\views\\category\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{77D8E049-8674-4FDB-9205-37D39DB487D4}|Service\\Service.csproj|c:\\users\\asus\\onedrive\\desktop\\new folder\\spotify\\spotifyfinal\\service\\viewmodels\\category\\categoryvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{77D8E049-8674-4FDB-9205-37D39DB487D4}|Service\\Service.csproj|solutionrelative:service\\viewmodels\\category\\categoryvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\new folder\\spotify\\spotifyfinal\\spotifyfinal\\areas\\admin\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\areas\\admin\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{77D8E049-8674-4FDB-9205-37D39DB487D4}|Service\\Service.csproj|c:\\users\\asus\\onedrive\\desktop\\new folder\\spotify\\spotifyfinal\\service\\services\\settingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{77D8E049-8674-4FDB-9205-37D39DB487D4}|Service\\Service.csproj|solutionrelative:service\\services\\settingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\new folder\\spotify\\spotifyfinal\\spotifyfinal\\areas\\admin\\views\\setting\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\areas\\admin\\views\\setting\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\new folder\\spotify\\spotifyfinal\\spotifyfinal\\areas\\admin\\controllers\\settingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\areas\\admin\\controllers\\settingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\new folder\\spotify\\spotifyfinal\\spotifyfinal\\areas\\admin\\views\\setting\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\areas\\admin\\views\\setting\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{77D8E049-8674-4FDB-9205-37D39DB487D4}|Service\\Service.csproj|c:\\users\\asus\\onedrive\\desktop\\new folder\\spotify\\spotifyfinal\\service\\services\\interfaces\\isettingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77D8E049-8674-4FDB-9205-37D39DB487D4}|Service\\Service.csproj|solutionrelative:service\\services\\interfaces\\isettingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4CA49FC9-A08D-4B85-AE90-B672D7DB6CD6}|Repository\\Repository.csproj|c:\\users\\asus\\onedrive\\desktop\\new folder\\spotify\\spotifyfinal\\repository\\repositories\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4CA49FC9-A08D-4B85-AE90-B672D7DB6CD6}|Repository\\Repository.csproj|solutionrelative:repository\\repositories\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\new folder\\spotify\\spotifyfinal\\spotifyfinal\\areas\\admin\\views\\setting\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\areas\\admin\\views\\setting\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,97 +38,94 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MappingProfile.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\Service\\Helpers\\MappingProfile.cs",
-              "RelativeDocumentMoniker": "Service\\Helpers\\MappingProfile.cs",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\Service\\Helpers\\MappingProfile.cs",
-              "RelativeToolTip": "Service\\Helpers\\MappingProfile.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-28T13:10:54.315Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ISettingService.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\Service\\Services\\Interfaces\\ISettingService.cs",
-              "RelativeDocumentMoniker": "Service\\Services\\Interfaces\\ISettingService.cs",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\Service\\Services\\Interfaces\\ISettingService.cs",
-              "RelativeToolTip": "Service\\Services\\Interfaces\\ISettingService.cs",
+              "DocumentIndex": 2,
+              "Title": "CategoryVM.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\Service\\ViewModels\\Category\\CategoryVM.cs",
+              "RelativeDocumentMoniker": "Service\\ViewModels\\Category\\CategoryVM.cs",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\Service\\ViewModels\\Category\\CategoryVM.cs",
+              "RelativeToolTip": "Service\\ViewModels\\Category\\CategoryVM.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-28T13:01:17.233Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "BaseRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\Repository\\Repositories\\BaseRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\Repositories\\BaseRepository.cs",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\Repository\\Repositories\\BaseRepository.cs",
-              "RelativeToolTip": "Repository\\Repositories\\BaseRepository.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAWwC8AAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-28T11:57:25.951Z",
+              "WhenOpened": "2024-07-30T18:29:24.513Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SettingService.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\Service\\Services\\SettingService.cs",
-              "RelativeDocumentMoniker": "Service\\Services\\SettingService.cs",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\Service\\Services\\SettingService.cs",
-              "RelativeToolTip": "Service\\Services\\SettingService.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAswCcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-28T11:56:35.042Z",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Views\\Category\\Index.cshtml",
+              "RelativeDocumentMoniker": "spotifyFinal\\Areas\\Admin\\Views\\Category\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Views\\Category\\Index.cshtml",
+              "RelativeToolTip": "spotifyFinal\\Areas\\Admin\\Views\\Category\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-30T18:26:39.42Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Views\\Setting\\Create.cshtml",
-              "RelativeDocumentMoniker": "spotifyFinal\\Areas\\Admin\\Views\\Setting\\Create.cshtml",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Views\\Setting\\Create.cshtml",
-              "RelativeToolTip": "spotifyFinal\\Areas\\Admin\\Views\\Setting\\Create.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAWAAAA",
+              "DocumentIndex": 0,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Views\\Category\\Detail.cshtml",
+              "RelativeDocumentMoniker": "spotifyFinal\\Areas\\Admin\\Views\\Category\\Detail.cshtml",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Views\\Category\\Detail.cshtml",
+              "RelativeToolTip": "spotifyFinal\\Areas\\Admin\\Views\\Category\\Detail.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-28T10:38:52.661Z",
+              "WhenOpened": "2024-07-30T17:55:34.676Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Views\\Setting\\Index.cshtml",
-              "RelativeDocumentMoniker": "spotifyFinal\\Areas\\Admin\\Views\\Setting\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Views\\Setting\\Index.cshtml",
-              "RelativeToolTip": "spotifyFinal\\Areas\\Admin\\Views\\Setting\\Index.cshtml",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAABUAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-07-28T10:22:26.07Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "SettingController.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Controllers\\SettingController.cs",
               "RelativeDocumentMoniker": "spotifyFinal\\Areas\\Admin\\Controllers\\SettingController.cs",
               "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Controllers\\SettingController.cs",
               "RelativeToolTip": "spotifyFinal\\Areas\\Admin\\Controllers\\SettingController.cs",
-              "ViewState": "AQIAACQAAAAAAAAAAADwv1AAAAAzAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-27T09:48:48.796Z",
+              "WhenOpened": "2024-07-30T17:58:03.892Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Views\\Setting\\Detail.cshtml",
+              "RelativeDocumentMoniker": "spotifyFinal\\Areas\\Admin\\Views\\Setting\\Detail.cshtml",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Views\\Setting\\Detail.cshtml",
+              "RelativeToolTip": "spotifyFinal\\Areas\\Admin\\Views\\Setting\\Detail.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-30T17:55:59.21Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SettingService.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\Service\\Services\\SettingService.cs",
+              "RelativeDocumentMoniker": "Service\\Services\\SettingService.cs",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\Service\\Services\\SettingService.cs",
+              "RelativeToolTip": "Service\\Services\\SettingService.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAzwCAAAABSAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T17:52:57.263Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "spotifyFinal\\Areas\\Admin\\Controllers\\CategoryController.cs",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "spotifyFinal\\Areas\\Admin\\Controllers\\CategoryController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAkAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T17:51:26.24Z",
               "EditorCaption": ""
             }
           ]

@@ -1,14 +1,15 @@
 ﻿@using Service.ViewModels.Setting
-@model SettingVM
+@model SettingEditVM
 
-<div class="table-responsive container mx-5">
+<div class="table-responsive container ">
     <div class="col-md-9 col-sm-9 center-margin mt-3" >
-        <table class="table table-striped jambo_table bulk_action">
+        <table class="table table-striped jambo_table bulk_action" style="margin-left:100px;">
 
             <thead style="background-color:#121212;">
                 <tr class="headings">
                     <th class="column-title">Key </th>
                     <th class="column-title">Value </th>
+
                 </tr>
             </thead>
 
@@ -17,11 +18,12 @@
                         <td class=" ">@Model.Key</td>
                     <td class=" ">@Model.Value</td>
 
+
                     </tr>
             </tbody>
         </table>
         <div class="item form-group">
-            <div class="">
+            <div class="" style="margin-left:100px;">
                 <a asp-action="Index" asp-area="Admin" asp-controller="Setting">
                     <i class="fa-solid fa-right-from-bracket fa-rotate-180 fa-2xl" style="color:#121212;"></i>
 

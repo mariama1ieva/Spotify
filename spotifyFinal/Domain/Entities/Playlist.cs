@@ -2,7 +2,7 @@
 
 namespace Domain.Entities
 {
-    public class Playlist : BaseEntitiy
+    public class Playlist : BaseEntity
     {
         public string Name { get; set; }
         public string? ImgUrl { get; set; }

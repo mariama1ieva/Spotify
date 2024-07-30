@@ -2,7 +2,7 @@
 
 namespace Domain.Entities
 {
-    public class Comment : BaseEntitiy
+    public class Comment : BaseEntity
     {
         public string? Message { get; set; }
         public int? SongId { get; set; }

@@ -209,4 +209,8 @@
     <None Include="wwwroot\admin\vendors\parsleyjs\bower_components\uwidget\uwidget.less" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\assets\common\functionalities\" />
+  </ItemGroup>
+
 </Project>

@@ -2,7 +2,7 @@
 
 namespace Domain.Entities
 {
-    public class WishlistItem : BaseEntitiy
+    public class WishlistItem : BaseEntity
     {
         public int WishlistId { get; set; }
         public Wishlist Wishlist { get; set; }

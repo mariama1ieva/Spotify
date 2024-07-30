@@ -5,13 +5,13 @@
     Layout = "_Layout";
 }
 
-<div class="table-responsive container mx-5">
+<div class="table-responsive container ">
     <div class="col-md-9 col-sm-9 center-margin mt-3">
-        <a asp-action="Create" asp-area="Admin" asp-controller="Setting">
+        <a asp-action="Create" asp-area="Admin" asp-controller="Setting" style="margin-left:100px;">
             <i class="fa-solid fa-square-plus fa-xl" style="color: #121212;font-size:30px;"></i>
 
         </a>
-        <table class="table table-striped jambo_table bulk_action mt-3">
+        <table class="table table-striped jambo_table bulk_action mt-3 " style="margin-left:100px;">
             <thead style ="background-color:#121212;">
                 <tr class="headings">
                     <th class="column-title">Key </th>
@@ -49,7 +49,7 @@
             </tbody>
         </table>
         <div class="item form-group">
-            <div class="">
+            <div class="" style="margin-left:100px;">
               <a asp-action="Index" asp-area="Admin" asp-controller="Dashboard">
                     <i class="fa-solid fa-right-from-bracket fa-rotate-180 fa-2xl" style="color:#121212;"></i>
 

@@ -16,5 +16,8 @@ namespace Repository.Repositories
             return await _context.Categories.AnyAsync(m => m.Name == name);
 
         }
+
+
+
     }
 }

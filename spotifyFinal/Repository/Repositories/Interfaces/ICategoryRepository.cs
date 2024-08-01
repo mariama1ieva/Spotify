@@ -6,5 +6,6 @@ namespace Repository.Repositories.Interfaces
     {
         Task<bool> AnyAsync(string name);
 
+
     }
 }

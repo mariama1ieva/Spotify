@@ -72,10 +72,6 @@ namespace spotifyFinal.Areas.Admin.Controllers
 
             if (id == null) return BadRequest();
 
-            //var setting = await _settingService.GetByIdAsync((int)id);
-
-            //if (setting == null) return NotFound();
-
             await _settingService.UpdateAsync((int)id, request);
 
             return RedirectToAction(nameof(Index));
@@ -94,6 +90,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
             if (setting == null) return NotFound();
 
             await _settingService.DeleteAsync((int)id);
+
             return RedirectToAction(nameof(Index));
 
 

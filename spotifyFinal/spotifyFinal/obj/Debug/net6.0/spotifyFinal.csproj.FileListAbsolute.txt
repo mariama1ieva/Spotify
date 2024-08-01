@@ -513,3 +513,10 @@ C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\spotifyFinal\obj\
 C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\spotifyFinal\obj\Debug\net6.0\spotifyFinal.pdb
 C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\spotifyFinal\obj\Debug\net6.0\spotifyFinal.genruntimeconfig.cache
 C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\spotifyFinal\obj\Debug\net6.0\ref\spotifyFinal.dll
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\spotifyFinal\bin\Debug\net6.0\System.Web.Mvc.dll
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\spotifyFinal\bin\Debug\net6.0\System.Web.Razor.dll
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\spotifyFinal\bin\Debug\net6.0\System.Web.Helpers.dll
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\spotifyFinal\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\spotifyFinal\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\spotifyFinal\bin\Debug\net6.0\System.Web.WebPages.dll
+C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\spotifyFinal\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll

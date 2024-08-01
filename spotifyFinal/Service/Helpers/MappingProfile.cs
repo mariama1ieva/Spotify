@@ -17,6 +17,12 @@ namespace Service.Helpers
 
             CreateMap<Category, CategoryVM>();
             CreateMap<Category, CategoryDetailVM>();
+            CreateMap<CategoryCreateVM, Category>();
+            CreateMap<CategoryEditVM, Category>();
+
+
+
+
 
 
 

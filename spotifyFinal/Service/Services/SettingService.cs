@@ -49,7 +49,7 @@ namespace Service.Services
 
         public async Task<bool> AnyAsync(string key)
         {
-            return await _repository.AnyAsync(key);
+            return await _repository.AnyAsync(key.Trim().ToLower());
         }
 
         public async Task DeleteAsync(int id)

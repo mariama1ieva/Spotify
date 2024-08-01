@@ -18,8 +18,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\spotifyFinal
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Category/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Category/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Category/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Category/Index.cshtml]

@@ -1,5 +1,4 @@
 ﻿using Service.ViewModels.Category;
-using Service.ViewModels.Setting;
 
 namespace Service.Services.Interfaces
 {
@@ -7,10 +6,10 @@ namespace Service.Services.Interfaces
     {
         Task<IEnumerable<CategoryVM>> GetAllAsync();
 
-        Task<bool> AnyAsync(string key);
+        Task<bool> AnyAsync(string name);
         Task<CategoryDetailVM> GetByIdAsync(int id);
-        Task CreateAsync(SettingCreateVM model);
-        Task UpdateAsync(int id, SettingEditVM model);
+        Task CreateAsync(CategoryCreateVM model);
+        Task UpdateAsync(int id, CategoryEditVM model);
         Task DeleteAsync(int id);
     }
 }

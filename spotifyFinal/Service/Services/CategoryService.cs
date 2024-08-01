@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
+using Domain.Entities;
 using Repository.Repositories.Interfaces;
 using Service.Services.Interfaces;
 using Service.ViewModels.Category;
-using Service.ViewModels.Setting;
 
 namespace Service.Services
 {
@@ -16,39 +16,45 @@ namespace Service.Services
             _repository = categoryRepository;
             _mapper = mapper;
         }
-        public Task<bool> AnyAsync(string key)
+        public async Task<bool> AnyAsync(string name)
         {
-            throw new NotImplementedException();
+            return await _repository.AnyAsync(name.Trim().ToLower());
+
         }
 
-        public Task CreateAsync(SettingCreateVM model)
+        public async Task CreateAsync(CategoryCreateVM model)
         {
-            throw new NotImplementedException();
+            await _repository.CreateAsync(_mapper.Map<Category>(model));
+
+
+
+
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            await _repository.DeleteAsync(await _repository.GetByIdAsync(id));
+
+
         }
 
         public async Task<IEnumerable<CategoryVM>> GetAllAsync()
         {
             return _mapper.Map<IEnumerable<CategoryVM>>(await _repository.GetAllAsync());
-
-
         }
 
         public async Task<CategoryDetailVM> GetByIdAsync(int id)
         {
             return _mapper.Map<CategoryDetailVM>(await _repository.GetByIdAsync(id));
-
         }
 
-        public Task UpdateAsync(int id, SettingEditVM model)
+        public async Task UpdateAsync(int id, CategoryEditVM model)
         {
-            throw new NotImplementedException();
+            var dbCategory = await _repository.GetByIdAsync(id);
+
+            var mapCategory = _mapper.Map(model, dbCategory);
+
+            await _repository.UpdateAsync(mapCategory);
         }
-
-
     }
 }

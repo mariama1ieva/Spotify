@@ -16,6 +16,7 @@ namespace Repository.Repositories
             _context = context;
             _entities = _context.Set<T>();
         }
+
         public async Task CreateAsync(T entity)
         {
             await _entities.AddAsync(entity);

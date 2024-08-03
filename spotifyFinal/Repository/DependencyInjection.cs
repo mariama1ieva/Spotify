@@ -12,6 +12,8 @@ namespace Repository
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<ISettingRepository, SettingRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IAlbumRepository, AlbumRepository>();
+
 
 
             return services;

@@ -11,5 +11,7 @@ namespace Service.Services.Interfaces
         Task CreateAsync(CategoryCreateVM model);
         Task UpdateAsync(int id, CategoryEditVM model);
         Task DeleteAsync(int id);
+        Task<CategoryWithAlbums> GetCategoryWithAlbums(int id);
+
     }
 }

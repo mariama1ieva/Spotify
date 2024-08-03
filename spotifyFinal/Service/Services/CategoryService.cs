@@ -56,5 +56,11 @@ namespace Service.Services
 
             await _repository.UpdateAsync(mapCategory);
         }
+
+        public async Task<CategoryWithAlbums> GetCategoryWithAlbums(int id)
+        {
+            return _mapper.Map<CategoryWithAlbums>(await _repository.GetAllWithAlbums(id));
+
+        }
     }
 }

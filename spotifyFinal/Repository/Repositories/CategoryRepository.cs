@@ -17,7 +17,9 @@ namespace Repository.Repositories
 
         }
 
-
-
+        public async Task<Category> GetAllWithAlbums(int id)
+        {
+            return await _entities.Include(e => e.Albums).FirstOrDefaultAsync(m => m.Id == id);
+        }
     }
 }

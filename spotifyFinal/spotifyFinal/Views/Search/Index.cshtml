@@ -19,25 +19,25 @@
 
 <body>
     <div class="box">
-      
+
         <section id="main-side">
-            
+
             <section id="cards-area">
                 <div class="content">
                     <div class="throwback">
-                        <h2><a style="text-decoration: none;" href="#">Browse all</a></h2>
+                        <h2><a style="text-decoration: none;">Browse all</a></h2>
                     </div>
                     <div class="main-cards-search">
-                      @foreach (var item in Model)
+                        @foreach (var item in Model)
                         {
-                            <a class="card-container-search">
+                            <a asp-action="Detail" asp-controller="Category" asp-route-id="@item.Id" class="card-container-search">
                                 <div class="card" style="background-color:@item.Color">
                                     <p>@item.Name</p>
                                     <img src="~/assets/images/@item.ImageUrl" alt="metal-category">
                                 </div>
                             </a>
                         }
-                     
+
 
 
                     </div>
@@ -46,7 +46,7 @@
         </section>
 
     </div>
- 
+
 </body>
 
 </html>

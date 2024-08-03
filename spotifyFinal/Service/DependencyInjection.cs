@@ -13,6 +13,8 @@ namespace Repository
             services.AddAutoMapper(typeof(MappingProfile));
             services.AddScoped<ISettingService, SettingService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IAlbumService, AlbumService>();
+
 
             return services;
         }

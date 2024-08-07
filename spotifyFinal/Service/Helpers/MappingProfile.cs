@@ -26,6 +26,8 @@ namespace Service.Helpers
             CreateMap<Album, AlbumVM>();
 
             CreateMap<SongCreateVM, Song>();
+            CreateMap<Song, SongListVM>();
+
 
 
 

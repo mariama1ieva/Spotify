@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace fruit_backend_project.Helpers.Extentions
+namespace spotifyFinal.Helpers.Extentions
 {
     public static class FileExtention
     {

@@ -3,6 +3,7 @@ using Domain.Entities;
 using Repository.Repositories.Interfaces;
 using Service.Services.Interfaces;
 using Service.ViewModels.SongVMs;
+using System.Web.Mvc;
 
 namespace Service.Services
 {
@@ -21,6 +22,30 @@ namespace Service.Services
         {
             var song = _repository.CreateAsync(_mapper.Map<Song>(model));
             return song.Id;
+        }
+
+        public async Task<bool> AnyAsync(string name)
+        {
+            return await _repository.AnyAsync(name.Trim().ToLower());
+        }
+
+        public Task DeleteAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<List<SongListVM>> GetAllWithDatas()
+        {
+            var datas = await _repository.GetAllWithDatas();
+
+            var model = _mapper.Map<List<SongListVM>>(datas);
+
+            return model;
+        }
+
+        public Task<SelectList> GetALlBySelectedAsync()
+        {
+            throw new NotImplementedException();
         }
     }
 }

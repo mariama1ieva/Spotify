@@ -15,6 +15,11 @@ namespace Repository
             services.AddScoped<IAlbumRepository, AlbumRepository>();
             services.AddScoped<IArtistRepository, ArtistRepository>();
             services.AddScoped<IGroupRepository, GroupRepository>();
+            services.AddScoped<ISongRepository, SongRepository>();
+            services.AddScoped<ISongArtistRepository, SongArtistRepository>();
+
+
+
 
 
 

@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Repository.Data;
 using Repository.Repositories.Interfaces;
-using System.Web.Mvc;
 
 namespace Repository.Repositories
 {
@@ -18,10 +17,6 @@ namespace Repository.Repositories
 
         }
 
-        public Task<SelectList> GetALlBySelectedAsync()
-        {
-            throw new NotImplementedException();
-        }
 
         public async Task<Category> GetAllWithAlbums(int id)
         {

@@ -3,6 +3,7 @@ using Repository.Repositories.Interfaces;
 using Service.Services.Interfaces;
 using Service.ViewModels.AlbumVMs;
 using Service.ViewModels.CategoryVMs;
+using System.Web.Mvc;
 
 namespace Service.Services
 {
@@ -50,6 +51,12 @@ namespace Service.Services
             var model = _mapper.Map<List<AlbumVM>>(datas);
 
             return model;
+        }
+
+        public async Task<SelectList> GetALlBySelectedAsync()
+        {
+            var datas = await _repository.GetAllWithCategoryArtistGroup();
+            return new SelectList(datas, "Id", "Name");
         }
     }
 }

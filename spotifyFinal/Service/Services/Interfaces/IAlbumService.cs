@@ -1,5 +1,6 @@
 ﻿using Service.ViewModels.AlbumVMs;
 using Service.ViewModels.CategoryVMs;
+using System.Web.Mvc;
 
 namespace Service.Services.Interfaces
 {
@@ -11,5 +12,7 @@ namespace Service.Services.Interfaces
         Task UpdateAsync(int id, CategoryEditVM model);
         Task DeleteAsync(int id);
         Task<List<AlbumVM>> GetAllWithCategoryArtistGroup();
+        Task<SelectList> GetALlBySelectedAsync();
+
     }
 }

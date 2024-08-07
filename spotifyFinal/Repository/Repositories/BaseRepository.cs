@@ -34,6 +34,8 @@ namespace Repository.Repositories
             return await _entities.ToListAsync();
         }
 
+
+
         public async Task<T> GetByIdAsync(int id)
         {
             return await _entities.FindAsync(id);

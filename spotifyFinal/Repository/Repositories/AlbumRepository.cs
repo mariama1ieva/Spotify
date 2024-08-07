@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using Repository.Data;
 using Repository.Repositories.Interfaces;
 
@@ -10,5 +11,9 @@ namespace Repository.Repositories
         {
         }
 
+        public async Task<List<Album>> GetAllWithCategoryArtistGroup()
+        {
+            return await _entities.Include(e => e.Artist).Include(m => m.Category).Include(c => c.Group).ToListAsync();
+        }
     }
 }

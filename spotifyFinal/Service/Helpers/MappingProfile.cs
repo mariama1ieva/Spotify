@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Domain.Entities;
-using Service.ViewModels.Category;
+using Service.ViewModels.AlbumVMs;
+using Service.ViewModels.CategoryVMs;
 using Service.ViewModels.Setting;
+using Service.ViewModels.SongVMs;
 
 namespace Service.Helpers
 {
@@ -21,6 +23,9 @@ namespace Service.Helpers
             CreateMap<CategoryEditVM, Category>();
             CreateMap<Category, CategoryWithAlbums>();
 
+            CreateMap<Album, AlbumVM>();
+
+            CreateMap<SongCreateVM, Song>();
 
 
 

@@ -20,7 +20,6 @@ namespace Service.Services
         public async Task<Dictionary<string, string>> GetAll()
         {
             return await _repository.GetAll();
-
         }
 
         public async Task<IEnumerable<SettingListVM>> GetAllAsync()

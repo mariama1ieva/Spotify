@@ -3760,6 +3760,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.32",
           "Microsoft.Extensions.Identity.Stores": "6.0.32"
         },
         "compile": {
@@ -3774,6 +3775,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Domain": "1.0.0",
+          "Microsoft.AspNet.Mvc": "5.3.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.32",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.32"
         },

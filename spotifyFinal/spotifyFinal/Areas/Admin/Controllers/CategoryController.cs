@@ -1,7 +1,7 @@
 ﻿using fruit_backend_project.Helpers.Extentions;
 using Microsoft.AspNetCore.Mvc;
 using Service.Services.Interfaces;
-using Service.ViewModels.Category;
+using Service.ViewModels.CategoryVMs;
 
 namespace spotifyFinal.Areas.Admin.Controllers
 {

@@ -2,7 +2,8 @@
 using Domain.Entities;
 using Repository.Repositories.Interfaces;
 using Service.Services.Interfaces;
-using Service.ViewModels.Category;
+using Service.ViewModels.CategoryVMs;
+using System.Web.Mvc;
 
 namespace Service.Services
 {
@@ -61,6 +62,12 @@ namespace Service.Services
         {
             return _mapper.Map<CategoryWithAlbums>(await _repository.GetAllWithAlbums(id));
 
+        }
+
+        public async Task<SelectList> GetALlBySelectedAsync()
+        {
+            var datas = await _repository.GetAllAsync();
+            return new SelectList(datas, "Id", "Name");
         }
     }
 }

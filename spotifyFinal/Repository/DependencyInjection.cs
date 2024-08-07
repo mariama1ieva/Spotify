@@ -13,6 +13,10 @@ namespace Repository
             services.AddScoped<ISettingRepository, SettingRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IAlbumRepository, AlbumRepository>();
+            services.AddScoped<IArtistRepository, ArtistRepository>();
+            services.AddScoped<IGroupRepository, GroupRepository>();
+
+
 
 
 

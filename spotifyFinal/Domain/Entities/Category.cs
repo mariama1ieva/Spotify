@@ -9,7 +9,5 @@ namespace Domain.Entities
         public string ImageUrl { get; set; }
         public List<Song> Songs { get; set; }
         public List<Album> Albums { get; set; }
-
-
     }
 }

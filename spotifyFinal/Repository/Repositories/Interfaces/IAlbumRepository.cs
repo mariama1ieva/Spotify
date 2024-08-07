@@ -2,9 +2,8 @@
 
 namespace Repository.Repositories.Interfaces
 {
-    internal interface IAlbumRepository : IBaseRepository<Album>
+    public interface IAlbumRepository : IBaseRepository<Album>
     {
-
-
+        Task<List<Album>> GetAllWithCategoryArtistGroup();
     }
 }

@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Repository.Repositories.Interfaces;
 using Service.Services.Interfaces;
+using Service.ViewModels.ArtistVMs;
 using Service.ViewModels.CategoryVMs;
-using System.Web.Mvc;
+
 
 namespace Service.Services
 {
@@ -31,15 +33,15 @@ namespace Service.Services
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<CategoryVM>> GetAllAsync()
+        public async Task<IEnumerable<ArtistSelectVM>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return _mapper.Map<IEnumerable<ArtistSelectVM>>(await _repository.GetAllAsync());
         }
 
         public async Task<SelectList> GetALlBySelectedAsync()
         {
-            var datas = await _repository.GetAllAsync();
-            return new SelectList(datas, "Id", "Name");
+            var datas = await GetAllAsync();
+            return new SelectList(datas, "Id", "FullName");
         }
 
         public Task<CategoryDetailVM> GetByIdAsync(int id)
@@ -51,5 +53,7 @@ namespace Service.Services
         {
             throw new NotImplementedException();
         }
+
+
     }
 }

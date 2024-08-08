@@ -1,9 +1,9 @@
-﻿using Service.ViewModels.CategoryVMs;
-using System.Web.Mvc;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Service.ViewModels.CategoryVMs;
 
 namespace Service.Services.Interfaces
 {
-    internal interface IGroupService
+    public interface IGroupService
     {
         Task<IEnumerable<CategoryVM>> GetAllAsync();
 

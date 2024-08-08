@@ -49,7 +49,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(SongCreateVM request)
         {
-            ViewBag.Artists = await _artistService. ();
+            ViewBag.Artists = await _artistService.GetALlBySelectedAsync();
             ViewBag.Categories = await _categoryService.GetALlBySelectedAsync();
             ViewBag.Albums = await _albumService.GetALlBySelectedAsync();
 

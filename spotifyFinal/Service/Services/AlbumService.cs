@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
+using Domain.Entities;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Repository.Repositories.Interfaces;
 using Service.Services.Interfaces;
 using Service.ViewModels.AlbumVMs;
-using Service.ViewModels.CategoryVMs;
-using System.Web.Mvc;
 
 namespace Service.Services
 {
@@ -17,31 +17,35 @@ namespace Service.Services
             _repository = albumRepository;
             _mapper = mapper;
         }
-        public Task<bool> AnyAsync(string name)
+        public async Task<bool> AnyAsync(string name, string image)
         {
-            throw new NotImplementedException();
+            return await _repository.AnyAsync(name.Trim().ToLower(), image.Trim().ToLower());
         }
 
-        public Task CreateAsync(CategoryCreateVM model)
+        public async Task CreateAsync(AlbumCreateVM model)
         {
-            throw new NotImplementedException();
+            await _repository.CreateAsync(_mapper.Map<Album>(model));
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            await _repository.DeleteAsync(await _repository.GetByIdAsync(id));
         }
 
 
 
-        public Task<CategoryDetailVM> GetByIdAsync(int id)
+        public async Task<AlbumDetailVM> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return _mapper.Map<AlbumDetailVM>(await _repository.GetByIdAsync(id));
         }
 
-        public Task UpdateAsync(int id, CategoryEditVM model)
+        public async Task UpdateAsync(int id, AlbumEditVM model)
         {
-            throw new NotImplementedException();
+            var dbAlbum = await _repository.GetByIdAsync(id);
+
+            var maplbum = _mapper.Map(model, dbAlbum);
+
+            await _repository.UpdateAsync(maplbum);
         }
 
         public async Task<List<AlbumVM>> GetAllWithCategoryArtistGroup()
@@ -55,8 +59,12 @@ namespace Service.Services
 
         public async Task<SelectList> GetALlBySelectedAsync()
         {
-            var datas = await _repository.GetAllWithCategoryArtistGroup();
+            var datas = await GetAllAsync();
             return new SelectList(datas, "Id", "Name");
+        }
+        public async Task<IEnumerable<AlbumVM>> GetAllAsync()
+        {
+            return _mapper.Map<IEnumerable<AlbumVM>>(await _repository.GetAllAsync());
         }
     }
 }

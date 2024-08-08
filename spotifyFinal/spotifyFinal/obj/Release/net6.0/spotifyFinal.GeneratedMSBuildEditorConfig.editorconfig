@@ -14,9 +14,17 @@ build_property.EnableComHosting =
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\spotifyFinal
 build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Album/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWxidW1cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Album/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWxidW1cRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Album/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWxidW1cSW5kZXguY3NodG1s

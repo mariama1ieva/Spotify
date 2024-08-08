@@ -1,18 +1,19 @@
-﻿using Service.ViewModels.AlbumVMs;
-using Service.ViewModels.CategoryVMs;
-using System.Web.Mvc;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Service.ViewModels.AlbumVMs;
 
 namespace Service.Services.Interfaces
 {
     public interface IAlbumService
     {
-        Task<bool> AnyAsync(string name);
-        Task<CategoryDetailVM> GetByIdAsync(int id);
-        Task CreateAsync(CategoryCreateVM model);
-        Task UpdateAsync(int id, CategoryEditVM model);
+        Task<bool> AnyAsync(string name, string image);
+        Task<AlbumDetailVM> GetByIdAsync(int id);
+        Task CreateAsync(AlbumCreateVM model);
+        Task UpdateAsync(int id, AlbumEditVM model);
         Task DeleteAsync(int id);
         Task<List<AlbumVM>> GetAllWithCategoryArtistGroup();
         Task<SelectList> GetALlBySelectedAsync();
+        Task<IEnumerable<AlbumVM>> GetAllAsync();
+
 
     }
 }

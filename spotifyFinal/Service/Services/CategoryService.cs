@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using Domain.Entities;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Repository.Repositories.Interfaces;
 using Service.Services.Interfaces;
 using Service.ViewModels.CategoryVMs;
-using System.Web.Mvc;
 
 namespace Service.Services
 {
@@ -26,9 +26,6 @@ namespace Service.Services
         public async Task CreateAsync(CategoryCreateVM model)
         {
             await _repository.CreateAsync(_mapper.Map<Category>(model));
-
-
-
 
         }
 
@@ -66,7 +63,7 @@ namespace Service.Services
 
         public async Task<SelectList> GetALlBySelectedAsync()
         {
-            var datas = await _repository.GetAllAsync();
+            var datas = await GetAllAsync();
             return new SelectList(datas, "Id", "Name");
         }
     }

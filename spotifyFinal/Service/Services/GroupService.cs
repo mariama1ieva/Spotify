@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Repository.Repositories.Interfaces;
 using Service.Services.Interfaces;
 using Service.ViewModels.CategoryVMs;
-using System.Web.Mvc;
 
 namespace Service.Services
 {

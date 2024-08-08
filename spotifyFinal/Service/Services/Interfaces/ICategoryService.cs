@@ -1,5 +1,5 @@
-﻿using Service.ViewModels.CategoryVMs;
-using System.Web.Mvc;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Service.ViewModels.CategoryVMs;
 
 namespace Service.Services.Interfaces
 {

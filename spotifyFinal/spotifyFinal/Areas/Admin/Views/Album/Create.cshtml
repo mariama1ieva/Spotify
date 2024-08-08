@@ -1,0 +1,75 @@
+﻿@using Service.ViewModels.AlbumVMs
+@model AlbumCreateVM
+
+<div class="x_content container">
+    <div class="col-md-9 col-sm-9 center-margin ">
+        <a asp-action="Index" asp-area="Admin" asp-controller="Album" style="margin-left:100px;">
+
+            <i class="fa-solid fa-right-from-bracket fa-rotate-180 fa-2xl " style="color:#121212;"></i>
+
+        </a>
+        <form method="post" style="margin-left:100px;" enctype="multipart/form-data">
+            <span class="section mt-3">Create Album</span>
+            <div class="field item form-group">
+                <label class="col-form-label col-md-3 col-sm-3  label-align" style="color:#121212">Name</label>
+                <div class="col-md-6 col-sm-6">
+                    <input asp-for="Name" class="form-control" placeholder="Add name..." required="required" />
+                    <span class="text-danger mt-2" asp-validation-for="Name"></span>
+
+                </div>
+            </div>  
+            <div class="field item form-group">
+                <label class="col-form-label col-md-3 col-sm-3  label-align" style="color:#121212">Image</label>
+                <div class="col-md-6 col-sm-6">
+                    <label asp-for="Photo"></label>
+                    <input asp-for="Photo" class="form-control">
+                    <span class="text-danger mt-2" asp-validation-for="Photo"></span>
+
+                </div>
+            </div>
+            
+            <div class="field item form-group">
+                <label class="col-form-label col-md-3 col-sm-3   label-align" style="color:#121212">Category</label>
+                <div class="col-md-6 col-sm-6">
+
+                    <select class="form-control text-black mt-3" asp-for="CategoryId" asp-items="@ViewBag.Categories">
+                    </select>
+                    <span class="text-danger mt-2" asp-validation-for="CategoryId"></span>
+
+                </div>
+            </div>
+            <div class="field item form-group">
+                <label class="col-form-label col-md-3 col-sm-3  label-align" style="color:#121212">Group</label>
+                <div class="col-md-6 col-sm-6">
+
+                    <select class="form-control text-black " asp-for="GroupId" asp-items="@ViewBag.Groups">
+                    </select>
+                    <span class="text-danger mt-2" asp-validation-for="GroupId"></span>
+
+                </div>
+            </div>
+            <div class="field item form-group">
+                <label class="col-form-label col-md-3 col-sm-3  label-align" style="color:#121212">Artist</label>
+                <div class="col-md-6 col-sm-6">
+
+                    <select class="form-control text-black mt-3" asp-for="ArtistId" asp-items="@ViewBag.Artists">
+                    </select>
+                    <span class="text-danger mt-2" asp-validation-for="ArtistId"></span>
+
+                </div>
+            </div>
+
+
+
+            <div class="ln_solid">
+                <div class="form-group">
+                    <div class="col-md-6 offset-md-3 mt-3">
+                        <button type="submit" style="background-color:#1FDB62; border:none;" class="btn btn-success "><i class="fa fa-save" style=" border:none!important;"></i> Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+<script src="https://kit.fontawesome.com/680cf1a7ac.js" crossorigin="anonymous"></script>

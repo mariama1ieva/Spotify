@@ -1,11 +1,12 @@
-﻿using Service.ViewModels.CategoryVMs;
-using System.Web.Mvc;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Service.ViewModels.ArtistVMs;
+using Service.ViewModels.CategoryVMs;
 
 namespace Service.Services.Interfaces
 {
     public interface IArtistService
     {
-        Task<IEnumerable<CategoryVM>> GetAllAsync();
+        Task<IEnumerable<ArtistSelectVM>> GetAllAsync();
         Task<bool> AnyAsync(string name);
         Task<CategoryDetailVM> GetByIdAsync(int id);
         Task CreateAsync(CategoryCreateVM model);

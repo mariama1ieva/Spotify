@@ -17,10 +17,12 @@ namespace Repository.Repositories
             _entities = _context.Set<T>();
         }
 
-        public async Task CreateAsync(T entity)
+        public async Task<int> CreateAsync(T entity)
         {
             await _entities.AddAsync(entity);
             await _context.SaveChangesAsync();
+
+            return entity.Id;
         }
 
         public async Task DeleteAsync(T entity)
@@ -45,7 +47,8 @@ namespace Repository.Repositories
 
         public async Task UpdateAsync(T entity)
         {
-            _entities.Update(entity);
+            //_entities.Update(entity);
+            _context.Entry(entity).State = EntityState.Modified;
             await _context.SaveChangesAsync();
         }
     }

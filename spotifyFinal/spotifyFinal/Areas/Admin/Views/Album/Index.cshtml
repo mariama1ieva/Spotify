@@ -31,13 +31,13 @@
 
                         <td class=" "><img style="width:50px;height:40px;" src="~/assets/images/@item.Image" /></td>
                         <td class=" ">@item.Name</td>
-                        <td class=" ">@item.ArtistName</td>
+                        <td class=" ">@item.ArtistFullName</td>
                         <td class=" ">@item.GroupName</td>
                         <td class=" ">@item.CategoryName</td>
                         <td style=" display:flex; gap:30px;">
                             <a asp-area="Admin" asp-controller="Album" asp-route-id=@item.Id asp-action="Detail"><i class="fa-solid fa-circle-info fa-xl" style="color: #121212;"></i></a>
                             <a asp-area="Admin" asp-controller="Album" asp-route-id=@item.Id asp-action="Edit"><i class="fa-solid fa-pen-to-square fa-xl" style="color: #121212;"></i></a>
-                            <form asp-controller="Category" asp-route-id="@item.Id" asp-action="Delete" method="post" style="display:inline-block">
+                            <form asp-controller="Album" asp-route-id="@item.Id" asp-action="Delete" method="post" style="display:inline-block">
                                 <button style="border: none; outline: none; background: none;">
                                     <i class="fa-solid fa-trash fa-xl" style="color: red;"></i>
                                 </button>

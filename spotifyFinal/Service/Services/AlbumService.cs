@@ -17,9 +17,10 @@ namespace Service.Services
             _repository = albumRepository;
             _mapper = mapper;
         }
-        public async Task<bool> AnyAsync(string name, string image)
+
+        public async Task<bool> AnyAsync(string name)
         {
-            return await _repository.AnyAsync(name.Trim().ToLower(), image.Trim().ToLower());
+            return await _repository.AnyAsync(name.Trim().ToLower());
         }
 
         public async Task CreateAsync(AlbumCreateVM model)
@@ -32,11 +33,11 @@ namespace Service.Services
             await _repository.DeleteAsync(await _repository.GetByIdAsync(id));
         }
 
-
-
         public async Task<AlbumDetailVM> GetByIdAsync(int id)
         {
-            return _mapper.Map<AlbumDetailVM>(await _repository.GetByIdAsync(id));
+            var a = await _repository.GetByIdAsync(id);
+
+            return _mapper.Map<AlbumDetailVM>(a);
         }
 
         public async Task UpdateAsync(int id, AlbumEditVM model)
@@ -44,6 +45,7 @@ namespace Service.Services
             var dbAlbum = await _repository.GetByIdAsync(id);
 
             var maplbum = _mapper.Map(model, dbAlbum);
+            maplbum.Id = id;
 
             await _repository.UpdateAsync(maplbum);
         }
@@ -62,9 +64,18 @@ namespace Service.Services
             var datas = await GetAllAsync();
             return new SelectList(datas, "Id", "Name");
         }
+
         public async Task<IEnumerable<AlbumVM>> GetAllAsync()
         {
             return _mapper.Map<IEnumerable<AlbumVM>>(await _repository.GetAllAsync());
         }
+
+        public async Task<AlbumDetailVM> GetDataIdWithCategoryArtistGroup(int id)
+        {
+            var data = await _repository.GetDataIdWithCategoryArtistGroup(id);
+
+            return _mapper.Map<AlbumDetailVM>(data);
+        }
     }
+
 }

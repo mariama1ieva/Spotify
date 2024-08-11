@@ -128,7 +128,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
                 if (!request.Photo.CheckFileSize(200))
                 {
                     ModelState.AddModelError("Photo", "Max File capacity must be 200KB");
-                    return View();
+                    return View(request);
                 }
 
                 string fileName = Guid.NewGuid().ToString() + "-" + request.Photo.FileName;
@@ -137,6 +137,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
 
                 request.ImageUrl = fileName;
             }
+            FileExtention.DeleteFileFromLocalAsync(Path.Combine(_env.WebRootPath, "img"), request.ImageUrl);
 
             await _categoryService.UpdateAsync((int)id, request);
 

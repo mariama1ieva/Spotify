@@ -20,5 +20,11 @@ namespace Repository.Repositories
         {
             return await _entities.Include(e => e.Album).Include(m => m.Category).Include(c => c.ArtistSongs).ThenInclude(m => m.Artist).ToListAsync();
         }
+
+        public async Task<Song> GetDataIdWithCategoryArtistAlbum(int id)
+        {
+            return await _entities.Include(e => e.Album).Include(m => m.Category).Include(c => c.ArtistSongs).ThenInclude(m => m.Artist).FirstOrDefaultAsync(m => m.Id == id);
+
+        }
     }
 }

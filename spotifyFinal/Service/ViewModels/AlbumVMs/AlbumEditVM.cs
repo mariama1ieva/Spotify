@@ -7,26 +7,21 @@ namespace Service.ViewModels.AlbumVMs
     {
         [Required]
         public string Name { get; set; }
-        [Required]
-        public IFormFile Photo { get; set; }
+
+        public IFormFile? Photo { get; set; }
+
         public string? Image { get; set; }
-        [Required]
 
-        public string Category { get; set; }
-        [Required]
+        public string? CategoryName { get; set; }
 
-        public int? CategoryId { get; set; }
-        [Required]
+        public int CategoryId { get; set; }
 
-        public string Group { get; set; }
-        [Required]
+        public string? GroupName { get; set; }
 
-        public int? GroupId { get; set; }
-        [Required]
+        public int GroupId { get; set; }
 
-        public string Artist { get; set; }
-        [Required]
+        public string? ArtistFullName { get; set; }
 
-        public int? ArtistId { get; set; }
+        public int ArtistId { get; set; }
     }
 }

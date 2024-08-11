@@ -5,7 +5,7 @@ namespace Service.Services.Interfaces
 {
     public interface IAlbumService
     {
-        Task<bool> AnyAsync(string name, string image);
+        Task<bool> AnyAsync(string name);
         Task<AlbumDetailVM> GetByIdAsync(int id);
         Task CreateAsync(AlbumCreateVM model);
         Task UpdateAsync(int id, AlbumEditVM model);
@@ -13,6 +13,8 @@ namespace Service.Services.Interfaces
         Task<List<AlbumVM>> GetAllWithCategoryArtistGroup();
         Task<SelectList> GetALlBySelectedAsync();
         Task<IEnumerable<AlbumVM>> GetAllAsync();
+        Task<AlbumDetailVM> GetDataIdWithCategoryArtistGroup(int id);
+
 
 
     }

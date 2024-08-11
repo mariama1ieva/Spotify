@@ -4,8 +4,11 @@
     {
         public string Name { get; set; }
         public string? Image { get; set; }
-        public string? Artist { get; set; }
-        public string? Group { get; set; }
-        public string? Category { get; set; }
+        public string? ArtistFullName { get; set; }
+        public int ArtistId { get; set; }
+        public string? GroupName { get; set; }
+        public int GroupId { get; set; }
+        public string? CategoryName { get; set; }
+        public int CategoryId { get; set; }
     }
 }

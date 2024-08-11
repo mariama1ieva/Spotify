@@ -6,5 +6,7 @@ namespace Repository.Repositories.Interfaces
     {
         Task<bool> AnyAsync(string v);
         Task<List<Song>> GetAllWithDatas();
+        Task<Song> GetDataIdWithCategoryArtistAlbum(int id);
+
     }
 }

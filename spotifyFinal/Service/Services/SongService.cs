@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
 using Domain.Entities;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Repository.Repositories.Interfaces;
 using Service.Services.Interfaces;
 using Service.ViewModels.SongVMs;
-using System.Web.Mvc;
+
 
 namespace Service.Services
 {
@@ -17,11 +18,14 @@ namespace Service.Services
             _repository = repository;
             _mapper = mapper;
         }
-
+        public async Task<SongDetailVM> GetByIdAsync(int id)
+        {
+            return _mapper.Map<SongDetailVM>(await _repository.GetByIdAsync(id));
+        }
         public async Task<int> CreateAsync(SongCreateVM model)
         {
-            var song = _repository.CreateAsync(_mapper.Map<Song>(model));
-            return song.Id;
+            var songId = await _repository.CreateAsync(_mapper.Map<Song>(model));
+            return songId;
         }
 
         public async Task<bool> AnyAsync(string name)
@@ -29,9 +33,9 @@ namespace Service.Services
             return await _repository.AnyAsync(name.Trim().ToLower());
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            await _repository.DeleteAsync(await _repository.GetByIdAsync(id));
         }
 
         public async Task<List<SongListVM>> GetAllWithDatas()
@@ -46,6 +50,19 @@ namespace Service.Services
         public Task<SelectList> GetALlBySelectedAsync()
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<int> UpdateAsync(int id, SongEditVM model)
+        {
+            var song = _repository.UpdateAsync(_mapper.Map<Song>(model));
+            return song.Id;
+        }
+
+        public async Task<SongDetailVM> GetDataIdWithCategoryArtistAlbum(int id)
+        {
+            var data = await _repository.GetDataIdWithCategoryArtistAlbum(id);
+
+            return _mapper.Map<SongDetailVM>(data);
         }
     }
 }

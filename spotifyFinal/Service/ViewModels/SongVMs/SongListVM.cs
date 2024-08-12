@@ -1,4 +1,6 @@
-﻿namespace Service.ViewModels.SongVMs
+﻿using Domain.Entities;
+
+namespace Service.ViewModels.SongVMs
 {
     public class SongListVM
     {
@@ -14,5 +16,9 @@
 
         public string CategoryName { get; set; }
         public string AlbumName { get; set; }
+        public IEnumerable<ArtistSong> ArtistSongs { get; set; }
+
+
+
     }
 }

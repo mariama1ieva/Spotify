@@ -118,83 +118,121 @@ namespace spotifyFinal.Areas.Admin.Controllers
         }
 
 
-        //[HttpGet]
-        //public async Task<IActionResult> Edit(int id)
-        //{
-        //    ViewBag.Artists = await _artistService.GetALlBySelectedAsync();
-        //    ViewBag.Categories = await _categoryService.GetALlBySelectedAsync();
-        //    ViewBag.Albums = await _albumService.GetALlBySelectedAsync();
-        //    if (!ModelState.IsValid) return View();
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            ViewBag.Artists = await _artistService.GetALlBySelectedAsync();
+            ViewBag.Categories = await _categoryService.GetALlBySelectedAsync();
+            ViewBag.Albums = await _albumService.GetALlBySelectedAsync();
 
-        //    if (id == null) return BadRequest();
+            if (!ModelState.IsValid) return View();
 
-        //    var song = await _songService.GetByIdAsync((int)id);
-        //    if (song == null) return NotFound();
+            if (id == null) return BadRequest();
 
-        //    return View();
-        //}
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Edit(int? id, SongEditVM request)
-        //{
-
-        //    if (!ModelState.IsValid) return View(request);
-
-        //    if (id == null) return BadRequest();
-
-        //    if (!await _songService.AnyAsync(request.Name))
-        //    {
-        //        ModelState.AddModelError("Name", $"{request.Name} is already exist!");
-        //        return View(request);
-        //    }
-
-        //    if (request.PhotoUrl != null)
-        //    {
-        //        if (!request.PhotoUrl.CheckFileFormat("image/"))
-        //        {
-        //            ModelState.AddModelError("PhotoUrl", "File must be Image Format");
-        //            return View(request);
-        //        }
-
-        //        if (!request.PhotoUrl.CheckFileSize(200))
-        //        {
-        //            ModelState.AddModelError("PhotoUrl", "Max File capacity must be 200KB");
-        //            return View(request);
-        //        }
-
-        //        string fileName = Guid.NewGuid().ToString() + "-" + request.PhotoUrl.FileName;
-        //        string path = Path.Combine(_env.WebRootPath, "assets/images", fileName);
-        //        await request.PhotoUrl.SaveFileToLocalAsync(path);
-
-        //        request.ImageUrl = fileName;
-        //    }
-        //    FileExtention.DeleteFileFromLocalAsync(Path.Combine(_env.WebRootPath, "img"), request.ImageUrl);
-        //    if (request.SongUrl != null)
-        //    {
-        //        if (!request.SongUrl.CheckFileFormat("mp3/"))
-        //        {
-        //            ModelState.AddModelError("Song", "File must be mp3 Format");
-        //            return View(request);
-        //        }
-
-        //        if (!request.SongUrl.CheckFileSize(200))
-        //        {
-        //            ModelState.AddModelError("Song", "Max File capacity must be 200KB");
-        //            return View(request);
-        //        }
-
-        //        string fileName = Guid.NewGuid().ToString() + "-" + request.SongUrl.FileName;
-        //        string path = Path.Combine(_env.WebRootPath, "assets/music", fileName);
-        //        await request.SongUrl.SaveFileToLocalAsync(path);
+            var song = await _songService.GetDataIdWithCategoryArtistAlbum((int)id);
 
 
-        //    }
+
+            SongEditVM model = new()
+            {
+                Name = song.Name,
+                CategoryName = song.CategoryName,
+                ArtistFullName = song.ArtistSongs,
+                AlbumName = song.AlbumName,
+                //CategoryId = album.CategoryId,
+                //ArtistId = album.ArtistId,
+                //GroupId = album.GroupId,
+                ImageUrl = song.ImageUrl,
+                Path = song.Path,
+                Color = song.Color
+            };
+
+            if (song == null) return NotFound();
+
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int? id, SongEditVM request)
+        {
+            ViewBag.Artists = await _artistService.GetALlBySelectedAsync();
+            ViewBag.Categories = await _categoryService.GetALlBySelectedAsync();
+            ViewBag.Albums = await _albumService.GetALlBySelectedAsync();
+            var existSong = await _songService.GetDataIdWithCategoryArtistAlbum((int)id);
+
+            if (!ModelState.IsValid) return View(request);
+
+            if (id == null) return BadRequest();
 
 
-        //    await _songService.UpdateAsync((int)id, request);
+            if (request.PhotoUrl != null)
+            {
+                if (!request.PhotoUrl.CheckFileFormat("image/"))
+                {
+                    ModelState.AddModelError("PhotoUrl", "File must be Image Format");
+                    return View(request);
+                }
 
-        //    return RedirectToAction(nameof(Index));
-        //}
+                if (!request.PhotoUrl.CheckFileSize(200))
+                {
+                    ModelState.AddModelError("PhotoUrl", "Max File capacity must be 200KB");
+                    return View(request);
+                }
+
+                string fileName = Guid.NewGuid().ToString() + "-" + request.PhotoUrl.FileName;
+                string path = Path.Combine(_env.WebRootPath, "assets/images", fileName);
+                await request.PhotoUrl.SaveFileToLocalAsync(path);
+
+                request.ImageUrl = fileName;
+
+                FileExtention.DeleteFileFromLocalAsync(Path.Combine(_env.WebRootPath, "img"), request.ImageUrl);
+            }
+            else
+            {
+                existSong.ImageUrl = request.ImageUrl;
+
+
+            }
+            if (!await _albumService.AnyAsync(request.Name))
+            {
+                ModelState.AddModelError("Name", $"{request.Name} is already exist!");
+                return View(request);
+            }
+
+            if (request.SongUrl != null)
+            {
+                if (!request.SongUrl.CheckFileFormat("mp3/"))
+                {
+                    ModelState.AddModelError("SongUrl", "File must be mp3 Format");
+                    return View(request);
+                }
+
+                if (!request.SongUrl.CheckFileSize(200))
+                {
+                    ModelState.AddModelError("SongUrl", "Max File capacity must be 200KB");
+                    return View(request);
+                }
+
+                string fileName1 = Guid.NewGuid().ToString() + "-" + request.SongUrl.FileName;
+                string path1 = Path.Combine(_env.WebRootPath, "assets/music", fileName1);
+                await request.SongUrl.SaveFileToLocalAsync(path1);
+
+                request.Path = fileName1;
+
+                FileExtention.DeleteFileFromLocalAsync(Path.Combine(_env.WebRootPath, "mp3"), request.Path);
+            }
+            else
+            {
+                existSong.Path = request.Path;
+
+
+            }
+
+
+            await _songService.UpdateAsync((int)id, request);
+
+            return RedirectToAction(nameof(Index));
+        }
 
 
         [HttpGet]

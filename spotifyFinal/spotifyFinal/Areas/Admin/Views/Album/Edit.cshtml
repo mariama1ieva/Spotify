@@ -38,7 +38,8 @@
                 </div>
             </div>
             <div class="field item form-group">
-                <label class="col-form-label col-md-3 col-sm-3  label-align" style="color:#121212">Artist:@Model.ArtistFullName</label>
+
+                <label class="col-form-label col-md-3 col-sm-3  label-align" style="color:#121212">Artist:@string.Join(", ", Model.ArtistFullName)</label>
                 <div class="col-md-6 col-sm-6">
 
                     <select class="form-control text-black mt-3" asp-for="ArtistId" asp-items="@ViewBag.Artists">

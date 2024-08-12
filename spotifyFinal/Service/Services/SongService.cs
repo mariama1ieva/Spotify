@@ -47,15 +47,21 @@ namespace Service.Services
             return model;
         }
 
-        public Task<SelectList> GetALlBySelectedAsync()
+        public async Task<SelectList> GetALlBySelectedAsync()
         {
-            throw new NotImplementedException();
+            var datas = await GetAllWithDatas();
+            return new SelectList(datas, "Id", "Name");
         }
 
-        public async Task<int> UpdateAsync(int id, SongEditVM model)
+        public async Task UpdateAsync(int id, SongEditVM model)
         {
-            var song = _repository.UpdateAsync(_mapper.Map<Song>(model));
-            return song.Id;
+
+            var dbAlbum = await _repository.GetByIdAsync(id);
+
+            var maplbum = _mapper.Map(model, dbAlbum);
+            maplbum.Id = id;
+
+            await _repository.UpdateAsync(maplbum);
         }
 
         public async Task<SongDetailVM> GetDataIdWithCategoryArtistAlbum(int id)

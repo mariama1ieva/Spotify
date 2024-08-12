@@ -9,7 +9,7 @@ namespace Service.Services.Interfaces
         Task<bool> AnyAsync(string name);
         Task<int> CreateAsync(SongCreateVM model);
         Task<SongDetailVM> GetByIdAsync(int id);
-        Task<int> UpdateAsync(int id, SongEditVM model);
+        Task UpdateAsync(int id, SongEditVM model);
         Task DeleteAsync(int id);
         Task<List<SongListVM>> GetAllWithDatas();
         Task<SelectList> GetALlBySelectedAsync();

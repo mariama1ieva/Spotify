@@ -21,5 +21,11 @@ namespace Service.Services
         {
             await _repository.CreateAsync(_mapper.Map<ArtistSong>(model));
         }
+
+        public async Task UpdateAsync(SongArtistEditVM model)
+        {
+            await _repository.UpdateAsync(_mapper.Map<ArtistSong>(model));
+
+        }
     }
 }

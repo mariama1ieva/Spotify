@@ -17,9 +17,10 @@
                     <th class="column-title">Image </th>
                     <th class="column-title">Name </th>
                     <th class="column-title">Color </th>
-                    <th class="column-title">PointRayting </th>
+                    <th class="column-title">Point Rating </th>
                     <th class="column-title">Album </th>
                     <th class="column-title">Category </th>
+                    <th class="column-title">Artists </th>
                     <th class="column-title">Operations </th>
                 </tr>
             </thead>
@@ -36,6 +37,7 @@
                         <td class=" ">@item.PointRayting</td>
                         <td class=" ">@item.AlbumName</td>
                         <td class=" ">@item.CategoryName</td>
+                        <td class=" ">@string.Join(", ", item.ArtistSongs.Select(m => m.Artist.FullName))</td>
                         <td style=" display:flex; gap:30px;">
                             <a asp-area="Admin" asp-controller="Song" asp-route-id=@item.Id asp-action="Detail"><i class="fa-solid fa-circle-info fa-xl" style="color: #121212;"></i></a>
                             <a asp-area="Admin" asp-controller="Song" asp-route-id=@item.Id asp-action="Edit"><i class="fa-solid fa-pen-to-square fa-xl" style="color: #121212;"></i></a>

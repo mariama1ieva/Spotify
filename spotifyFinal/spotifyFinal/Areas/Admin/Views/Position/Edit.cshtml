@@ -16,17 +16,17 @@
             </div>
             <div class="field item form-group">
 
-                <label class="col-form-label col-md-3 col-sm-3  label-align" style="color:#121212">Artist:@string.Join(", ", Model.ArtistFullName)</label>
+                <label class="col-form-label col-md-3 col-sm-3  label-align" style="color:#121212">Artist:@string.Join(", ", Model.ArtistIds)</label>
                 <div class="col-md-6 col-sm-6">
 
-                    <select class="form-control text-black mt-3" asp-for="ArtistId" asp-items="@ViewBag.Artists">
+                    <select class="form-control text-black mt-3" asp-for="ArtistIds" asp-items="@ViewBag.Artists">
                     </select>
-                    <span class="text-danger mt-2" asp-validation-for="ArtistId"></span>
+                    <span class="text-danger mt-2" asp-validation-for="ArtistIds"></span>
 
                 </div>
             </div>
             <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
-            <a class="btn btn-light" asp-area="Admin" asp-controller="Album" asp-action="Index">Back</a>
+            <a class="btn btn-light" asp-area="Admin" asp-controller="Position" asp-action="Index">Back</a>
         </form>
     </div>
 </div>

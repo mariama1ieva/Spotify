@@ -16,6 +16,7 @@ namespace Repository.Repositories
             return await _context.Positions.AnyAsync(m => m.Name == name);
         }
 
+
         public async Task<List<Position>> GetAllWithDatas()
         {
             return await _entities.Include(c => c.ArtistPositions).ThenInclude(m => m.Artist).ToListAsync();

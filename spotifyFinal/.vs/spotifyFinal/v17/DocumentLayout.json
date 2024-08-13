@@ -3,24 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\new folder\\spotify\\spotifyfinal\\spotifyfinal\\areas\\admin\\views\\position\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\areas\\admin\\views\\position\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\new folder\\spotify\\spotifyfinal\\spotifyfinal\\areas\\admin\\controllers\\positioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\areas\\admin\\controllers\\positioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\new folder\\spotify\\spotifyfinal\\spotifyfinal\\areas\\admin\\controllers\\albumcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\areas\\admin\\controllers\\albumcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4CA49FC9-A08D-4B85-AE90-B672D7DB6CD6}|Repository\\Repository.csproj|c:\\users\\asus\\onedrive\\desktop\\new folder\\spotify\\spotifyfinal\\repository\\repositories\\positionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4CA49FC9-A08D-4B85-AE90-B672D7DB6CD6}|Repository\\Repository.csproj|solutionrelative:repository\\repositories\\positionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\new folder\\spotify\\spotifyfinal\\spotifyfinal\\areas\\admin\\views\\position\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\areas\\admin\\views\\position\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5157C4EE-CBC6-4B2B-9EF6-A5D5B64394CC}|Domain\\Domain.csproj|c:\\users\\asus\\onedrive\\desktop\\new folder\\spotify\\spotifyfinal\\domain\\entities\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5157C4EE-CBC6-4B2B-9EF6-A5D5B64394CC}|Domain\\Domain.csproj|solutionrelative:domain\\entities\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,66 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Views\\Position\\Edit.cshtml",
-              "RelativeDocumentMoniker": "spotifyFinal\\Areas\\Admin\\Views\\Position\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Views\\Position\\Edit.cshtml",
-              "RelativeToolTip": "spotifyFinal\\Areas\\Admin\\Views\\Position\\Edit.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-12T03:00:52.446Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AlbumController.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Controllers\\AlbumController.cs",
-              "RelativeDocumentMoniker": "spotifyFinal\\Areas\\Admin\\Controllers\\AlbumController.cs",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Controllers\\AlbumController.cs",
-              "RelativeToolTip": "spotifyFinal\\Areas\\Admin\\Controllers\\AlbumController.cs",
-              "ViewState": "AQIAAFsAAAAAAAAAAAA9wGsAAAAbAAAA",
+              "Title": "Group.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\Domain\\Entities\\Group.cs",
+              "RelativeDocumentMoniker": "Domain\\Entities\\Group.cs",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\Domain\\Entities\\Group.cs",
+              "RelativeToolTip": "Domain\\Entities\\Group.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T02:55:44.907Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PositionRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\Repository\\Repositories\\PositionRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\Repositories\\PositionRepository.cs",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\Repository\\Repositories\\PositionRepository.cs",
-              "RelativeToolTip": "Repository\\Repositories\\PositionRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAABTAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T02:32:36.018Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Detail.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Views\\Position\\Detail.cshtml",
-              "RelativeDocumentMoniker": "spotifyFinal\\Areas\\Admin\\Views\\Position\\Detail.cshtml",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Views\\Position\\Detail.cshtml",
-              "RelativeToolTip": "spotifyFinal\\Areas\\Admin\\Views\\Position\\Detail.cshtml",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABMAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-12T02:14:21.137Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PositionController.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Controllers\\PositionController.cs",
-              "RelativeDocumentMoniker": "spotifyFinal\\Areas\\Admin\\Controllers\\PositionController.cs",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\New folder\\Spotify\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Controllers\\PositionController.cs",
-              "RelativeToolTip": "spotifyFinal\\Areas\\Admin\\Controllers\\PositionController.cs",
-              "ViewState": "AQIAAFAAAAAAAAAAAAAowFcAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T01:12:19.139Z",
+              "WhenOpened": "2024-08-13T12:11:09.944Z",
               "EditorCaption": ""
             }
           ]

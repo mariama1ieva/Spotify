@@ -1,4 +1,5 @@
-﻿using Service.ViewModels.PositionVMs;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Service.ViewModels.PositionVMs;
 
 namespace Service.Services.Interfaces
 {
@@ -12,6 +13,8 @@ namespace Service.Services.Interfaces
         Task<List<PositionListVM>> GetAllWithDatas();
 
         Task<PositionDetailVM> GetAllWithDatasById(int id);
+        Task<SelectList> GetALlBySelectedAsync();
+
 
     }
 }

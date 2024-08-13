@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
+using Domain.Entities;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Repository.Repositories.Interfaces;
 using Service.Services.Interfaces;
 using Service.ViewModels.ArtistVMs;
-using Service.ViewModels.CategoryVMs;
-
 
 namespace Service.Services
 {
@@ -18,19 +17,18 @@ namespace Service.Services
             _repository = artistRepository;
             _mapper = mapper;
         }
-        public Task<bool> AnyAsync(string name)
+        public async Task<bool> AnyAsync(string fullName)
         {
-            throw new NotImplementedException();
+            return await _repository.AnyAsync(fullName.Trim().ToLower());
+
         }
 
-        public Task CreateAsync(CategoryCreateVM model)
-        {
-            throw new NotImplementedException();
-        }
 
-        public Task DeleteAsync(int id)
+
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            await _repository.DeleteAsync(await _repository.GetByIdAsync(id));
+
         }
 
         public async Task<IEnumerable<ArtistSelectVM>> GetAllAsync()
@@ -44,16 +42,43 @@ namespace Service.Services
             return new SelectList(datas, "Id", "FullName");
         }
 
-        public Task<CategoryDetailVM> GetByIdAsync(int id)
+        public async Task<ArtistDetailVM> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return _mapper.Map<ArtistDetailVM>(await _repository.GetByIdAsync(id));
+
         }
 
-        public Task UpdateAsync(int id, CategoryEditVM model)
+        public async Task UpdateAsync(int id, ArtistEditVM model)
+
         {
-            throw new NotImplementedException();
+            var dbArtist = await _repository.GetAllWithDatasById(id);
+
+            var maplbum = _mapper.Map(model, dbArtist);
+            maplbum.Id = id;
+
+            await _repository.UpdateAsync(maplbum);
+        }
+
+        public async Task<List<ArtistListVM>> GetAllWithDatas()
+        {
+            var datas = await _repository.GetAllWithDatas();
+
+            var model = _mapper.Map<List<ArtistListVM>>(datas);
+
+            return model;
+        }
+        public async Task<ArtistDetailVM> GetAllWithDatasById(int id)
+        {
+            var data = await _repository.GetAllWithDatasById(id);
+
+            return _mapper.Map<ArtistDetailVM>(data);
         }
 
 
+        public async Task<int> CreateAsync(ArtistCreateVM model)
+        {
+            var artistId = await _repository.CreateAsync(_mapper.Map<Artist>(model));
+            return artistId;
+        }
     }
 }

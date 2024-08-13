@@ -1,17 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using Service.ViewModels.ArtistVMs;
-using Service.ViewModels.CategoryVMs;
 
 namespace Service.Services.Interfaces
 {
     public interface IArtistService
     {
         Task<IEnumerable<ArtistSelectVM>> GetAllAsync();
-        Task<bool> AnyAsync(string name);
-        Task<CategoryDetailVM> GetByIdAsync(int id);
-        Task CreateAsync(CategoryCreateVM model);
-        Task UpdateAsync(int id, CategoryEditVM model);
+        Task<bool> AnyAsync(string fullName);
+        Task<ArtistDetailVM> GetByIdAsync(int id);
+        Task<int> CreateAsync(ArtistCreateVM model);
+        Task UpdateAsync(int id, ArtistEditVM model);
         Task DeleteAsync(int id);
         Task<SelectList> GetALlBySelectedAsync();
+        Task<List<ArtistListVM>> GetAllWithDatas();
+
+        Task<ArtistDetailVM> GetAllWithDatasById(int id);
     }
 }

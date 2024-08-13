@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Domain.Entities;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Repository.Repositories.Interfaces;
 using Service.Services.Interfaces;
 using Service.ViewModels.PositionVMs;
@@ -62,6 +63,12 @@ namespace Service.Services
             var data = await _repository.GetAllWithDatasById(id);
 
             return _mapper.Map<PositionDetailVM>(data);
+        }
+
+        public async Task<SelectList> GetALlBySelectedAsync()
+        {
+            var datas = await GetAllWithDatas();
+            return new SelectList(datas, "Id", "Name");
         }
     }
 }

@@ -9,5 +9,6 @@ namespace Repository.Repositories.Interfaces
         Task<Position> GetAllWithDatasById(int id);
 
 
+
     }
 }

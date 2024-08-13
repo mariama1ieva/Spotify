@@ -47,14 +47,22 @@ namespace Service.Helpers
             CreateMap<Position, PositionListVM>();
             CreateMap<Position, PositionDetailVM>();
             CreateMap<ArtistPositionCreateVM, ArtistPosition>();
-            CreateMap<SongArtistEditVM, Song>();
-            CreateMap<SongEditVM, Song>();
+            CreateMap<ArtistPositionEditVM, ArtistPosition>();
+            CreateMap<PositionEditVM, Position>();
+
 
 
 
 
 
             CreateMap<Artist, ArtistSelectVM>();
+            CreateMap<ArtistCreateVM, Artist>();
+            CreateMap<Artist, ArtistListVM>();
+            CreateMap<Artist, ArtistDetailVM>();
+            CreateMap<ArtistPositionCreateVM, ArtistPosition>();
+            CreateMap<ArtistPositionEditVM, ArtistPosition>();
+            CreateMap<ArtistEditVM, Artist>();
+
 
 
 

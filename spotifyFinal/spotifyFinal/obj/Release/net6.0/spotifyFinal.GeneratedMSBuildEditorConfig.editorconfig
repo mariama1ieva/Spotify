@@ -9,159 +9,175 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = spotifyFinal
 build_property.RootNamespace = spotifyFinal
-build_property.ProjectDir = C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\spotifyFinal\
+build_property.ProjectDir = C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = C:\Users\Asus\OneDrive\Desktop\New folder\Spotify\spotifyFinal\spotifyFinal
+build_property.MSBuildProjectDirectory = C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Album/Create.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Album/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWxidW1cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Album/Detail.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Album/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWxidW1cRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Album/Edit.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Album/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWxidW1cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Album/Index.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Album/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWxidW1cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Artist/Create.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Artist/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXJ0aXN0XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Artist/Detail.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Artist/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXJ0aXN0XERldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Artist/Edit.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Artist/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXJ0aXN0XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Artist/Index.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Artist/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXJ0aXN0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Category/Create.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Category/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Category/Detail.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Category/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Category/Edit.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Category/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Category/Index.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Category/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Dashboard/Index.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Position/Create.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Group/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR3JvdXBcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Group/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR3JvdXBcRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Group/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR3JvdXBcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Group/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR3JvdXBcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Position/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUG9zaXRpb25cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Position/Detail.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Position/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUG9zaXRpb25cRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Position/Edit.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Position/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUG9zaXRpb25cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Position/Index.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Position/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUG9zaXRpb25cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Setting/Create.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Setting/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2V0dGluZ1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Setting/Detail.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Setting/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2V0dGluZ1xEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Setting/Edit.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Setting/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2V0dGluZ1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Setting/Index.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Setting/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2V0dGluZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Shared/_Layout.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Shared/_ValidationPartial.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Shared/_ValidationPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Song/Create.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Song/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU29uZ1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Song/Detail.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Song/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU29uZ1xEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Song/Edit.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Song/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU29uZ1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/Song/Index.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/Song/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU29uZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/_ViewImports.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Areas/Admin/Views/_ViewStart.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Areas/Admin/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Views/Category/Detail.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/Category/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Views/Home/Index.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Views/Search/Index.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/Search/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VhcmNoXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Views/Shared/Components/Footer/Default.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/Shared/Components/Footer/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRm9vdGVyXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Views/Shared/Components/Sidebar/Default.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/Shared/Components/Sidebar/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2lkZWJhclxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Views/Shared/_Layout.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Views/_ViewImports.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/OneDrive/Desktop/New folder/Spotify/spotifyFinal/spotifyFinal/Views/_ViewStart.cshtml]
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

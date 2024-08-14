@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using Domain.Entities;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Repository.Repositories.Interfaces;
 using Service.Services.Interfaces;
-using Service.ViewModels.CategoryVMs;
+using Service.ViewModels.GroupVMs;
+
 
 namespace Service.Services
 {
@@ -16,24 +18,29 @@ namespace Service.Services
             _repository = groupRepository;
             _mapper = mapper;
         }
-        public Task<bool> AnyAsync(string name)
+        public async Task<bool> AnyAsync(string groupName)
         {
-            throw new NotImplementedException();
+            return await _repository.AnyAsync(groupName.Trim().ToLower());
+
         }
 
-        public Task CreateAsync(CategoryCreateVM model)
+        public async Task CreateAsync(GroupCreateVM model)
+
         {
-            throw new NotImplementedException();
+            await _repository.CreateAsync(_mapper.Map<Group>(model));
+
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            await _repository.DeleteAsync(await _repository.GetByIdAsync(id));
+
         }
 
-        public Task<IEnumerable<CategoryVM>> GetAllAsync()
+        public async Task<IEnumerable<GroupListVM>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return _mapper.Map<IEnumerable<GroupListVM>>(await _repository.GetAllAsync());
+
         }
 
         public async Task<SelectList> GetALlBySelectedAsync()
@@ -42,19 +49,23 @@ namespace Service.Services
             return new SelectList(datas, "Id", "Name");
         }
 
-        public Task<CategoryDetailVM> GetByIdAsync(int id)
+        public async Task<GroupDetailVM> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return _mapper.Map<GroupDetailVM>(await _repository.GetByIdAsync(id));
+
         }
 
-        public Task<CategoryWithAlbums> GetCategoryWithAlbums(int id)
+
+        public async Task UpdateAsync(int id, GroupEditVM model)
         {
-            throw new NotImplementedException();
+            var dbGroup = await _repository.GetByIdAsync(id);
+
+            var mapGroup = _mapper.Map(model, dbGroup);
+
+            await _repository.UpdateAsync(mapGroup);
         }
 
-        public Task UpdateAsync(int id, CategoryEditVM model)
-        {
-            throw new NotImplementedException();
-        }
+
     }
+
 }

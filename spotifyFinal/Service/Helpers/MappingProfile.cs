@@ -4,6 +4,7 @@ using Service.ViewModels.AlbumVMs;
 using Service.ViewModels.ArtistPositionVMs;
 using Service.ViewModels.ArtistVMs;
 using Service.ViewModels.CategoryVMs;
+using Service.ViewModels.GroupVMs;
 using Service.ViewModels.PositionVMs;
 using Service.ViewModels.Setting;
 using Service.ViewModels.SongArtistVMs;
@@ -51,7 +52,10 @@ namespace Service.Helpers
             CreateMap<PositionEditVM, Position>();
 
 
-
+            CreateMap<Group, GroupListVM>();
+            CreateMap<Group, GroupDetailVM>();
+            CreateMap<GroupCreateVM, Group>();
+            CreateMap<GroupEditVM, Group>();
 
 
 

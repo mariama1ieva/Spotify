@@ -111,7 +111,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
 
             if (id == null) return BadRequest();
 
-            if (!await _categoryService.AnyAsync(request.Name))
+            if (await _categoryService.AnyAsync(request.Name))
             {
                 ModelState.AddModelError("Name", $"{request.Name} is already exist!");
                 return View(request);

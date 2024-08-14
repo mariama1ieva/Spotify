@@ -55,7 +55,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
             if (await _artistService.AnyAsync(request.FullName))
             {
                 ModelState.AddModelError("FullName", $"{request.FullName} is already exist!");
-                return View(request);
+                return View();
             }
 
             if (!request.Photo.CheckFileFormat("image/"))

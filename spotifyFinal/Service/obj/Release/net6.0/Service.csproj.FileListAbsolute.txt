@@ -602,3 +602,7 @@ C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\Service\obj\Release\n
 C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\Service\obj\Release\net6.0\Service.pdb
 C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\Service\obj\Release\net6.0\ref\Service.dll
 C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\Service\obj\Release\net6.0\Service.sourcelink.json
+C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\Service\bin\Release\net6.0\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\Service\bin\Release\net6.0\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\Service\bin\Release\net6.0\refs\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\Service\bin\Release\net6.0\refs\Microsoft.Extensions.Identity.Stores.dll

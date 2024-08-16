@@ -13,15 +13,13 @@ namespace Repository.Repositories
 
         public async Task<bool> AnyAsync(string name)
         {
-            return await _context.Categories.AnyAsync(m => m.Name == name);
-
+            var a = await _entities.AnyAsync(m => m.Name.Trim().ToLower() == name);
+            return a;
         }
-
 
         public async Task<Category> GetAllWithAlbums(int id)
         {
             return await _entities.Include(e => e.Albums).FirstOrDefaultAsync(m => m.Id == id);
         }
-
     }
 }

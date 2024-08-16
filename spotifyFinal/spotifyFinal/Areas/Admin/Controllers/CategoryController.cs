@@ -25,7 +25,6 @@ namespace spotifyFinal.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Detail(int id)
         {
-
             return View(await _categoryService.GetByIdAsync(id));
         }
 
@@ -40,7 +39,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid) return View(request);
 
-            if (await _categoryService.AnyAsync(request.Name))
+            if (await _categoryService.AnyAsync(request.Name.Trim().ToLower()))
             {
                 ModelState.AddModelError("Name", $"{request.Name} is already exist!");
                 return View(request);

@@ -1104,3 +1104,7 @@ C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\obj\Rele
 C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\obj\Release\net6.0\spotifyFinal.genruntimeconfig.cache
 C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\obj\Release\net6.0\ref\spotifyFinal.dll
 C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\obj\Release\net6.0\spotifyFinal.sourcelink.json
+C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\refs\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\refs\Microsoft.Extensions.Identity.Stores.dll

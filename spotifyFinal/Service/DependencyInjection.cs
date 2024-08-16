@@ -4,6 +4,7 @@ using Service.Services;
 using Service.Services.Interfaces;
 
 
+
 namespace Repository
 {
     public static class DependencyInjection
@@ -20,13 +21,7 @@ namespace Repository
             services.AddScoped<ISongArtistService, SongArtistService>();
             services.AddScoped<IArtistPositionService, ArtistPositionService>();
             services.AddScoped<IPositionService, PositionService>();
-
-
-
-
-
-
-
+            services.AddScoped<IGroupArtistService, GroupArtistService>();
 
             return services;
         }

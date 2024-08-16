@@ -607,7 +607,10 @@
           "Microsoft.Extensions.Identity.Stores": "6.0.32"
         },
         "runtime": {
-          "Domain.dll": {}
+          "Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

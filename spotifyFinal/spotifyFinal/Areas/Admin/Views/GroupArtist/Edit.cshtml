@@ -1,0 +1,40 @@
+﻿@using Service.ViewModels.GroupArtistVMs
+@model GroupArtistEditVM
+
+<div class="x_content container ">
+    <div class="col-md-9 col-sm-9 center-margin mt-3">
+        <a asp-action="Index" asp-area="Admin" asp-controller="GroupArtist" style="margin-left:100px;">
+            <i class="fa-solid fa-right-from-bracket fa-rotate-180 fa-2xl " style="color:#121212;"></i>
+        </a>
+        <form class="forms-sample mt-5" method="post" style="margin-left:100px;" enctype="multipart/form-data">
+            <img src="~/assets/images/@Model.ImageUrl" width="200px;" height="200px;" />
+            <input type="hidden" asp-for="@Model.ImageUrl" />
+            <span class="text-danger mt-2" asp-validation-for="Photo"></span>
+
+            <div class="form-group">
+                <labelstyle ="color:#121212">FullName</labelstyle>
+                <input asp-for="FullName" class="form-control" placeholder="Add FullName...">
+                <span class="text-danger mt-2" asp-validation-for="FullName"></span>
+            </div>
+
+            <div class="field item form-group">
+                <label class="col-form-label col-md-3 col-sm-3  label-align" style="color:#121212">Group:@Model.GroupName</label>
+                <div class="col-md-6 col-sm-6">
+
+                    <select class="form-control text-black" asp-for="GroupId" asp-items="@ViewBag.Groups">
+                    </select>
+                    <span class="text-danger mt-2" asp-validation-for="GroupId"></span>
+                </div>
+            </div>
+     
+            <div class="form-group">
+                <labelstyle ="color:#121212">Photo</labelstyle>
+                <input asp-for="Photo" class="form-control" placeholder="Add Photo...">
+                <span class="text-danger mt-2" asp-validation-for="Photo"></span>
+            </div>
+            <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+            <a class="btn btn-light" asp-area="Admin" asp-controller="GroupArtist" asp-action="Index">Back</a>
+        </form>
+    </div>
+</div>
+<script src="https://kit.fontawesome.com/680cf1a7ac.js" crossorigin="anonymous"></script>

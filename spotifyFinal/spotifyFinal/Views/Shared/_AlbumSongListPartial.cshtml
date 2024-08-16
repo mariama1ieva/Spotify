@@ -1,0 +1,43 @@
+﻿@using Domain.Entities
+@model Album
+
+@{
+    int count = 0;
+}
+
+@foreach (var song in Model.Songs)
+{
+    @* count++; *@
+    <div class="music-row" src="~/assets/music/@song.Path" song-id="@song.Id" song-color="@song.Color">
+        <div class="left-side">
+            <div class="count">
+                <p class="song_number"></p>
+                <button class="play" id="play-songRow">
+                    <i id="play-icon" class="fa-solid fa-play"></i>
+                    <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                </button>
+            </div>
+            <div class="music-info">
+                <img src="~/assets/images/@song.ImageUrl" style="display:none" alt="">
+                <div class="names">
+                    <a asp-controller="song" asp-action="detail" asp-route-id="@song.Id" class="music-name">
+                        <p>@(song.Name.Length > 20 ? song.Name.Substring(0, 17) + "..." : song.Name)</p>
+                    </a>
+                    <a class="artist-name">
+                        <p artist-id="@song.Album.Id">@song.Album.Artist.FullName</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="add-date">
+                <button id="wishlist" class="wish" songId="@song.Id">
+                    <i class="fa-solid fa-heart"></i>
+                </button>
+            </div>
+            <div class="music-time">
+                <p>3:49</p>
+            </div>
+        </div>
+    </div>
+}

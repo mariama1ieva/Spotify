@@ -34,18 +34,19 @@
             <div class="all-playlist">
                 @foreach (var item in Model.Albums)
                 {
-                    <div class="card-container"> 
-                        <div class="card">
-                            <img src="~/assets/images/@item.Image" alt="">
-                            <h3>Liked Songs</h3>
-                            <p><span>1 </span>song</p>
+                    <a asp-action="Detail" asp-controller="Album" asp-route-id="@item.Id">
+                        <div class="card-container">
+                            <div class="card">
+                                <img src="~/assets/images/@item.Image" alt="">
 
-                            <button class="play">
-                                <i id="play-icon" class="fa-solid fa-play"></i>
-                                <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
-                            </button>
+                                <button class="play">
+                                    <i id="play-icon" class="fa-solid fa-play"></i>
+                                    <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
+                    </a>
+             
 
                 }
             </div>

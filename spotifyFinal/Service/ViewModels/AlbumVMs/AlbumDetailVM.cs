@@ -10,5 +10,6 @@
         public int GroupId { get; set; }
         public string? CategoryName { get; set; }
         public int CategoryId { get; set; }
+
     }
 }

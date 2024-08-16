@@ -1,0 +1,61 @@
+﻿@using Domain.Entities
+@model Album
+<section class="a" id="detail-area">
+    <div class="content">
+        <div class="left-side">
+            <img src="~/assets/images/@Model.Image" alt="">
+        </div>
+        <div class="right-side" style="width: 651px;">
+            <p>Album</p>
+            <h1>@Model.Name</h1>
+            <div class="about-detail">
+                <a class="createdBy">
+                    <img src="../../assets/images/LogoIcon.jpg" alt="">
+                    <span>Spotify</span>
+                </a>
+                <div class="likes-count">
+                    <p>@Model.CreateDate.ToString("yyyy")</p>
+                </div>
+                <div class="song-time-count">
+                    <p><span>@Model.Songs.Count()</span> songs </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="top-music">
+    <div class="context">
+        <div class="action-bar">
+            <button class="play" id="actionbar-play">
+                <i id="play-icon" class="fa-solid fa-play"></i>
+                <i id="pause-icon" class="fa-solid fa-pause"></i>
+            </button>
+
+
+            <button id="wishlist">
+                <i class="fa-regular fa-heart"></i>
+            </button>
+        </div>
+
+        <div class="album-music-header">
+            <div class="left-side">
+                <p>#</p>
+                <p>Title</p>
+            </div>
+            <div class="right-side">
+                <i class="fa-regular fa-clock"></i>
+            </div>
+        </div>
+        <div class="album-music">
+            <div id="songs" class="songList">
+                <partial name="_AlbumSongListPartial" />
+            </div>
+        </div>
+        <input type="hidden" id="song_count" albumId="@Model.Id" value="@ViewBag.SongCount" />
+        @if (Model.Songs.Count() > 0)
+        {
+            <button id="loadMore"> Load more</button>
+        }
+    </div>
+</section>
+<section id="more-albums">

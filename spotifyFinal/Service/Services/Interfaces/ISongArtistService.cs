@@ -6,6 +6,7 @@ namespace Service.Services.Interfaces
     {
         Task CreateAsync(SongArtistCreateVM model);
         Task UpdateAsync(SongArtistEditVM model);
-
+        Task<IEnumerable<int>> GetAllArtistIdsBySongId(int songId);
+        Task<IEnumerable<SongArtistListVM>> GetAllBySongIdAsync(int songId);
     }
 }

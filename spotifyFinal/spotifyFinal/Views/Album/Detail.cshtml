@@ -1,5 +1,10 @@
 ﻿@using Domain.Entities
 @model Album
+<style>
+    a{
+        text-decoration: none !important;
+    }
+</style>
 <section class="a" id="detail-area">
     <div class="content">
         <div class="left-side">
@@ -9,9 +14,9 @@
             <p>Album</p>
             <h1>@Model.Name</h1>
             <div class="about-detail">
-                <a class="createdBy">
-                    <img src="../../assets/images/LogoIcon.jpg" alt="">
-                    <span>Spotify</span>
+                <a asp-action="Detail" asp-controller="Artist" class="createdBy" style="color:white;text-decoration:none !important;">
+                    <img src="~/assets/images/@Model.Artist.ImageUrl" alt="">
+                    <span >@Model.Artist.FullName</span>
                 </a>
                 <div class="likes-count">
                     <p>@Model.CreateDate.ToString("yyyy")</p>
@@ -52,10 +57,13 @@
             </div>
         </div>
         <input type="hidden" id="song_count" albumId="@Model.Id" value="@ViewBag.SongCount" />
-        @if (Model.Songs.Count() > 0)
+     
+        <button id="loadMore" style="display:none!important"> Load more</button>
+        @if (Model.Songs.Count() > 2)
         {
             <button id="loadMore"> Load more</button>
         }
+
     </div>
 </section>
 <section id="more-albums">

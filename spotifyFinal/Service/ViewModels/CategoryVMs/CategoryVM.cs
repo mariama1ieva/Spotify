@@ -8,5 +8,6 @@ namespace Service.ViewModels.CategoryVMs
         public string Color { get; set; }
         public string ImageUrl { get; set; }
 
+
     }
 }

@@ -25,7 +25,25 @@ namespace Service.Services
         public async Task UpdateAsync(SongArtistEditVM model)
         {
             await _repository.UpdateAsync(_mapper.Map<ArtistSong>(model));
+        }
 
+        public async Task<IEnumerable<int>> GetAllArtistIdsBySongId(int songId)
+        {
+            var songArtists = await _repository.GetAllAsync();
+
+            var assignedArtistIds = songArtists
+                .Where(sa => sa.SongId == songId)
+                .Select(sa => sa.ArtistId)
+                .ToList();
+
+            return assignedArtistIds;
+        }
+
+        public async Task<IEnumerable<SongArtistListVM>> GetAllBySongIdAsync(int songId)
+        {
+            IEnumerable<ArtistSong> songArtists = await _repository.GetAllAsync();
+
+            return _mapper.Map<IEnumerable<SongArtistListVM>>(songArtists.Where(m => m.SongId == songId));
         }
     }
 }

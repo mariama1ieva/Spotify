@@ -23,17 +23,6 @@ namespace Repository
 
 
 
-
-
-
-
-
-
-
-
-
-
-
             return services;
         }
     }

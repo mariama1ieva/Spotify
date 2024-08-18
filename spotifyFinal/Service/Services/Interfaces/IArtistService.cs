@@ -12,8 +12,8 @@ namespace Service.Services.Interfaces
         Task UpdateAsync(int id, ArtistEditVM model);
         Task DeleteAsync(int id);
         Task<SelectList> GetALlBySelectedAsync();
+        Task<SelectList> GetAllSelectListAsync(IEnumerable<int> artistIds);
         Task<List<ArtistListVM>> GetAllWithDatas();
-
         Task<ArtistDetailVM> GetAllWithDatasById(int id);
     }
 }

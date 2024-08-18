@@ -30,9 +30,9 @@
                     <div class="main-cards-search">
                         @foreach (var item in Model)
                         {
-                            <a asp-action="Detail" asp-controller="Category" asp-route-id="@item.Id" class="card-container-search">
+                            <a asp-action="Detail" asp-controller="Search" asp-route-id="@item.Id" class="card-container-search">
                                 <div class="card" style="background-color:@item.Color">
-                                    <p>@item.Name</p>
+                                    <p> @item.Name</p>
                                     <img src="~/assets/images/@item.ImageUrl" alt="metal-category">
                                 </div>
                             </a>

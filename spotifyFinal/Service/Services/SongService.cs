@@ -20,7 +20,7 @@ namespace Service.Services
         }
         public async Task<SongDetailVM> GetByIdAsync(int id)
         {
-            return _mapper.Map<SongDetailVM>(await _repository.GetByIdAsync(id));
+            return _mapper.Map<SongDetailVM>(await _repository.GetByIdAsync(id, "Category"));
         }
         public async Task<int> CreateAsync(SongCreateVM model)
         {

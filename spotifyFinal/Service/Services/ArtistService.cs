@@ -80,5 +80,13 @@ namespace Service.Services
             var artistId = await _repository.CreateAsync(_mapper.Map<Artist>(model));
             return artistId;
         }
+
+        public async Task<SelectList> GetAllSelectListAsync(IEnumerable<int> artistIds)
+        {
+            var artists = await _repository.GetAllAsync();
+            artists = artists.Where(m => !artistIds.Contains(m.Id)).ToList();
+
+            return new SelectList(artists, "Id", "FullName");
+        }
     }
 }

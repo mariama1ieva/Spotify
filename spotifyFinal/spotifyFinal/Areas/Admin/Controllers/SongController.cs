@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Service.Services.Interfaces;
 using Service.ViewModels.SongArtistVMs;
 using Service.ViewModels.SongVMs;
@@ -14,11 +15,11 @@ namespace spotifyFinal.Areas.Admin.Controllers
         private readonly IArtistService _artistService;
         private readonly ICategoryService _categoryService;
         private readonly IAlbumService _albumService;
-
+        private readonly IMapper _mapper;
         private readonly IWebHostEnvironment _env;
 
         public SongController(ISongArtistService songArtistService, ISongService songService, IArtistService artistService, IWebHostEnvironment env,
-                             ICategoryService categoryService, IAlbumService albumService)
+                             ICategoryService categoryService, IAlbumService albumService, IMapper mapper)
         {
             _songArtistService = songArtistService;
             _songService = songService;
@@ -26,6 +27,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
             _env = env;
             _categoryService = categoryService;
             _albumService = albumService;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -41,7 +43,6 @@ namespace spotifyFinal.Areas.Admin.Controllers
             ViewBag.Artists = await _artistService.GetALlBySelectedAsync();
             ViewBag.Categories = await _categoryService.GetALlBySelectedAsync();
             ViewBag.Albums = await _albumService.GetALlBySelectedAsync();
-
 
             return View();
         }
@@ -79,7 +80,6 @@ namespace spotifyFinal.Areas.Admin.Controllers
                 return View(request);
             }
 
-
             string fileName = Guid.NewGuid().ToString() + "-" + request.PhotoUrl.FileName;
             string path = Path.Combine(_env.WebRootPath, "assets/images", fileName);
             await request.PhotoUrl.SaveFileToLocalAsync(path);
@@ -101,7 +101,6 @@ namespace spotifyFinal.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int? id)
@@ -117,11 +116,10 @@ namespace spotifyFinal.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            ViewBag.Artists = await _artistService.GetALlBySelectedAsync();
+            ViewBag.Artists = await _artistService.GetAllSelectListAsync(await _songArtistService.GetAllArtistIdsBySongId(id));
             ViewBag.Categories = await _categoryService.GetALlBySelectedAsync();
             ViewBag.Albums = await _albumService.GetALlBySelectedAsync();
 
@@ -129,41 +127,28 @@ namespace spotifyFinal.Areas.Admin.Controllers
 
             if (id == null) return BadRequest();
 
-            var song = await _songService.GetDataIdWithCategoryArtistAlbum((int)id);
+            var song = await _songService.GetByIdAsync((int)id);
 
-
-
-            SongEditVM model = new()
-            {
-                Name = song.Name,
-                CategoryName = song.CategoryName,
-                ArtistFullName = song.ArtistSongs,
-                AlbumName = song.AlbumName,
-                //CategoryId = album.CategoryId,
-                //ArtistId = album.ArtistId,
-                //GroupId = album.GroupId,
-                ImageUrl = song.ImageUrl,
-                Path = song.Path,
-                Color = song.Color
-            };
+            var model = _mapper.Map<SongEditVM>(song);
+            model.Artists = await _songArtistService.GetAllBySongIdAsync(id);
 
             if (song == null) return NotFound();
 
             return View(model);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int? id, SongEditVM request)
         {
-            ViewBag.Artists = await _artistService.GetALlBySelectedAsync();
+            ViewBag.Artists = await _artistService.GetAllSelectListAsync(await _songArtistService.GetAllArtistIdsBySongId((int)id));
             ViewBag.Categories = await _categoryService.GetALlBySelectedAsync();
             ViewBag.Albums = await _albumService.GetALlBySelectedAsync();
-            var existSong = await _songService.GetDataIdWithCategoryArtistAlbum((int)id);
+            var existSong = await _songService.GetByIdAsync((int)id);
 
             if (!ModelState.IsValid) return View(request);
 
             if (id == null) return BadRequest();
-
 
             if (request.PhotoUrl != null)
             {
@@ -173,7 +158,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
                     return View(request);
                 }
 
-                if (!request.PhotoUrl.CheckFileSize(200))
+                if (!request.PhotoUrl.CheckFileSize(2000))
                 {
                     ModelState.AddModelError("PhotoUrl", "Max File capacity must be 200KB");
                     return View(request);
@@ -185,15 +170,14 @@ namespace spotifyFinal.Areas.Admin.Controllers
 
                 request.ImageUrl = fileName;
 
-                FileExtention.DeleteFileFromLocalAsync(Path.Combine(_env.WebRootPath, "img"), request.ImageUrl);
+                FileExtention.DeleteFileFromLocalAsync(Path.Combine(_env.WebRootPath, "assets/images"), request.ImageUrl);
             }
             else
             {
                 existSong.ImageUrl = request.ImageUrl;
-
-
             }
-            if (!await _albumService.AnyAsync(request.Name))
+
+            if (!await _songService.AnyAsync(request.Name))
             {
                 ModelState.AddModelError("Name", $"{request.Name} is already exist!");
                 return View(request);
@@ -219,15 +203,12 @@ namespace spotifyFinal.Areas.Admin.Controllers
 
                 request.Path = fileName1;
 
-                FileExtention.DeleteFileFromLocalAsync(Path.Combine(_env.WebRootPath, "mp3"), request.Path);
+                FileExtention.DeleteFileFromLocalAsync(Path.Combine(_env.WebRootPath, "assets/music"), request.Path);
             }
             else
             {
                 existSong.Path = request.Path;
-
-
             }
-
 
             await _songService.UpdateAsync((int)id, request);
 

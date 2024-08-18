@@ -722,7 +722,6 @@ C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Rele
 C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\refs\System.Drawing.dll
 C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\refs\System.Drawing.Primitives.dll
 C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\refs\System.Dynamic.Runtime.dll
-C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\refs\System.Formats.Asn1.dll
 C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\refs\System.Globalization.Calendars.dll
 C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\refs\System.Globalization.dll
 C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\refs\System.Globalization.Extensions.dll
@@ -1108,3 +1107,8 @@ C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Rele
 C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\refs\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\refs\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\BouncyCastle.Cryptography.dll
+C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\MailKit.dll
+C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\MimeKit.dll
+C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\NETCore.MailKit.dll
+C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\System.Formats.Asn1.dll

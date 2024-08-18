@@ -21,5 +21,6 @@ namespace Repository.Repositories
         {
             return await _entities.Include(e => e.Albums).FirstOrDefaultAsync(m => m.Id == id);
         }
+
     }
 }

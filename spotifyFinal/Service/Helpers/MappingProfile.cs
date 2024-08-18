@@ -46,7 +46,9 @@ namespace Service.Helpers
             CreateMap<Song, SongDetailVM>();
             CreateMap<SongArtistCreateVM, ArtistSong>();
             CreateMap<SongArtistEditVM, Song>();
+            CreateMap<ArtistSong, SongArtistListVM>();
             CreateMap<SongEditVM, Song>();
+            CreateMap<SongDetailVM, SongEditVM>();
 
 
             CreateMap<PositionCreateVM, Position>();

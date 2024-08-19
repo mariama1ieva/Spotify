@@ -12,11 +12,58 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
-    <script defer src="./searchInput.js"></script>
-    <script defer src="~/assets/common/functionalities/activeWishlist.js"></script>
+    <title>Search</title>
+    <script defer src="~/assets/js/searchInput.js"></script>
+    <script defer src="~/assets/js/search.js"></script>
+
+    <script defer src="~/assets/js/activeWishlist.js"></script>
 </head>
 
+<header id="spotify-header">
+    <div class="content">
+ 
+        <div style="display:flex;flex-direction:column;gap:20px">
+           <div> 
+                <div class="right-side" style="margin-left:850px">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <a asp-action="Register" asp-controller="Account">
+                            <button id="signIn">Sign up</button>
+                        </a>
+                        <a asp-action="Login" asp-controller="Account">
+                            <button id="signIn">Log in</button>
+                        </a>
+                    }
+                    else
+                    {
+                        <button id="premium"><span>Explore Premium</span></button>
+                        <button id="notification"><i class="fa-regular fa-bell"></i></button>
+                        <button id="user"><span>L</span></button>
+                    }
+
+                </div>
+
+                <div class="search-filter" style="display: none">
+                    <button filter-id="0"><span>All</span></button>
+                    <button filter-id="1"><span>Songs</span></button>
+                    <button filter-id="2"><span>Artist</span></button>
+                    <button filter-id="3"><span>Albums</span></button>
+                    <button filter-id="4"><span>Playlist</span></button>
+                </div>
+            </div>
+
+            <div class="left-side">
+                <div class="search-area">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="searchInput" placeholder="What do you want to play?">
+                    <i class="fa-solid fa-xmark delete"></i>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</header>
 <body>
     <div class="box">
 
@@ -48,6 +95,9 @@
     </div>
 
 </body>
-
+@section Scripts {
+    <script src="~/assets/js/search.js"></script>
+  
+}
 </html>
 

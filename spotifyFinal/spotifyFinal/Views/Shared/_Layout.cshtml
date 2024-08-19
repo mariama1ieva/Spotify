@@ -11,10 +11,10 @@
           crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
     <script defer src="~/assets/js/searchInput.js"></script>
-    <script defer src="../../common/functionalities/sidebar.js"></script>
-    <script defer src="../../common/functionalities/activeWishlist.js"></script>
-    <script defer src="../../common/functionalities/playMusic.js"></script>
-    <script defer src="../../common/functionalities/playButtons.js"></script>
+    <script defer src="~/assets/js/sidebar.js"></script>
+    <script defer src="~/assets/js/activeWishlist.js"></script>
+    <script defer src="~/assets/js/playMusic.js"></script>
+    <script defer src="~/assets/js/playButtons.js"></script>
 </head>
 
 <body>
@@ -22,35 +22,10 @@
 
         @await Component.InvokeAsync("Sidebar");
         <section id="main-side" style="width:100% !important;">
-            <healder id="spotify-header">
-                <div class="content">
-                    <div class="left-side">
-                        <div class="arrows">
-                            <button id="left"><i class="fa-solid fa-chevron-left"></i></button>
-                            <button id="right"><i class="fa-solid fa-chevron-right"></i></button>
-                        </div>
-                        <div class="search-area">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" id="searchInput" placeholder="What do you want to play?">
-                            <i class="fa-solid fa-xmark delete"></i>
-                        </div>
-                    </div>
-                    <div class="right-side">
-                         <a asp-action="Register" asp-controller="Account">
-                            <button id="signIn">Sign up</button>
-                        </a>
-                        <a href="#">
-                            <button id="signIn">Log in</button>
-                        </a> 
-                   @*      <button id="premium"><span>Explore Premium</span></button>
-                        <button id="notification"><i class="fa-regular fa-bell"></i></button>
-                        <button id="user"><span>L</span></button> *@
-                    </div>
-                </div>
-                </header>
+    
         @RenderBody()
             @await Component.InvokeAsync("Footer");
-
+            @RenderSection("Scripts", required: false)
 
             <section id="music-player" >
                 <div class="content" style="width:100% !important;">

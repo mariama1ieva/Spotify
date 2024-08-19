@@ -1,0 +1,146 @@
+﻿@model SearchVM;
+<script defer src="~/assets/js/musicTime.js"></script>
+<script defer src="~/assets/js/searchInput.js"></script>
+<script defer src="~/assets/js/activeWishlist.js"></script>
+<section id="search-area">
+    <div class="content">
+@* 
+        <div class="search-filter" style="display: none">
+            
+        <a href="#"><button><span>All</span></button></a>
+        <a href="#"><button><span>Songs</span></button></a> 
+        <a href="#"><button><span>Artist</span></button></a>
+        <a href="#"><button><span>Albums</span></button></a>
+        <a href="#"><button><span>Playlist</span></button></a>
+        </div>  *@
+        <div class="main-cards-search-result">
+            @if (Model.Artists.Count() != 0)
+            {
+                <div class="left-side">
+                    <h2>Top result</h2>
+                    <a style="text-decoration:none; color:white" asp-controller="artist" asp-action="detail" asp-route-id="@Model.Artists.FirstOrDefault()?.Id">
+                        <div class="left-boxs">
+                            <img src="~/assets/images/@Model.Artists.FirstOrDefault()?.ImageUrl" alt="">
+                            <h1 style="font-size:30px">@Model.Artists.FirstOrDefault()?.FullName</h1>
+                            <div class="about-result">
+                                <div class="type">Artist</div>
+                            </div>
+                            <button class="play">
+                                <i id="play-icon" class="fa-solid fa-play"></i>
+                                <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                            </button>
+                        </div>
+                    </a>
+                </div>
+            }
+            @if (Model.ArtistSongs.Count() != 0)
+            {
+                <div class="right-side">
+                    <h2>Songs</h2>
+                    <div class="song-cards">
+                        @foreach (var song in Model.ArtistSongs)
+                        {
+                            <div class="song">
+                                <div class="left-side">
+                                    <a style="display:flex;justify-content:center" asp-controller="song" asp-action="detail" asp-route-id="@song.Id">
+                                        <img src="~/assets/images/@song.Song.ImageUrl" alt="">
+                                    </a>
+                                    <div class="about-song">
+                                        <a href="#"><span>@song.Song.Name</span></a>
+                                        <a href="#"><span>@song.Artist.FullName</span></a>
+                                    </div>
+                                </div>
+                                <div class="right-side">
+                                    <button id="wishlist" class="wish" songId="@song.SongId">
+                                        <i class="fa-solid fa-heart"></i>
+                                    </button>
+                                    <div class="music-time">
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+
+            @if (Model.Artists.Count() != 0)
+            {
+                <div class="artist-area">
+                    <h2>Artist</h2>
+                    <div class="all-card">
+                        @foreach (var artist in Model.Artists)
+                        {
+                            <div class="card-container">
+                                <div class="card">
+                                    <a asp-controller="artist" asp-action="detail" asp-route-id="@artist.Id">
+                                        <img src="~/assets/images/@artist.ImageUrl" alt="">
+                                    </a>
+                                    <h3>@artist.FullName</h3>
+                                    <p>Artist</p>
+
+                                    <button class="play">
+                                        <i id="play-icon" class="fa-solid fa-play"></i>
+                                        <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            }
+            @if (Model.Albums.Count() != 0)
+            {
+                <div class="albom-area">
+                    <h2>Albums</h2>
+                    <div class="all-albom">
+                        @foreach (var album in Model.Albums)
+                        {
+                            <div class="card-container">
+                                <div class="card">
+                                    <a asp-controller="album" asp-action="detail" asp-route-id="@album.Id">
+                                        <img src="~/assets/images/@album.Image" alt="">
+                                    </a>
+                                    <h3>@album.Name</h3>
+                                    <p><span>@album.Songs.Count()</span> song</p>
+                                    <button class="play">
+                                        <i id="play-icon" class="fa-solid fa-play"></i>
+                                        <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+            @if (Model.MusicPlaylists.Count() != 0)
+            {
+                <div class="playlist-area">
+                    <h2>Playlists</h2>
+                    <div class="all-playlist">
+                        @foreach (var playlist in Model.MusicPlaylists)
+                        {
+                            <div class="card-container">
+                                <div class="card">
+                                    <img src="~/assets/images/@playlist.Playlist.ImgUrl" alt="">
+                                    <h3>@playlist.Playlist.Name</h3>
+                                    <p></p>
+
+                                    <button class="play">
+                                        <i id="play-icon" class="fa-solid fa-play"></i>
+                                        <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+@section Scripts {
+    <script src="~/assets/js/search.js"></script>
+
+}

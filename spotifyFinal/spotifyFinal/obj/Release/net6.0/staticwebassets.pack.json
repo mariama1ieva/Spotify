@@ -19353,6 +19353,10 @@
       "PackagePath": "staticwebassets\\assets\\images\\eb641e10-c721-422b-b99d-71154f3437e0-DefaultMusic.png"
     },
     {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\ec035bc9-9c59-4ce5-aa89-31ce9a6ff184-jazz.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\ec035bc9-9c59-4ce5-aa89-31ce9a6ff184-jazz.jpg"
+    },
+    {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\ee2a9dbb-9082-45ae-b123-650da7bdb783-551x323-1.png",
       "PackagePath": "staticwebassets\\assets\\images\\ee2a9dbb-9082-45ae-b123-650da7bdb783-551x323-1.png"
     },
@@ -19413,12 +19417,76 @@
       "PackagePath": "staticwebassets\\assets\\images\\visa.png"
     },
     {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\active.js",
+      "PackagePath": "staticwebassets\\assets\\js\\active.js"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\activeWishlist.js",
+      "PackagePath": "staticwebassets\\assets\\js\\activeWishlist.js"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\addRating.js",
+      "PackagePath": "staticwebassets\\assets\\js\\addRating.js"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\detail.js",
+      "PackagePath": "staticwebassets\\assets\\js\\detail.js"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\errorIcon.js",
+      "PackagePath": "staticwebassets\\assets\\js\\errorIcon.js"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\loadMore.js",
+      "PackagePath": "staticwebassets\\assets\\js\\loadMore.js"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\musicTime.js",
+      "PackagePath": "staticwebassets\\assets\\js\\musicTime.js"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\navbar.js",
+      "PackagePath": "staticwebassets\\assets\\js\\navbar.js"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\password.js",
+      "PackagePath": "staticwebassets\\assets\\js\\password.js"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\playButtons.js",
+      "PackagePath": "staticwebassets\\assets\\js\\playButtons.js"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\playMusic.js",
+      "PackagePath": "staticwebassets\\assets\\js\\playMusic.js"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\playlistSearch.js",
+      "PackagePath": "staticwebassets\\assets\\js\\playlistSearch.js"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\popup.js",
+      "PackagePath": "staticwebassets\\assets\\js\\popup.js"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\search.js",
+      "PackagePath": "staticwebassets\\assets\\js\\search.js"
+    },
+    {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\searchInput.js",
       "PackagePath": "staticwebassets\\assets\\js\\searchInput.js"
     },
     {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\sidebar.js",
+      "PackagePath": "staticwebassets\\assets\\js\\sidebar.js"
+    },
+    {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\signUp.js",
       "PackagePath": "staticwebassets\\assets\\js\\signUp.js"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\wishlist.js",
+      "PackagePath": "staticwebassets\\assets\\js\\wishlist.js"
     },
     {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\music\\1dc62a79-8d90-4df0-8754-6c4ae4f2a41f-spotifydown.com - Halo.mp3",
@@ -19471,6 +19539,10 @@
     {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\music\\be5646ad-c2bf-4a41-a28b-e447bee26db2-spotifydown.com - Halo.mp3",
       "PackagePath": "staticwebassets\\assets\\music\\be5646ad-c2bf-4a41-a28b-e447bee26db2-spotifydown.com - Halo.mp3"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\music\\bfd7eaf1-f744-4ee0-89c8-1bad056a0bbf-System of A Down - Chop Suey!.mp3",
+      "PackagePath": "staticwebassets\\assets\\music\\bfd7eaf1-f744-4ee0-89c8-1bad056a0bbf-System of A Down - Chop Suey!.mp3"
     },
     {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\music\\f8773547-a00e-4904-abcc-f0ece9db63a3-b1a4df1e-956e-4d43-8085-bd9d82e1fdb3-8d7619e3-44e6-4a10-aac7-4045d3b48fe5-Roya_-_Ere_Gedirem_-_www.BiG.AZ.mp3",
@@ -19579,6 +19651,14 @@
     {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\scss\\utils\\_variables.scss",
       "PackagePath": "staticwebassets\\scss\\utils\\_variables.scss"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\verifymail\\forgotVerify.html",
+      "PackagePath": "staticwebassets\\verifymail\\forgotVerify.html"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\verifymail\\verify.html",
+      "PackagePath": "staticwebassets\\verifymail\\verify.html"
     },
     {
       "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.build.spotifyFinal.props",

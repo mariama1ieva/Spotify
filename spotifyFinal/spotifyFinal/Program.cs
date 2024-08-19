@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Repository;
 using Repository.Data;
+using spotifyFinal;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddRepositoryLayer();
 builder.Services.AddServiceLayer();
+builder.Services.SpotifyServiceRegistration();
 
 
 var app = builder.Build();
@@ -41,5 +43,10 @@ app.UseEndpoints(endpoints =>
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
 
 app.Run();

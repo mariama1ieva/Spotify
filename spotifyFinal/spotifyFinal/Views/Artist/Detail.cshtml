@@ -11,13 +11,37 @@
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="./detail.js" defer></script>
-    <script defer src="../../common/functionalities/activeWishlist.js"></script>
-    <script defer src="../../common/functionalities/playMusic.js"></script>
-    <script defer src="../../common/functionalities/playButtons.js"></script>
-    <script defer src="../../common/functionalities/popup.js"></script>
+    <script defer src="~/assets/common/functionalities/activeWishlist.js"></script>
+    <script defer src="~/assets/common/functionalities/playMusic.js"></script>
+    <script defer src="~/assets/common/functionalities/playButtons.js"></script>
+    <script defer src="~/assets/common/functionalities/popup.js"></script>
     <script defer src="../profile/navbar.js"></script>
     <title>Document</title>
 </head>
+<header id="spotify-header">
+    <div class="content">
+
+
+        <div class="right-side" style="margin-left:900px">
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <a asp-action="Register" asp-controller="Account">
+                    <button id="signIn">Sign up</button>
+                </a>
+                <a asp-action="Login" asp-controller="Account">
+                    <button id="signIn">Log in</button>
+                </a>
+            }
+            else
+            {
+                <button id="premium"><span>Explore Premium</span></button>
+                <button id="notification"><i class="fa-regular fa-bell"></i></button>
+                <button id="user"><span>L</span></button>
+            }
+
+        </div>
+    </div>
+</header>
 @{
     // int count = 0;
 
@@ -57,7 +81,7 @@
                     {
 
                         @* count++; *@
-                        <div class="music-row" src="../../assets/music/@song.Song.Path" song-id="@song.Song.Id">
+                        <div class="music-row" src="~/assets/assets/music/@song.Song.Path" song-id="@song.Song.Id">
                             <div class="left-side">
                                 <div class="count">
                                     @* <p>@count</p> *@

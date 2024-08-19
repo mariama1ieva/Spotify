@@ -1,0 +1,139 @@
+﻿@using Domain.Entities
+@model UISongDetail
+@{
+    int count = 0;
+    List<Rating> ratings = ViewBag.Ratings;
+    Song songc = (Song)ViewBag.Song;
+}
+<section id="detail-area">
+    <div class="content" style="background-color:@Model.Song.Color">
+        <div class="left-side">
+            <img src="~/assets/images/@Model.Song.ImageUrl" alt="">
+        </div>
+        <div class="right-side">
+            <input class="songId" type="hidden" value="@Model.Song.Id" />
+            <p>Song</p>
+            <h1 id="page-title">@Model.Song.Name</h1>
+            <div class="about-detail">
+                <div class="about-detail">
+                    <div class="createdBy">
+                        <div class="createdBy">
+                            <img src="~/assets/images/@Model.Song.ArtistSongs.FirstOrDefault()?.Artist.ImageUrl" alt="">
+                            <a style="text-decoration:none;color:white" asp-controller="artist" asp-action="detail" asp-route-id="@Model.Artist.Id">
+                                <span>@Model.Song.ArtistSongs.FirstOrDefault()?.Artist.FullName</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                @await Html.PartialAsync("_RatingPartial", ratings)
+
+            </div>
+        </div>
+    </div>
+</section>
+<section id="top-music">
+    <div class="context">
+        <div class="action-bar">
+            <button class="play" id="actionbar-play">
+                <i id="play-icon" class="fa-solid fa-play"></i>
+                <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+            </button>
+            <button id="wishlist" class="wish" songId="@Model.Song.Id">
+                <i class="fa-regular fa-heart"></i>
+            </button>
+        </div>
+        @foreach (var artist in Model.Artists)
+        {
+            <div class="artist-name-table">
+                <div class="right-side">
+                    <img src="~/assets/images/@artist.ImageUrl" alt="">
+                </div>
+                <div class="left-side">
+                    <span>Artist</span>
+                    <a asp-controller="artist" asp-action="detail" asp-route-id="@Model.Artist.Id"><span>@artist.FullName</span></a>
+                </div>
+            </div>
+        }
+        <div class="account-music">
+            <h2>Recommended</h2>
+            <p>Based on this song</p>
+            <div id="songs">
+                @if (Model.Songs != null)
+                {
+                    @foreach (var song in Model.Songs)
+                    {
+                        count++;
+                        <div class="music-row" src="~/assets/music/@song.Path">
+                            <div class="left-side">
+                                <div class="count">
+                                    <p>@count</p>
+                                    <button class="play">
+                                        <i id="play-icon" class="fa-solid fa-play"></i>
+                                        <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                                    </button>
+                                </div>
+                                <div class="music-info">
+                                    <img src="~/assets/images/@song.ImageUrl" alt="">
+                                    <div class="names">
+                                        <div class="music-name">
+                                            <a style="color:white" asp-controller="song" asp-action="detail" asp-route-id="@song.Id">  <p>@song.Name</p></a>
+                                        </div>
+                                        <a asp-controller="artist" asp-action="detail" asp-route-id="@Model.Artist.Id" class="artist-name">
+                                            <p>@Model.Artist.FullName</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right-side">
+                                <div class="albom-name">
+                                    <a>@song.Album.Name</a>
+                                </div>
+                                <button id="wishlist" class="wish" songId="@song.Id">
+                                    <i class="fa-solid fa-heart"></i>
+                                </button>
+                                <div class="music-time">
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+        <div class="add-comment-area">
+            <div class="left-side">
+                <h2>Do you want to write something?</h2>
+                <form method="post" asp-controller="Song" asp-action="AddComment" asp-route-id="@Model.Song.Id">
+                    <textarea type="text" id="comment" placeholder="Comment" asp-for="Comment.Message" rows="4" cols="50"></textarea><br><br>
+                    <div class="add-rate">
+                        <i class="fa-solid fa-star rate-it" onclick="fillStars(1)" style="cursor:pointer;font-size:20px; color: lightgray;">
+                            <input asp-for="Comment.Rating.Point" no-checked type="radio" value="1" style="display:none" />
+                        </i>
+                        <i class="fa-solid fa-star rate-it" onclick="fillStars(2)" style="cursor:pointer;font-size:20px; color: lightgray;">
+                            <input asp-for="Comment.Rating.Point" no-checked type="radio" value="2" style="display:none" />
+                        </i>
+                        <i class="fa-solid fa-star rate-it" onclick="fillStars(3)" style="cursor:pointer;font-size:20px; color: lightgray;">
+                            <input asp-for="Comment.Rating.Point" no-checked type="radio" value="3" style="display:none" />
+                        </i>
+                        <i class="fa-solid fa-star rate-it" onclick="fillStars(4)" style="cursor:pointer;font-size:20px; color: lightgray;">
+                            <input asp-for="Comment.Rating.Point" no-checked type="radio" value="4" style="display:none" />
+                        </i>
+                        <i class="fa-solid fa-star rate-it" onclick="fillStars(5)" style="cursor:pointer;font-size:20px; color: lightgray;">
+                            <input asp-for="Comment.Rating.Point" no-checked type="radio" value="5" style="display:none" />
+                        </i>
+                    </div>
+                    <button type="submit" class="btn btn-fill-out" name="submit" value="Submit"><span>Send</span></button>
+                </form>
+
+            </div>
+            <div class="right-side">
+                @await Html.PartialAsync("_CommentForSong", (Song)ViewBag.Song)
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script src="~/common/functionalities/addRating.js"></script>
+

@@ -1,0 +1,40 @@
+﻿@model HomeVM
+
+@foreach (var album in Model.Albums)
+{
+    if (Model.Category != null)
+    {
+        if (album.Category.Name == Model.Category)
+        {
+            <div class="card-container">
+                <div class="card">
+                    <a asp-controller="Album" asp-action="Detail" asp-route-id="@album.Id" style="text-decoration:none">
+                        <img src="~/assets/images/@album.Image" alt="">
+                    </a>
+                    <h3>@(album.Name.Length > 20 ? album.Name.Substring(0, 18) + "..." : album.Name)</h3>
+                    <p>@album.Artist.FullName</p>
+                    <button class="play" id="actionbar-play">
+                        <i id="play-icon" class="fa-solid fa-play"></i>
+                        <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                    </button>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="card-container">
+            <div class="card">
+                <a asp-controller="Album" asp-action="Detail" asp-route-id="@album.Id" style="text-decoration:none">
+                    <img src="~/assets/images/@album.Image" alt="">
+                </a>
+                <h3>@(album.Name.Length > 20 ? album.Name.Substring(0, 18) + "..." : album.Name)</h3>
+                <p>@album.Artist.FullName</p>
+                <button class="play" id="actionbar-play">
+                    <i id="play-icon" class="fa-solid fa-play"></i>
+                    <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                </button>
+            </div>
+        </div>
+    }
+}

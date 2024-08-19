@@ -206,8 +206,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2lkZWJhclxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/Shared/_AlbumCardPV.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BbGJ1bUNhcmRQVi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/Shared/_AlbumSongListPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BbGJ1bVNvbmdMaXN0UGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/Shared/_CommentForSong.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Db21tZW50Rm9yU29uZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/Shared/_Layout.cshtml]
@@ -218,8 +226,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NYWluU2VhcmNoLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/Shared/_RatingPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9SYXRpbmdQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/Shared/_Search.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TZWFyY2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/Song/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU29uZ1xEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/_ViewImports.cshtml]

@@ -1,9 +1,17 @@
 ﻿@using Domain.Entities
+
 @model Album
+@{
+    int count = 0;
+}
 <style>
-    a{
-        text-decoration: none !important;
+    .music-name {
+        text-decoration: none;
     }
+
+        .music-name:hover {
+            text-decoration: underline;
+        }
 </style>
 <header id="spotify-header">
     <div class="content">
@@ -34,19 +42,19 @@
         <div class="left-side">
             <img src="~/assets/images/@Model.Image" alt="">
         </div>
-        <div class="right-side" style="width: 651px;">
+        <div class="right-side">
             <p>Album</p>
-            <h1>@Model.Name</h1>
+            <h1 id="page-title">@Model.Name</h1>
             <div class="about-detail">
-                <a asp-action="Detail" asp-controller="Artist" class="createdBy" style="color:white;text-decoration:none !important;">
+                <div class="createdBy">
                     <img src="~/assets/images/@Model.Artist.ImageUrl" alt="">
-                    <span >@Model.Artist.FullName</span>
-                </a>
+                    <a style="text-decoration:none;color:white" asp-controller="artist" asp-action="detail" asp-route-id="@Model.Artist.Id"> <span>@Model.Artist.FullName</span></a>
+                </div>
                 <div class="likes-count">
-                    <p>@Model.CreateDate.ToString("yyyy")</p>
+                    <p>@Model.CreateDate.ToString("MMMM dd , yyyy")</p>
                 </div>
                 <div class="song-time-count">
-                    <p><span>@Model.Songs.Count()</span> songs </p>
+                    <p><span>@ViewBag.TotalSongCount</span> songs </p>
                 </div>
             </div>
         </div>
@@ -58,11 +66,6 @@
             <button class="play" id="actionbar-play">
                 <i id="play-icon" class="fa-solid fa-play"></i>
                 <i id="pause-icon" class="fa-solid fa-pause"></i>
-            </button>
-
-
-            <button id="wishlist">
-                <i class="fa-regular fa-heart"></i>
             </button>
         </div>
 
@@ -81,13 +84,41 @@
             </div>
         </div>
         <input type="hidden" id="song_count" albumId="@Model.Id" value="@ViewBag.SongCount" />
-     
-        <button id="loadMore" style="display:none!important"> Load more</button>
-        @if (Model.Songs.Count() > 2)
+        @if (Model.Songs.Count() > 0)
         {
             <button id="loadMore"> Load more</button>
         }
-
     </div>
+
 </section>
+
 <section id="more-albums">
+    <section id="cards-area">
+        <div class="content">
+            <div class="throwback">
+                <h2><a href="#">More by <Span>@Model.Artist.FullName</Span></a></h2>
+            </div>
+            <div class="main-cards">
+                @foreach (var otherAlbum in ViewBag.OtherAlbums)
+                {
+                    <div class="card-container">
+                        <div class="card">
+                            <a asp-controller="album" asp-action="detail" asp-route-id="@otherAlbum.Id"><img src="~/assets/images/@otherAlbum.ImageUrl" alt=""></a>
+                            <h3>@otherAlbum.Name</h3>
+                            <p>@otherAlbum.CreateDate.Year</p>
+                            <button class="play">
+                                <i id="play-icon" class="fa-solid fa-play"></i>
+                                <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                            </button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+</section>
+
+@section Scripts {
+    <script src="~/common/functionalities/loadMore.js"></script>
+}

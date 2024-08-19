@@ -233,8 +233,4 @@
     </Content>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\assets\common\functionalities\" />
-  </ItemGroup>
-
 </Project>

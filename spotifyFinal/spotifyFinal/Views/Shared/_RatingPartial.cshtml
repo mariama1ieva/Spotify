@@ -1,0 +1,21 @@
+﻿@using Domain.Entities
+@model List<Rating>
+
+@{
+    int totalRatings = Model.Count(r => r.Comment.Song.PointRayting.HasValue);
+    double averageRating = totalRatings > 0 ? (double)Model.Where(r => r.Comment.Song.PointRayting.HasValue).Sum(r => r.Comment.Song.PointRayting.Value) / totalRatings : 0;
+    int roundedRating = (int)Math.Round(averageRating, MidpointRounding.AwayFromZero);
+    bool hasRating = totalRatings > 0;
+}
+@* @for (int i = 1; i <= 5; i++)
+{
+    @if (hasRating && i <= roundedRating)
+    {
+        <i class="fas fa-star filled" style="font-size:20px;color:#FEC006"></i>
+    }
+    else
+    {
+        <i class="fas fa-star" style="font-size:20px;color:darkgrey"></i>
+    }
+} *@
+<span style="text-decoration:none">(@averageRating.ToString("0.0") <i class="fas fa-star filled" style="font-size:12px;color:#fcf416"></i>)</span>

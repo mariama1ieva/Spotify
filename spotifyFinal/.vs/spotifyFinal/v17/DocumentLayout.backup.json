@@ -3,28 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\spotifyfinal\\views\\shared\\_search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\views\\shared\\_search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\spotifyfinal\\controllers\\songcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\controllers\\songcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\spotifyfinal\\views\\shared\\_ratingpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\views\\shared\\_ratingpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\spotifyfinal\\views\\shared\\_commentforsong.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\views\\shared\\_commentforsong.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\spotifyfinal\\views\\song\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\views\\song\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\spotifyfinal\\views\\album\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\views\\album\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\spotifyfinal\\views\\search\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\views\\search\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\spotifyfinal\\views\\search\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\views\\search\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\spotifyfinal\\controllers\\searchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\controllers\\searchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\spotifyfinal\\wwwroot\\assets\\js\\search.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\wwwroot\\assets\\js\\search.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\spotifyfinal\\controllers\\albumcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\controllers\\albumcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\spotifyfinal\\wwwroot\\assets\\js\\active.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\wwwroot\\assets\\js\\active.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\spotifyfinal\\views\\shared\\_albumsonglistpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\views\\shared\\_albumsonglistpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,80 +50,119 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "search.js",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\search.js",
-              "RelativeDocumentMoniker": "spotifyFinal\\wwwroot\\assets\\js\\search.js",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\search.js",
-              "RelativeToolTip": "spotifyFinal\\wwwroot\\assets\\js\\search.js",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAmwBQAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-08-19T01:51:20.893Z",
+              "DocumentIndex": 1,
+              "Title": "_RatingPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Shared\\_RatingPartial.cshtml",
+              "RelativeDocumentMoniker": "spotifyFinal\\Views\\Shared\\_RatingPartial.cshtml",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Shared\\_RatingPartial.cshtml",
+              "RelativeToolTip": "spotifyFinal\\Views\\Shared\\_RatingPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-19T17:18:31.33Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Search\\Index.cshtml",
-              "RelativeDocumentMoniker": "spotifyFinal\\Views\\Search\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Search\\Index.cshtml",
-              "RelativeToolTip": "spotifyFinal\\Views\\Search\\Index.cshtml",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAA3AAAAAAAAAA==",
+              "Title": "_CommentForSong.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Shared\\_CommentForSong.cshtml",
+              "RelativeDocumentMoniker": "spotifyFinal\\Views\\Shared\\_CommentForSong.cshtml",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Shared\\_CommentForSong.cshtml",
+              "RelativeToolTip": "spotifyFinal\\Views\\Shared\\_CommentForSong.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAAEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-19T01:33:23.825Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Detail.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Search\\Detail.cshtml",
-              "RelativeDocumentMoniker": "spotifyFinal\\Views\\Search\\Detail.cshtml",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Search\\Detail.cshtml",
-              "RelativeToolTip": "spotifyFinal\\Views\\Search\\Detail.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-19T01:47:42.196Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Search.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Shared\\_Search.cshtml",
-              "RelativeDocumentMoniker": "spotifyFinal\\Views\\Shared\\_Search.cshtml",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Shared\\_Search.cshtml*",
-              "RelativeToolTip": "spotifyFinal\\Views\\Shared\\_Search.cshtml*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-19T01:33:37.086Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "active.js",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\active.js",
-              "RelativeDocumentMoniker": "spotifyFinal\\wwwroot\\assets\\js\\active.js",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\active.js",
-              "RelativeToolTip": "spotifyFinal\\wwwroot\\assets\\js\\active.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-08-19T01:48:23.867Z",
+              "WhenOpened": "2024-08-19T17:18:15.706Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Song\\Detail.cshtml",
+              "RelativeDocumentMoniker": "spotifyFinal\\Views\\Song\\Detail.cshtml",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Song\\Detail.cshtml",
+              "RelativeToolTip": "spotifyFinal\\Views\\Song\\Detail.cshtml",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAAAEQAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-19T17:16:34.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SongController.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Controllers\\SongController.cs",
+              "RelativeDocumentMoniker": "spotifyFinal\\Controllers\\SongController.cs",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Controllers\\SongController.cs",
+              "RelativeToolTip": "spotifyFinal\\Controllers\\SongController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAewBgAAACPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T17:12:42.872Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Search\\Detail.cshtml",
+              "RelativeDocumentMoniker": "spotifyFinal\\Views\\Search\\Detail.cshtml",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Search\\Detail.cshtml",
+              "RelativeToolTip": "spotifyFinal\\Views\\Search\\Detail.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-19T17:06:04.683Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "SearchController.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Controllers\\SearchController.cs",
               "RelativeDocumentMoniker": "spotifyFinal\\Controllers\\SearchController.cs",
               "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Controllers\\SearchController.cs",
               "RelativeToolTip": "spotifyFinal\\Controllers\\SearchController.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAwCIAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwCYAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T00:01:21.141Z",
+              "WhenOpened": "2024-08-19T17:05:59.67Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_AlbumSongListPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Shared\\_AlbumSongListPartial.cshtml",
+              "RelativeDocumentMoniker": "spotifyFinal\\Views\\Shared\\_AlbumSongListPartial.cshtml",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Shared\\_AlbumSongListPartial.cshtml",
+              "RelativeToolTip": "spotifyFinal\\Views\\Shared\\_AlbumSongListPartial.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-19T17:01:40.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Album\\Detail.cshtml",
+              "RelativeDocumentMoniker": "spotifyFinal\\Views\\Album\\Detail.cshtml",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Album\\Detail.cshtml",
+              "RelativeToolTip": "spotifyFinal\\Views\\Album\\Detail.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACsAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-19T16:55:09.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AlbumController.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Controllers\\AlbumController.cs",
+              "RelativeDocumentMoniker": "spotifyFinal\\Controllers\\AlbumController.cs",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Controllers\\AlbumController.cs",
+              "RelativeToolTip": "spotifyFinal\\Controllers\\AlbumController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwBYAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T16:54:37.56Z",
               "EditorCaption": ""
             }
           ]

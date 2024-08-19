@@ -9,14 +9,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/assets/scss/style.css">
+    <link rel="stylesheet" href="~/scss/style.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
           integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Search</title>
-    <script defer src="~/assets/js/searchInput.js"></script>
-    <script defer src="~/assets/js/search.js"></script>
-
-    <script defer src="~/assets/js/activeWishlist.js"></script>
+ 
 </head>
 
 <header id="spotify-header">
@@ -42,23 +41,28 @@
                     }
 
                 </div>
-
-                <div class="search-filter" style="display: none">
-                    <button filter-id="0"><span>All</span></button>
-                    <button filter-id="1"><span>Songs</span></button>
-                    <button filter-id="2"><span>Artist</span></button>
-                    <button filter-id="3"><span>Albums</span></button>
-                    <button filter-id="4"><span>Playlist</span></button>
+                <div>
+                    <div class="search-filter" style="display: none;margin-bottom:20px; ">
+                        <button filter-id="0"><span>All</span></button>
+                        <button filter-id="1"><span>Songs</span></button>
+                        <button filter-id="2"><span>Artist</span></button>
+                        <button filter-id="3"><span>Albums</span></button>
+                        <button filter-id="4"><span>Playlist</span></button>
+                    </div>
+                    <div class="left-side">
+                        <div class="search-area">
+                          <a >
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>  
+                            <input style="background-color: #242424; color: white;outline: none; " type="text" id="searchInput" placeholder="What do you want to play?">
+                            <i class="fa-solid fa-xmark delete"></i>
+                        </div>
+                    </div>
                 </div>
+               
             </div>
 
-            <div class="left-side">
-                <div class="search-area">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="searchInput" placeholder="What do you want to play?">
-                    <i class="fa-solid fa-xmark delete"></i>
-                </div>
-            </div>
+            
 
         </div>
 
@@ -97,7 +101,11 @@
 </body>
 @section Scripts {
     <script src="~/assets/js/search.js"></script>
-  
+    <script src="~/assets/js/searchInput.js"></script>
+
+    <script src="~/assets/js/activeWishlist.js"></script>
+
 }
+
 </html>
 

@@ -13,5 +13,10 @@ namespace Service.ViewModels.SongVMs
         public string AlbumName { get; set; }
         public IEnumerable<ArtistSong> ArtistSongs { get; set; }
 
+
+
+
+
+
     }
 }

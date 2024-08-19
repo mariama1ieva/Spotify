@@ -31,12 +31,22 @@ namespace spotifyFinal.Controllers
                .Include(a => a.Artist)
                .FirstOrDefaultAsync(a => a.Id == id);
             if (album == null) return NotFound();
-
             ViewBag.OtherAlbums = await _context.Albums
     .Where(a => a.ArtistId == album.ArtistId && a.Id != id)
     .ToListAsync();
 
             return View(album);
+        }
+        public async Task<IActionResult> LoadMore(int albumId, int skip)
+        {
+            IQueryable<Album> albums = _context.Albums.AsNoTracking().AsQueryable();
+            Album? album = await albums
+               .Include(a => a.Songs.Skip(skip).Take(5))
+               .ThenInclude(a => a.ArtistSongs)
+               .Include(a => a.Artist)
+               .FirstOrDefaultAsync(a => a.Id == albumId);
+
+            return PartialView("_AlbumSongListPartial", album);
         }
     }
 }

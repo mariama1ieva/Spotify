@@ -36,16 +36,16 @@ namespace spotifyFinal.Controllers
 
             return View(await _categoryService.GetAllAsync());
         }
-        public async Task<IActionResult> Detail(int id, string request)
+        public async Task<IActionResult> Detail(int id, string category)
         {
-            if (id == null && request == null) return BadRequest();
+            if (id == null && category == null) return BadRequest();
 
             SearchCategoryDetailVM model = new()
             {
-                Category = await _context.Categories.Where(c => c.Id == id || c.Name == request).FirstOrDefaultAsync(),
+                Category = await _context.Categories.Where(c => c.Id == id || c.Name == category).FirstOrDefaultAsync(),
                 Artist = await _context.Artists.FirstOrDefaultAsync(),
                 Albums = await _context.Albums.Include(m => m.Category).Include(a => a.Artist)
-                .Where(a => a.CategoryId == id || a.Category.Name == request && !a.SoftDelete).ToListAsync()
+                .Where(a => a.CategoryId == id || a.Category.Name == category && !a.SoftDelete).ToListAsync()
             };
 
             return View(model);

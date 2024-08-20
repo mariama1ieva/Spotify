@@ -1115,3 +1115,4 @@ C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Rele
 C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\Asus\OneDrive\Desktop\Spotify-master\spotifyFinal\spotifyFinal\bin\Release\net6.0\Microsoft.AspNet.Identity.Core.dll

@@ -25,8 +25,7 @@ namespace Repository
             services.AddScoped<IArtistPositionService, ArtistPositionService>();
             services.AddScoped<IPositionService, PositionService>();
             services.AddScoped<IGroupArtistService, GroupArtistService>();
-            services.AddScoped<IEmailService, EmailService>();
-            services.AddScoped<IFileService, FileService>();
+
 
 
 

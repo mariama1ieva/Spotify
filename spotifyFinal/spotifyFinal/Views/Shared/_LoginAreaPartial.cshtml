@@ -1,0 +1,54 @@
+﻿<header id="spotify-header">
+    <div class="content">
+
+        <div style="display:flex;flex-direction:column;gap:20px;position:relative">
+            <div>
+                <div class="right-side" style="position:absolute;left:850px">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <a asp-action="Register" asp-controller="Account">
+                            <button id="signIn">Sign up</button>
+                        </a>
+                        <a asp-action="Login" asp-controller="Account">
+                            <button id="signIn">Log in</button>
+                        </a>
+                    }
+                    else
+                    {
+                        <a asp-action="Index" asp-controller="Premium">
+                           <button id="premium"><span>Explore Premium</span></button>
+
+                        </a>
+                        <div class="setting-menu">
+                            <a style=" color:white;font-size:larger" asp-controller="profile" asp-action="Create" asp-route-id="@User.Identity.IsAuthenticated ? User.Identity.Id : null"><i class="fa-solid fa-user" style="color: #ffffff;"></i></a>
+                        </div>
+                        <a asp-action="Logout" asp-controller="Account"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;font-size:larger"></i></a>
+
+                        if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+                        {
+
+  
+                            <div class="position-relative">
+                                <div style="display:flex!important;gap:5px">
+                                <h6 class=" mt-2 " style="color:white;font-size:large">@User.Identity.Name</h6>
+                                </div>
+                             
+                                    <a asp-area="Admin" asp-action="Index" asp-controller="Dashboard" style=" color:white;text-decoration:none;font-size:small" class=" position-absolute ">Admin </a>
+      
+                            </div>
+                        }
+                       
+                    }
+
+                </div>
+         
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+</header>
+<script src="https://kit.fontawesome.com/680cf1a7ac.js" crossorigin="anonymous"></script>

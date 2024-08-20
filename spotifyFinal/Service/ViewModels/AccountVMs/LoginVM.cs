@@ -14,3 +14,4 @@ namespace Service.ViewModels.AccountVMs
         public bool RememberMe { get; set; }
     }
 }
+

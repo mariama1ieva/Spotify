@@ -1,8 +1,6 @@
 ﻿@using Service.ViewModels.Account
 @model RegisterVM
-@{
-    Layout = null;
-}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +29,7 @@
                 Sign up to start listening
             </h1>
             <div class="main-form">
-                <div asp-validation-summary="All"></div>
+               
                 <form id="form" method="post">
                     <div class="input-container">
                         <label for="email">Email address</label>
@@ -85,7 +83,7 @@
                             <i class="fa-solid fa-circle-exclamation"></i>
                             <span asp-validation-for="ConfirmPassword"></span>
                         </div>
-
+                        <div style="color:white" asp-validation-summary="ModelOnly"></div>
                     </div>
 
                     <button type="submit" id="create"><span>Create account</span></button>
@@ -96,8 +94,8 @@
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
-    <script defer src="~/common/functionalities/password.js"></script>
-    <script defer src="~/common/functionalities/errorIcon.js"></script>
+    <script defer src="~/assets/js/password.js"></script>
+    <script defer src="~/assets/js/errorIcon.js"></script>
 </body>
 
 </html>

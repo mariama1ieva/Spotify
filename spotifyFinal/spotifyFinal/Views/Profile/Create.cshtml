@@ -1,0 +1,76 @@
+﻿@model ProfileVM
+
+<style>
+    #submit-btn {
+        margin-left: 94px;
+        width: 50px px;
+        height: 22px;
+        border-radius: 7px;
+        border: none;
+        font-family: circular;
+        background-color: #b2abab;
+        color: white;
+    }
+</style>
+<section class="a" id="profile-area">
+    <div class="content">
+        <div class="left-side">
+            @{
+                string imgUrl = "";
+
+                if (Model.ProfilePhotoUrl != null)
+                {
+                    imgUrl = Model.ProfilePhotoUrl;
+                }
+            }
+            <button class="account" style="background-image:url('~/wwwroot/assets/images/@imgUrl')">
+                @if (Model.ProfilePhotoUrl == null)
+                {
+                    <i class="fa-regular fa-user user"></i>
+                }
+                <form asp-action="Create" method="post" enctype="multipart/form-data" id="change-photo-form">
+                    <label for="profile-photo" class="choose-photo">
+                        <i class="fa-solid fa-pen"></i>
+                        <span>Choose photo</span>
+                        <input id="submit-btn" type="submit" value="Save">
+                    </label>
+                    <input type="file" id="profile-photo" asp-for="@Model.ProfileImg" style="display: none;">
+                    <span class="text-danger my-1" asp-validation-for="ProfileImg"></span>
+                </form>
+            </button>
+        </div>
+        <div class="right-side">
+            <p>Profile</p>
+            <h1 id="page-title">@Model.UserName</h1>
+        </div>
+    </div>
+</section>
+<section id="more-albums">
+    <section id="cards-area">
+        <div class="content">
+            <div class="throwback" style="padding: 20px 0;">
+                <h2 style="color:white">Public Playlists</h2>
+            </div>
+            <div class="main-cards">
+                @foreach (var playlist in Model.Playlists)
+                {
+                    <div class="card-container">
+                        <div class="card">
+                            <a asp-controller="playlist" asp-action="detail" asp-route-id="@playlist.Id"><img src="~/assets/images/@playlist.ImgUrl" alt=""></a>
+                            <h3>@playlist.Name</h3>
+                            <p><span>By </span>@playlist.AppUser.Fullname</p>
+                            <button class="play">
+                                <i id="play-icon" class="fa-solid fa-play"></i>
+                                <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                            </button>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </section>
+
+</section>
+
+

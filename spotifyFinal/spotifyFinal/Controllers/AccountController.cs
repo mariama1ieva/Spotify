@@ -1,9 +1,11 @@
 ﻿using Domain.Entities;
+using MailKit.Net.Smtp;
+using MailKit.Security;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Repository.Data;
+using MimeKit;
+using MimeKit.Text;
 using Service.Helpers.Enum;
-using Service.Services.Interfaces;
 using Service.ViewModels.Account;
 using Service.ViewModels.AccountVMs;
 
@@ -11,113 +13,154 @@ namespace spotifyFinal.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly AppDbContext _context;
+
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly IEmailService _emailService;
-        private readonly IFileService _fileService;
-
-        public AccountController(AppDbContext context, IEmailService emailService, IFileService fileService, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> roleManager)
+        public AccountController(UserManager<AppUser> userManager,
+                                 SignInManager<AppUser> signInManager,
+                                 RoleManager<IdentityRole> roleManager)
         {
-            _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
-            _emailService = emailService;
-            _fileService = fileService;
         }
 
+        [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
-
         [HttpPost]
-        [AutoValidateAntiforgeryToken]
-        public async Task<IActionResult> Register(RegisterVM register)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterVM request)
         {
-            if (!ModelState.IsValid) return View();
-
-            string otp = GenerateOTP();
+            if (!ModelState.IsValid) { return View(); }
 
             AppUser user = new()
             {
-                Email = register.Email,
-                OTP = otp,
-                Fullname = register.Fullname,
-                UserName = register.UserName,
-                IsActive = true
+                UserName = request.UserName,
+                Email = request.Email,
+                Fullname = request.Fullname
             };
-
-            IdentityResult result = await _userManager.CreateAsync(user, register.Password);
-
+            var result = await _userManager.CreateAsync(user, request.Password);
             if (!result.Succeeded)
             {
-                foreach (var error in result.Errors)
+                foreach (var item in result.Errors)
                 {
-                    ModelState.AddModelError("", error.Description);
+                    ModelState.AddModelError(string.Empty, item.Description);
                 }
-                return View(register);
+                return View(request);
             }
 
             await _userManager.AddToRoleAsync(user, RoleEnums.SuperAdmin.ToString());
 
             string token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            string url = Url.Action(nameof(ConfirmEmail), "Account", new { userId = user.Id, token }, Request.Scheme, Request.Host.ToString());
 
-            string body = string.Empty;
+            var email = new MimeMessage();
+            email.From.Add(MailboxAddress.Parse("maryamfa@code.edu.az"));
+            email.To.Add(MailboxAddress.Parse(user.Email));
+            email.Subject = "Register confirmation";
+            email.Body = new TextPart(TextFormat.Html)
+            {
+                Text = $@" 
+      <!DOCTYPE html>
+<html lang=""en"">
+<head>
+    <meta charset=""UTF-8"">
+    <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+    <link rel=""stylesheet"" href=""https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css""
+    integrity=""sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==""
+    crossorigin=""anonymous"" referrerpolicy=""no-referrer"" />
+    <title>Confirm Your Email</title>
+    <style>
+        body {{
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }}
+        .email-container {{
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }}
+        .header {{
+            text-align: center;
+            padding-bottom: 20px;
+        }}
+        .header img {{
+            max-width: 150px;
+        }}
+        .content {{
+            text-align: center;
+        }}
+        h4 {{
+            color: #1db954; /* Spotify green */
+        }}
+        .button-container {{
+            margin-top: 20px;
+        }}
+        .button {{
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #1db954; /* Spotify green */
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+        }}
+        .button:hover {{
+            background-color: #1ed760;
+        }}
+    </style>
+</head>
+<body>
+    <div class=""email-container"">
+        <header class=""header"">
+            <img src=""https://upload.wikimedia.org/wikipedia/commons/6/6b/Spotify_logo_2015.png"" alt=""Spotify Logo"">
+        </header>
+        <div class=""content"">
+            <h4>Confirm Your Email Address</h4>
+            <p>Hi there!</p>
+            <p>Thank you for registering with Spotify. Please confirm your email address by clicking the button below:</p>
+            <div class=""button-container"">
+                <a href=""{url}"" class=""button"">Confirm Email</a>
+            </div>
+            <p>If you didn't sign up for this account, you can ignore this email.</p>
+            <p>Cheers,<br>The Spotify Team</p>
+        </div>
+    </div>
+</body>
+</html>
 
-            string path = "wwwroot/verifymail/verify.html";
-            body = _fileService.ReadFile(path, body);
-
-            body = body.Replace("{{otp}}", otp);
-            body = body.Replace("{{Fullname}}", user.Fullname);
+"
+            };
 
 
-            string subject = "Verify Email";
-            _emailService.Send(user.Email, subject, body);
 
-            return RedirectToAction(nameof(VerifyEmail), new { email = user.Email });
+            using var smtp = new SmtpClient();
+            smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+            smtp.Authenticate("maryamfa@code.edu.az", "fgwj fxfg qpul folr");
+            smtp.Send(email);
+            smtp.Disconnect(true);
+
+            return RedirectToAction(nameof(VerifyEmail));
         }
 
-        [HttpPost]
-        public async Task<IActionResult> ConfirmEmail(ConfirmAccountVM confirmAccount)
+
+        [HttpGet]
+        public IActionResult VerifyEmail(string email)
         {
-            if (string.IsNullOrEmpty(confirmAccount.OTP) || string.IsNullOrEmpty(confirmAccount.OTP))
-                return RedirectToAction(nameof(VerifyEmail));
 
-            AppUser user = await _userManager.FindByEmailAsync(confirmAccount.Email);
-            if (user == null) return NotFound();
 
-            if (user.OTP != confirmAccount.OTP)
-                return RedirectToAction(nameof(VerifyEmail), new { email = confirmAccount.Email });
-
-            string token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-
-            await _userManager.ConfirmEmailAsync(user, token);
-
-            await _signInManager.SignInAsync(user, false);
-
-            return RedirectToAction(nameof(Login));
-        }
-
-        public async Task<IActionResult> ConfirmEmail(string userId, string token)
-        {
-            if (userId == null || token == null) return NotFound();
-
-            AppUser user = await _userManager.FindByIdAsync(userId);
-
-            if (user == null) return NotFound();
-
-            await _userManager.ConfirmEmailAsync(user, token);
-
-            await _signInManager.SignInAsync(user, false);
-
-            return RedirectToAction(nameof(Login));
-        }
-
-        public async Task<IActionResult> VerifyEmail(string email)
-        {
             ConfirmAccountVM confirmEmail = new()
             {
                 Email = email
@@ -125,148 +168,82 @@ namespace spotifyFinal.Controllers
 
             return View(confirmEmail);
         }
-        public IActionResult VerifyAccount()
+
+        [HttpGet]
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {
-            return View();
+            var user = await _userManager.FindByIdAsync(userId);
+            await _userManager.ConfirmEmailAsync(user, token);
+            return RedirectToAction(nameof(Login));
         }
-        //public async Task<IActionResult> ResetPassword(string userId, string token)
-        //{
-        //    ResetPasswordVM resetPassword = new ResetPasswordVM()
-        //    {
-        //        UserId = userId,
-        //        Token = token,
-        //    };
-        //    return View(resetPassword);
-        //}
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> ResetPassword(ResetPasswordVM resetPassword)
-        //{
-        //    if (!ModelState.IsValid) return View();
 
-        //    AppUser exsistUser = await _userManager.FindByIdAsync(resetPassword.UserId);
 
-        //    bool chekPassword = await _userManager.VerifyUserTokenAsync(exsistUser, _userManager.Options.Tokens.PasswordResetTokenProvider, "ResetPassword", resetPassword.Token);
 
-        //    if (!chekPassword) return Content("Error");
 
-        //    if (exsistUser == null) return NotFound();
 
-        //    if (await _userManager.CheckPasswordAsync(exsistUser, resetPassword.Password))
-        //    {
-        //        ModelState.AddModelError("", "This password is your last password");
-        //        return View(resetPassword);
-        //    }
-
-        //    await _userManager.ResetPasswordAsync(exsistUser, resetPassword.Token, resetPassword.Password);
-
-        //    await _userManager.UpdateSecurityStampAsync(exsistUser);
-
-        //    return RedirectToAction(nameof(Login));
-        //}
-
-        //    public IActionResult ForgetPassword()
-        //    {
-        //        return View();
-        //    }
-        //    [HttpPost]
-        //    [ValidateAntiForgeryToken]
-        //    public async Task<IActionResult> ForgetPassword(ForgotPasswordVM forgotPassword)
-        //    {
-        //        if (!ModelState.IsValid) return NotFound();
-
-        //        AppUser exsistUser = await _userManager.FindByEmailAsync(forgotPassword.Email);
-
-        //        if (exsistUser == null)
-        //        {
-        //            ModelState.AddModelError("Email", "Email isn't found");
-        //            return View();
-        //        }
-
-        //        string token = await _userManager.GeneratePasswordResetTokenAsync(exsistUser);
-
-        //        string link = Url.Action(nameof(ResetPassword), "Account", new { userId = exsistUser.Id, token },
-        //Request.Scheme, Request.Host.ToString());
-
-        //        string body = string.Empty;
-
-        //        string path = "wwwroot/verifymail/forgotVerify.html";
-        //        body = _fileService.ReadFile(path, body);
-
-        //        body = body.Replace("{{link}}", link);
-        //        body = body.Replace("{{Fullname}}", exsistUser.Fullname);
-
-        //        string subject = "Verify Email";
-
-        //        _emailService.Send(exsistUser.Email, subject, body);
-
-        //        return RedirectToAction(nameof(VerifyAccount));
-        //    }
+        [HttpGet]
         public IActionResult Login()
         {
+
             return View();
         }
-
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginVM loginVM)
+        public async Task<IActionResult> Login(LoginVM login)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) return View();
+
+            AppUser user = await _userManager.FindByEmailAsync(login.UserName);
+            if (user is null)
             {
-                return View(loginVM);
+                user = await _userManager.FindByNameAsync(login.UserName);
+                if (user is null)
+                {
+                    ModelState.AddModelError(string.Empty, "Email, UserName or Password is incorrect");
+                    return View();
+                }
             }
-
-            AppUser user = await _userManager.FindByEmailAsync(loginVM.UserName);
-
-            user ??= await _userManager.FindByNameAsync(loginVM.UserName);
-
-            if (user == null)
+            var result = await _signInManager.PasswordSignInAsync(user, login.Password, login.RememberMe, true);
+            if (result.IsLockedOut)
             {
-                ModelState.AddModelError("", "Email or password is wrong!");
-                return View(loginVM);
+                ModelState.AddModelError(string.Empty, "Server is eneabled at the moment,please try again later");
+                return View();
             }
-
-            var result = await _signInManager.PasswordSignInAsync(user, loginVM.Password, loginVM.RememberMe, false);
-            //if (!result.IsLockedOut)
-            //{
-            //    ModelState.AddModelError("", "Your account has been blocked!");
-            //    return View(loginVM);
-            //}
-
             if (!result.Succeeded)
             {
-                ModelState.AddModelError("", "Email or password wrong!");
-                return View(loginVM);
+                ModelState.AddModelError(string.Empty, "Email, UserName or Password is incorrect");
+                return View();
             }
-            if (!user.IsActive)
-            {
-                ModelState.AddModelError("", "Your account has been blocked");
-                return View(loginVM);
-            }
+
+
+            await _signInManager.SignInAsync(user, login.RememberMe);
 
             return RedirectToAction("Index", "Home");
         }
-
 
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
-        public async Task<IActionResult> CreateRole()
+
+        public async Task<IActionResult> CreateRoles()
         {
-            await _roleManager.CreateAsync(new IdentityRole { Name = "SuperAdmin" });
-            //await _roleManager.CreateAsync(new IdentityRole { Name = "Admin" });
-            //await _roleManager.CreateAsync(new IdentityRole { Name = "Member" });
-            return Content("role added");
-        }
-        private static string GenerateOTP()
-        {
-            Random random = new Random();
-            int otpNumber = random.Next(100000, 999999);
-            return otpNumber.ToString();
+            foreach (RoleEnums role in Enum.GetValues(typeof(RoleEnums)))
+            {
+                if (!await _roleManager.RoleExistsAsync(role.ToString()))
+                {
+                    await _roleManager.CreateAsync(new IdentityRole
+                    {
+                        Name = role.ToString(),
+                    });
+                }
+            }
+            return RedirectToAction("Index", "Home");
         }
 
+
+
     }
+
 }

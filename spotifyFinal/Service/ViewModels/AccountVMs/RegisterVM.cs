@@ -4,6 +4,7 @@ namespace Service.ViewModels.Account
 {
     public class RegisterVM
     {
+
         [Required, StringLength(100)]
         [Display(Prompt = "username")]
         public string? UserName { get; set; }

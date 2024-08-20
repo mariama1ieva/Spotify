@@ -18957,6 +18957,10 @@
       "PackagePath": "staticwebassets\\assets\\images\\5f9aa2e0-1567-4250-a4ed-a4239174e914-user.png"
     },
     {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\60c169b0-901f-40ab-b652-2b12ecdd8b92_ab67616d0000b27330d45198d0c9e8841f9a9578.jpeg",
+      "PackagePath": "staticwebassets\\assets\\images\\60c169b0-901f-40ab-b652-2b12ecdd8b92_ab67616d0000b27330d45198d0c9e8841f9a9578.jpeg"
+    },
+    {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\6102dd3e-2837-48cd-8d3e-9df6ab447d50-c.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\6102dd3e-2837-48cd-8d3e-9df6ab447d50-c.jpg"
     },
@@ -19479,6 +19483,10 @@
     {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\password.js",
       "PackagePath": "staticwebassets\\assets\\js\\password.js"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\payment.js",
+      "PackagePath": "staticwebassets\\assets\\js\\payment.js"
     },
     {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\playButtons.js",

@@ -1,0 +1,49 @@
+﻿@using Domain.Entities
+@model IEnumerable<MusicPlaylist>
+
+
+
+@if (Model != null)
+{
+    @foreach (var song in Model)
+    {
+        <div class="music-row">
+            <div class="left-side">
+                <div class="count">
+                    <p>1</p>
+                    <button class="play">
+                        <i id="play-icon" class="fa-solid fa-play"></i>
+                        <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                    </button>
+                </div>
+                <div class="music-info">
+                    <img src="~/assets/images/@song.Song.ImageUrl" alt="">
+                    <div class="names">
+                        <div class="music-name">
+                            <p>@song.Song.Name</p>
+                        </div>
+                        <a class="artist-name">
+                            @foreach (var artist in song.Song.ArtistSongs)
+                            {
+                                <p>@artist.Artist.FullName</p>
+                            }
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="right-side">
+                <div class="albom-name">
+                    <a>@song.Song.Album.Name</a>
+                </div>
+                <div class="add-date">
+                    <button id="wishlist" class="wish" songId="@song.SongId">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
+                <div class="music-time">
+                    <p>3:50</p>
+                </div>
+            </div>
+        </div>
+    }
+}

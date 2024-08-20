@@ -190,8 +190,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/LikedSong/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlrZWRTb25nXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/Playlist/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWxpc3RcRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/Playlist/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWxpc3RcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/Premium/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlbWl1bVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/Premium/Payment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlbWl1bVxQYXltZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/Profile/Create.cshtml]
@@ -236,6 +252,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/Shared/_MainSearch.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NYWluU2VhcmNoLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/Shared/_Playlist.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9QbGF5bGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Asus/OneDrive/Desktop/Spotify-master/spotifyFinal/spotifyFinal/Views/Shared/_RatingPartial.cshtml]

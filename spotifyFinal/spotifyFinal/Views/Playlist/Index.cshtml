@@ -1,0 +1,115 @@
+﻿@model AddPlaylistVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    select{
+        width: 100%;
+        padding: 20px;
+        background: #484848;
+    }
+
+    option{
+        padding: 10px;
+        color:white;
+    }
+
+    #submit-btn {
+        margin-left: 302px;
+        margin-top: 48px;
+        font-family: circular;
+        background-color: white;
+        border: none;
+        padding: 4px;
+        border-radius: 5px;
+        cursor:pointer;
+    }
+
+    .search-area {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #242424;
+        border: 2px solid transparent;
+        border-radius: 500px;
+        color: #fff;
+        height: 48px;
+        padding: 0 103px 0 17px;
+        gap: 11px;
+        position: relative;
+    }
+
+        .search-area:focus-within {
+            border-color: white;
+        }
+
+        .search-area input {
+            outline: none;
+            background-color: transparent;
+            border: none;
+            color: white;
+        }
+
+        .search-area i {
+            color: #a0a0a0;
+        }
+
+        .search-area .delete {
+            position: absolute;
+            right: 17px;
+            display: none;
+        }
+</style>
+
+<form asp-action="AddPlaylist" method="post" enctype="multipart/form-data" id="change-photo-form">
+    <section id="profile-area">
+        <input class="playlistId" type="hidden" value="@ViewBag.PlaylistId" />
+        <div class="content">
+            <div class="left-side">
+                <div class="account">
+                    <label for="profile-photo" class="choose-photo">
+                        <i class="fa-solid fa-pen"></i>
+                        <span>Choose photo</span>
+                        <input id="submit-btn" type="submit" value="Save">
+                    </label>
+                    <input type="file" id="profile-photo" style="display: none;" asp-for="Photo">
+                    <span class="text-danger my-1" asp-validation-for="Photo"></span>
+                </div>
+            </div>
+            <div class="right-side">
+                <p>Playlist</p>
+                @*                 <h1><input class="form-control" asp-for="Name" ></h1> *@
+                <div class="search-area">
+                    <input class="form-control" asp-for="Name" type="text">
+                    <i class="fa-solid fa-xmark delete"></i>
+                </div>
+                <p>User</p>
+            </div>
+        </div>
+    </section>
+    <section id="top-music">
+        <div class="context">
+
+            <div class="liked-music">
+                <partial name="_Playlist" />
+            </div>
+        </div>
+    </section>
+    <section id="search-area-playlist">
+        <div class="content">
+            <h2>Let's find something for your playlist</h2>
+            @*  <div class="search-area">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" placeholder="Search for song">
+            <i class="fa-solid fa-xmark delete"></i>
+            </div> *@
+            <div class="search-result">
+                <select multiple asp-for="Ids" asp-items="@ViewBag.Songs">
+                </select>
+            </div>
+        </div>
+    </section>
+</form>

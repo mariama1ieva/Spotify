@@ -1,0 +1,91 @@
+﻿@using Domain.Entities
+@model Playlist
+@{
+    ViewData["Title"] = "Detail";
+}
+@{
+    int count = 0;
+
+}
+<section id="detail-area">
+    <div class="content">
+        <div class="left-side">
+            <img src="~/assets/images/@Model.ImgUrl" alt="">
+        </div>
+        <div class="right-side">
+            <input class="songId" type="hidden" value="@Model.Id" />
+            <p>Playlist</p>
+            <h1 id="page-title">@Model.Name</h1>
+            <div class="about-detail">
+                <div class="about-detail">
+                    <div class="createdBy">
+                        <div class="createdBy">
+                            <img src="~/assets/images/@Model.AppUser.ImageUrl" alt="">
+                            <a style="text-decoration:none;color:white" asp-controller="playlist" asp-action="detail" asp-route-id="@Model.Id">
+                                <span>@Model.AppUser.Fullname</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<section id="top-music">
+    <div class="context">
+        <div class="action-bar">
+            <button class="play" id="actionbar-play">
+                <i id="play-icon" class="fa-solid fa-play"></i>
+                <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+            </button>
+        </div>
+        <div class="account-music">
+            <h2>Recommended</h2>
+            <div id="songs">
+                @if (Model.MusicPlaylists != null)
+                {
+                    @foreach (var song in Model.MusicPlaylists)
+                    {
+                        count++;
+                        <div class="music-row" src="~/assets/music/@song.Song.Path">
+                            <div class="left-side">
+                                <div class="count">
+                                    <p>@count</p>
+                                    <button class="play">
+                                        <i id="play-icon" class="fa-solid fa-play"></i>
+                                        <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                                    </button>
+                                </div>
+                                <div class="music-info">
+                                    <img src="~/assets/images/@song.Song.ImageUrl" alt="">
+                                    <div class="names">
+                                        <div class="music-name">
+                                            <p>@song.Song.Name</p>
+                                        </div>
+                                        <a class="artist-name">
+                                            <p>@song.Song.ArtistSongs.FirstOrDefault()?.Artist.FullName</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right-side">
+                                <div class="albom-name">
+                                    <a></a>
+                                </div>
+                                <button id="wishlist" class="wish" songId="@song.Id">
+                                    <i class="fa-solid fa-heart"></i>
+                                </button>
+                                <div class="music-time">
+                                    <p>3:49</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
+    </div>
+</section>

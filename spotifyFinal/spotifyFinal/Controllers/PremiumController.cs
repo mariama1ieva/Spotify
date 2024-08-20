@@ -8,5 +8,10 @@ namespace spotifyFinal.Controllers
         {
             return View();
         }
+
+        public IActionResult Payment()
+        {
+            return View();
+        }
     }
 }

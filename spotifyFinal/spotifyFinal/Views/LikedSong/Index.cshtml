@@ -1,0 +1,101 @@
+﻿@model WishListVM
+@{
+    int count = 0;
+}
+
+<section id="profileliked-area"
+         style="background: linear-gradient(transparent 0,rgba(0,0,0,.5) 100%),rgb(80, 58, 157);">
+    <div class="content">
+        <div class="left-side">
+            <button class="liked-songs">
+                <img src="~/assets/images/liked-songs-300.png" alt="">
+            </button>
+        </div>
+        <div class="right-side">
+            <p>Profile</p>
+            <h1>Liked Songs</h1>
+            <a>@User.Identity.Name</a>
+        </div>
+    </div>
+</section>
+<!-- <section id="empty-area" >
+    <div class="content">
+        <h1>Songs you like will appear here</h1>
+        <p>Save songs by tapping the heart icon.</p>
+        <button><a href="">Find songs</a></button>
+    </div>
+</section> -->
+<section id="top-music">
+    <div class="context">
+        <div class="liked-music-header">
+            <div class="left-side">
+                <p>#</p>
+                <p>Title</p>
+            </div>
+            <div class="right-side">
+                <p>Album</p>
+                <p>Date added</p>
+                <i class="fa-regular fa-clock"></i>
+            </div>
+        </div>
+        <div class="liked-music">
+            <div id="songs">
+                @foreach (var song in Model.WishlistSongs)
+                {
+                    DateTime currentDate = DateTime.Now;
+
+                    DateTime date1 = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, currentDate.Hour, currentDate.Minute, currentDate.Second);
+                    DateTime date2 = song.CreateDate;
+
+                    TimeSpan dif = date1 - date2;
+
+                    int hoursdif = dif.Hours;
+                    int minutedif = dif.Minutes;
+                    int secondif = dif.Seconds;
+
+                    count++;
+                    <div class="music-row" src="../../assets/music/@song.Path" song-id="@song.Id">
+                        <div class="left-side">
+                            <div class="count">
+                                <p>@count</p>
+                                <button class="play">
+                                    <i id="play-icon" class="fa-solid fa-play"></i>
+                                    <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                                </button>
+                            </div>
+                            <div class="music-info">
+                                <img src="~/assets/images/@song.Image" alt="">
+                                <div class="names">
+                                    <div class="music-name">
+                                        <p>@(song.Name.Length > 15 ? song.Name.Substring(0, 14) + "..." : song.Name)</p>
+                                    </div>
+                                    <a asp-controller="artist" asp-action="detail" asp-route-id="@song.ArtistId" class="artist-name">
+                                        <p artist-id="@song.ArtistId">@song.ArtistName</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right-side">
+                            <div class="albom-name">
+                                <a style="text-decoration:none;color:#9D9D9E" asp-controller="album" asp-action="detail" asp-route-id="@song.AlbumId">@(song.AlbumName.Length > 15 ? song.AlbumName.Substring(0, 13) + "..." : song.AlbumName)</a>
+                            </div>
+                            <div class="add-date">
+                                <p>@hoursdif:@minutedif:@secondif ago</p>
+                                <button class="dlt-wish" songId="@song.Id">
+                                    <i class="fa-solid fa-circle-xmark"></i>
+                                </button>
+
+                            </div>
+                            <div class="music-time">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script src="~/common/functionalities/wishlist.js"></script>

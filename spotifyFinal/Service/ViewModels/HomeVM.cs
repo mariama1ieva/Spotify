@@ -13,5 +13,7 @@ namespace Service.ViewModels
         public List<Album> CategoryAlbums { get; set; }
         public string Category { get; set; }
         public Dictionary<string, List<Album>> AlbumsByCategory { get; set; }
+
+
     }
 }

@@ -51,24 +51,25 @@
             <div class="throwback" style="padding: 20px 0;">
                 <h2 style="color:white">Public Playlists</h2>
             </div>
-            <div class="main-cards">
-                @foreach (var playlist in Model.Playlists)
-                {
-                    <a style="text-decoration:none" asp-controller="playlist" asp-action="detail" asp-route-id="@playlist.Id">
-                        <div class="card-container">
-                            <div class="card">
-                                <a><img src="~/assets/images/@playlist.ImgUrl" alt=""></a>
-                                <h3>@playlist.Name</h3>
-                                <p><span>By </span>@playlist.AppUser.Fullname</p>
-                                <button class="play">
-                                    <i id="play-icon" class="fa-solid fa-play"></i>
-                                    <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </a>
-                 
-                }
+          <div class="main-cards">
+    @foreach (var playlist in Model.Playlists)
+    {
+        <a style="text-decoration:none;"  asp-controller="playlist" asp-action="detail" asp-route-id="@playlist.Id">
+            <div class="card-container">
+                <div class="card">
+                    <img src="~/assets/images/@playlist.ImgUrl" alt="">
+                    <h3>@playlist.Name</h3>
+                    <p><span>By </span>@playlist.AppUser.Fullname</p>
+                    <button class="play">
+                        <i id="play-icon" class="fa-solid fa-play"></i>
+                        <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                    </button>
+                </div>
+            </div>
+        </a>
+    }
+</div>
+
 
             </div>
         </div>

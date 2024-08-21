@@ -1,4 +1,4 @@
-﻿
+﻿@model SidebarVM
 <section id="sidebar-section">
     <div class="content">
         <div class="sidebar-navarea">
@@ -38,23 +38,41 @@
                 <div class="content">
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <a style="text-decoration:none" asp-action="create" asp-controller="profile">
+                        <a style="text-decoration:none" asp-controller="LikedSong" asp-action="Index">
                             <div class="sidebar-playlist-cards">
                                 <div class="card">
                                     <div class="left-side">
-                                        <i class="fa-solid fa-music"></i>
+                                        <img src="../../assets/images/liked-songs-300.png" alt="">
                                     </div>
                                     <div class="right-side">
-                                        <p class="playlist-name">My Playlist <span>#1</span></p>
-                                        <p>Playlist <span>Leman</span></p>
+                                        <p class="playlist-name">Liked Songs</p>
+                                        <p>Playlist - <span class="song_count">@Model.SongCount</span></p>
                                     </div>
                                 </div>
                             </div>
                         </a>
-                         
+                        @if (Model.Playlists!=null)
+                        {
+                            @foreach (var item in Model.Playlists)
+                            {
+                                <a style="text-decoration:none" asp-controller="Playlist" asp-action="Detail" asp-route-id="@item.Id">
+                                    <div class="sidebar-playlist-cards">
+                                        <div class="card">
+                                            <div class="left-side">
+                                                <img src="~/assets/images/@item.AppUser.ImageUrl" alt="">
+                                            </div>
+                                            <div class="right-side">
+                                                <p class="playlist-name">@item.Name</p>
+                                                <p>Playlist by <span class="song_count">@item.AppUser.Fullname</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            }
+
+                        }
                     }
-              
-                    <div class="create-playlist">
+                        <div class="create-playlist">
                         <div class="paragraphy">
                             <p>Create your first playlist</p>
                             <p>It's easy, we'll help you</p>

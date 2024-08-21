@@ -13,7 +13,7 @@ namespace spotifyFinal.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Detail(int id)
+        public async Task<IActionResult> Detail(int? id)
         {
             if (id == null) return NotFound();
 
@@ -60,7 +60,7 @@ namespace spotifyFinal.Controllers
                 }
             }
 
-            //ViewBag.Ratings = _context.Ratings.Include(c => c.Comment).ToList();
+            ViewBag.Ratings = _context.Ratings.Include(c => c.Comment).ToList();
 
             return View(artistDetailVM);
         }

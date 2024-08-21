@@ -13,30 +13,7 @@
             text-decoration: underline;
         }
 </style>
-<header id="spotify-header">
-    <div class="content">
-
-
-        <div class="right-side" style="margin-left:900px">
-            @if (!User.Identity.IsAuthenticated)
-            {
-                <a asp-action="Register" asp-controller="Account">
-                    <button id="signIn">Sign up</button>
-                </a>
-                <a asp-action="Login" asp-controller="Account">
-                    <button id="signIn">Log in</button>
-                </a>
-            }
-            else
-            {
-                <button id="premium"><span>Explore Premium</span></button>
-                <button id="notification"><i class="fa-regular fa-bell"></i></button>
-                <button id="user"><span>L</span></button>
-            }
-
-        </div>
-    </div>
-</header>
+@Html.Partial("_LoginAreaPartial")
 <section class="a" id="detail-area">
     <div class="content">
         <div class="left-side">
@@ -84,7 +61,7 @@
             </div>
         </div>
         <input type="hidden" id="song_count" albumId="@Model.Id" value="@ViewBag.SongCount" />
-        @if (Model.Songs.Count() > 0)
+        @if (Model.Songs.Count() > 2)
         {
             <button id="loadMore"> Load more</button>
         }

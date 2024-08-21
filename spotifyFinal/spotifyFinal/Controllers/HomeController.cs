@@ -19,6 +19,7 @@ namespace spotifyFinal.Controllers
             var homeVM = new HomeVM
             {
                 Albums = await _context.Albums.Include(m => m.Category).Include(m => m.Artist).OrderByDescending(a => a.Id).Take(8).ToListAsync(),
+                Playlists = await _context.Playlist.ToListAsync()
             };
 
             return View(homeVM);

@@ -10,7 +10,7 @@
 <section id="detail-area">
     <div class="content">
         <div class="left-side">
-            <img src="~/assets/images/@Model.ImgUrl" alt="">
+            <img src="~/assets/images/@Model.AppUser.ImageUrl" alt="">
         </div>
         <div class="right-side">
             <input class="songId" type="hidden" value="@Model.Id" />
@@ -21,9 +21,9 @@
                     <div class="createdBy">
                         <div class="createdBy">
                             <img src="~/assets/images/@Model.AppUser.ImageUrl" alt="">
-                            <a style="text-decoration:none;color:white" asp-controller="playlist" asp-action="detail" asp-route-id="@Model.Id">
-                                <span>@Model.AppUser.Fullname</span>
-                            </a>
+                          
+                                <a style="text-decoration:none;color:white" asp-controller="playlist" asp-action="detail" asp-route-id="@Model.Id">@Model.AppUser.Fullname</a>
+                          
                         </div>
                     </div>
                 </div>

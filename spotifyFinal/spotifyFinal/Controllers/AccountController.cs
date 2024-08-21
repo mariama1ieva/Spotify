@@ -53,7 +53,7 @@ namespace spotifyFinal.Controllers
                 return View(request);
             }
 
-            await _userManager.AddToRoleAsync(user, RoleEnums.SuperAdmin.ToString());
+            await _userManager.AddToRoleAsync(user, RoleEnums.Member.ToString());
 
             string token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
             string url = Url.Action(nameof(ConfirmEmail), "Account", new { userId = user.Id, token }, Request.Scheme, Request.Host.ToString());

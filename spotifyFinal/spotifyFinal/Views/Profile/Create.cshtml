@@ -23,7 +23,7 @@
                     imgUrl = Model.ProfilePhotoUrl;
                 }
             }
-            <button class="account" style="background-image:url('~/wwwroot/assets/images/@imgUrl')">
+            <button class="account" style="background-image:url('~/assets/images/@imgUrl')">
                 @if (Model.ProfilePhotoUrl == null)
                 {
                     <i class="fa-regular fa-user user"></i>
@@ -57,7 +57,7 @@
         <a style="text-decoration:none;"  asp-controller="playlist" asp-action="detail" asp-route-id="@playlist.Id">
             <div class="card-container">
                 <div class="card">
-                    <img src="~/assets/images/@playlist.ImgUrl" alt="">
+                 <img src="~/assets/images/@playlist.ImgUrl" alt="">
                     <h3>@playlist.Name</h3>
                     <p><span>By </span>@playlist.AppUser.Fullname</p>
                     <button class="play">

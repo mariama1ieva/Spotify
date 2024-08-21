@@ -1,5 +1,4 @@
 ﻿@using Domain.Entities
-
 @model Album
 @{
     int count = 0;
@@ -13,7 +12,6 @@
             text-decoration: underline;
         }
 </style>
-@Html.Partial("_LoginAreaPartial")
 <section class="a" id="detail-area">
     <div class="content">
         <div class="left-side">
@@ -61,7 +59,7 @@
             </div>
         </div>
         <input type="hidden" id="song_count" albumId="@Model.Id" value="@ViewBag.SongCount" />
-        @if (Model.Songs.Count() > 2)
+        @if (Model.Songs.Count() > 0)
         {
             <button id="loadMore"> Load more</button>
         }
@@ -80,7 +78,7 @@
                 {
                     <div class="card-container">
                         <div class="card">
-                            <a asp-controller="album" asp-action="detail" asp-route-id="@otherAlbum.Id"><img src="~/assets/images/@otherAlbum.ImageUrl" alt=""></a>
+                            <a asp-controller="album" asp-action="detail" asp-route-id="@otherAlbum.Id"><img src="~/assets/images/@otherAlbum.Image" alt=""></a>
                             <h3>@otherAlbum.Name</h3>
                             <p>@otherAlbum.CreateDate.Year</p>
                             <button class="play">

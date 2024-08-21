@@ -42,7 +42,7 @@
                             <div class="sidebar-playlist-cards">
                                 <div class="card">
                                     <div class="left-side">
-                                        <img src="../../assets/images/liked-songs-300.png" alt="">
+                                        <img src="~/assets/images/liked-songs-300.png" alt="Liked Songs">
                                     </div>
                                     <div class="right-side">
                                         <p class="playlist-name">Liked Songs</p>
@@ -51,7 +51,8 @@
                                 </div>
                             </div>
                         </a>
-                        @if (Model.Playlists!=null)
+
+                        @if (Model.Playlists != null && Model.Playlists.Any())
                         {
                             @foreach (var item in Model.Playlists)
                             {
@@ -59,7 +60,7 @@
                                     <div class="sidebar-playlist-cards">
                                         <div class="card">
                                             <div class="left-side">
-                                                <img src="~/assets/images/@item.AppUser.ImageUrl" alt="">
+                                                <img src="~/assets/images/@item.AppUser.ImageUrl" alt="Playlist Image">
                                             </div>
                                             <div class="right-side">
                                                 <p class="playlist-name">@item.Name</p>
@@ -69,8 +70,12 @@
                                     </div>
                                 </a>
                             }
-
                         }
+                        
+                    }
+                    else
+                    {
+                        <p style="color:white">Please log in to see your playlists.</p>
                     }
                         <div class="create-playlist">
                         <div class="paragraphy">

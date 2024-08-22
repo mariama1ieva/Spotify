@@ -18,7 +18,7 @@
                 <div class="about-detail">
                     <div class="createdBy">
                         <div class="createdBy">
-                            <img src="~/assets/images/@Model.Song.ArtistSongs.FirstOrDefault()?.Artist.ImageUrl" alt="">
+                            <img src="assets/images/@Model.Song.ArtistSongs.FirstOrDefault()?.Artist.ImageUrl" alt="">
                             <a style="text-decoration:none;color:white" asp-controller="artist" asp-action="detail" asp-route-id="@Model.Artist.Id">
                                 <span>@Model.Song.ArtistSongs.FirstOrDefault()?.Artist.FullName</span>
                             </a>
@@ -63,7 +63,7 @@
                     @foreach (var song in Model.Songs)
                     {
                         count++;
-                        <div class="music-row" src="~/assets/music/@song.Path">
+                        <div class="music-row" src="../../assets/music/@song.Path">
                             <div class="left-side">
                                 <div class="count">
                                     <p>@count</p>
@@ -101,6 +101,7 @@
 
             </div>
         </div>
+
         <div class="add-comment-area">
             <div class="left-side">
                 <h2>Do you want to write something?</h2>

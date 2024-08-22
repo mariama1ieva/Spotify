@@ -49,7 +49,7 @@
                     @foreach (var song in Model.MusicPlaylists)
                     {
                         count++;
-                        <div class="music-row" src="~/assets/music/@song.Song.Path">
+                        <div class="music-row" src="../../assets/music/@song.Song.Path" song-id="@song.Song.Id">
                             <div class="left-side">
                                 <div class="count">
                                     <p>@count</p>

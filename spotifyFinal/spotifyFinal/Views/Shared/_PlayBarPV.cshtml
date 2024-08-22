@@ -1,29 +1,17 @@
-﻿
-
-<section id="music-player">
-    <div class="content" style="width:100% !important;">
-        <div class="player-song" style="width:600px;">
+﻿<section id="music-player">
+    <div class="content">
+        <div class="player-song">
             <div class="images">
-                <a><img src="~/assets/images/0273a204-f956-4c2f-931f-3b610930f836-Jazz.jpg" alt="song-img"></a>
+                <a href=""><img src="~/assets/images/DefaultMusic.png" alt="song-img"></a>
             </div>
             <div class="song-info">
-                >
-                <a id="song-name"><span>Name</span></a>
+                <a id="song-name" href="#"><span>Music name</span></a>
                 <div class="artist-name">
-                    <a><span>Artist</span></a>
-
+                    <a href="#"><span>Artist</span></a>
                 </div>
             </div>
-            <button id="wishlist"><i class="fa-regular fa-heart"></i></button>
-            <div class="mobile-buttons">
-                <!-- <button id="wishlist-mob"><i class="fa-regular fa-heart"></i></button>
-                <button id="play-music-mob"> <i class="fa-solid fa-play"></i></button> -->
-                <!-- <button id="stop-music-mob">
-                    <i class="fa-solid fa-pause"></i>
-                </button> -->
-            </div>
         </div>
-        <div class="player-control" style="width:500px;">
+        <div class="player-control">
             <audio id="audio" src=""></audio>
             <div class="first-side">
                 <div class="left-side">
@@ -51,28 +39,26 @@
                 <span id="duration">00:00</span>
             </div>
         </div>
-        <div class="control-buttons" style="width:600px;">
+        <div class="control-buttons">
             <i class="fa-solid fa-volume-low"></i>
             <input type="range" id="volume" style="height: 4px;" min="0" max="1" step="0.1" value="1">
-
         </div>
     </div>
 </section>
 <div class="mobile-playercontroller">
-    <div class="content">
+    <div class="content" style="background-color:#3d3c3c">
         <div class="left-side">
             <div class="mobile-images">
-                <a href="#"><img src="../../assets/images/ViralHits.jpg" alt="song-img"></a>
+                <a href="#"><img src="~/assets/images/DefaultMusic.png" alt="song-img"></a>
             </div>
             <div class="mobile-song-info">
-                <a id="mobile-song-name" href="#"><span>California Love</span></a>
+                <a id="mobile-song-name" href="#"><span>Music </span></a>
                 <div class="mobile-artist-name">
-                    <a href="#"><span>Roger</span></a>
+                    <a href="#"><span>Artist</span></a>
                 </div>
             </div>
         </div>
         <div class="right-side">
-            <button id="wishlist"><i class="fa-regular fa-heart"></i></button>
             <button class="play" id="play-pause-responsive">
                 <i id="play-icon" class="fa-solid fa-play"></i>
                 <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
@@ -80,3 +66,16 @@
         </div>
     </div>
 </div>
+<script src="~/assets/js/activeWishlist.js"></script>
+<script src="~/assets/js/sidebar.js"></script>
+<script src="~/assets/js/playMusic.js"></script>
+<script src="~/assets/js/playButtons.js"></script>
+<script src="~/assets/js/popup.js"></script>
+<script src="~/assets/js/detail.js"></script>
+<script src="~/assets/js/navbar.js"></script>
+<script src="~/assets/js/active.js"></script>
+<script src="~/assets/js/addRating.js"></script>
+<script src="~/assets/js/searchInput.js"></script>
+<script src="~/assets/js/wishlist.js"></script>
+<script src="~/assets/js/musicTime.js"></script>
+<script src="~/assets/js/playlistSearch.js"></script>

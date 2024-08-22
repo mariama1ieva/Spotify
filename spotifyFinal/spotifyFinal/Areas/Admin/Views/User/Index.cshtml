@@ -1,0 +1,38 @@
+﻿@using Service.ViewModels.AccountVMs;
+@model List<UserVM>
+
+
+<div class="container">
+    @if (User.Identity.IsAuthenticated)
+    {
+        if (User.IsInRole("SuperAdmin"))
+        {
+            <div class="create-category">
+                <a asp-action="AddRole" class="btn btn-success text-white mb-3 mx-3">Add role</a>
+            </div>
+        }
+    }
+    <div class="table-responsive table--no-card m-b-30">
+        <table class="table table-borderless table-striped table-earning">
+            <thead>
+                <tr>
+                    <th>Fullname</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Roles</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.FullName</td>
+                        <td>@item.UserName</td>
+                        <td>@item.Email</td>
+                        <td>@item.Roles</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

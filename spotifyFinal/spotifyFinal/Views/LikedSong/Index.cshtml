@@ -15,7 +15,7 @@
         <div class="right-side">
             <p>Profile</p>
             <h1>Liked Songs</h1>
-            <a>@User.Identity.Name</a>
+            <a style="text-decoration:none;color:white" asp-action="Create" asp-controller="Profile" >@User.Identity.Name</a>
         </div>
     </div>
 </section>
@@ -60,7 +60,7 @@ else
                         int secondif = dif.Seconds;
 
                         count++;
-                        <div class="music-row" src="~/assets/music/@song.Path" song-id="@song.Id">
+                        <div class="music-row" src="../../assets/music/@song.Path" song-id="@song.Id">
                             <div class="left-side">
                                 <div class="count">
                                     <p>@count</p>
@@ -81,6 +81,8 @@ else
                                     </div>
                                 </div>
                             </div>
+
+
                             <div class="right-side">
                                 <div class="albom-name">
                                     <a style="text-decoration:none;color:#9D9D9E" asp-controller="album" asp-action="detail" asp-route-id="@song.AlbumId">@(song.AlbumName.Length > 15 ? song.AlbumName.Substring(0, 13) + "..." : song.AlbumName)</a>

@@ -71,7 +71,7 @@
     <section id="cards-area">
         <div class="content">
             <div class="throwback">
-                <h2><a href="#">More by <Span>@Model.Artist.FullName</Span></a></h2>
+                <h2><a asp-action="Detail" asp-controller="Artist" asp-route-id="@Model.ArtistId" >More by <Span>@Model.Artist.FullName</Span></a></h2>
             </div>
             <div class="main-cards">
                 @foreach (var otherAlbum in ViewBag.OtherAlbums)

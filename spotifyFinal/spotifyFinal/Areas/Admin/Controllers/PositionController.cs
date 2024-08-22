@@ -88,24 +88,21 @@ namespace spotifyFinal.Areas.Admin.Controllers
         public async Task<IActionResult> Edit(int? id)
         {
             ViewBag.Artists = await _artistService.GetALlBySelectedAsync();
+
+            // Validate the ModelState
             if (!ModelState.IsValid) return View();
 
             if (id == null) return BadRequest();
 
             var position = await _positionService.GetAllWithDatasById((int)id);
 
+            if (position == null) return NotFound();
 
-
-            PositionEditVM model = new()
+            PositionEditVM model = new PositionEditVM
             {
                 Name = position.Name,
-                //CategoryId = album.CategoryId,
-                //ArtistId = album.ArtistId,
-                //GroupId = album.GroupId,
-
+                ArtistIds = position.ArtistPositions.Select(ap => ap.ArtistId).ToList()
             };
-
-            if (position == null) return NotFound();
 
             return View(model);
         }

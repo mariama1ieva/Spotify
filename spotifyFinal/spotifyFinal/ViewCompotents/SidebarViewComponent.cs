@@ -23,7 +23,7 @@ namespace spotifyFinal.ViewCompotents
 
             int songCount = await _context.WishlistItems.Where(m => m.Wishlist.AppUserId == userId && !m.SoftDelete).CountAsync();
 
-            var playlist = await _context.Playlist.Include(m => m.AppUser).ToListAsync();
+            var playlist = await _context.Playlist.Include(m => m.AppUser).Where(m => m.AppUserId == userId).ToListAsync();
 
             SidebarVM model = new() { SongCount = songCount, Playlists = playlist };
 

@@ -61,54 +61,67 @@ namespace spotifyFinal.Controllers
 
 
         }
-        [HttpPost]
         public async Task<IActionResult> AddComment(Comment comment, int id)
         {
             if (!User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Login", "Account");
             }
-            if (User.Identity.IsAuthenticated)
+
+            if (comment.Rating == null || comment.Rating.Point <= 0)
             {
-                Song? song = _context.Songs.Include(s => s.Comments).FirstOrDefault(c => c.Id == id);
-                if (song == null) return NotFound();
-                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
 
-                Rating ratingRegistered = new()
-                {
-                    Point = comment.Rating.Point
-                };
-
-                Comment commentRegistered = new()
-                {
-                    Message = comment.Message,
-                    AppUser = user,
-                    Song = song,
-                    Rating = ratingRegistered,
-                    CreateDate = DateTime.Now
-                };
-                double rateCount = _context.Ratings.Where(r => r.Comment.SongId == id).Count();
-
-
-                if (song.PointRayting.HasValue)
-                {
-                    double currentTotalRating = song.PointRayting.Value * rateCount;
-                    double newTotalRating = currentTotalRating + comment.Rating.Point;
-                    rateCount++;
-                    double averageRating = newTotalRating / rateCount;
-                    song.PointRayting = Math.Min(10.0, averageRating);
-                }
-                else
-                {
-                    song.PointRayting = Math.Min(10.0, comment.Rating.Point);
-                }
-
-                _context.Comments.Add(commentRegistered);
-                _context.Songs.Update(song);
-                await _context.SaveChangesAsync();
+                TempData["ErrorMessage"] = "Rating cannot be empty.";
+                return RedirectToAction(nameof(Detail), new { id });
             }
+
+            Song? song = await _context.Songs
+                .Include(s => s.Comments)
+                .FirstOrDefaultAsync(s => s.Id == id);
+
+            if (song == null)
+            {
+                return NotFound();
+            }
+
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            Rating ratingRegistered = new()
+            {
+                Point = comment.Rating.Point
+            };
+
+            Comment commentRegistered = new()
+            {
+                Message = comment.Message,
+                AppUser = user,
+                Song = song,
+                Rating = ratingRegistered,
+                CreateDate = DateTime.Now
+            };
+
+            double rateCount = _context.Ratings.Count(r => r.Comment.SongId == id);
+
+            if (song.PointRayting.HasValue)
+            {
+                double currentTotalRating = song.PointRayting.Value * rateCount;
+                double newTotalRating = currentTotalRating + comment.Rating.Point;
+                rateCount++;
+                double averageRating = newTotalRating / rateCount;
+                song.PointRayting = Math.Min(10.0, averageRating);
+            }
+            else
+            {
+                song.PointRayting = Math.Min(10.0, comment.Rating.Point);
+            }
+
+            _context.Comments.Add(commentRegistered);
+            _context.Songs.Update(song);
+            await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Detail), new { id });
         }
+
 
         public async Task<IActionResult> AddWishlist(int? id)
         {
@@ -175,5 +188,7 @@ namespace spotifyFinal.Controllers
 
             return otherSongs;
         }
+
+
     }
 }

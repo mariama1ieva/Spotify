@@ -36,9 +36,9 @@ namespace Service.Services
 
         }
 
-        public async Task<IEnumerable<CategoryVM>> GetAllAsync()
+        public async Task<List<Category>> GetAllAsync()
         {
-            return _mapper.Map<IEnumerable<CategoryVM>>(await _repository.GetAllAsync());
+            return _mapper.Map<List<Category>>(await _repository.GetAllAsync());
         }
 
         public async Task<CategoryDetailVM> GetByIdAsync(int id)

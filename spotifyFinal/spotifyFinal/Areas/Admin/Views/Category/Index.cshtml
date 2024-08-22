@@ -1,5 +1,6 @@
 ﻿@using Service.ViewModels.CategoryVMs
-@model List<CategoryVM>
+@using spotifyFinal.Areas.Admin.PaginateVM
+@model PaginateCategoryListVM
 
 @{
     Layout = "_Layout";
@@ -25,7 +26,7 @@
            
             <tbody>
 
-                @foreach (var item in Model)
+                @foreach (var item in Model.Categories)
                 {
                     <tr class="even pointer">
 
@@ -49,7 +50,9 @@
 
 
             </tbody>
+   
         </table>
+                  
         <div class="item form-group">
             <div class="" style="margin-left:100px;">
                 <a asp-action="Index" asp-area="Admin" asp-controller="Dashboard">
@@ -58,6 +61,77 @@
                 </a>
             </div>
         </div>
+         <nav aria-label="Page navigation example" class="pagination-container col-md-9 col-sm-9 center-margin mt-3" >
+    <ul class="pagination">
+        <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+            <a   class="page-link"  asp-action="Index" asp-route-pageNumber="@(Model.PageNumber - 1)"><i class="fa-solid fa-chevron-left fa-lg" style="color: #000000;"></i></a>
+        </li>
+                @for (int i = 1; i <= Model.TotalPages; i++)
+
+
+                {
+                        <li  class="page-item @(Model.PageNumber == i ? "active" : "")">
+                            <a  class="page-link" asp-action="Index" asp-route-pageNumber="@i">@i</a>
+                        </li>
+                }
+        <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+            <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.PageNumber + 1)"><i class="fa-solid fa-chevron-right fa-lg" style="color: #000000;"></i></a>
+        </li>
+    </ul>
+</nav >
     </div>
 </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   
+
 <script src="https://kit.fontawesome.com/680cf1a7ac.js" crossorigin="anonymous"></script>
+<style>
+    .pagination-container {
+       
+        border-radius: 5px; /* Optional: Add rounded corners */
+        padding: 10px; /* Optional: Add some padding */
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .pagination .page-item {
+        margin: 0 2px;
+    }
+
+    .pagination .page-link {
+        color: black; /* Text color for links */
+        background-color: white; /* Default background color for links */
+        border: 1px solid #1E1E1E; /* Default border color */
+        border-radius: 5px; /* Optional: Add rounded corners */
+        padding: 8px 12px; /* Adjust padding */
+        text-align: center;
+        display: block;
+        text-decoration: none;
+    }
+
+    .pagination .page-link:hover {
+        background-color: #333333; /* Hover color */
+        border-color: #333333; /* Hover border color */
+    }
+
+    .pagination .page-item.active .page-link {
+        background-color: #000000; /* Background color for active page */
+        border-color: #000000; /* Border color for active page */
+        color: #ffffff; /* Text color for active page */
+    }
+
+    .pagination .page-item.disabled .page-link {
+        background-color: #1E1E1E; /* Disabled item background */
+        border-color: #1E1E1E; /* Disabled border color */
+        color: #757575; /* Disabled text color */
+        pointer-events: none; /* Disable click events */
+    }
+</style>

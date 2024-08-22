@@ -22,7 +22,7 @@
                         <div class="createdBy">
                             <img src="~/assets/images/@Model.AppUser.ImageUrl" alt="">
                           
-                                <a style="text-decoration:none;color:white" asp-controller="playlist" asp-action="detail" asp-route-id="@Model.Id">@Model.AppUser.Fullname</a>
+                                <a style="text-decoration:none;color:white" asp-controller="profile" asp-action="create" asp-route-id="@Model.AppUser.Id">@Model.AppUser.Fullname</a>
                           
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                                         <div class="music-name">
                                             <p>@song.Song.Name</p>
                                         </div>
-                                        <a class="artist-name">
+                                        <a asp-action="detail" asp-controller="Artist" asp-route-id="@song.Song.ArtistSongs.FirstOrDefault()?.Artist.Id" class="artist-name">
                                             <p>@song.Song.ArtistSongs.FirstOrDefault()?.Artist.FullName</p>
                                         </a>
                                     </div>
@@ -89,3 +89,5 @@
         </div>
     </div>
 </section>
+<script src="~/assets/js/wishlist.js"></script>
+<script src="~/assets/js/activeWishlist.js"></script>

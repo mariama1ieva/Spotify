@@ -46,7 +46,7 @@
                                                 <div class="music-name">
                                                     <p>@(song.Song.Name.Length > 15 ? song.Song.Name.Substring(0, 13) + "..." : song.Song.Name)</p>
                                                 </div>
-                                                <a class="artist-name">
+                                                <a asp-action="detail" asp-controller="Artist" class="artist-name">
                                                     <p>@song.Artist.FullName</p>
                                                 </a>
                                             </div>
@@ -108,17 +108,21 @@
                 <div class="all-albom">
                 @foreach (var album in Model.Albums)
                 {
-                        <div class="card-container">
-                            <div class="card">
-                                <img src="~/assets/images/@album.Image" alt="">
-                                <h3>@album.Name</h3>
-                                <p>@album.Artist.FullName</p>
-                                <button class="play">
-                                    <i id="play-icon" class="fa-solid fa-play"></i>
-                                    <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
-                                </button>
+                    <a asp-action="detail" asp-controller="Album" asp-route-id="@album.Id" >
+                            <div class="card-container">
+                                <div class="card">
+                                    <img src="~/assets/images/@album.Image" alt="">
+                                    <h3>@album.Name</h3>
+                                    <p>@album.Artist.FullName</p>
+                                    <button class="play">
+                                        <i id="play-icon" class="fa-solid fa-play"></i>
+                                        <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
+
+                        </a>
+                       
                 }
                 </div>
             </div>
@@ -134,10 +138,9 @@
                 {
                         <div class="card-container">
                             <div class="card">
-                                <img src="~/assets/images/@playlist.Playlist.ImgUrl" alt="">
+                                <img src="~/assets/images/@playlist.Playlist.AppUser.ImageUrl " alt="">
                                 <h3>@playlist.Playlist.Name</h3>
                                 <p>@playlist.Playlist.AppUser.Fullname</p>
-
                                 <button class="play">
                                     <i id="play-icon" class="fa-solid fa-play"></i>
                                     <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>

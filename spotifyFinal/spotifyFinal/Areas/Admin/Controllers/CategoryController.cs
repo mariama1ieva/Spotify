@@ -1,6 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Domain.Entities;
+using Microsoft.AspNetCore.Mvc;
 using Service.Services.Interfaces;
 using Service.ViewModels.CategoryVMs;
+using spotifyFinal.Areas.Admin.PaginateVM;
+
+
 using spotifyFinal.Helpers.Extentions;
 
 namespace spotifyFinal.Areas.Admin.Controllers
@@ -16,10 +20,22 @@ namespace spotifyFinal.Areas.Admin.Controllers
             _env = env;
         }
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pageNumber = 1, int pageSize = 4)
         {
 
-            return View(await _categoryService.GetAllAsync());
+            var categories = await _categoryService.GetAllAsync();
+
+            Paginate<Category> pageCategory = Paginate<Category>.Create(categories, pageNumber, pageSize);
+
+            var paginate = new PaginateCategoryListVM
+            {
+                Categories = pageCategory,
+                PageNumber = pageNumber,
+                TotalPages = pageCategory.TotalPages
+            };
+
+            return View(paginate);
+
         }
 
         [HttpGet]

@@ -1,0 +1,73 @@
+﻿@model SearchVM
+<style>
+    .music-name p:hover {
+        text-decoration: underline;
+    }
+
+    .artist-name p:hover {
+        text-decoration: underline;
+    }
+
+    .albom-name a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+@if (Model != null)
+
+{
+    @foreach (var song in Model.ArtistSongs)
+
+    {
+        <option>
+            <div class="music-row">
+                <div class="left-side">
+                    <div class="music-info" style="width:100%">
+                        <img src="~/assets/images/@song.Song.ImageUrl" alt="">
+                        <div class="names">
+                            <div class="music-name">
+                                <a style="color:white;text-decoration:none " asp-controller="song" asp-action="detail" asp-route-id="@song.Song.Id"><p style="cursor:pointer">@song.Song.Name</p></a>
+                            </div>
+                            <a style="text-decoration:none" asp-controller="artist" asp-action="detail" asp-route-id="@song.Artist.Id" class="artist-name">
+                                <p>@song.Artist.FullName</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-side">
+                    <div class="albom-name">
+                        <a style="color:white;text-decoration:none " asp-controller="album" asp-action="detail" asp-route-id="@song.Song.Album.Id">@song.Song.Album.Name</a>
+                    </div>
+                    @* <button id="add" class="add-playlist" onclick="addPlaylist(this)" songId="@song.SongId">
+            <span>Add</span>
+            </button> *@
+                </div>
+            </div>
+        </option>
+    }
+}
+
+<script>
+    function addPlaylist(addbtn) {
+        const songId = addbtn.getAttribute("songId");
+
+        fetch("/Playlist/AddPlaylist?name=" + null + "&songId=" + songId, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("network respons was not ok");
+                }
+                return response.text();
+            })
+            .then(response => {
+                document.querySelector(".liked-music").innerHTML += response;
+            })
+            .catch(error => {
+                console.error("Fetch error:", error);
+            });
+    }
+</script>

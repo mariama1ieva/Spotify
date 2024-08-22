@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Domain.Entities;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Service.ViewModels.CategoryVMs;
 
 namespace Service.Services.Interfaces
 {
     public interface ICategoryService
     {
-        Task<IEnumerable<CategoryVM>> GetAllAsync();
+        Task<List<Category>> GetAllAsync();
 
         Task<bool> AnyAsync(string name);
         Task<CategoryDetailVM> GetByIdAsync(int id);

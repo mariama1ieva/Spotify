@@ -27,7 +27,26 @@
     
         @RenderBody()
             @await Component.InvokeAsync("Footer");
+
+            @await Html.PartialAsync("_PlayBarPV")
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script src="~/assets/js/activeWishlist.js"></script>
+            <script src="~/assets/js/sidebar.js"></script>
+            <script src="~/assets/js/playMusic.js"></script>
+            <script src="~/assets/js/playButtons.js"></script>
+            <script src="~/assets/js/popup.js"></script>
+            <script src="~/assets/js/detail.js"></script>
+            <script src="~/assets/js/navbar.js"></script>
+            <script src="~/assets/js/active.js"></script>
+            <script src="~/assets/js/addRating.js"></script>
+            <script src="~/assets/js/searchInput.js"></script>
+            <script src="~/assets/js/wishlist.js"></script>
+            <script src="~/assets/js/musicTime.js"></script>
+            <script src="~/assets/js/playlistSearch.js"></script>
             @RenderSection("Scripts", required: false)
 
-            @await Html.PartialAsync("_PlaySongPartial");
+           
+         
 </body>

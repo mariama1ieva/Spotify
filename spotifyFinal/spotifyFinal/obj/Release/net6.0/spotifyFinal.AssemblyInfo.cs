@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("spotifyFinal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1fcca9c5c97379446c590be71d3e71ef0fce3ec1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+802d8eec9db6b19b8761cfcb46b014a51d1998ae")]
 [assembly: System.Reflection.AssemblyProductAttribute("spotifyFinal")]
 [assembly: System.Reflection.AssemblyTitleAttribute("spotifyFinal")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

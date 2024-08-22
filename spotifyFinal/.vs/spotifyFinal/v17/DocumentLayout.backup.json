@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\spotifyfinal\\areas\\admin\\views\\category\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\areas\\admin\\views\\category\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\spotifyfinal\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\spotifyfinal\\areas\\admin\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\areas\\admin\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\spotifyfinal\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{77D8E049-8674-4FDB-9205-37D39DB487D4}|Service\\Service.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\service\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77D8E049-8674-4FDB-9205-37D39DB487D4}|Service\\Service.csproj|solutionrelative:service\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\spotifyfinal\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{77D8E049-8674-4FDB-9205-37D39DB487D4}|Service\\Service.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\service\\services\\interfaces\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{77D8E049-8674-4FDB-9205-37D39DB487D4}|Service\\Service.csproj|solutionrelative:service\\services\\interfaces\\icategoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\spotifyfinal\\views\\account\\forgetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\views\\account\\forgetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|c:\\users\\asus\\onedrive\\desktop\\spotify-master\\spotifyfinal\\spotifyfinal\\views\\account\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB99B832-7077-460C-BA62-546FDDC62FFC}|spotifyFinal\\spotifyFinal.csproj|solutionrelative:spotifyfinal\\views\\account\\resetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,53 +35,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Views\\Category\\Index.cshtml",
-              "RelativeDocumentMoniker": "spotifyFinal\\Areas\\Admin\\Views\\Category\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Views\\Category\\Index.cshtml*",
-              "RelativeToolTip": "spotifyFinal\\Areas\\Admin\\Views\\Category\\Index.cshtml*",
-              "ViewState": "AgIAAF4AAAAAAAAAAAAgwG0AAAAUAAAAAAAAAA==",
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "spotifyFinal\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Account\\Login.cshtml*",
+              "RelativeToolTip": "spotifyFinal\\Views\\Account\\Login.cshtml*",
+              "ViewState": "AgIAACMAAAAAAAAAAAAQwDcAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-22T07:39:53.643Z",
+              "WhenOpened": "2024-08-22T09:43:34.972Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CategoryService.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\Service\\Services\\CategoryService.cs",
-              "RelativeDocumentMoniker": "Service\\Services\\CategoryService.cs",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\Service\\Services\\CategoryService.cs",
-              "RelativeToolTip": "Service\\Services\\CategoryService.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwCUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T07:37:57.086Z",
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "spotifyFinal\\Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "spotifyFinal\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-22T09:43:18.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ResetPassword.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Account\\ResetPassword.cshtml",
+              "RelativeDocumentMoniker": "spotifyFinal\\Views\\Account\\ResetPassword.cshtml",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Account\\ResetPassword.cshtml",
+              "RelativeToolTip": "spotifyFinal\\Views\\Account\\ResetPassword.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAADAAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-22T08:59:14.132Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ICategoryService.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\Service\\Services\\Interfaces\\ICategoryService.cs",
-              "RelativeDocumentMoniker": "Service\\Services\\Interfaces\\ICategoryService.cs",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\Service\\Services\\Interfaces\\ICategoryService.cs",
-              "RelativeToolTip": "Service\\Services\\Interfaces\\ICategoryService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T07:19:26.276Z",
+              "Title": "ForgetPassword.cshtml",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Account\\ForgetPassword.cshtml",
+              "RelativeDocumentMoniker": "spotifyFinal\\Views\\Account\\ForgetPassword.cshtml",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Views\\Account\\ForgetPassword.cshtml",
+              "RelativeToolTip": "spotifyFinal\\Views\\Account\\ForgetPassword.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-22T08:54:40.518Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CategoryController.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Controllers\\CategoryController.cs",
-              "RelativeDocumentMoniker": "spotifyFinal\\Areas\\Admin\\Controllers\\CategoryController.cs",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Areas\\Admin\\Controllers\\CategoryController.cs",
-              "RelativeToolTip": "spotifyFinal\\Areas\\Admin\\Controllers\\CategoryController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBYAAABTAAAAAAAAAA==",
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "spotifyFinal\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "spotifyFinal\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAIwBAAAAAAAAAAAUwFgBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T06:58:21.643Z",
+              "WhenOpened": "2024-08-22T08:48:48.94Z",
               "EditorCaption": ""
             }
           ]

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using MimeKit;
 using MimeKit.Text;
 using Service.Helpers.Enum;
+using Service.ViewModels;
 using Service.ViewModels.Account;
 using Service.ViewModels.AccountVMs;
 
@@ -178,6 +179,162 @@ namespace spotifyFinal.Controllers
         }
 
 
+        public IActionResult ForgetPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordVM model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null || !(await _userManager.IsEmailConfirmedAsync(user)))
+            {
+
+                return RedirectToAction(nameof(ForgotPasswordConfirmation));
+            }
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var resetUrl = Url.Action(nameof(ResetPassword), "Account", new { userId = user.Id, token }, Request.Scheme, Request.Host.ToString());
+
+            var email = new MimeMessage();
+            email.From.Add(MailboxAddress.Parse("maryamfa@code.edu.az"));
+            email.To.Add(MailboxAddress.Parse(user.Email));
+            email.Subject = "Password Reset Request";
+            email.Body = new TextPart(TextFormat.Html)
+            {
+                Text = $@"
+        <!DOCTYPE html>
+        <html lang=""en"">
+        <head>
+            <meta charset=""UTF-8"">
+            <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+            <link rel=""stylesheet"" href=""https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css""
+            integrity=""sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==""
+            crossorigin=""anonymous"" referrerpolicy=""no-referrer"" />
+            <title>Reset Your Password</title>
+            <style>
+                body {{
+                    font-family: Arial, sans-serif;
+                    color: #333;
+                    margin: 0;
+                    padding: 0;
+                    background-color: #f9f9f9;
+                }}
+                .email-container {{
+                    width: 100%;
+                    max-width: 600px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    background-color: #fff;
+                    border: 1px solid #ddd;
+                    border-radius: 8px;
+                }}
+                .header {{
+                    text-align: center;
+                    padding-bottom: 20px;
+                }}
+                .header img {{
+                    max-width: 150px;
+                }}
+                .content {{
+                    text-align: center;
+                }}
+                h4 {{
+                    color: #1db954; /* Spotify green */
+                }}
+                .button-container {{
+                    margin-top: 20px;
+                }}
+                .button {{
+                    display: inline-block;
+                    padding: 15px 25px;
+                    font-size: 16px;
+                    color: #fff;
+                    background-color: #1db954; /* Spotify green */
+                    border: none;
+                    border-radius: 4px;
+                    text-decoration: none;
+                }}
+                .button:hover {{
+                    background-color: #1ed760;
+                }}
+            </style>
+        </head>
+        <body>
+            <div class=""email-container"">
+                <header class=""header"">
+                    <img src=""https://upload.wikimedia.org/wikipedia/commons/6/6b/Spotify_logo_2015.png"" alt=""Spotify Logo"">
+                </header>
+                <div class=""content"">
+                    <h4>Reset Your Password</h4>
+                    <p>Hi there!</p>
+                    <p>We received a request to reset your password. Click the button below to reset your password:</p>
+                    <div class=""button-container"">
+                        <a href=""{resetUrl}"" class=""button"">Reset Password</a>
+                    </div>
+                    <p>If you didn't request this change, you can ignore this email.</p>
+                    <p>Cheers,<br>The Spotify Team</p>
+                </div>
+            </div>
+        </body>
+        </html>
+        "
+            };
+
+            using var smtp = new SmtpClient();
+            smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+            smtp.Authenticate("maryamfa@code.edu.az", "fgwj fxfg qpul folr");
+            smtp.Send(email);
+            smtp.Disconnect(true);
+
+            return RedirectToAction(nameof(ForgotPasswordConfirmation));
+        }
+
+        public IActionResult ForgotPasswordConfirmation()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(ResetPasswordVM model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = await _userManager.FindByIdAsync(model.UserId);
+            if (user == null)
+            {
+                // User not found or invalid token
+                return RedirectToAction(nameof(ResetPasswordConfirmation));
+            }
+
+            var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+            if (result.Succeeded)
+            {
+                return RedirectToAction(nameof(ResetPasswordConfirmation));
+            }
+
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+
+            return View(model);
+        }
+
+        public IActionResult ResetPasswordConfirmation()
+        {
+            return View();
+        }
 
 
 

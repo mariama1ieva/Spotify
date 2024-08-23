@@ -15,6 +15,7 @@
     <script defer src="~/assets/js/activeWishlist.js"></script>
     <script defer src="~/assets/js/playMusic.js"></script>
     <script defer src="~/assets/js/playButtons.js"></script>
+    @Html.AntiForgeryToken()
 
 </head>
 
@@ -46,7 +47,7 @@
             <script src="~/assets/js/musicTime.js"></script>
             <script src="~/assets/js/playlistSearch.js"></script>
             @RenderSection("Scripts", required: false)
-
+        
            
          
 </body>

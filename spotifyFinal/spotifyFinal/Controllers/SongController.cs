@@ -189,6 +189,25 @@ namespace spotifyFinal.Controllers
             return otherSongs;
         }
 
+        [HttpDelete("Delete/{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (!User.IsInRole("Admin") && !User.IsInRole("SuperAdmin"))
+            {
+                return Unauthorized();
+            }
 
+            var comment = await _context.Comments.FindAsync(id);
+            if (comment == null)
+            {
+                return NotFound();
+            }
+
+            _context.Comments.Remove(comment);
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
     }
+
 }

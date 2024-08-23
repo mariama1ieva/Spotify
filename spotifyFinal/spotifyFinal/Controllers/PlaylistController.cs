@@ -102,5 +102,18 @@ namespace spotifyFinal.Controllers
 
             return RedirectToAction("Index", "Playlist");
         }
+        public async Task<IActionResult> Delete(int id)
+        {
+            var playlist = await _context.Playlist.FindAsync(id);
+            if (playlist == null)
+            {
+                return NotFound();
+            }
+
+            _context.Playlist.Remove(playlist);
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
     }
 }

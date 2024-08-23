@@ -10,7 +10,7 @@
 <section id="detail-area">
     <div class="content">
         <div class="left-side">
-            <img src="~/assets/images/@Model.AppUser.ImageUrl" alt="">
+            <img src="/assets/images/@Model.ImgUrl" alt="">
         </div>
         <div class="right-side">
             <input class="songId" type="hidden" value="@Model.Id" />
@@ -74,9 +74,11 @@
                                 <div class="albom-name">
                                     <a></a>
                                 </div>
-                                <button id="wishlist" class="wish" songId="@song.Id">
-                                    <i class="fa-solid fa-heart"></i>
-                                </button>
+                                <div class="add-date">
+                                    <button id="wishlist" class="wish" songId="@song.SongId">
+                                        <i class="fa-solid fa-heart"></i>
+                                    </button>
+                                </div>
                                 <div class="music-time">
                                     <p>3:49</p>
                                 </div>

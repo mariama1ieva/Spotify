@@ -1,9 +1,17 @@
-﻿ @using Domain.Entities
+﻿@using Domain.Entities
 @model Song
+@Html.AntiForgeryToken()
 
 @if (Model.Comments != null && Model.Comments.Count > 0)
+
 {
+
+
+
     foreach (var comment in Model.Comments)
+
+
+
     {
         <div class="comment-item">
             <div class="raiting">
@@ -12,15 +20,33 @@
                 }
                 @{
                     for (int i = 1; i <= 5; i++)
+
+
+
                     {
+
+
+
                         if (i <= rating)
+
+
+
                         {
                             <i class="fa-solid fa-star" style="font-size:10px; color: #FEC006;"></i>
                         }
+
+
+
                         else
+
+
+
                         {
                             <i class="fa-solid fa-star" style="font-size:10px; color: lightgray;"></i>
                         }
+
+
+
                     }
                 }
             </div>
@@ -36,17 +62,53 @@
                 </div>
                 <div class="user-comment">
                     <p>@comment.Message</p>
-                    @if (comment.AppUserId == ViewBag.UserId)
-
-                    {
-                        <a comment-id="@comment.Id" style="color:#cfa671" class="right-btn-re"><i class="fa fa-reply" aria-hidden="true"></i>Delete</a>
-                    }
+                    <a data-comment-id="@comment.Id" class="delete-comment-btn" style="color:#cfa671">
+                        <i class="fa fa-reply" aria-hidden="true"></i> Delete
+                    </a>
                 </div>
-               
             </div>
         </div>
     }
+
+
 }
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".delete-comment-btn").forEach(button => {
+            button.addEventListener("click", async event => {
+                event.preventDefault(); // Prevent default link behavior
+
+                const commentId = button.getAttribute('data-comment-id');
+                const confirmation = confirm("Are you sure you want to delete this comment?");
+
+                if (confirmation) {
+                    try {
+                        const response = await fetch(`/Comments/Delete/${commentId}`, {
+                            method: 'DELETE',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                            }
+                        });
+
+                        if (response.ok) {
+                            const commentItem = button.closest(".comment-item");
+                            if (commentItem) {
+                                commentItem.remove();
+                            }
+                        } else {
+                            console.error("Failed to delete comment. Status:", response.status);
+                        }
+                    } catch (error) {
+                        console.error("Error during deletion:", error);
+                    }
+                }
+            });
+        });
+    });
 
 
+</script>
+<script src="~/assets/js/RemoveComment.js"></script>

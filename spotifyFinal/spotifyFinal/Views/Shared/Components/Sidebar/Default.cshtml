@@ -52,25 +52,31 @@
                             </div>
                         </a>
 
-                        @if (Model.Playlists != null  )
-                        {
+                       
                             @foreach (var item in Model.Playlists)
                             {
-                                <a style="text-decoration:none" asp-controller="Playlist" asp-action="Detail" asp-route-id="@item.Id">
-                                    <div class="sidebar-playlist-cards">
-                                        <div class="card">
-                                            <div class="left-side">
-                                                <img src="~/assets/images/@item.AppUser.ImageUrl" alt="Playlist Image">
-                                            </div>
-                                            <div class="right-side">
-                                                <p class="playlist-name">@item.Name</p>
-                                                <p>Playlist by <span class="song_count">@item.AppUser.Fullname</span></p>
-                                            </div>
-                                        </div>
+                                
+                                        <div class="sidebar-playlist-cards">
+                                            <div class="card">
+                                    <a style="text-decoration:none" asp-controller="Playlist" asp-action="Detail" asp-route-id="@item.Id">
+
+                                                <div class="left-side">
+                                                    <img src="~/assets/images/@item.ImgUrl" alt="Playlist Image">
+                                                </div>
+                                    </a>
+
+                                                <div class="right-side">
+                                                    <p class="playlist-name">@item.Name</p>
+                                                    <p>Playlist by <span class="song_count">@item.AppUser.Fullname</span></p>
+                                       
+                                        <i class="fa-solid fa-xmark delete-playlist" style="color: #00ff59;cursor:pointer;margin-top:10px;margin-left:40px" data-id="@item.Id"></i>
                                     </div>
-                                </a>
+                                            </div>
+
+                                        </div>
+                               
                             }
-                        }
+                        
                         
                     }
                     else
@@ -104,3 +110,6 @@
         </div>
     </div>
 </section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="~/assets/js/DeletePlaylist.js"></script>
+

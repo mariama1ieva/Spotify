@@ -1,24 +1,33 @@
-﻿using Microsoft.AspNetCore.Http;
-using Service.ViewModels.SongArtistVMs;
+﻿using Domain.Entities;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel.DataAnnotations;
 
 namespace Service.ViewModels.SongVMs
 {
     public class SongEditVM
     {
-        public IFormFile? PhotoUrl { get; set; }
-        public string? ImageUrl { get; set; }
-        [Required]
+        [ValidateNever]
+        public int Id { get; set; }
+        [Required, MaxLength(50)]
         public string Name { get; set; }
-        public IFormFile? SongUrl { get; set; }
+
+        public IFormFile? Photo { get; set; }
+
+        public IFormFile? Audio { get; set; }
+        [ValidateNever]
         public string? Path { get; set; }
-        public string Color { get; set; }
-        public double? PointRayting { get; set; }
+        [ValidateNever]
+        public string? ImageUrl { get; set; }
+        public string? Color { get; set; }
+        public DateTime CreateDate { get; set; }
         public int CategoryId { get; set; }
-        public string? CategoryName { get; set; }
+        public Category Category { get; set; } = null!;
+        [ValidateNever]
+        public ICollection<ArtistSong> ArtistSongs { get; set; } = new List<ArtistSong>();
         public int? AlbumId { get; set; }
-        public string? AlbumName { get; set; }
-        public IEnumerable<int> ArtistIds { get; set; }
-        public IEnumerable<SongArtistListVM>? Artists { get; set; }
+        public Album Album { get; set; }
+
+        public List<int> ArtistsIds { get; set; } = new List<int>();
     }
 }

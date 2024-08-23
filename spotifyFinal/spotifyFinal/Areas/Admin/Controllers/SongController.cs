@@ -1,5 +1,9 @@
 ﻿using AutoMapper;
+using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Repository.Data;
 using Service.Services.Interfaces;
 using Service.ViewModels.SongArtistVMs;
 using Service.ViewModels.SongVMs;
@@ -17,9 +21,10 @@ namespace spotifyFinal.Areas.Admin.Controllers
         private readonly IAlbumService _albumService;
         private readonly IMapper _mapper;
         private readonly IWebHostEnvironment _env;
+        private readonly AppDbContext _context;
 
         public SongController(ISongArtistService songArtistService, ISongService songService, IArtistService artistService, IWebHostEnvironment env,
-                             ICategoryService categoryService, IAlbumService albumService, IMapper mapper)
+                             ICategoryService categoryService, IAlbumService albumService, IMapper mapper, AppDbContext context)
         {
             _songArtistService = songArtistService;
             _songService = songService;
@@ -28,6 +33,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
             _categoryService = categoryService;
             _albumService = albumService;
             _mapper = mapper;
+            _context = context;
         }
 
         [HttpGet]
@@ -105,114 +111,147 @@ namespace spotifyFinal.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int? id)
         {
-            if (!ModelState.IsValid) return View();
+            if (id == null) return NotFound();
+            Song? song = await _context.Songs.FirstOrDefaultAsync(s => s.Id == id);
+            if (song == null) NotFound();
+            else
+            {
+                _context.Remove(song);
+                await _context.SaveChangesAsync();
+                string image = Path.Combine(_env.WebRootPath, "assets/images", song.ImageUrl);
 
-            if (id == null) return BadRequest();
-            var song = await _songService.GetByIdAsync((int)id);
+                if (System.IO.File.Exists(image))
+                {
+                    System.IO.File.Delete(image);
+                }
+                string fullpath = Path.Combine(_env.WebRootPath, "assets/music", song.Path);
+                if (System.IO.File.Exists(fullpath))
+                {
+                    System.IO.File.Delete(fullpath);
+                }
 
-            if (song == null) return NotFound();
-
-            await _songService.DeleteAsync((int)id);
-            return RedirectToAction(nameof(Index));
+            };
+            return RedirectToAction("Index");
         }
-
         [HttpGet]
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Update(int id)
         {
-            ViewBag.Artists = await _artistService.GetAllSelectListAsync(await _songArtistService.GetAllArtistIdsBySongId(id));
-            ViewBag.Categories = await _categoryService.GetALlBySelectedAsync();
-            ViewBag.Albums = await _albumService.GetALlBySelectedAsync();
+            ViewBag.Category = new SelectList(await _context.Categories.ToListAsync(), "Id", "Name");
+            ViewBag.Artists = new SelectList(await _context.Artists.Where(m => !m.SoftDelete).ToListAsync(), "Id", "FullName");
+            ViewBag.Albums = new SelectList(await _context.Albums.Where(m => !m.SoftDelete).ToListAsync(), "Id", "Name");
 
-            if (!ModelState.IsValid) return View();
 
-            if (id == null) return BadRequest();
+            if (id == 0) return BadRequest();
 
-            var song = await _songService.GetByIdAsync((int)id);
-
-            var model = _mapper.Map<SongEditVM>(song);
-            model.Artists = await _songArtistService.GetAllBySongIdAsync(id);
-
-            if (song == null) return NotFound();
+            SongEditVM model = UpdateSong(id);
+            if (model == null) return NotFound();
 
             return View(model);
         }
-
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, SongEditVM request)
+        public async Task<IActionResult> Update(int id, SongEditVM SongEditVM)
         {
-            ViewBag.Artists = await _artistService.GetAllSelectListAsync(await _songArtistService.GetAllArtistIdsBySongId((int)id));
-            ViewBag.Categories = await _categoryService.GetALlBySelectedAsync();
-            ViewBag.Albums = await _albumService.GetALlBySelectedAsync();
-            var existSong = await _songService.GetByIdAsync((int)id);
+            if (id == 0) return BadRequest();
+            SongEditVM model = UpdateSong(id);
+            ViewBag.Category = new SelectList(await _context.Categories.ToListAsync(), "Id", "Name");
+            ViewBag.Artists = new SelectList(await _context.Artists.Where(m => !m.SoftDelete).ToListAsync(), "Id", "FullName");
+            ViewBag.Albums = new SelectList(await _context.Albums.Where(m => !m.SoftDelete).ToListAsync(), "Id", "Name");
 
-            if (!ModelState.IsValid) return View(request);
 
-            if (id == null) return BadRequest();
-
-            if (request.PhotoUrl != null)
+            if (model == null) return NotFound();
+            foreach (var modelState in ViewData.ModelState.Values)
             {
-                if (!request.PhotoUrl.CheckFileFormat("image/"))
+                foreach (var error in modelState.Errors)
                 {
-                    ModelState.AddModelError("PhotoUrl", "File must be Image Format");
-                    return View(request);
+                    Console.WriteLine(error.ErrorMessage);
+                }
+            }
+
+
+            Song dbSong = _context.Songs.Include(s => s.ArtistSongs)
+                                                .Include(s => s.Category)
+                                                .FirstOrDefault(p => p.Id == id)!;
+            if (dbSong == null) return NotFound();
+            var removableArtist = dbSong.ArtistSongs.Where(s => !SongEditVM.ArtistsIds.Contains(s.ArtistId)).ToList();
+
+            foreach (var artist in removableArtist)
+            {
+                dbSong.ArtistSongs.Remove(artist);
+            }
+
+            foreach (var artistId in SongEditVM.ArtistsIds)
+            {
+                if (!dbSong.ArtistSongs.Any(s => s.ArtistId == artistId))
+                {
+                    dbSong.ArtistSongs.Add(new ArtistSong { ArtistId = artistId });
+                }
+            }
+            if (dbSong == null) return NotFound();
+            if (SongEditVM.Photo != null)
+            {
+                if (!SongEditVM.Photo.IsImage())
+                {
+                    ModelState.AddModelError("Photo", "Please select only an image file.");
+                    return View(model);
                 }
 
-                if (!request.PhotoUrl.CheckFileSize(2000))
+                string fullPath = Path.Combine(_env.WebRootPath, "assets/images", dbSong.ImageUrl);
+                if (System.IO.File.Exists(fullPath))
                 {
-                    ModelState.AddModelError("PhotoUrl", "Max File capacity must be 200KB");
-                    return View(request);
+                    System.IO.File.Delete(fullPath);
                 }
 
-                string fileName = Guid.NewGuid().ToString() + "-" + request.PhotoUrl.FileName;
-                string path = Path.Combine(_env.WebRootPath, "assets/images", fileName);
-                await request.PhotoUrl.SaveFileToLocalAsync(path);
-
-                request.ImageUrl = fileName;
-
-                FileExtention.DeleteFileFromLocalAsync(Path.Combine(_env.WebRootPath, "assets/images"), request.ImageUrl);
-            }
-            else
-            {
-                existSong.ImageUrl = request.ImageUrl;
+                dbSong.ImageUrl = SongEditVM.Photo.SaveImage(_env, "assets/images", SongEditVM.Photo.FileName);
             }
 
-            if (!await _songService.AnyAsync(request.Name))
+            if (SongEditVM.Audio != null)
             {
-                ModelState.AddModelError("Name", $"{request.Name} is already exist!");
-                return View(request);
-            }
-
-            if (request.SongUrl != null)
-            {
-                if (!request.SongUrl.CheckFileFormat("mp3/"))
+                if (!SongEditVM.Audio.IsAudio())
                 {
-                    ModelState.AddModelError("SongUrl", "File must be mp3 Format");
-                    return View(request);
+                    ModelState.AddModelError("Audio", "Please select only an audio file with mp3 extension.");
+                    return View(model);
                 }
 
-                if (!request.SongUrl.CheckFileSize(200))
+                if (SongEditVM.Audio.CheckAudioSize(20000))
                 {
-                    ModelState.AddModelError("SongUrl", "Max File capacity must be 200KB");
-                    return View(request);
+                    ModelState.AddModelError("Audio", "Song should not be bigger than 20mb.");
+                    return View(model);
                 }
 
-                string fileName1 = Guid.NewGuid().ToString() + "-" + request.SongUrl.FileName;
-                string path1 = Path.Combine(_env.WebRootPath, "assets/music", fileName1);
-                await request.SongUrl.SaveFileToLocalAsync(path1);
-
-                request.Path = fileName1;
-
-                FileExtention.DeleteFileFromLocalAsync(Path.Combine(_env.WebRootPath, "assets/music"), request.Path);
-            }
-            else
-            {
-                existSong.Path = request.Path;
+                dbSong.Path = SongEditVM.Audio.SaveAudio(_env, "assets/music", SongEditVM.Audio.FileName);
             }
 
-            await _songService.UpdateAsync((int)id, request);
+            dbSong.Name = SongEditVM.Name;
+            dbSong.Color = SongEditVM.Color;
+            dbSong.CategoryId = SongEditVM.CategoryId;
+            dbSong.CreateDate = SongEditVM.CreateDate;
+
+            await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
+        }
+        SongEditVM UpdateSong(int id)
+        {
+            SongEditVM model = _context.Songs.Include(s => s.Category)
+                .Include(s => s.ArtistSongs)
+                .ThenInclude(s => s.Artist)
+                .Include(s => s.Album)
+                .Select(s => new SongEditVM
+                {
+                    Id = s.Id,
+                    Name = s.Name,
+                    ImageUrl = s.ImageUrl,
+                    Path = s.Path,
+                    Color = s.Color,
+                    CreateDate = s.CreateDate,
+                    CategoryId = s.CategoryId,
+                    AlbumId = s.AlbumId,
+                    ArtistsIds = s.ArtistSongs.Select(a => a.ArtistId).ToList(),
+                    Category = s.Category,
+                    Album = s.Album,
+                    ArtistSongs = s.ArtistSongs.ToList()
+                }).FirstOrDefault(s => s.Id == id)!;
+            return model;
         }
 
 

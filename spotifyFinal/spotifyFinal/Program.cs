@@ -38,7 +38,7 @@ else
 
 app.UseStatusCodePagesWithReExecute("/StatusCodeError/{0}");
 
-// Configure the HTTP request pipeline.
+//Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");

@@ -1,0 +1,55 @@
+﻿@using Service.ViewModels.ArtistVMs
+@model ArtistUpdateVM
+
+<div class="x_content container ">
+    <div class="col-md-9 col-sm-9 center-margin ">
+        <a asp-action="Index" asp-area="Admin" asp-controller="Artist" style="margin-left:170px;">
+            <i class="fa-solid fa-right-from-bracket fa-rotate-180 fa-2xl " style="color:#121212;"></i>
+        </a>
+        <form style="margin-left:170px;" method="post" class="forms-sample" enctype="multipart/form-data">
+            <div class="images">
+                <div class="main-image">
+                    <h3>Main image</h3>
+                    <img width="200" src="~/assets/images/@Model.ImageUrl" />
+                </div>
+                <div class="bg-image">
+                    <h3>Background image image</h3>
+                    <img width="200" src="~/assets/images/@Model.AboutImg" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Photo"></label>
+                <input asp-for="@Model.Photo" class="form-control" placeholder="photo">
+                <span class="text-danger" asp-validation-for="@Model.Photo"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.AboutPhoto"></label>
+                <input asp-for="@Model.AboutPhoto" class="form-control" placeholder="photo">
+                <span class="text-danger" asp-validation-for="@Model.AboutPhoto"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FullName"></label>
+                <input asp-for="FullName" class="form-control" placeholder="Name">
+                <span class="text-danger" asp-validation-for="FullName"></span>
+            </div>
+
+            <div>
+                <label asp-for="PositionIds"></label>
+                <select asp-for="PositionIds" class="form-select">
+                    @foreach (var position in Model.Positions)
+
+                    {
+                        <option value="@position.Id">@position.Name</option>
+                    }
+                </select>
+                <div>
+                    <span asp-validation-for="PositionIds">
+                    </span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+            <a class="btn btn-light" asp-area="Admin" asp-controller="Artist" asp-action="Index">Back</a>
+            </form>
+    </div>
+</div>
+<script src="https://kit.fontawesome.com/680cf1a7ac.js" crossorigin="anonymous"></script>

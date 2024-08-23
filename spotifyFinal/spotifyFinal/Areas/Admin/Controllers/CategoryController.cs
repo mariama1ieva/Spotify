@@ -1,5 +1,7 @@
 ﻿using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Repository.Data;
 using Service.Services.Interfaces;
 using Service.ViewModels.CategoryVMs;
 using spotifyFinal.Areas.Admin.PaginateVM;
@@ -14,10 +16,12 @@ namespace spotifyFinal.Areas.Admin.Controllers
     {
         private readonly ICategoryService _categoryService;
         private readonly IWebHostEnvironment _env;
-        public CategoryController(ICategoryService categoryService, IWebHostEnvironment env)
+        private readonly AppDbContext _context;
+        public CategoryController(ICategoryService categoryService, IWebHostEnvironment env, AppDbContext context)
         {
             _categoryService = categoryService;
             _env = env;
+            _context = context;
         }
         [HttpGet]
         public async Task<IActionResult> Index(int pageNumber = 1, int pageSize = 4)
@@ -100,62 +104,51 @@ namespace spotifyFinal.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
-            if (!ModelState.IsValid) return View();
 
-            if (id == null) return BadRequest();
-
-            var category = await _categoryService.GetByIdAsync((int)id);
-
-            CategoryEditVM model = new()
+            if (id == null) return NotFound();
+            Category? category = await _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
+            if (category == null) return NotFound();
+            return View(new CategoryEditVM
             {
                 ImageUrl = category.ImageUrl,
                 Name = category.Name,
                 Color = category.Color
-            };
-
-            if (category == null) return NotFound();
-
-            return View(model);
+            });
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int? id, CategoryEditVM request)
         {
-            if (!ModelState.IsValid) return View(request);
-
-            if (id == null) return BadRequest();
-
-            if (await _categoryService.AnyAsync(request.Name))
-            {
-                ModelState.AddModelError("Name", $"{request.Name} is already exist!");
-                return View(request);
-            }
-
+            if (id == null) return NotFound();
+            Category? category = await _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
+            if (category == null) return NotFound();
             if (request.Photo != null)
             {
-                if (!request.Photo.CheckFileFormat("image/"))
+                if (request.Photo == null)
                 {
-                    ModelState.AddModelError("Photo", "File must be Image Format");
-                    return View(request);
+                    ModelState.AddModelError("Photo", "Can not be empty!");
+                    return View(request = new() { ImageUrl = category.ImageUrl });
+                }
+                if (!request.Photo.IsImage())
+                {
+                    ModelState.AddModelError("Photo", "only image select");
+                    return View(request = new() { ImageUrl = category.ImageUrl });
+                }
+                string fullPath = Path.Combine(_env.WebRootPath, "assets/images", category.ImageUrl);
+                if (System.IO.File.Exists(fullPath))
+                {
+                    System.IO.File.Delete(fullPath);
                 }
 
-                if (!request.Photo.CheckFileSize(200))
-                {
-                    ModelState.AddModelError("Photo", "Max File capacity must be 200KB");
-                    return View(request);
-                }
-
-                string fileName = Guid.NewGuid().ToString() + "-" + request.Photo.FileName;
-                string path = Path.Combine(_env.WebRootPath, "assets/images", fileName);
-                await request.Photo.SaveFileToLocalAsync(path);
-
-                request.ImageUrl = fileName;
+                category.ImageUrl = request.Photo.SaveImage(_env, "assets/images", request.Photo.FileName);
+                _context.SaveChanges();
             }
-            FileExtention.DeleteFileFromLocalAsync(Path.Combine(_env.WebRootPath, "img"), request.ImageUrl);
+            category.Name = request.Name;
+            category.Color = request.Color;
 
-            await _categoryService.UpdateAsync((int)id, request);
 
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
     }

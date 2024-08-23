@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Repository.Data;
-using Service.Helpers.Extentions;
 using Service.ViewModels;
+using spotifyFinal.Helpers.Extentions;
 
 namespace spotifyFinal.Controllers
 {

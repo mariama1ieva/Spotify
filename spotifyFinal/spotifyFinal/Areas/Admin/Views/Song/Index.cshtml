@@ -40,8 +40,8 @@
                         <td class=" ">@string.Join(", ", item.ArtistSongs.Select(m => m.Artist.FullName))</td>
                         <td style=" display:flex; gap:30px;">
                             <a asp-area="Admin" asp-controller="Song" asp-route-id=@item.Id asp-action="Detail"><i class="fa-solid fa-circle-info fa-xl" style="color: #121212;"></i></a>
-                            <a asp-area="Admin" asp-controller="Song" asp-route-id=@item.Id asp-action="Edit"><i class="fa-solid fa-pen-to-square fa-xl" style="color: #121212;"></i></a>
-                            <form asp-controller="Song" asp-route-id="@item.Id" asp-action="Delete" method="post" style="display:inline-block">
+                            <a asp-area="Admin" asp-controller="Song" asp-route-id=@item.Id asp-action="Update"><i class="fa-solid fa-pen-to-square fa-xl" style="color: #121212;"></i></a>
+                            <form asp-controller="Song" asp-route-id="@item.Id" asp-action="Delete" asp-area="Admin" method="post" style="display:inline-block">
                                 <button style="border: none; outline: none; background: none;">
                                     <i class="fa-solid fa-trash fa-xl" style="color: red;"></i>
                                 </button>

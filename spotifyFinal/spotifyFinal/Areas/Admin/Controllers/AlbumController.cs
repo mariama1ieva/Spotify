@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Domain.Entities;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Repository.Data;
 using Service.Services.Interfaces;
 using Service.ViewModels.AlbumVMs;
 using spotifyFinal.Helpers.Extentions;
@@ -13,15 +16,17 @@ namespace spotifyFinal.Areas.Admin.Controllers
         private readonly IArtistService _artistService;
         private readonly ICategoryService _categoryService;
         private readonly IGroupService _groupService;
+        private readonly AppDbContext _context;
 
         public AlbumController(IAlbumService albumService, IWebHostEnvironment env, IArtistService artistService,
-                               ICategoryService categoryService, IGroupService groupService)
+                               ICategoryService categoryService, IGroupService groupService, AppDbContext context)
         {
             _albumService = albumService;
             _env = env;
             _artistService = artistService;
             _categoryService = categoryService;
             _groupService = groupService;
+            _context = context;
         }
 
         [HttpGet]
@@ -109,30 +114,17 @@ namespace spotifyFinal.Areas.Admin.Controllers
             ViewBag.Categories = await _categoryService.GetALlBySelectedAsync();
             ViewBag.Groups = await _groupService.GetALlBySelectedAsync();
 
-            if (!ModelState.IsValid) return View();
-
-            if (id == null) return BadRequest();
-
-            var album = await _albumService.GetDataIdWithCategoryArtistGroup((int)id);
-
-
-
-            AlbumEditVM model = new()
-            {
-                Name = album.Name,
-                CategoryName = album.CategoryName,
-                ArtistFullName = album.ArtistFullName,
-                GroupName = album.GroupName,
-                //CategoryId = album.CategoryId,
-                //ArtistId = album.ArtistId,
-                //GroupId = album.GroupId,
-                Image = album.Image,
-
-            };
-
+            if (id == null) return NotFound();
+            Album? album = await _context.Albums.FirstOrDefaultAsync(c => c.Id == id);
             if (album == null) return NotFound();
-
-            return View(model);
+            return View(new AlbumEditVM
+            {
+                Image = album.Image,
+                Name = album.Name,
+                CategoryId = album.CategoryId,
+                ArtistId = (int)album.ArtistId,
+                GroupId = (int)album.GroupId
+            });
         }
 
 
@@ -145,54 +137,36 @@ namespace spotifyFinal.Areas.Admin.Controllers
             ViewBag.Categories = await _categoryService.GetALlBySelectedAsync();
             ViewBag.Groups = await _groupService.GetALlBySelectedAsync();
 
-            var existAlbum = await _albumService.GetDataIdWithCategoryArtistGroup((int)id);
-
-
-            if (!ModelState.IsValid) return View(request);
-
-            if (id == null) return BadRequest();
-
+            if (id == null) return NotFound();
+            Album? album = await _context.Albums.FirstOrDefaultAsync(c => c.Id == id);
+            if (album == null) return NotFound();
             if (request.Photo != null)
             {
-                if (!request.Photo.CheckFileFormat("image/"))
+                if (request.Photo == null)
                 {
-                    ModelState.AddModelError("Photo", "File must be Image Format");
-                    return View(request);
+                    ModelState.AddModelError("Photo", "Can not be empty!");
+                    return View(request = new() { Image = album.Image });
                 }
-
-                if (!request.Photo.CheckFileSize(200))
+                if (!request.Photo.IsImage())
                 {
-                    ModelState.AddModelError("Photo", "Max File capacity must be 200KB");
-                    return View(request);
+                    ModelState.AddModelError("Photo", "only image select");
+                    return View(request = new() { Image = album.Image });
                 }
-
-                string fileName = Guid.NewGuid().ToString() + "-" + request.Photo.FileName;
-                string path = Path.Combine(_env.WebRootPath, "assets/images", fileName);
-                await request.Photo.SaveFileToLocalAsync(path);
-
-                request.Image = fileName;
-
-                FileExtention.DeleteFileFromLocalAsync(Path.Combine(_env.WebRootPath, "img"), request.Image);
-            }
-            else
-            {
-                existAlbum.Image = request.Image;
-
-
-            }
-            if (!await _albumService.AnyAsync(request.Name))
-            {
-                ModelState.AddModelError("Name", $"{request.Name} is already exist!");
-                return View(request);
+                string fullPath = Path.Combine(_env.WebRootPath, "assets/images", album.Image);
+                if (System.IO.File.Exists(fullPath))
+                {
+                    System.IO.File.Delete(fullPath);
+                }
+                album.Image = request.Photo.SaveImage(_env, "assets/images", request.Photo.FileName);
+                _context.SaveChanges();
             }
 
-            //existAlbum.Name = request.Name;
-            //existAlbum.CategoryId = request.CategoryId;
-            //existAlbum.GroupId = request.GroupId;
-            //existAlbum.ArtistId = request.ArtistId;
+            album.Name = request.Name;
+            album.ArtistId = request.ArtistId;
+            album.CategoryId = request.CategoryId;
+            album.GroupId = request.GroupId;
 
-            await _albumService.UpdateAsync((int)id, request);
-
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
 
 

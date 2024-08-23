@@ -35,6 +35,17 @@ namespace Repository.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<IdentityUser>();
+            modelBuilder.Entity<Song>()
+                 .HasOne(s => s.Category)
+                 .WithMany(c => c.Songs)
+
+                 .HasForeignKey(s => s.CategoryId)
+                 .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Song>()
+       .HasOne(s => s.Album)
+       .WithMany(a => a.Songs)
+       .HasForeignKey(s => s.AlbumId)
+       .OnDelete(DeleteBehavior.Restrict);
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

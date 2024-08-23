@@ -1,20 +1,21 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Domain.Entities;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel.DataAnnotations;
 
 namespace Service.ViewModels.ArtistVMs
 {
     public class ArtistCreateVM
     {
-        [Required]
+        [Required, MaxLength(50)]
         public string FullName { get; set; }
+        public IFormFile Photo { get; set; } = null!;
+        public IFormFile AboutImg { get; set; } = null!;
+        [ValidateNever]
+        public ICollection<Song> Songs { get; set; } = null!;
 
-        [Required]
-        public IFormFile Photo { get; set; }
-        public string? ImageUrl { get; set; }
-
-        [Required(ErrorMessage = "The About field is required.")]
-
-        public string AboutImg { get; set; }
+        [ValidateNever]
+        public ICollection<Position> Positions { get; set; } = null!;
 
         [Required(ErrorMessage = "Please choose Songs!")]
 

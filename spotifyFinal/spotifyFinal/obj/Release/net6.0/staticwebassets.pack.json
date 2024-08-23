@@ -18737,6 +18737,10 @@
       "PackagePath": "staticwebassets\\assets\\images\\06f9f66b-3741-4090-9380-e32e43b06007-gunlukmd.png.webp"
     },
     {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\084f3952-1215-417f-9eae-70e52a940eb8-darmaduman.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\084f3952-1215-417f-9eae-70e52a940eb8-darmaduman.jpg"
+    },
+    {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\0ab02c27-6270-4adf-8e99-aea0dda474ef-blutv.png",
       "PackagePath": "staticwebassets\\assets\\images\\0ab02c27-6270-4adf-8e99-aea0dda474ef-blutv.png"
     },
@@ -18779,10 +18783,6 @@
     {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\1b84c9e7-2bd6-4d59-9ad9-8a49df61f0e9-classic.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\1b84c9e7-2bd6-4d59-9ad9-8a49df61f0e9-classic.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\1c2393ae-597a-47f4-a814-c8307534a96f-43e1787d4fdec8b969feff044c499905.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\1c2393ae-597a-47f4-a814-c8307534a96f-43e1787d4fdec8b969feff044c499905.jpg"
     },
     {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\1cc47185-633e-494a-b0fc-96f511814093-Classical.jpg",
@@ -18883,6 +18883,10 @@
     {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\3af0dc99-e0ac-44b6-9205-717f296a60d9-c.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\3af0dc99-e0ac-44b6-9205-717f296a60d9-c.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\3c730afc-b47d-42ef-b41f-85594d7afaf2-ab67616d0000b27330d45198d0c9e8841f9a9578.jpeg",
+      "PackagePath": "staticwebassets\\assets\\images\\3c730afc-b47d-42ef-b41f-85594d7afaf2-ab67616d0000b27330d45198d0c9e8841f9a9578.jpeg"
     },
     {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\43e1787d4fdec8b969feff044c499905.jpg",
@@ -19055,6 +19059,18 @@
     {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\7899db70-3a71-4506-b597-b3ec560f931b-ab67616d0000b273fddc2af8e9966944bb0cb8eb.jpeg",
       "PackagePath": "staticwebassets\\assets\\images\\7899db70-3a71-4506-b597-b3ec560f931b-ab67616d0000b273fddc2af8e9966944bb0cb8eb.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\7f744092-184c-4f05-8454-935377df383f-04a7d0d9-4c91-4c96-85b8-96c10743929e_Beyoncé.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\7f744092-184c-4f05-8454-935377df383f-04a7d0d9-4c91-4c96-85b8-96c10743929e_Beyoncé.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\81f72534-e77a-4ecd-9653-56a907e33dfa-_LOVE SCENARIO_ By_ iKON.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\81f72534-e77a-4ecd-9653-56a907e33dfa-_LOVE SCENARIO_ By_ iKON.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\82bfa27c-2374-4bd9-92f1-6c0873b66ff0-system-of-a-down-2019.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\82bfa27c-2374-4bd9-92f1-6c0873b66ff0-system-of-a-down-2019.jpg"
     },
     {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\84167bf7-c5d0-458d-8450-b9d3475115fa-3a29a7d9-0238-4fb7-a5a2-d3105a960d82-Chill.jpg",
@@ -19265,8 +19281,8 @@
       "PackagePath": "staticwebassets\\assets\\images\\ab67616d00001e021d0d71d22c8d179577756208.jpeg"
     },
     {
-      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\ab67616d0000b27330d45198d0c9e8841f9a9578.jpeg",
-      "PackagePath": "staticwebassets\\assets\\images\\ab67616d0000b27330d45198d0c9e8841f9a9578.jpeg"
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\ab67616d00001e02d5a587c7de8efc3ba32bede7.jpeg",
+      "PackagePath": "staticwebassets\\assets\\images\\ab67616d00001e02d5a587c7de8efc3ba32bede7.jpeg"
     },
     {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\ac1e7e80-12cf-49f1-87cb-497e1c37be1a-images.jpeg",
@@ -19289,8 +19305,16 @@
       "PackagePath": "staticwebassets\\assets\\images\\ae3f8535-cd93-4337-92e3-bd424dd62e97-MAUWnIg.gif"
     },
     {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\af01863e-0fe2-495d-95c6-c059ff38dc8a-system-of-a-down-2019.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\af01863e-0fe2-495d-95c6-c059ff38dc8a-system-of-a-down-2019.jpg"
+    },
+    {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\afb33f73-d15d-46cb-a60f-7f3732c49217-2da399ae-fd87-4e62-b782-7a91dd160cd4-2b9e3d29-58fd-424f-98cb-fed8b6f6f9cb-blutv.png",
       "PackagePath": "staticwebassets\\assets\\images\\afb33f73-d15d-46cb-a60f-7f3732c49217-2da399ae-fd87-4e62-b782-7a91dd160cd4-2b9e3d29-58fd-424f-98cb-fed8b6f6f9cb-blutv.png"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\albumcover0008219.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\albumcover0008219.jpg"
     },
     {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\b19181c7-355b-43f9-919a-6e2ed626a095-Classical.jpg",
@@ -19413,6 +19437,10 @@
       "PackagePath": "staticwebassets\\assets\\images\\da4092cd-34ed-4cac-81e3-a5df6a887df9-_LOVE SCENARIO_ By_ iKON.jpg"
     },
     {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\da747eb9-4eb8-49dd-9448-e29078197cce-darmaduman.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\da747eb9-4eb8-49dd-9448-e29078197cce-darmaduman.jpg"
+    },
+    {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\darmaduman.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\darmaduman.jpg"
     },
@@ -19493,6 +19521,10 @@
       "PackagePath": "staticwebassets\\assets\\images\\f8c221b6-10de-4cb1-a931-507519906342-rrock.jpg"
     },
     {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\f9358e92-dc39-4862-89a9-cfdbd3422a50-ab67616d00001e02d5a587c7de8efc3ba32bede7.jpeg",
+      "PackagePath": "staticwebassets\\assets\\images\\f9358e92-dc39-4862-89a9-cfdbd3422a50-ab67616d00001e02d5a587c7de8efc3ba32bede7.jpeg"
+    },
+    {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\f981bb29-2185-402d-b521-9ef8f5bccd85-a0141257007_65.jpeg",
       "PackagePath": "staticwebassets\\assets\\images\\f981bb29-2185-402d-b521-9ef8f5bccd85-a0141257007_65.jpeg"
     },
@@ -19503,10 +19535,6 @@
     {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\fbacef2e-71d5-4fca-9c96-ca1c2a60a467-1cc47185-633e-494a-b0fc-96f511814093-Classical.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\fbacef2e-71d5-4fca-9c96-ca1c2a60a467-1cc47185-633e-494a-b0fc-96f511814093-Classical.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\fff919ba-bc86-403f-a9e7-c9c6c98c5654-ab67616d0000b27330d45198d0c9e8841f9a9578.jpeg",
-      "PackagePath": "staticwebassets\\assets\\images\\fff919ba-bc86-403f-a9e7-c9c6c98c5654-ab67616d0000b27330d45198d0c9e8841f9a9578.jpeg"
     },
     {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\high-intensity-mental-training.jpg",
@@ -19529,10 +19557,6 @@
       "PackagePath": "staticwebassets\\assets\\images\\rihanna.jpg"
     },
     {
-      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\system-of-a-down-2019.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\system-of-a-down-2019.jpg"
-    },
-    {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\images\\visa.png",
       "PackagePath": "staticwebassets\\assets\\images\\visa.png"
     },
@@ -19543,6 +19567,10 @@
     {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\RemoveComment.js",
       "PackagePath": "staticwebassets\\assets\\js\\RemoveComment.js"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\Validation.js",
+      "PackagePath": "staticwebassets\\assets\\js\\Validation.js"
     },
     {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\js\\active.js",
@@ -19673,6 +19701,14 @@
       "PackagePath": "staticwebassets\\assets\\music\\Superstar.mp3"
     },
     {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\music\\System of A Down - Chop Suey!.mp3",
+      "PackagePath": "staticwebassets\\assets\\music\\System of A Down - Chop Suey!.mp3"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\music\\a766ed75-7afa-4872-b50d-c727779dec2c-spotifydown.com - Beyond.mp3",
+      "PackagePath": "staticwebassets\\assets\\music\\a766ed75-7afa-4872-b50d-c727779dec2c-spotifydown.com - Beyond.mp3"
+    },
+    {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\music\\b1a4df1e-956e-4d43-8085-bd9d82e1fdb3-8d7619e3-44e6-4a10-aac7-4045d3b48fe5-Roya_-_Ere_Gedirem_-_www.BiG.AZ.mp3",
       "PackagePath": "staticwebassets\\assets\\music\\b1a4df1e-956e-4d43-8085-bd9d82e1fdb3-8d7619e3-44e6-4a10-aac7-4045d3b48fe5-Roya_-_Ere_Gedirem_-_www.BiG.AZ.mp3"
     },
@@ -19683,10 +19719,6 @@
     {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\music\\bfd7eaf1-f744-4ee0-89c8-1bad056a0bbf-System of A Down - Chop Suey!.mp3",
       "PackagePath": "staticwebassets\\assets\\music\\bfd7eaf1-f744-4ee0-89c8-1bad056a0bbf-System of A Down - Chop Suey!.mp3"
-    },
-    {
-      "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\music\\d2b76b5b-9f3b-4899-bd55-71395426c8fd-System of A Down - Chop Suey!.mp3",
-      "PackagePath": "staticwebassets\\assets\\music\\d2b76b5b-9f3b-4899-bd55-71395426c8fd-System of A Down - Chop Suey!.mp3"
     },
     {
       "Id": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\spotifyFinal\\wwwroot\\assets\\music\\f8773547-a00e-4904-abcc-f0ece9db63a3-b1a4df1e-956e-4d43-8085-bd9d82e1fdb3-8d7619e3-44e6-4a10-aac7-4045d3b48fe5-Roya_-_Ere_Gedirem_-_www.BiG.AZ.mp3",

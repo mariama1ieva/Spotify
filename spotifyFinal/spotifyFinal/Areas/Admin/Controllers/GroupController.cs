@@ -109,11 +109,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
             if (!ModelState.IsValid) return View(request);
             if (id == null) return BadRequest();
 
-            if (await _groupService.AnyAsync(request.Name))
-            {
-                ModelState.AddModelError("Name", $"{request.Name} is already exist!");
-                return View(request);
-            }
+
 
             if (request.Photo != null)
             {

@@ -1,0 +1,110 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Error Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 80px auto;
+            padding: 20px;
+            background-color: black;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #1db954;
+            color: white;
+            padding: 20px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+            .header img {
+                max-width: 120px;
+                margin-bottom: 20px;
+            }
+
+            .header h1 {
+                margin: 0;
+                font-size: 36px;
+            }
+
+            .header p {
+                font-size: 18px;
+                margin: 10px 0 0;
+            }
+
+        .content {
+            padding: 20px;
+        }
+
+            .content p {
+                font-size: 16px;
+                margin: 20px 0;
+            }
+
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #1db954;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+            .button:hover {
+                background-color: #17a34a;
+            }
+
+        .footer {
+            margin-top: 20px;
+            color: #666666;
+            font-size: 14px;
+        }
+
+            .footer a {
+                color: white;
+                text-decoration: none;
+            }
+
+                .footer a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+</head>
+<body>
+    <div class='container'>
+        <div class='header'>
+            <img src='~/assets/images/Spotify_Logo.png' alt='Spotify Logo' />
+            <h1>Oops! Something Went Wrong</h1>
+            <p>We encountered an issue while processing your request.</p>
+        </div>
+        <div class='content'>
+            <p style="color:white">We're sorry, but there was a problem on our end. Please try again later.</p>
+            <p>
+                <a href='/' class='button'>Return to Home</a>
+            </p>
+        </div>
+        <div class='footer'>
+            <p >If the problem persists, please contact <a href='mailto:support@spotify.com'>support@spotify.com</a>.</p>
+        </div>
+    </div>
+</body>
+</html>

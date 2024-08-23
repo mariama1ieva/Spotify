@@ -183,7 +183,6 @@ namespace spotifyFinal.Controllers
         {
             return View();
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ForgetPassword(ForgotPasswordVM request)
@@ -200,49 +199,122 @@ namespace spotifyFinal.Controllers
 
             string token = await _userManager.GeneratePasswordResetTokenAsync(existUser);
 
-            string url = Url.Action(nameof(ConfirmEmail), "Account", new { userId = existUser.Id, token }, Request.Scheme, Request.Host.ToString());
+            string link = Url.Action(nameof(ResetPassword), "Account", new { userId = existUser.Id, token }, Request.Scheme, Request.Host.ToString());
 
             var email = new MimeMessage();
             email.From.Add(MailboxAddress.Parse("maryamfa@code.edu.az"));
             email.To.Add(MailboxAddress.Parse(existUser.Email));
-            email.Subject = "Reset password";
+            email.Subject = "Reset Password";
             email.Body = new TextPart(TextFormat.Html)
             {
                 Text = $@"
 <!DOCTYPE html>
-<html lang=""en"">
+<html lang='en'>
 <head>
-    <meta charset=""UTF-8"">
-    <meta name=""viewport"" content=""width=device-width, initial-scale=1.0"">
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Reset Password</title>
+    <style>
+        body {{
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }}
+        .container {{
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }}
+        .header {{
+            background-color: #1db954;
+            color: black;
+            text-align: center;
+            padding: 30px 20px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }}
+        .header img {{
+            max-width: 120px;
+            margin-bottom: 20px;
+        }}
+        .header h2 {{
+            margin: 0;
+            font-size: 26px;
+        }}
+        .header p {{
+            font-size: 18px;
+            margin: 10px 0 0;
+        }}
+        .content {{
+            padding: 20px;
+            text-align: center;
+        }}
+        .content p {{
+            font-size: 16px;
+            margin: 10px 0;
+        }}
+        .button {{
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #1db954;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }}
+        .button:hover {{
+            background-color: #17a34a;
+        }}
+        .footer {{
+            margin-top: 20px;
+            color: black;
+            text-align: center;
+            font-size: 14px;
+        }}
+        .footer p {{
+            margin: 5px 0;
+        }}
+        .footer a {{
+            color: #1db954;
+            text-decoration: none;
+        }}
+        .footer a:hover {{
+            text-decoration: underline;
+        }}
+    </style>
 </head>
-<body style=""margin: 0; padding: 0; background-color: #121212; color: #ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;"">
-    <header style=""background-color: #000000; padding: 20px; text-align: center;"">
-        <div style=""display: inline-block;"">
-            <img src=""https://example.com/assets/images/Spotify_Logo.png"" alt=""logo"" style=""max-width: 150px; height: auto;"">
+<body>
+    <div class='container'>
+        <div class='header'>
+            <img src='https://upload.wikimedia.org/wikipedia/commons/6/64/Spotify_logo_green.png' alt='Spotify Logo'/>
+            <h2>Reset Your Password</h2>
+            <p>Click the button below to reset your password:</p>
         </div>
-    </header>
-    <section style=""display: flex; justify-content: center; align-items: center; height: calc(100vh - 70px); background-color: #121212; padding: 20px;"">
-        <div style=""background-color: #282828; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); width: 90%; max-width: 400px;"">
-            <h4 style=""font-size: 24px; margin-bottom: 20px; text-align: center; color: #ffffff;"">Reset password</h4>
-            <div style=""display: flex; flex-direction: column;"">
-                <form >
-                    <div style=""margin-bottom: 15px;"">
-                        <label for=""password"" style=""font-size: 14px; margin-bottom: 5px; color: #b3b3b3;"">New Password</label>
-                        <input id=""password"" type=""text"" placeholder=""new password"" style=""width: 100%; padding: 10px; font-size: 16px; border: 1px solid #333333; border-radius: 4px; background-color: #000000; color: #ffffff;"">
-                    </div>
-                    <div style=""margin-bottom: 15px;"">
-                        <label for=""password2"" style=""font-size: 14px; margin-bottom: 5px; color: #b3b3b3;""></label>
-                        <input id=""password2"" type=""text"" placeholder=""confirm password"" style=""width: 100%; padding: 10px; font-size: 16px; border: 1px solid #333333; border-radius: 4px; background-color: #000000; color: #ffffff;"">
-                    </div>
-                    <a href=""{url}"" style=""display: inline-block; background-color: #1db954; color: #ffffff; text-decoration: none; padding: 10px 15px; border-radius: 4px; font-size: 16px; text-align: center; font-weight: bold; transition: background-color 0.3s;"">Confirm</a>
-                </form>
-            </div>
+        <div class='content'>
+            <p>Dear {existUser.Fullname},</p>
+            <p>To reset your password, please click the button below:</p>
+            <p>
+                <a href='{link}' class='button'>Reset Password</a>
+            </p>
+            <p>If you did not request a password reset, please ignore this email.</p>
         </div>
-    </section>
+        <div class='footer'>
+            <p>Best regards,<br/>The Spotify Team</p>
+            <p>© {DateTime.Now.Year} Spotify. All rights reserved.</p>
+            <p>If you have any questions, please contact <a href='mailto:support@spotify.com'>support@spotify.com</a>.</p>
+        </div>
+    </div>
 </body>
-</html>"
+</html>
+    "
             };
+
 
 
 
@@ -273,13 +345,13 @@ namespace spotifyFinal.Controllers
 
             if (await _userManager.CheckPasswordAsync(existUser, resetPassword.Password))
             {
-                ModelState.AddModelError("", "This password already exist!");
+                ModelState.AddModelError("", "This password already exists!");
                 return View(resetPassword);
             }
 
             await _userManager.ResetPasswordAsync(existUser, resetPassword.Token, resetPassword.Password);
 
-            return RedirectToAction(nameof(SignIn));
+            return RedirectToAction("Login", "Account");
         }
         public IActionResult CheckEmail()
         {

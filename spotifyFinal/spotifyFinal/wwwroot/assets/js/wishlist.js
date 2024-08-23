@@ -53,37 +53,28 @@ document.querySelectorAll(".wish").forEach(wishBtn => {
     });
 });
 
-document.querySelectorAll(".dlt-wish").forEach(dltWish => {
-    dltWish.addEventListener("click", function (e) {
-        e.stopImmediatePropagation();
+document.addEventListener("DOMContentLoaded", () => {
+    function handleDeleteClick(event) {
+        event.stopImmediatePropagation();
 
-        const songId = this.getAttribute("songId");
+        const button = event.currentTarget;
 
-        fetch("/Song/AddWishlist?id=" + songId)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("network respons was not ok");
-                }
-                return response.json();
-            })
-            .then(data => {
-                document.querySelector(".song_count").innerHTML = data.songCount;
-                this.parentNode.parentNode.parentNode.remove();
+        const musicRow = button.closest(".music-row");
+        if (musicRow) {
+            musicRow.remove();
+        } else {
+            console.error("Music row not found.");
+        }
+    }
 
-                const findSong = songInfos.find(m => m.id == songId);
-                findSong.isDeleted = data.isDeleted;
-
-                localStorage.setItem("songInfos", JSON.stringify(songInfos));
-            })
-            .catch(error => {
-                console.error("Fetch error:", error);
-            });
+    document.querySelectorAll(".dlt-wish").forEach(button => {
+        button.addEventListener("click", handleDeleteClick);
     });
 });
 
+
 function activeWishlist(btn) {
     const songId = btn.getAttribute("songId");
-    //const heart = document.querySelector("#wishlist");
 
     for (const item of songInfos) {
         if (item.id == songId) {

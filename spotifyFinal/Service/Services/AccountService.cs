@@ -21,5 +21,6 @@ namespace Service.Services
         {
             return await _accountRepository.GetRoles(user);
         }
+
     }
 }

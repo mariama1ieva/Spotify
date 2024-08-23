@@ -15,8 +15,8 @@
 </style>
 @foreach (var song in Model.Songs)
 {
-     count++; 
-    <div class="music-row" src="~/assets/music/@song.Path" song-id="@song.Id" song-color="@song.Color">
+     count++;
+    <div class="music-row" src="../../assets/music/@song.Path" song-id="@song.Id" song-color="@song.Color">
         <div class="left-side">
             <div class="count">
                 <p class="song_number"></p>

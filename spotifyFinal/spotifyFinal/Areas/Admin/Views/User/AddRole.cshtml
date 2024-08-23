@@ -1,0 +1,43 @@
+﻿@using Service.ViewModels.AccountVMs
+@model AddRoleVM
+
+<div class="x_content container">
+    <div class="col-md-8 col-sm-8 center-margin " >
+        <table class="table table-borderless table-striped table-earning">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                <form method="post" asp-action="AddRole" asp-controller="User">
+                <tr>
+                    <td>
+                        <select class="form-control" asp-items="@ViewBag.users" asp-for="UserId"></select>
+                    </td>
+                    <td>
+                        <select class="form-control" asp-items="@ViewBag.roles" asp-for="RoleId"></select>
+                    </td>
+                </tr>
+                <div class="ln_solid">
+                    <div class="form-group">
+                        <div class="col-md-4  mt-3">
+                            <button type="submit" style="background-color:#1FDB62; border:none;" class="btn btn-success "><i class="fa fa-save" style=" border:none!important;"></i> Save</button>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </tbody>
+        
+        </table>
+        <div class="item form-group">
+            <div class="" style="margin-left:100px;">
+                <a asp-action="Index" asp-area="Admin" asp-controller="User">
+                    <i class="fa-solid fa-right-from-bracket fa-rotate-180 fa-2xl" style="color:#121212;"></i>
+
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

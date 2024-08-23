@@ -20,6 +20,7 @@ namespace Repository
             services.AddScoped<IPositionRepository, PositionRepository>();
             services.AddScoped<IArtistPositionRepository, ArtistPositionRepository>();
             services.AddScoped<IGroupArtistRepository, GroupArtistRepository>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
 
 
 

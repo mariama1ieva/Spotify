@@ -9,7 +9,6 @@ using Service.ViewModels.AccountVMs;
 namespace spotifyFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "SuperAdmin, Admin")]
     public class UserController : Controller
     {
         private readonly IAccountService _accountService;
@@ -23,6 +22,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
             _roleManager = roleManager;
             _userManager = userManager;
         }
+
         [HttpGet]
         public async Task<IActionResult> Index()
         {
@@ -47,10 +47,10 @@ namespace spotifyFinal.Areas.Admin.Controllers
 
 
         [HttpGet]
-        //[Authorize(Roles = "SuperAdmin")]
+        [Authorize(Roles = "SuperAdmin")]
         public async Task<IActionResult> AddRole()
         {
-            ViewBag.users = new SelectList(_userManager.Users.ToList(), "Id", "FullName");
+            ViewBag.users = new SelectList(_userManager.Users.ToList(), "Id", "Fullname");
             ViewBag.roles = new SelectList(_roleManager.Roles.ToList(), "Id", "Name");
             return View();
         }

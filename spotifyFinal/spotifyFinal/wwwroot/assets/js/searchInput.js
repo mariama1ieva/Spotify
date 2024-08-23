@@ -1,4 +1,5 @@
 document.querySelectorAll('.search-area-nav, .search-area').forEach(e => {
+    
     const input = e.querySelector('input');
     const deleteIcon = e.querySelector('.delete');
 

@@ -1,11 +1,12 @@
-﻿document.getElementById("searchInput").addEventListener("keyup", function () {
+﻿document.getElementById("searchInput").addEventListener("keyup", function (e) {
+    e.stopImmediatePropagation();
     if (this.value !== "") {
         document.querySelector(".search-filter").style.display = "block";
     } else {
         document.querySelector(".search-filter").style.display = "none";
     }
 
-    fetch("Search/Search?searchText=" + this.value)
+    fetch("/Search/Search?searchText=" + this.value)
         .then(response => {
             if (!response.ok) {
                 throw new Error("network respons was not ok");

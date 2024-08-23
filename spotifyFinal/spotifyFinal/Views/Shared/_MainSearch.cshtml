@@ -1,8 +1,5 @@
 ﻿@model SearchVM;
-<script defer src="~/assets/js/musicTime.js"></script>
-<script defer src="~/assets/js/searchInput.js"></script>
-<script defer src="~/assets/js/activeWishlist.js"></script>
-<script defer src="~/assets/js/wishlist.js"></script>
+
 
 <section id="search-area">
     <div class="content">
@@ -15,6 +12,7 @@
         <a href="#"><button><span>Albums</span></button></a>
         <a href="#"><button><span>Playlist</span></button></a>
         </div>  *@
+
         <div class="main-cards-search-result">
             @if (Model.Artists.Count() != 0)
             {
@@ -42,14 +40,14 @@
                     <div class="song-cards">
                         @foreach (var song in Model.ArtistSongs)
                         {
-                            <div class="song">
+                            <div class="song music-row " src="../../assets/music/@song.Song.Path">
                                 <div class="left-side">
                                     <a style="display:flex;justify-content:center" asp-controller="song" asp-action="detail" asp-route-id="@song.Id">
                                         <img src="~/assets/images/@song.Song.ImageUrl" alt="">
                                     </a>
                                     <div class="about-song">
-                                        <a href="#"><span>@song.Song.Name</span></a>
-                                        <a href="#"><span>@song.Artist.FullName</span></a>
+                                        <a asp-action="Detail" asp-controller="Song" asp-route-id="@song.SongId" ><span>@song.Song.Name</span></a>
+                                        <a asp-action="Detail" asp-controller="Artist" asp-route-id="@song.ArtistId"><span>@song.Artist.FullName</span></a>
                                     </div>
                                 </div>
                                 <div class="right-side">
@@ -73,20 +71,25 @@
                     <div class="all-card">
                         @foreach (var artist in Model.Artists)
                         {
-                            <div class="card-container">
-                                <div class="card">
-                                    <a asp-controller="artist" asp-action="detail" asp-route-id="@artist.Id">
-                                        <img src="~/assets/images/@artist.ImageUrl" alt="">
-                                    </a>
-                                    <h3>@artist.FullName</h3>
-                                    <p>Artist</p>
+                                <div class="card-container">
+                                <a asp-controller="Artist" asp-action="Detail" asp-route-id="@artist.Id">
 
-                                    <button class="play">
-                                        <i id="play-icon" class="fa-solid fa-play"></i>
-                                        <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
-                                    </button>
+                                    <div class="card">
+                                        <a >
+                                            <img src="~/assets/images/@artist.ImageUrl" alt="">
+                                        </a>
+                                        <h3>@artist.FullName</h3>
+                                        <p>Artist</p>
+
+                                        <button class="play">
+                                            <i id="play-icon" class="fa-solid fa-play"></i>
+                                            <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                                        </button>
+                                    </div>
+                                </a>
+
                                 </div>
-                            </div>
+                           
                         }
                     </div>
 
@@ -116,25 +119,28 @@
                     </div>
                 </div>
             }
-            @if (Model.MusicPlaylists.Count() != 0)
+            @if (Model.Playlists.Count() != 0)
             {
                 <div class="playlist-area">
                     <h2>Playlists</h2>
                     <div class="all-playlist">
-                        @foreach (var playlist in Model.MusicPlaylists)
-                        {
-                            <div class="card-container">
-                                <div class="card">
-                                    <img src="~/assets/images/@playlist.Playlist.ImgUrl" alt="">
-                                    <h3>@playlist.Playlist.Name</h3>
-                                    <p></p>
+                        @foreach (var playlist in Model.Playlists)
 
-                                    <button class="play">
-                                        <i id="play-icon" class="fa-solid fa-play"></i>
-                                        <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
-                                    </button>
+                        {
+                            <a asp-action="Detail" asp-controller="Playlist" asp-route-id="@playlist.Id" >
+                                <div class="card-container">
+                                    <div class="card">
+                                        <img src="~/assets/images/@playlist.ImgUrl" alt="">
+                                        <h3>@playlist.Name</h3>
+                                        <p></p>
+
+                                        <button class="play">
+                                            <i id="play-icon" class="fa-solid fa-play"></i>
+                                            <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         }
                     </div>
                 </div>
@@ -142,7 +148,11 @@
         </div>
     </div>
 </section>
-@section Scripts {
     <script src="~/assets/js/search.js"></script>
-
-}
+    <script src="~/assets/js/searchInput.js"></script>
+    <script src="~/assets/js/wishlist.js"></script>
+    <script src="~/assets/js/activeWishlist.js"></script>
+    <script src="~/assets/js/sidebar.js"></script>
+    <script src="~/assets/js/playMusic.js"></script>
+    <script src="~/assets/js/playButtons.js"></script>
+  

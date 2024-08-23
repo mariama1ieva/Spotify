@@ -41,7 +41,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
         {
             ViewBag.Artists = await _artistService.GetALlBySelectedAsync();
             ViewBag.Categories = await _categoryService.GetALlBySelectedAsync();
-            ViewBag.Groups = await _groupService.GetALlBySelectedAsync();
+            //ViewBag.Groups = await _groupService.GetALlBySelectedAsync();
 
             return View();
         }
@@ -51,7 +51,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
         {
             ViewBag.Artists = await _artistService.GetALlBySelectedAsync();
             ViewBag.Categories = await _categoryService.GetALlBySelectedAsync();
-            ViewBag.Groups = await _groupService.GetALlBySelectedAsync();
+            //ViewBag.Groups = await _groupService.GetALlBySelectedAsync();
             if (!ModelState.IsValid) return View(request);
 
             if (await _albumService.AnyAsync(request.Name))
@@ -66,9 +66,9 @@ namespace spotifyFinal.Areas.Admin.Controllers
                 return View(request);
             }
 
-            if (!request.Photo.CheckFileSize(200))
+            if (!request.Photo.CheckFileSize(2200))
             {
-                ModelState.AddModelError("Photo", "Max File capacity must be 200KB");
+                ModelState.AddModelError("Photo", "Max File capacity must be 2200KB");
                 return View();
             }
 
@@ -96,15 +96,23 @@ namespace spotifyFinal.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int? id)
         {
-            if (!ModelState.IsValid) return View();
+            if (id == null) return NotFound();
+            Album? album = await _context.Albums.FirstOrDefaultAsync(s => s.Id == id);
+            if (album == null) NotFound();
 
-            if (id == null) return BadRequest();
-            var album = await _albumService.GetByIdAsync((int)id);
 
-            if (album == null) return NotFound();
 
-            await _albumService.DeleteAsync((int)id);
-            return RedirectToAction(nameof(Index));
+            else
+            {
+                _context.Remove(album);
+                _context.SaveChanges();
+                string fullpath = Path.Combine(_env.WebRootPath, "assets/images", album.Image);
+                if (System.IO.File.Exists(fullpath))
+                {
+                    System.IO.File.Delete(fullpath);
+                }
+            };
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -112,7 +120,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
         {
             ViewBag.Artists = await _artistService.GetALlBySelectedAsync();
             ViewBag.Categories = await _categoryService.GetALlBySelectedAsync();
-            ViewBag.Groups = await _groupService.GetALlBySelectedAsync();
+            //ViewBag.Groups = await _groupService.GetALlBySelectedAsync();
 
             if (id == null) return NotFound();
             Album? album = await _context.Albums.FirstOrDefaultAsync(c => c.Id == id);
@@ -123,7 +131,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
                 Name = album.Name,
                 CategoryId = album.CategoryId,
                 ArtistId = (int)album.ArtistId,
-                GroupId = (int)album.GroupId
+                //GroupId = (int)album.GroupId
             });
         }
 
@@ -135,7 +143,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
         {
             ViewBag.Artists = await _artistService.GetALlBySelectedAsync();
             ViewBag.Categories = await _categoryService.GetALlBySelectedAsync();
-            ViewBag.Groups = await _groupService.GetALlBySelectedAsync();
+            //ViewBag.Groups = await _groupService.GetALlBySelectedAsync();
 
             if (id == null) return NotFound();
             Album? album = await _context.Albums.FirstOrDefaultAsync(c => c.Id == id);
@@ -164,7 +172,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
             album.Name = request.Name;
             album.ArtistId = request.ArtistId;
             album.CategoryId = request.CategoryId;
-            album.GroupId = request.GroupId;
+            //album.GroupId = request.GroupId;
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

@@ -1,4 +1,5 @@
 ﻿@using Domain.Entities
+@using Service.ViewModels.AlbumVMs
 @model Album
 @{
     int count = 0;
@@ -55,14 +56,12 @@
         </div>
         <div class="album-music">
             <div id="songs" class="songList">
-                <partial name="_AlbumSongListPartial" />
+                @* <partial name="_AlbumSongListPartial" /> *@
+                @await Html.PartialAsync("_AlbumSongListPartial")
             </div>
         </div>
         <input type="hidden" id="song_count" albumId="@Model.Id" value="@ViewBag.SongCount" />
-        @if (Model.Songs.Count() > 0)
-        {
-            <button id="loadMore"> Load more</button>
-        }
+      
     </div>
 
 </section>
@@ -71,7 +70,7 @@
     <section id="cards-area">
         <div class="content">
             <div class="throwback">
-                <h2><a asp-action="Detail" asp-controller="Artist" asp-route-id="@Model.ArtistId" >More by <Span>@Model.Artist.FullName</Span></a></h2>
+                <h2><a asp-action="Detail" asp-controller="Artist" asp-route-id="@Model.ArtistId">More by <Span>@Model.Artist.FullName</Span></a></h2>
             </div>
             <div class="main-cards">
                 @foreach (var otherAlbum in ViewBag.OtherAlbums)
@@ -89,11 +88,8 @@
                     </div>
                 }
             </div>
+            
         </div>
     </section>
 
 </section>
-
-@section Scripts {
-    <script src="~/assets/js/loadMore.js"></script>
-}

@@ -1,51 +1,66 @@
 ﻿@using Service.ViewModels.SongVMs
-@model List<SongListVM>
+@using spotifyFinal.Areas.Admin.PaginateVM
+@model PaginateSongVM<SongListVM>
 
 @{
+
     Layout = "_Layout";
+
 }
 
 <div class="table-responsive container ">
     <div class="col-md-9 col-sm-9 center-margin mt-3">
-        <a asp-action="Create" asp-area="Admin" asp-controller="Song" style="margin-left:100px;">
-            <i class="fa-solid fa-square-plus fa-xl" style="color: #121212;font-size:30px;"></i>
+        @if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
+
+        {
+
+            <a asp-action="Create" asp-area="Admin" asp-controller="Song" style="margin-left:100px;">
+                <i class="fa-solid fa-square-plus fa-xl" style="color: #121212;font-size:30px;"></i>
 
         </a>
+        }
         <table class="table table-striped jambo_table bulk_action mt-3" style="margin-left:100px;">
             <thead style="background-color:#121212;">
                 <tr class="headings">
                     <th class="column-title">Image </th>
                     <th class="column-title">Name </th>
                     <th class="column-title">Color </th>
-                    <th class="column-title">Point Rating </th>
                     <th class="column-title">Album </th>
                     <th class="column-title">Category </th>
-                    <th class="column-title">Artists </th>
+                   
                     <th class="column-title">Operations </th>
                 </tr>
             </thead>
 
             <tbody>
 
-                @foreach (var item in Model)
+                @foreach (var item in Model.Songs)
                 {
                     <tr class="even pointer">
 
                         <td class=" "><img style="width:50px;height:40px;" src="~/assets/images/@item.ImageUrl" /></td>
                         <td class=" ">@item.Name</td>
                         <td class=" ">@item.Color</td>
-                        <td class=" ">@item.PointRayting</td>
-                        <td class=" ">@item.AlbumName</td>
-                        <td class=" ">@item.CategoryName</td>
-                        <td class=" ">@string.Join(", ", item.ArtistSongs.Select(m => m.Artist.FullName))</td>
+
+                        <td class=" ">@Html.Raw(item.AlbumName)</td>
+                        <td class=" ">@Html.Raw(item.CategoryName)</td>
+                   
                         <td style=" display:flex; gap:30px;">
                             <a asp-area="Admin" asp-controller="Song" asp-route-id=@item.Id asp-action="Detail"><i class="fa-solid fa-circle-info fa-xl" style="color: #121212;"></i></a>
                             <a asp-area="Admin" asp-controller="Song" asp-route-id=@item.Id asp-action="Update"><i class="fa-solid fa-pen-to-square fa-xl" style="color: #121212;"></i></a>
-                            <form asp-controller="Song" asp-route-id="@item.Id" asp-action="Delete" asp-area="Admin" method="post" style="display:inline-block">
-                                <button style="border: none; outline: none; background: none;">
-                                    <i class="fa-solid fa-trash fa-xl" style="color: red;"></i>
-                                </button>
-                            </form>
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
+
+
+
+                            {
+
+                                <form asp-controller="Song" asp-route-id="@item.Id" asp-action="Delete" asp-area="Admin" method="post" style="display:inline-block">
+                                    <button style="border: none; outline: none; background: none;">
+                                        <i class="fa-solid fa-trash fa-xl" style="color: red;"></i>
+                                    </button>
+                                </form>
+
+                            }
                         </td>
                     </tr>
 
@@ -64,6 +79,76 @@
                 </a>
             </div>
         </div>
-    </div>z
+        <nav aria-label="Page navigation example">
+            <ul class="pagination d-flex justify-content-center">
+                <li class="page-item @(Model.Previous == false ? "disabled" : "")">
+                    <a asp-action="Index" asp-route-page="@(Model.CurrentPage - 1)" class="page-link" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                @for (int i = 1; i <= Model.TotalPage; i++)
+
+                {
+                    <li class="page-item @(i == Model.CurrentPage ? "disabled" : "")"><a asp-action="Index" asp-route-page="@i" class="page-link">@i</a></li>
+                }
+                <li class="page-item @(Model.Next == true ? "" : "disabled")">
+                    <a asp-action="Index" asp-route-page="@(Model.CurrentPage + 1)" class="page-link" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
 <script src="https://kit.fontawesome.com/680cf1a7ac.js" crossorigin="anonymous"></script>
+<style>
+    .pagination-container {
+        border-radius: 5px; /* Optional: Add rounded corners */
+        padding: 10px; /* Optional: Add some padding */
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+        .pagination .page-item {
+            margin: 0 2px;
+        }
+
+        .pagination .page-link {
+            color: black; /* Text color for links */
+            background-color: white; /* Default background color for links */
+            border: 1px solid #1E1E1E; /* Default border color */
+            border-radius: 5px; /* Optional: Add rounded corners */
+            padding: 8px 12px; /* Adjust padding */
+            text-align: center;
+            display: block;
+            text-decoration: none;
+        }
+
+            .pagination .page-link:hover {
+                background-color: #333333; /* Hover color */
+                border-color: #333333; /* Hover border color */
+            }
+
+        .pagination .page-item.active .page-link {
+            background-color: #000000; /* Background color for active page */
+            border-color: #000000; /* Border color for active page */
+            color: #ffffff; /* Text color for active page */
+        }
+
+        .pagination .page-item.disabled .page-link {
+            background-color: #1E1E1E; /* Disabled item background */
+            border-color: #1E1E1E; /* Disabled border color */
+            color: #757575; /* Disabled text color */
+            pointer-events: none; /* Disable click events */
+        }
+</style>

@@ -7,21 +7,21 @@
             <i class="fa-solid fa-right-from-bracket fa-rotate-180 fa-2xl " style="color:#121212;"></i>
         </a>
         <form class="forms-sample mt-5" method="post" style="margin-left:100px;" enctype="multipart/form-data">
-            <img src="~/assets/images/@Model.ImageUrl" width="200px;" height="200px;" />
+            <img src="~/assets/images/@Model.ImageUrl" width="250px;" height="250px;" />
 
-            <div class="form-group">
-                <label>@Model.Name</label>
+            <div class="form-group mt-4">
+                <label style="color:black">Name</label>
                 <input asp-for="Name" class="form-control" placeholder="Add Name...">
                 <span class="text-danger mt-2" asp-validation-for="Name"></span>
-            </div>5
-            <div class="form-group">
-                <label>@Model.Color</label>
-                <input asp-for="Color" class="form-control" type="color" style="width: 20%;">
+            </div>
+            <div class="form-group mt-3">
+                <label style="color:black">@Model.Color</label>
+                <input asp-for="Color" class="form-control" type="color" style="width:260px;>
                 <span class="text-danger mt-2" asp-validation-for="Color"></span>
             </div>
             <div class="form-group">
-                <label>@Model.Photo</label>
-                <input asp-for="Photo" class="form-control" placeholder="Add Photo...">
+                <label style="color:black">Photo</label>
+                <input asp-for="Photo" class="form-control" >
                 <span class="text-danger mt-2" asp-validation-for="Photo"></span>
             </div>
             <input asp-for="ImageUrl" hidden />

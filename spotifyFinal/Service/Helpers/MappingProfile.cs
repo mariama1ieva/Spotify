@@ -43,6 +43,7 @@ namespace Service.Helpers
 
             CreateMap<SongCreateVM, Song>();
             CreateMap<Song, SongListVM>();
+
             CreateMap<Song, SongDetailVM>();
             CreateMap<SongArtistCreateVM, ArtistSong>();
             CreateMap<SongArtistEditVM, Song>();

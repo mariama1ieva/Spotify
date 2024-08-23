@@ -7,17 +7,20 @@
 
 <div class="table-responsive container ">
     <div class="col-md-9 col-sm-9 center-margin mt-3">
-        <a asp-action="Create" asp-area="Admin" asp-controller="Artist" style="margin-left:100px;">
-            <i class="fa-solid fa-square-plus fa-xl" style="color: #121212;font-size:30px;"></i>
 
-        </a>
+        @if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
+        {
+            <a asp-action="Create" asp-area="Admin" asp-controller="Artist" style="margin-left:100px;">
+                <i class="fa-solid fa-square-plus fa-xl" style="color: #121212;font-size:30px;"></i>
+
+            </a>
+        }
         <table class="table table-striped jambo_table bulk_action mt-3" style="margin-left:100px;">
             <thead style="background-color:#121212;">
                 <tr class="headings">
                     <th class="column-title">Image </th>
                     <th class="column-title">FullName </th>
                     <th class="column-title">About </th>
-                    <th class="column-title">Songs </th>
                     <th class="column-title">Positions </th>
                     <th class="column-title">Operations </th>
                 </tr>
@@ -32,18 +35,20 @@
                         <td class=" "><img style="width:50px;height:40px;" src="~/assets/images/@item.ImageUrl" /></td>
                         <td class=" ">@item.FullName</td>
                         <td class=" ">@item.AboutImg</td>
-                        <td class=" ">@string.Join(", ", item.ArtistSongs.Select(m => m.Song.Name))</td>
                         <td class=" ">@string.Join(", ", item.ArtistPositions.Select(m => m.Position.Name))</td>
 
                      
                         <td style=" display:flex; gap:30px;">
                             <a asp-area="Admin" asp-controller="Artist" asp-route-id=@item.Id asp-action="Detail"><i class="fa-solid fa-circle-info fa-xl" style="color: #121212;"></i></a>
                             <a asp-area="Admin" asp-controller="Artist" asp-route-id=@item.Id asp-action="Update"><i class="fa-solid fa-pen-to-square fa-xl" style="color: #121212;"></i></a>
-                            <form asp-controller="Artist" asp-route-id="@item.Id" asp-action="Delete" method="post" style="display:inline-block">
-                                <button style="border: none; outline: none; background: none;">
-                                    <i class="fa-solid fa-trash fa-xl" style="color: red;"></i>
-                                </button>
-                            </form>
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
+                            {
+                                <form asp-controller="Artist" asp-route-id="@item.Id" asp-action="Delete" method="post" style="display:inline-block">
+                                    <button style="border: none; outline: none; background: none;">
+                                        <i class="fa-solid fa-trash fa-xl" style="color: red;"></i>
+                                    </button>
+                                </form>
+                            }
                         </td>
                     </tr>
 

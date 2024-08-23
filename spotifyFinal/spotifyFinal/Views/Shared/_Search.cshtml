@@ -5,7 +5,6 @@
 }
 
 
-<script defer src="~/assets/js/musicTime.js"></script>
 <section id="search-area" style="padding-top:30px">
     <div class="content">
     @if (Model.ArtistSongs != null)
@@ -26,12 +25,11 @@
                         </div>
                         <div class="liked-music">
                         @foreach (var song in Model.ArtistSongs)
-
                         {
 
                             count++;
 
-                                <div class="music-row">
+                                <div class="music-row" src="../../assets/music/@song.Song.Path">
                                     <div class="left-side">
                                         <div class="count">
                                             <p>@count</p>
@@ -46,7 +44,7 @@
                                                 <div class="music-name">
                                                     <p>@(song.Song.Name.Length > 15 ? song.Song.Name.Substring(0, 13) + "..." : song.Song.Name)</p>
                                                 </div>
-                                                <a asp-action="detail" asp-controller="Artist" class="artist-name">
+                                                <a  asp-action="detail" asp-controller="Artist" asp-route-id="@song.ArtistId" class="artist-name">
                                                     <p>@song.Artist.FullName</p>
                                                 </a>
                                             </div>
@@ -54,7 +52,7 @@
                                     </div>
                                     <div class="right-side">
                                         <div class="albom-name" style="padding-left: 10px;">
-                                            <a>@song.Song.Album.Name</a>
+                                            <a style="text-decoration:none;color:white" asp-action="Detail" asp-controller="Album" asp-route-id="@song.Song.AlbumId">@song.Song.Album.Name</a>
                                         </div>
                                         <div class="add-date">
                                             <button id="wishlist" class="wish" songId="@song.SongId">
@@ -83,15 +81,18 @@
                 @foreach (var artist in Model.Artists)
                 {
                         <div class="card-container">
-                            <div class="card">
-                                <img src="~/assets/images/@artist.ImageUrl" alt="">
-                                <h3>@artist.FullName</h3>
-                                <p>Artist</p>
-                                <button class="play">
-                                    <i id="play-icon" class="fa-solid fa-play"></i>
-                                    <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
-                                </button>
-                            </div>
+                            <a asp-controller="Artist" asp-action="Detail" asp-route-id="@artist.Id">
+                                <div class="card">
+                                    <img src="~/assets/images/@artist.ImageUrl" alt="">
+                                    <h3>@artist.FullName</h3>
+                                    <p>Artist</p>
+                                    <button class="play">
+                                        <i id="play-icon" class="fa-solid fa-play"></i>
+                                        <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                                    </button>
+                                </div>
+                            </a>
+                    
                         </div>
 
                 }
@@ -100,15 +101,15 @@
             </div>
     }
 
-    @if (Model.Albums != null)
+        @if (Model.Albums != null)
 
-    {
+        {
             <div class="albom-area">
-                <h2></h2>
+                <h2>Albums</h2>
                 <div class="all-albom">
-                @foreach (var album in Model.Albums)
-                {
-                    <a asp-action="detail" asp-controller="Album" asp-route-id="@album.Id" >
+                    @foreach (var album in Model.Albums)
+                    {
+                        <a asp-action="detail" asp-controller="Album" asp-route-id="@album.Id">
                             <div class="card-container">
                                 <div class="card">
                                     <img src="~/assets/images/@album.Image" alt="">
@@ -120,36 +121,64 @@
                                     </button>
                                 </div>
                             </div>
-
                         </a>
-                       
-                }
+                    }
                 </div>
             </div>
-    }
+        }
 
-    @if (Model.MusicPlaylists != null)
 
-    {
+        @if (Model.MusicPlaylists != null && Model.MusicPlaylists.Any())
+        {
             <div class="playlist-area">
                 <h2></h2>
                 <div class="all-playlist">
-                @foreach (var playlist in Model.MusicPlaylists)
-                {
-                        <div class="card-container">
-                            <div class="card">
-                                <img src="~/assets/images/@playlist.Playlist.AppUser.ImageUrl " alt="">
-                                <h3>@playlist.Playlist.Name</h3>
-                                <p>@playlist.Playlist.AppUser.Fullname</p>
-                                <button class="play">
-                                    <i id="play-icon" class="fa-solid fa-play"></i>
-                                    <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
-                                </button>
+                    @foreach (var playlist in Model.Playlists)
+                    {
+
+                      @*   if (playlist.Playlist.AppUserId != Model.CurrentUserId) 
+
+                        {
+                            <a asp-action="ViewPlaylists" asp-controller="Playlist" asp-route-id="@playlist.Playlist.AppUser.Id">
+                                <div class="card-container">
+                                    <div class="card">
+                                        <img src="~/assets/images/@playlist.Playlist.ImgUrl" alt="@playlist.Playlist.Name" />
+                                        <h3>@playlist.Playlist.Name</h3>
+                                        <p>@playlist.Playlist.AppUser.Fullname</p>
+
+                                        <button class="play">
+                                            <i id="play-icon" class="fa-solid fa-play"></i>
+                                            <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                        } *@
+                        <a asp-action="Detail" asp-controller="Playlist" asp-route-id="@playlist.Id">
+                            <div class="card-container">
+                                <div class="card">
+                                    <img src="~/assets/images/@playlist.ImgUrl" alt="@playlist.Name" />
+                                    <h3>@playlist.Name</h3>
+                                    <p>@playlist.AppUser.Fullname</p>
+
+                                    <button class="play">
+                                        <i id="play-icon" class="fa-solid fa-play"></i>
+                                        <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                }
+                        </a>
+                    }
                 </div>
             </div>
     }
     </div>
 </section>
+    <script src="~/assets/js/search.js"></script>
+    <script src="~/assets/js/searchInput.js"></script>
+    <script src="~/assets/js/wishlist.js"></script>
+    <script src="~/assets/js/playMusic.js"></script>
+    <script src="~/assets/js/playButtons.js"></script>
+    <script src="~/assets/js/activeWishlist.js"></script>
+    <script src="~/assets/js/musicTime.js"></script>
+

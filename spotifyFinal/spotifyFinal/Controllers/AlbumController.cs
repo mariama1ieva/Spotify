@@ -31,6 +31,7 @@ namespace spotifyFinal.Controllers
                .Include(a => a.Artist)
                .FirstOrDefaultAsync(a => a.Id == id);
             if (album == null) return NotFound();
+
             ViewBag.OtherAlbums = await _context.Albums
     .Where(a => a.ArtistId == album.ArtistId && a.Id != id)
     .ToListAsync();

@@ -17,10 +17,10 @@ namespace Service.Services
             _repository = categoryRepository;
             _mapper = mapper;
         }
+
         public async Task<bool> AnyAsync(string name)
         {
             return await _repository.AnyAsync(name.Trim().ToLower());
-
         }
 
         public async Task CreateAsync(CategoryCreateVM model)

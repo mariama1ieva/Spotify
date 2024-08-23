@@ -6,6 +6,6 @@ namespace Service.ViewModels.PositionVMs
     {
         [Required(ErrorMessage = "Can not be empty.")]
         public string Name { get; set; }
-        public IEnumerable<int> ArtistIds { get; set; }
+        public int Id { get; set; }
     }
 }

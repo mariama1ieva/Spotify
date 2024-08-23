@@ -33,7 +33,7 @@
                 </a>
             }
 
-     
+
             <div class="create-side">
                 <div class="content">
                     @if (User.Identity.IsAuthenticated)
@@ -52,38 +52,38 @@
                             </div>
                         </a>
 
-                       
-                            @foreach (var item in Model.Playlists)
-                            {
-                                
-                                        <div class="sidebar-playlist-cards">
-                                            <div class="card">
+
+                        @foreach (var item in Model.Playlists)
+                        {
+
+                            <div class="sidebar-playlist-cards">
+                                <div class="card">
                                     <a style="text-decoration:none" asp-controller="Playlist" asp-action="Detail" asp-route-id="@item.Id">
 
-                                                <div class="left-side">
-                                                    <img src="~/assets/images/@item.ImgUrl" alt="Playlist Image">
-                                                </div>
+                                        <div class="left-side">
+                                            <img src="~/assets/images/@item.ImgUrl" alt="Playlist Image">
+                                        </div>
                                     </a>
 
-                                                <div class="right-side">
-                                                    <p class="playlist-name">@item.Name</p>
-                                                    <p>Playlist by <span class="song_count">@item.AppUser.Fullname</span></p>
-                                       
-                                        <i class="fa-solid fa-xmark delete-playlist" style="color: #00ff59;cursor:pointer;margin-top:10px;margin-left:40px" data-id="@item.Id"></i>
-                                    </div>
-                                            </div>
+                                    <div class="right-side">
+                                        <p class="playlist-name">@item.Name</p>
+                                        <p>Playlist by <span class="song_count">@item.AppUser.Fullname</span></p>
 
-                                        </div>
-                               
-                            }
-                        
-                        
+                                        <i class="fa-solid fa-trash delete-playlist" style="color: grey;cursor:pointer;margin-top:15px;margin-left:40px" data-id="@item.Id"></i>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        }
+
+
                     }
                     else
                     {
                         <p style="color:white">Please log in to see your playlists.</p>
                     }
-                        <div class="create-playlist">
+                    <div class="create-playlist">
                         <div class="paragraphy">
                             <p>Create your first playlist</p>
                             <p>It's easy, we'll help you</p>
@@ -111,5 +111,70 @@
     </div>
 </section>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="~/assets/js/DeletePlaylist.js"></script>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $(".delete-playlist").on("click", function (event) {
+            event.stopImmediatePropagation();
+
+            const button = $(this);
+            const itemId = button.data('id');
+
+            // SweetAlert2 confirmation dialog with Spotify-like colors
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#1ED760', // Spotify green
+                cancelButtonColor: '#d33', // Default red color for cancel button
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'Cancel',
+                timer: 5000, // Optional: Set a timer to auto-confirm after 5 seconds
+                timerProgressBar: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: `/Playlist/Delete/${itemId}`,
+                        type: 'DELETE',
+                        headers: {
+                            'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+                        },
+                        success: function (result) {
+                            // Remove the playlist card from the DOM
+                            const playlistCard = button.closest(".sidebar-playlist-cards");
+                            if (playlistCard.length) {
+                                playlistCard.remove();
+                            }
+                            Swal.fire(
+                                'Deleted!',
+                                'Your playlist has been deleted.',
+                                'success',
+                                {
+                                    confirmButtonColor: '#1ED760' // Spotify green for the success button
+                                }
+                            );
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("Failed to delete playlist:", error);
+                            Swal.fire(
+                                'Error!',
+                                'Failed to delete the playlist.',
+                                'error',
+                                {
+                                    confirmButtonColor: '#1ED760' // Spotify green for the error button
+                                }
+                            );
+                        }
+                    });
+                }
+            });
+        });
+    });
+
+
+</script>

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head style="background-color:#121212!important;">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -53,10 +54,10 @@
                         <div class="menu_section">
                             <h3>General</h3>
                             <ul class="nav side-menu">
-                                <li>
-
-                                <li><a asp-action="Index" asp-area="Admin" asp-controller="User">User</a></li>
-
+                                
+                                <li style="display:flex">
+                                    
+                                    <a asp-action="Index" asp-area="Admin" asp-controller="User">User</a>
 
                                 </li>
                                 <li>
@@ -65,10 +66,7 @@
                                  
                                    
                                 </li>
-                                <li>
-                                <li><a asp-action="Index" asp-area="Admin" asp-controller="GroupArtist">GroupArtist</a></li>
-
-                                </li>
+                               
                                 <li>
                                         <li><a asp-action="Index" asp-area="Admin" asp-controller="Category">Category</a></li>
                                     
@@ -90,10 +88,8 @@
                                 <li>
                                 <li><a asp-action="Index" asp-area="Admin" asp-controller="Artist">Artist</a></li>
                             
-                                <li>
-                                <li><a asp-action="Index" asp-area="Admin" asp-controller="Group">Group</a></li>
-
                                 </li>
+                            
                              
                             </ul>
                         </div>
@@ -112,17 +108,14 @@
                     <div class="nav toggle">
                         <a style="color:#121212" id="menu_toggle"><i class="fa fa-bars"></i></a>
                     </div>
-                    <nav style="display:flex;align-items:end;font-size:20px;color:#121212!important;" class="nav navbar-nav">
-                        <a>
-                           @*  <span  >@Model.Email</span>
-                            <span>
-                                <span>@Model.UserName</span>
-                            </span> *@
-
-                        </a>
-                        <a asp-action="Index"  asp-controller="Home" asp-area="">
-                            <span class="glyphicon glyphicon-off"</span>
-                        </a>
+                    <nav style="display:flex;align-items:end;font-size:20px;color:#121212!important; margin-right:20px;margin-top:10px" class="nav navbar-nav">
+                        
+                        <div style="display:flex;gap:10px"> 
+                            <span>@User.Identity.Name</span>
+                            <a asp-action="Index" asp-controller="Home" asp-area="">
+                                <span class="glyphicon glyphicon-off"</span>
+                            </a>
+                        </div>
 
                     </nav>
                 </div>
@@ -135,9 +128,9 @@
 
 
         </div>
-
+@* 
         <!-- top navigation -->
-        @*    <div class="top_nav">
+           <div class="top_nav">
         <div class="nav_menu">
         <div class="nav toggle">
         <a id="menu_toggle"><i class="fa fa-bars"></i></a>
@@ -166,16 +159,7 @@
         </a>
         <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
         <li class="nav-item">
-        <a class="dropdown-item">
-        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-        <span>
-        <span>John Smith</span>
-        <span class="time">3 mins ago</span>
-        </span>
-        <span class="message">
-        Film festivals used to be do-or-die moments for movie makers. They were where...
-        </span>
-        </a>
+    
         </li>
         <li class="nav-item">
         <a class="dropdown-item">

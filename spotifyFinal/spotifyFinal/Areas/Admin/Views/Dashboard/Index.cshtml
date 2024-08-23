@@ -1,4 +1,134 @@
-﻿@{
-    ViewData["Title"] = "Index";
-}
+﻿@using Service.ViewModels
+@model DashboardVM
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #entityBarChart {
+            background-color: #f2f2f2; /* Light grey background */
+            border: 1px solid #ddd; /* Light grey border */
+        }
 
+        .chart-container {
+            text-align: center;
+        }
+
+        .chart-label {
+            display: inline-block;
+            margin: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="col-md-7 col-sm-7" style="margin-left:400px;">
+        <div class="x_panel tile fixed_height_320 overflow_hidden" style="height:100%">
+            <div class="x_title">
+                <h2 style="color:black">Entity Counts</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="chart-container">
+                    <canvas id="entityBarChart" height="98"></canvas>
+                    <div id="chartLabels">
+                        <!-- Labels will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var ctx = document.getElementById('entityBarChart').getContext('2d');
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Artists', 'Categories', 'Albums', 'Songs', 'Positions', 'App Users', 'Roles'],
+                datasets: [{
+                    label: 'Count',
+                    data: [@Model.ArtistCount, @Model.CategoryCount, @Model.AlbumCount, @Model.SongCount, @Model.PositionCount, @Model.AppUsers.Count(), @Model.IdentityRoles.Count()],
+                    backgroundColor: '#1DB954', // Spotify Green
+                    borderColor: '#1ed760', // Lighter green for border
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#e0e0e0' // Light grey grid lines
+                        },
+                        ticks: {
+                            color: '#000' // Black tick labels
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: '#000' // Black tick labels
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#000' // Black legend labels
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                return tooltipItem.label + ': ' + tooltipItem.raw;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Generate labels below the chart
+        var chartLabelsContainer = document.getElementById('chartLabels');
+        var counts = [@Model.ArtistCount, @Model.CategoryCount, @Model.AlbumCount, @Model.SongCount, @Model.PositionCount, @Model.AppUsers.Count(), @Model.IdentityRoles.Count()];
+        var labels = ['Artists', 'Categories', 'Albums', 'Songs', 'Positions', 'App Users', 'Roles'];
+
+        for (var i = 0; i < labels.length; i++) {
+            var labelElement = document.createElement('div');
+            labelElement.className = 'chart-label';
+            labelElement.innerHTML = `<span>&#9608;</span> <p>${labels[i]}: ${counts[i]}</p>`;
+            chartLabelsContainer.appendChild(labelElement);
+        }
+    </script>
+    <style>
+        #entityBarChart {
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+        }
+
+        .chart-container {
+            text-align: right;
+        }
+
+        .chart-label {
+            display: flex;
+            gap:30px;
+            align-items: center;
+            margin: 5px;
+            font-weight: bold;
+            color: black; 
+        }
+
+            .chart-label span {
+                color: #1DB954;
+            }
+
+            .chart-label p {
+                margin: 0; 
+            }
+    </style>
+</body>
+</html>

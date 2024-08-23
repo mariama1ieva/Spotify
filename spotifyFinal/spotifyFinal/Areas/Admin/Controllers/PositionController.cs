@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Domain.Entities;
+using Microsoft.AspNetCore.Mvc;
+using Repository.Data;
 using Service.Services.Interfaces;
-using Service.ViewModels.ArtistPositionVMs;
 using Service.ViewModels.PositionVMs;
 
 namespace spotifyFinal.Areas.Admin.Controllers
@@ -11,15 +12,16 @@ namespace spotifyFinal.Areas.Admin.Controllers
         private readonly IArtistPositionService _positionArtistService;
         private readonly IPositionService _positionService;
         private readonly IArtistService _artistService;
-
+        private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
 
-        public PositionController(IArtistPositionService positionArtistService, IPositionService positionService, IArtistService artistService, IWebHostEnvironment env)
+        public PositionController(IArtistPositionService positionArtistService, IPositionService positionService, IArtistService artistService, IWebHostEnvironment env, AppDbContext context)
         {
             _positionArtistService = positionArtistService;
             _positionService = positionService;
             _artistService = artistService;
             _env = env;
+            _context = context;
         }
 
         [HttpGet]
@@ -28,40 +30,27 @@ namespace spotifyFinal.Areas.Admin.Controllers
             var model = await _positionService.GetAllWithDatas();
             return View(model);
         }
-
         [HttpGet]
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
-            ViewBag.Artists = await _artistService.GetALlBySelectedAsync();
-
             return View();
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(PositionCreateVM request)
+        public async Task<IActionResult> Create(PositionCreateVM position)
         {
-            ViewBag.Artists = await _artistService.GetALlBySelectedAsync();
+            if (!ModelState.IsValid) return View();
 
-            if (!ModelState.IsValid) return View(request);
-
-            if (await _positionService.AnyAsync(request.Name))
+            Position newPosition = new()
             {
-                ModelState.AddModelError("Name", $"{request.Name} is already exist!");
-                return View(request);
-            }
+                Name = position.Name
+            };
 
-
-            int positionId = await _positionService.CreateAsync(request);
-
-            foreach (var artistId in request.ArtistIds)
-            {
-                await _positionArtistService.CreateAsync(new ArtistPositionCreateVM() { ArtistId = artistId, PositionId = positionId });
-            }
+            await _context.Positions.AddAsync(newPosition);
+            await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -85,59 +74,36 @@ namespace spotifyFinal.Areas.Admin.Controllers
             return View(await _positionService.GetAllWithDatasById(id));
         }
         [HttpGet]
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(int id)
         {
-            ViewBag.Artists = await _artistService.GetALlBySelectedAsync();
+            if (id == 0) return BadRequest();
 
-            // Validate the ModelState
-            if (!ModelState.IsValid) return View();
+            PositionEditVM position = _context.Positions.Select(p => new PositionEditVM()
+            {
+                Id = p.Id,
+                Name = p.Name,
 
-            if (id == null) return BadRequest();
+            }).FirstOrDefault(p => p.Id == id)!;
+            if (position is null) return NotFound();
 
-            var position = await _positionService.GetAllWithDatasById((int)id);
+            return View(position);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, PositionEditVM positionUpdateVM)
+        {
+            if (id == 0) return BadRequest();
+
+            var position = await _context.Positions.FindAsync(id);
 
             if (position == null) return NotFound();
 
-            PositionEditVM model = new PositionEditVM
-            {
-                Name = position.Name,
-                ArtistIds = position.ArtistPositions.Select(ap => ap.ArtistId).ToList()
-            };
+            if (!ModelState.IsValid) return View(positionUpdateVM);
 
-            return View(model);
-        }
+            position.Name = positionUpdateVM.Name;
 
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-
-        public async Task<IActionResult> Edit(int id, PositionEditVM request)
-        {
-            ViewBag.Artists = await _artistService.GetALlBySelectedAsync();
-
-            var existPosition = await _positionService.GetAllWithDatasById((int)id);
-
-
-            if (!ModelState.IsValid) return View(request);
-
-            if (id == null) return BadRequest();
-
-            if (!await _positionService.AnyAsync(request.Name))
-            {
-                ModelState.AddModelError("Name", $"{request.Name} is already exist!");
-                return View(request);
-            }
-
-            //existAlbum.Name = request.Name;
-            //existAlbum.CategoryId = request.CategoryId;
-            //existAlbum.GroupId = request.GroupId;
-            //existAlbum.ArtistId = request.ArtistId;
-
-            await _positionService.UpdateAsync((int)id, request);
+            await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
-
-
         }
     }
 }

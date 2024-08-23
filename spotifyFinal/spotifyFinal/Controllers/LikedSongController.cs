@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Repository.Data;
 using Service.ViewModels;
@@ -59,7 +60,49 @@ namespace spotifyFinal.Controllers
                     model.WishlistSongs.Add(wishliatSong);
                 }
             }
+            ViewBag.Songs = new SelectList(await _context.Songs
+     .Where(m => !m.SoftDelete)
+     .Include(m => m.Album)
+     .ToListAsync(), "Id", "Name");
             return View(model);
         }
+        [HttpPost]
+        public async Task<IActionResult> RemoveFromWishlist([FromBody] RemoveSongRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new { success = false, message = "Invalid data." });
+            }
+
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return Json(new { success = false, message = "User not found." });
+            }
+
+            var wishlistItem = _context.WishlistItems
+                .FirstOrDefault(wi => wi.SongId == request.SongId);
+
+            if (wishlistItem == null)
+            {
+                return Json(new { success = false, message = "Song not found in wishlist." });
+            }
+
+            _context.WishlistItems.Remove(wishlistItem);
+            await _context.SaveChangesAsync();
+
+            return Json(new { success = true });
+        }
+
+        public class RemoveSongRequest
+        {
+            public int SongId { get; set; }
+        }
+
+
+
+
+
     }
+
 }

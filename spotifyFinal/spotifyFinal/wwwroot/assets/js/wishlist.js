@@ -52,32 +52,32 @@ document.querySelectorAll(".wish").forEach(wishBtn => {
             });
     });
 });
-document.addEventListener("DOMContentLoaded", () => {
-    function handleDeleteClick(event) {
-        event.stopImmediatePropagation();
+//document.addEventListener("DOMContentLoaded", () => {
+//    function handleDeleteClick(event) {
+//        event.stopImmediatePropagation();
 
-        const button = event.currentTarget;
-        const musicRow = button.closest(".music-row");
+//        const button = event.currentTarget;
+//        const musicRow = button.closest(".music-row");
 
-        if (musicRow) {
-            const itemId = musicRow.dataset.id; // Assuming each row has a unique ID
+//        if (musicRow) {
+//            const itemId = musicRow.dataset.id; // Assuming each row has a unique ID
 
-            // Remove from local storage
-            let items = JSON.parse(localStorage.getItem('musicItems')) || [];
-            items = items.filter(item => item.id !== itemId);
-            localStorage.setItem('musicItems', JSON.stringify(items));
+//            // Remove from local storage
+//            let items = JSON.parse(localStorage.getItem('musicItems')) || [];
+//            items = items.filter(item => item.id !== itemId);
+//            localStorage.setItem('musicItems', JSON.stringify(items));
 
-            // Remove from the DOM
-            musicRow.remove();
-        } else {
-            console.error("Music row not found.");
-        }
-    }
+//            // Remove from the DOM
+//            musicRow.remove();
+//        } else {
+//            console.error("Music row not found.");
+//        }
+//    }
 
-    document.querySelectorAll(".dlt-wish").forEach(button => {
-        button.addEventListener("click", handleDeleteClick);
-    });
-});
+//    document.querySelectorAll(".dlt-wish").forEach(button => {
+//        button.addEventListener("click", handleDeleteClick);
+//    });
+//});
 
 
 function activeWishlist(btn) {

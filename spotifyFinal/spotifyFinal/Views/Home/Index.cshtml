@@ -35,7 +35,19 @@
 <section id="cards-area">
     <div class="content">
         <div class="throwback">
-            <h2><a style="cursor:none">Pop</a></h2>
+            <h2><a style="text-decoration:none">Hip-Hop/Rap</a></h2>
+            <a asp-controller="search" asp-action="detail" asp-route-category="Hip-Hop/Rap">Show all</a>
+        </div>
+        <div class="main-cards">
+            @Html.Partial("_AlbumCardPV", new HomeVM { Category = "Hip-Hop/Rap", Albums = Model.Albums })
+        </div>
+    </div>
+</section>
+
+<section id="cards-area">
+    <div class="content">
+        <div class="throwback">
+            <h2><a style="text-decoration:none">Pop</a></h2>
             <a asp-controller="search" asp-action="detail" asp-route-category="Pop">Show all</a>
         </div>
         <div class="main-cards">
@@ -47,35 +59,23 @@
 <section id="cards-area">
     <div class="content">
         <div class="throwback">
-            <h2><a style="cursor:none">Jazz</a></h2>
+            <h2><a style="text-decoration:none">Rock</a></h2>
+            <a asp-controller="search" asp-action="detail" asp-route-category="Rock">Show all</a>
+        </div>
+        <div class="main-cards">
+            @Html.Partial("_AlbumCardPV", new HomeVM { Category = "Rock", Albums = Model.Albums })
+        </div>
+    </div>
+</section>
+
+<section id="cards-area">
+    <div class="content">
+        <div class="throwback">
+            <h2><a style="text-decoration:none">Jazz</a></h2>
             <a asp-controller="search" asp-action="detail" asp-route-category="Jazz">Show all</a>
         </div>
         <div class="main-cards">
             @Html.Partial("_AlbumCardPV", new HomeVM { Category = "Jazz", Albums = Model.Albums })
-        </div>
-    </div>
-</section>
-
-<section id="cards-area">
-    <div class="content">
-        <div class="throwback">
-            <h2><a style="cursor:none">Dance/Electronic</a></h2>
-            <a asp-controller="search" asp-action="detail" asp-route-category="Dance/Electronic">Show all</a>
-        </div>
-        <div class="main-cards">
-            @Html.Partial("_AlbumCardPV", new HomeVM { Category = "Dance/Electronic", Albums = Model.Albums })
-        </div>
-    </div>
-</section>
-
-<section id="cards-area">
-    <div class="content">
-        <div class="throwback">
-            <h2><a style="cursor:none">Hip/Hop Rap</a></h2>
-            <a asp-controller="search" asp-action="detail" asp-route-category="Hip-Hop/Rap">Show all</a>
-        </div>
-        <div class="main-cards">
-            @Html.Partial("_AlbumCardPV", new HomeVM { Category = "Hip-Hop/Rap", Albums = Model.Albums })
         </div>
     </div>
 </section>

@@ -40,27 +40,18 @@
                 <label class="col-form-label col-md-3 col-sm-3  label-align" style="color:#121212">Positions<span class="required">*</span></label>
                 <div class="col-md-6 col-sm-6">
 
-                    <select class="form-control text-black mt-3" asp-for="PositionIds" asp-items="@ViewBag.Positions">
+                    <select class="form-control text-black mt-3" asp-for="PositionIds" asp-items="@(new SelectList(Model.Positions,"Id","Name"))">
                     </select>
                     <span class="text-danger mt-2" asp-validation-for="PositionIds"></span>
 
                 </div>
             </div>
-            <div class="field item form-group">
-                <label class="col-form-label col-md-3 col-sm-3  label-align" style="color:#121212">Songs<span class="required">*</span></label>
-                <div class="col-md-6 col-sm-6">
-
-                    <select class="form-control text-black mt-3" asp-for="SongIds" asp-items="@ViewBag.Songs">
-                    </select>
-                    <span class="text-danger mt-2" asp-validation-for="SongIds"></span>
-
-                </div>
-            </div>
+         
 
 
 
             <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
-            <a class="btn btn-light" asp-area="Admin" asp-controller="Song" asp-action="Index">Back</a>
+            <a class="btn btn-light" asp-area="Admin" asp-controller="Artist" asp-action="Index">Back</a>
         </form>
 
     </div>

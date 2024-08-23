@@ -11,8 +11,8 @@ namespace Service.ViewModels.AlbumVMs
         public IFormFile Photo { get; set; }
         public string? Image { get; set; }
 
-        [Required(ErrorMessage = "Please choose Group")]
-        public int? GroupId { get; set; }
+        //[Required(ErrorMessage = "Please choose Group")]
+        //public int? GroupId { get; set; }
         [Required(ErrorMessage = "Please choose Category")]
         public int? CategoryId { get; set; }
         [Required(ErrorMessage = "Please choose Artist")]

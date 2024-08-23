@@ -19,17 +19,17 @@
     <div class="music-row" src="../../assets/music/@song.Path" song-id="@song.Id" song-color="@song.Color">
         <div class="left-side">
             <div class="count">
-                <p class="song_number"></p>
+                <p class="song_number">@count</p>
                 <button class="play" id="play-songRow">
                     <i id="play-icon" class="fa-solid fa-play"></i>
                     <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
                 </button>
             </div>
             <div class="music-info">
-                <img src="~/assets/images/@song.ImageUrl" alt="">
+                <img src="~/assets/images/@song.ImageUrl" style="display:none" alt="">
                 <div class="names">
                     <a asp-controller="song" asp-action="detail" asp-route-id="@song.Id" class="music-name">
-                        <p> @(song.Name.Length > 20 ? song.Name.Substring(0, 17) + "..." : song.Name)</p>
+                        <p>@(song.Name.Length > 20 ? song.Name.Substring(0, 17) + "..." : song.Name)</p>
                     </a>
                     <a style="text-decoration:none" asp-controller="Artist" asp-action="detail" asp-route-id="@Model.Artist.Id" class="artist-name">
                         <p artist-id="@song.Album.Id">@song.Album.Artist.FullName</p>
@@ -38,6 +38,9 @@
             </div>
         </div>
         <div class="right-side">
+            <div class="albom-name">
+                <a></a>
+            </div>
             <div class="add-date">
                 <button id="wishlist" class="wish" songId="@song.Id">
                     <i class="fa-solid fa-heart"></i>
@@ -49,6 +52,3 @@
         </div>
     </div>
 }
-<script src="~/assets/js/wishlist.js"></script>
-<script src="~/assets/js/activeWishlist.js"></script>
-<script src="~/assets/js/loadMore.js"></script>

@@ -1,12 +1,58 @@
 ﻿@using Domain.Entities
+
 @model Playlist
+
 @{
     ViewData["Title"] = "Detail";
-}
-@{
     int count = 0;
-
 }
+<style>
+    /* General form styling */
+    #add-to-playlist-form {
+        background-color: #121212; /* Dark background similar to Spotify's */
+        color: #ffffff; /* White text for contrast */
+        border-radius: 8px; /* Rounded corners for a modern look */
+        padding: 20px; /* Space inside the form */
+        max-width: 500px; /* Limit the width of the form */
+        margin: auto; /* Center the form horizontally */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    }
+
+    /* Styling for the select element */
+    #song-select {
+        background-color: #1e1e1e; /* Darker background for the select box */
+        color: #b3b3b3; /* Light grey text */
+        border: 1px solid #333; /* Slightly lighter border */
+        border-radius: 4px; /* Rounded corners for the select box */
+        padding: 8px 12px; /* Space inside the select box */
+        width: 100%; /* Full width for better alignment */
+        font-size: 16px; /* Larger font size for better readability */
+        height:40px;
+    }
+
+    /* Styling for the button */
+    #add-to-playlist-button {
+        background-color: #1db954; /* Spotify green for the button */
+        color: #ffffff; /* White text */
+        border: none; /* Remove default border */
+        border-radius: 4px; /* Rounded corners */
+        padding: 6px 23px; /* Space inside the button */
+        font-size: 14px; /* Consistent font size */
+        cursor: pointer; /* Pointer cursor on hover */
+        max-width: 200px;
+        height: 40px;
+        transition: background-color 0.3s; /* Smooth transition for hover effect */
+    }
+
+        #add-to-playlist-button:hover {
+            background-color: #1ed760; /* Slightly lighter green on hover */
+        }
+
+    /* Anti-forgery token styling (if needed) */
+    input[type="hidden"] {
+        display: none; /* Hide the anti-forgery token from view */
+    }
+</style>
 <section id="detail-area">
     <div class="content">
         <div class="left-side">
@@ -17,22 +63,33 @@
             <p>Playlist</p>
             <h1 id="page-title">@Model.Name</h1>
             <div class="about-detail">
-                <div class="about-detail">
-                    <div class="createdBy">
-                        <div class="createdBy">
-                            <img src="~/assets/images/@Model.AppUser.ImageUrl" alt="">
-                          
-                                <a style="text-decoration:none;color:white" asp-controller="profile" asp-action="create" asp-route-id="@Model.AppUser.Id">@Model.AppUser.Fullname</a>
-                          
-                        </div>
-                    </div>
+                <div class="createdBy">
+                    <img src="~/assets/images/@Model.AppUser.ImageUrl" alt="">
+                    <a style="text-decoration:none;color:white" asp-controller="profile" asp-action="create" asp-route-id="@Model.AppUser.Id">@Model.AppUser.Fullname</a>
                 </div>
-
-
             </div>
         </div>
     </div>
 </section>
+<section style="margin-left:-450px">
+    <form id="add-to-playlist-form" method="post">
+        <div style="display:flex">
+            <select id="song-select" name="songId">
+                <option value="">Select a song</option>
+                @foreach (var song in ViewBag.Songs as IEnumerable<SelectListItem>)
+                {
+                    <option value="@song.Value">@song.Text</option>
+                }
+            </select>
+            <button type="button" id="add-to-playlist-button">
+                Add to Playlist
+            </button>
+            @Html.AntiForgeryToken()
+        </div>
+    </form>
+
+</section>
+
 <section id="top-music">
     <div class="context">
         <div class="action-bar">
@@ -46,6 +103,7 @@
             <div id="songs">
                 @if (Model.MusicPlaylists != null)
                 {
+
                     @foreach (var song in Model.MusicPlaylists)
                     {
                         count++;
@@ -79,17 +137,162 @@
                                         <i class="fa-solid fa-heart"></i>
                                     </button>
                                 </div>
-                                <div class="music-time">
+                                <div class="music-time" style="position:absolute;right:5px">
                                     <p>3:49</p>
                                 </div>
+                                <div>
+                                    <button class="remove" style="border:none;height:0px;" songId="@song.Song.Id">
+                                        <i class="fa-solid fa-trash remove" style="color: grey; cursor: pointer; margin-left: 40px;" songId="@song.Id"></i>
+                                        <input type="hidden" class="playlistId" value="@song.PlaylistId" />
+
+                                    </button>
+                                </div>
+
                             </div>
                         </div>
-                    }
-                }
+                        <input class="playlistId" type="hidden" value="@song.PlaylistId" />
 
+                    }
+
+                }
             </div>
+
         </div>
     </div>
 </section>
+<input class="songId" type="hidden" value="@Model.Id" /> 
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(document).ready(function () {
+        $('.remove').on('click', function () {
+            const button = $(this);
+            const songId = button.attr('songId');
+            const playlistId = $('.playlistId').val(); 
+
+           
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "This song will be removed from the playlist.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#1DB954', 
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, remove it!',
+                cancelButtonText: 'Cancel',
+                timer: 5000, // Optional: Set a timer to auto-confirm after 5 seconds
+                timerProgressBar: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '/Playlist/RemoveSongFromPlaylist',
+                        type: 'POST',
+                        data: JSON.stringify({ playlistId: playlistId, songId: songId }),
+                        contentType: 'application/json; charset=utf-8',
+                        headers: {
+                            'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+                        },
+                        success: function (data) {
+                            if (data.success) {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Success!',
+                                    text: 'The song has been removed from the playlist.',
+                                    timer: 1500, // Optional: auto-close the alert after 1.5 seconds
+                                    showConfirmButton: false // Optional: hide the confirm button
+                                }).then(() => {
+                                    // Remove the song element from the DOM
+                                    button.closest('.music-row').remove();
+                                });
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Error!',
+                                    text: data.message || 'Failed to remove the song from the playlist.',
+                                    confirmButtonColor: '#1DB954'
+                                });
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("Failed to remove song:", error);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error!',
+                                text: 'An error occurred while trying to remove the song.',
+                                confirmButtonColor: '#1DB954'
+                            });
+                        }
+                    });
+                }
+            });
+        });
+    });
+
+</script>
+
+
 <script src="~/assets/js/wishlist.js"></script>
 <script src="~/assets/js/activeWishlist.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#add-to-playlist-button').on('click', function () {
+            const songId = $('#song-select').val();
+            const playlistId = $('input.songId').val(); 
+
+            if (!songId) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'No Song Selected',
+                    text: 'Please select a song to add to the playlist.'
+                });
+                return; 
+            }
+
+           
+            $.ajax({
+                url: '@Url.Action("AddToPlaylist", "Playlist")',
+                type: 'POST',
+                data: JSON.stringify({ songId: songId, playlistId: playlistId }),
+                contentType: 'application/json; charset=utf-8',
+                headers: {
+                    'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+                },
+                success: function (response) {
+                    if (response.success) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Added!',
+                            text: 'The song has been added to your playlist.'
+                        }).then(() => {
+                          
+                            $('#playlist-container').html(response.html);
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Already Added!',
+                            text: response.message || 'The song is already in your playlist.'
+                        });
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("Failed to add song:", error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: 'An error occurred while trying to add the song.'
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+
+
+

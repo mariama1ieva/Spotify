@@ -122,6 +122,28 @@ namespace spotifyFinal.Controllers
             return RedirectToAction(nameof(Detail), new { id });
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteComment(int id)
+        {
+            var comment = await _context.Comments.FindAsync(id);
+
+            if (comment == null)
+            {
+                return Json(new { success = false, message = "Comment not found." });
+            }
+
+            try
+            {
+                _context.Comments.Remove(comment);
+                await _context.SaveChangesAsync();
+                return Json(new { success = true });
+            }
+            catch
+            {
+                return Json(new { success = false, message = "An error occurred while trying to delete the comment." });
+            }
+        }
 
         public async Task<IActionResult> AddWishlist(int? id)
         {
@@ -189,25 +211,25 @@ namespace spotifyFinal.Controllers
             return otherSongs;
         }
 
-        [HttpDelete("Delete/{id}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            if (!User.IsInRole("Admin") && !User.IsInRole("SuperAdmin"))
-            {
-                return Unauthorized();
-            }
+        //[HttpDelete("Delete/{id}")]
+        //public async Task<IActionResult> Delete(int id)
+        //{
+        //    if (!User.IsInRole("Admin") && !User.IsInRole("SuperAdmin"))
+        //    {
+        //        return Unauthorized();
+        //    }
 
-            var comment = await _context.Comments.FindAsync(id);
-            if (comment == null)
-            {
-                return NotFound();
-            }
+        //    var comment = await _context.Comments.FindAsync(id);
+        //    if (comment == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            _context.Comments.Remove(comment);
-            await _context.SaveChangesAsync();
+        //    _context.Comments.Remove(comment);
+        //    await _context.SaveChangesAsync();
 
-            return Ok();
-        }
+        //    return Ok();
+        //}
     }
 
 }

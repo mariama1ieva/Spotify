@@ -1,62 +1,112 @@
-﻿@using Service.ViewModels.AccountVMs;
+﻿@using Service.ViewModels.AccountVMs
 @model List<UserVM>
 
-
-
-<div class="table-responsive container ">
+<div class="table-responsive container">
     <div class="col-md-9 col-sm-9 center-margin mt-3">
-    @if (User.Identity.IsAuthenticated)
-    {
-        if (User.IsInRole("SuperAdmin"))
+        @if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
         {
             <div class="create-Role">
-           
-                    <a asp-action="AddRole" asp-area="Admin" asp-controller="User" style="margin-left:100px;">
-                        <i class="fa-solid fa-square-plus fa-xl" style="color: black!important;font-size:30px;"></i>
-
-                    </a>
+                <a asp-action="AddRole" asp-area="Admin" asp-controller="User" style="margin-left:100px;">
+                    <i class="fa-solid fa-square-plus fa-xl" style="color: black!important;font-size:30px;"></i>
+                </a>
             </div>
         }
-    }
-          <table class="table table-striped jambo_table bulk_action mt-3" style="margin-left:100px;">
+
+        <table class="table table-striped jambo_table bulk_action mt-3" style="margin-left:100px;">
             <thead style="background-color:#121212;">
                 <tr class="headings">
-                    <th class="column-title">FullName </th>
-                    <th class="column-title">UserName </th>
-                    <th class="column-title">Email </th>
-                    <th class="column-title">Roles </th>
-                    
+                    <th class="column-title">FullName</th>
+                    <th class="column-title">UserName</th>
+                    <th class="column-title">Email</th>
+                    <th class="column-title">Roles</th>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
+                    {
+                        <th class="column-title">Actions</th>
 
+                    }
                 </tr>
             </thead>
-           
             <tbody>
-
                 @foreach (var item in Model)
                 {
                     <tr class="even pointer">
-
-                    <td class=" ">@item.FullName</td>
-                    <td class=" ">@item.UserName</td>
-                    <td class=" ">@item.Email</td>
-                    <td class=" ">@item.Roles</td>
-                  
-            
+                        <td>@item.FullName</td>
+                        <td>@item.UserName</td>
+                        <td>@item.Email</td>
+                        <td>@item.Roles</td>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("SuperAdmin"))
+                        {
+                            <td>
+                                <form class="role-delete-form" asp-action="DeleteRole" asp-controller="User" asp-area="Admin" method="post" style="display:inline;">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="userName" value="@item.UserName" />
+                                    <select name="roleToDelete" required>
+                                        <option value="">Select Role to Delete</option>
+                                        @foreach (var role in ViewBag.Roles as List<SelectListItem>)
+                                        {
+                                            <option value="@role.Value">@role.Text</option>
+                                        }
+                                    </select>
+                                    <button type="submit" style="border: none; outline: none; background: none;">
+                                        <i class="fa-solid fa-trash fa-xl" style="color: red;"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        }
+              
                     </tr>
-
                 }
             </tbody>
-   
         </table>
+
         <div class="item form-group">
-            <div class="" style="margin-left:100px;">
+            <div style="margin-left:100px;">
                 <a asp-action="Index" asp-area="Admin" asp-controller="Dashboard">
                     <i class="fa-solid fa-right-from-bracket fa-rotate-180 fa-2xl" style="color:#121212;"></i>
-
                 </a>
             </div>
         </div>
-        </div>
-        </div>
+    </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.role-delete-form').forEach(form => {
+            form.addEventListener('submit', async function (event) {
+                event.preventDefault(); 
+
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'RequestVerificationToken': form.querySelector('input[name="__RequestVerificationToken"]').value
+                    }
+                });
+
+                const result = await response.json();
+
+                if (!result.success) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: result.message || 'An error occurred while deleting the role.'
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: 'Role deleted successfully.'
+                    }).then(() => {
+                        location.reload(); 
+                    });
+                }
+            });
+        });
+    });
+</script>
+
 <script src="https://kit.fontawesome.com/680cf1a7ac.js" crossorigin="anonymous"></script>

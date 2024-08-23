@@ -11,5 +11,7 @@ namespace Service.ViewModels
         public ICollection<Album> Albums { get; set; }
         public ICollection<Category> Categories { get; set; }
         public ICollection<MusicPlaylist> MusicPlaylists { get; set; }
+        public string CurrentUserId { get; set; }
+
     }
 }

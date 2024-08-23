@@ -1,7 +1,11 @@
 ﻿@model WishListVM
 @{
+
     int count = 0;
+    
 }
+
+
 <script src="~/assets/js/wishlist.js"></script>
 
 <section id="profileliked-area"
@@ -15,13 +19,13 @@
         <div class="right-side">
             <p>Profile</p>
             <h1>Liked Songs</h1>
-            <a style="text-decoration:none;color:white" asp-action="Create" asp-controller="Profile" >@User.Identity.Name</a>
+            <a style="text-decoration:none;color:white" asp-action="Create" asp-controller="Profile">@User.Identity.Name</a>
         </div>
     </div>
 </section>
 @if (Model.WishlistSongs.Count == 0)
 {
-    <section id="empty-area" >
+    <section id="empty-area">
         <div class="content">
             <h1>Songs you like will appear here</h1>
             <p>Save songs by tapping the heart icon.</p>
@@ -49,7 +53,6 @@ else
                     @foreach (var song in Model.WishlistSongs)
                     {
                         DateTime currentDate = DateTime.Now;
-
                         DateTime date1 = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, currentDate.Hour, currentDate.Minute, currentDate.Second);
                         DateTime date2 = song.CreateDate;
 
@@ -60,7 +63,7 @@ else
                         int secondif = dif.Seconds;
 
                         count++;
-                        <div class="music-row" src="../../assets/music/@song.Path" song-id="@song.Id">
+                        <div class="music-row row-music" data-song-id="@song.Id" src="../../assets/music/@song.Path">
                             <div class="left-side">
                                 <div class="count">
                                     <p>@count</p>
@@ -76,23 +79,24 @@ else
                                             <p>@(song.Name.Length > 15 ? song.Name.Substring(0, 14) + "..." : song.Name)</p>
                                         </div>
                                         <a asp-controller="artist" asp-action="detail" asp-route-id="@song.ArtistId" class="artist-name">
-                                            <p artist-id="@song.ArtistId">@song.ArtistName</p>
+                                            <p>@song.ArtistName</p>
                                         </a>
                                     </div>
                                 </div>
                             </div>
 
-
                             <div class="right-side">
-                                <div class="albom-name">
-                                    <a style="text-decoration:none;color:#9D9D9E" asp-controller="album" asp-action="detail" asp-route-id="@song.AlbumId">@(song.AlbumName.Length > 15 ? song.AlbumName.Substring(0, 13) + "..." : song.AlbumName)</a>
+                                <div class="album-name">
+                                    <a style="text-decoration:none;color:#9D9D9E" asp-controller="album" asp-action="detail" asp-route-id="@song.AlbumId">
+                                        @(song.AlbumName.Length > 15 ? song.AlbumName.Substring(0, 13) + "..." : song.AlbumName)
+                                    </a>
                                 </div>
-                                <div class="add-date">
+                                <div class="add-date music-row">
                                     <p>@hoursdif:@minutedif:@secondif ago</p>
-                                    <button class="dlt-wish" songId="@song.Id">
-                                        <i class="fa-solid fa-circle-xmark "></i>
+                                    <!-- Song details -->
+                                    <button class="dlt-wish" data-song-id="@song.Id">
+                                        <i class="fa-solid fa-trash" style="margin-top:18px;"></i>
                                     </button>
-
                                 </div>
                                 <div class="music-time">
                                     <p></p>
@@ -103,10 +107,105 @@ else
                 </div>
             </div>
         </div>
+ 
+
     </section>
 
+                    <input type="hidden" name="__RequestVerificationToken" value="@Html.AntiForgeryToken()" />
 }
-
 <script src="~/assets/js/wishlist.js"></script>
 <script src="~/assets/js/activeWishlist.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        function handleDeleteClick(event) {
+            event.stopImmediatePropagation();
+
+            const button = $(event.currentTarget);
+            const songId = button.data("song-id");
+            const musicRow = button.closest(".row-music");
+
+            if (musicRow.length) {
+                // SweetAlert2 confirmation dialog
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "This song will be removed from your wishlist.",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#1DB954', // Spotify green
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, remove it!',
+                    cancelButtonText: 'Cancel',
+                    timer: 5000, // Optional: Set a timer to auto-confirm after 5 seconds
+                    timerProgressBar: true
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: '/LikedSong/RemoveFromWishlist',
+                            type: 'POST',
+                            headers: {
+                                'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+                            },
+                            contentType: 'application/json',
+                            data: JSON.stringify({ songId: songId }),
+                            success: function (data) {
+                                if (data.success) {
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Removed!',
+                                        text: 'The song has been removed from your wishlist.',
+                                        timer: 1500, // Optional: auto-close the alert after 1.5 seconds
+                                        showConfirmButton: false
+                                    }).then(() => {
+                                        // Remove the entire song row from the DOM
+                                        musicRow.remove();
+                                        updateSongCount();
+                                        checkEmptyState();
+                                    });
+                                } else {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Error!',
+                                        text: data.message || 'Failed to remove the song from the wishlist.',
+                                        confirmButtonColor: '#1DB954'
+                                    });
+                                }
+                            },
+                            error: function (xhr, status, error) {
+                                console.error("Failed to remove song:", error);
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Error!',
+                                    text: 'An error occurred while trying to remove the song.',
+                                    confirmButtonColor: '#1DB954'
+                                });
+                            }
+                        });
+                    }
+                });
+            } else {
+                console.error("Music row not found.");
+            }
+        }
+
+        function updateSongCount() {
+            const songCountElement = $(".liked-music-header .left-side p");
+            if (songCountElement.length) {
+                songCountElement.text($(".music-row").length);
+            }
+        }
+
+        function checkEmptyState() {
+            if ($(".music-row").length === 0) {
+                // If there are no more songs, show the empty state section
+                $("#top-music").hide();
+                $("#empty-area").show();
+            }
+        }
+
+        $(".dlt-wish").on("click", handleDeleteClick);
+    });
+</script>
 

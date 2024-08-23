@@ -18,6 +18,11 @@ namespace Service.Services
             _repository = repository;
             _mapper = mapper;
         }
+        public async Task<List<Song>> GetAllAsync()
+        {
+            return _mapper.Map<List<Song>>(await _repository.GetAllAsync());
+        }
+
         public async Task<SongDetailVM> GetByIdAsync(int id)
         {
             return _mapper.Map<SongDetailVM>(await _repository.GetByIdAsync(id, "Category"));

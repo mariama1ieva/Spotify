@@ -7,6 +7,7 @@ using Repository.Data;
 using Service.Services.Interfaces;
 using Service.ViewModels.SongArtistVMs;
 using Service.ViewModels.SongVMs;
+using spotifyFinal.Areas.Admin.PaginateVM;
 using spotifyFinal.Helpers.Extentions;
 
 namespace spotifyFinal.Areas.Admin.Controllers
@@ -37,10 +38,52 @@ namespace spotifyFinal.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1, int take = 7)
         {
-            var model = await _songService.GetAllWithDatas();
-            return View(model);
+            List<Song> songs = await _context.Songs
+                .Where(s => !s.SoftDelete)
+                .Include(s => s.Album)
+                .Include(s => s.Category)
+                .OrderByDescending(m => m.Id)
+                .Skip((page - 1) * take)
+                .Take(take)
+                .ToListAsync();
+
+            List<SongListVM> mapDatas = GetMapDatas(songs);
+
+            int count = await GetPageCount(take);
+
+            PaginateSongVM<SongListVM> result = new(mapDatas, page, count);
+
+            return View(result);
+        }
+        private async Task<int> GetPageCount(int take)
+        {
+            int songCount = await _context.Songs.Where(m => !m.SoftDelete).CountAsync();
+
+            return (int)Math.Ceiling((decimal)songCount / take);
+        }
+
+        private static List<SongListVM> GetMapDatas(List<Song> songs)
+        {
+            List<SongListVM> songList = new();
+
+            foreach (var song in songs)
+            {
+                SongListVM newSong = new()
+                {
+                    Id = song.Id,
+                    Name = song.Name,
+                    CategoryName = song.Category.Name,
+                    ImageUrl = song.ImageUrl,
+                    Color = song.Color,
+                    Path = song.Path,
+                    AlbumName = song.Album.Name
+                };
+
+                songList.Add(newSong);
+            }
+            return songList;
         }
 
         [HttpGet]
@@ -75,9 +118,9 @@ namespace spotifyFinal.Areas.Admin.Controllers
                 return View(request);
             }
 
-            if (!request.PhotoUrl.CheckFileSize(200))
+            if (!request.PhotoUrl.CheckFileSize(2200))
             {
-                ModelState.AddModelError("PhotoUrl", "Max File capacity must be 200KB");
+                ModelState.AddModelError("PhotoUrl", "Max File capacity must be 2200KB");
                 return View(request);
             }
             if (!request.SongUrl.CheckFileFormat("audio/"))
@@ -223,6 +266,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
 
             dbSong.Name = SongEditVM.Name;
             dbSong.Color = SongEditVM.Color;
+            dbSong.AlbumId = SongEditVM.AlbumId;
             dbSong.CategoryId = SongEditVM.CategoryId;
             dbSong.CreateDate = SongEditVM.CreateDate;
 

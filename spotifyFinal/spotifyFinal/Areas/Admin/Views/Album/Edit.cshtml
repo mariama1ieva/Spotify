@@ -11,15 +11,15 @@
             <input type="hidden" asp-for="@Model.Image" />
             <span class="text-danger mt-2" asp-validation-for="Photo"></span>
 
-            <div class="form-group">
-                <labelstyle ="color:#121212">Name</labelstyle>
-                <input asp-for="Name" class="form-control" placeholder="Add Name...">
+            <div class="form-group mt-4">
+                <label style="color:#121212">Name</label>
+                <input asp-for="Name" class="form-control" style="width:100%" placeholder="Add Name...">
                 <span class="text-danger mt-2" asp-validation-for="Name"></span>
             </div>
 
             <div class="field item form-group">
-                <label class="col-form-label col-md-3 col-sm-3 label-align" style="color:#121212">Category:@Model.CategoryName</label>
-                <div class="col-md-6 col-sm-6">
+                <label  style="color:#121212">Category:@Model.CategoryName</label>
+                <div  style="width:100%">
 
                     <select class="form-control text-black mt-3" asp-for="CategoryId" asp-items="@ViewBag.Categories">
                     </select>
@@ -27,20 +27,11 @@
 
                 </div>
             </div>
-            <div class="field item form-group">
-                <label class="col-form-label col-md-3 col-sm-3  label-align" style="color:#121212">Group:@Model.GroupName</label>
-                <div class="col-md-6 col-sm-6">
-
-                    <select class="form-control text-black" asp-for="GroupId" asp-items="@ViewBag.Groups">
-                    </select>
-                    <span class="text-danger mt-2" asp-validation-for="GroupId"></span>
-
-                </div>
-            </div>
+         
             <div class="field item form-group">
 
-                <label class="col-form-label col-md-3 col-sm-3  label-align" style="color:#121212">Artist:@string.Join(", ", Model.ArtistFullName)</label>
-                <div class="col-md-6 col-sm-6">
+                <label  style="color:#121212">Artist:@string.Join(", ", Model.ArtistFullName)</label>
+                <div style="width:100%" >
 
                     <select class="form-control text-black mt-3" asp-for="ArtistId" asp-items="@ViewBag.Artists">
                     </select>
@@ -48,9 +39,9 @@
 
                 </div>
             </div>
-            <div class="form-group">
-                <labelstyle ="color:#121212">Photo</labelstyle>
-                <input asp-for="Photo" class="form-control" placeholder="Add Photo...">
+            <div class="form-group" >
+                <label style ="color:#121212">Photo</label>
+                <input asp-for="Photo" class="form-control" style="width:100%" placeholder="Add Photo...">
                 <span class="text-danger mt-2" asp-validation-for="Photo"></span>
             </div>
             <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>

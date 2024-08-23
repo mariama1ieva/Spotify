@@ -41,7 +41,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid) return View(request);
 
-            if (await _groupService.AnyAsync(request.Name))
+            if (await _groupService.AnyAsync(request.Name.Trim().ToLower()))
             {
                 ModelState.AddModelError("Name", $"{request.Name} is already exist!");
                 return View(request);
@@ -53,7 +53,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
                 return View(request);
             }
 
-            if (!request.Photo.CheckFileSize(200))
+            if (!request.Photo.CheckFileSize(1000))
             {
                 ModelState.AddModelError("Photo", "Max File capacity must be 200KB");
                 return View();
@@ -82,6 +82,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
             await _groupService.DeleteAsync((int)id);
             return RedirectToAction(nameof(Index));
         }
+
         [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
@@ -94,11 +95,9 @@ namespace spotifyFinal.Areas.Admin.Controllers
             {
                 ImageUrl = group.ImageUrl,
                 Name = group.Name,
-
             };
 
             if (group == null) return NotFound();
-
             return View(model);
         }
 
@@ -108,8 +107,6 @@ namespace spotifyFinal.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid) return View(request);
             if (id == null) return BadRequest();
-
-
 
             if (request.Photo != null)
             {
@@ -131,6 +128,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
 
                 request.ImageUrl = fileName;
             }
+
             FileExtention.DeleteFileFromLocalAsync(Path.Combine(_env.WebRootPath, "img"), request.ImageUrl);
 
             await _groupService.UpdateAsync((int)id, request);

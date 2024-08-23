@@ -101,11 +101,7 @@
     <section id="search-area-playlist">
         <div class="content">
             <h2>Let's find something for your playlist</h2>
-            @*  <div class="search-area">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="searchInput" placeholder="Search for song">
-            <i class="fa-solid fa-xmark delete"></i>
-            </div> *@
+        
             <div class="search-result">
                 <select multiple asp-for="Ids" asp-items="@ViewBag.Songs">
                 </select>
@@ -115,3 +111,4 @@
 </form>
 <script src="~/assets/js/wishlist.js"></script>
 <script src="~/assets/js/activeWishlist.js"></script>
+

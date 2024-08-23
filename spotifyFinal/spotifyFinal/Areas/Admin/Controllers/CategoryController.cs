@@ -24,7 +24,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
             _context = context;
         }
         [HttpGet]
-        public async Task<IActionResult> Index(int pageNumber = 1, int pageSize = 4)
+        public async Task<IActionResult> Index(int pageNumber = 1, int pageSize = 6)
         {
 
             var categories = await _categoryService.GetAllAsync();
@@ -71,9 +71,9 @@ namespace spotifyFinal.Areas.Admin.Controllers
                 return View(request);
             }
 
-            if (!request.Photo.CheckFileSize(200))
+            if (!request.Photo.CheckFileSize(2200))
             {
-                ModelState.AddModelError("Photo", "Max File capacity must be 200KB");
+                ModelState.AddModelError("Photo", "Max File capacity must be 2200KB");
                 return View();
             }
 

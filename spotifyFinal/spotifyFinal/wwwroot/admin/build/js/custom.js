@@ -677,59 +677,65 @@ function init_skycons() {
 }
 
 
-function init_chart_doughnut() {
-
-    if (typeof (Chart) === 'undefined') { return; }
-
-    console.log('init_chart_doughnut');
-
-    if ($('.canvasDoughnut').length) {
-
-        var chart_doughnut_settings = {
-            type: 'doughnut',
-            tooltipFillColor: "rgba(51, 51, 51, 0.55)",
-            data: {
-                labels: [
-                    "Symbian",
-                    "Blackberry",
-                    "Other",
-                    "Android",
-                    "IOS"
-                ],
-                datasets: [{
-                    data: [15, 20, 30, 10, 30],
-                    backgroundColor: [
-                        "#BDC3C7",
-                        "#9B59B6",
-                        "#E74C3C",
-                        "#26B99A",
-                        "#3498DB"
-                    ],
-                    hoverBackgroundColor: [
-                        "#CFD4D8",
-                        "#B370CF",
-                        "#E95E4F",
-                        "#36CAAB",
-                        "#49A9EA"
-                    ]
-                }]
-            },
-            options: {
-                legend: false,
-                responsive: false
-            }
+$(document).ready(function () {
+    function init_chart_doughnut() {
+        if (typeof (Chart) === 'undefined') {
+            return;
         }
 
-        $('.canvasDoughnut').each(function () {
+        console.log('init_chart_doughnut');
 
-            var chart_element = $(this);
-            var chart_doughnut = new Chart(chart_element, chart_doughnut_settings);
+        if ($('.canvasDoughnut').length) {
+            var chart_doughnut_settings = {
+                type: 'doughnut',
+                data: {
+                    labels: ["Category", "Artist", "Song", "Album", "Users", "Position"],
+                    datasets: [{
+                        data: [
+                            @Model.CategoryCount,
+                            @Model.ArtistCount,
+                            @Model.SongCount,
+                            @Model.AlbumCount,
+                            @Model.AppUsers.Count(),
+                            @Model.PositionCount
+                        ],
+                        backgroundColor: [
+                            "#BDC3C7",
+                            "#9B59B6",
+                            "#E74C3C",
+                            "#26B99A",
+                            "#3498DB",
+                            "#FFA500" // Added color for Position
+                        ],
+                        hoverBackgroundColor: [
+                            "#CFD4D8",
+                            "#B370CF",
+                            "#E95E4F",
+                            "#36CAAB",
+                            "#49A9EA",
+                            "#FF8C00" // Hover color for Position
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: false,
+                    cutoutPercentage: 70, // Adjust the cutout percentage if needed
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            };
 
-        });
-
+            $('.canvasDoughnut').each(function () {
+                var chart_element = $(this);
+                new Chart(chart_element, chart_doughnut_settings);
+            });
+        }
     }
 
-}
+    // Initialize the doughnut chart
+    init_chart_doughnut();
+});
 
 function init_gauge() {
 
@@ -2221,17 +2227,19 @@ function init_charts() {
             datasets: [{
                 data: [120, 50, 140, 180, 100],
                 backgroundColor: [
-                    "#455C73",
-                    "#9B59B6",
                     "#BDC3C7",
+                    "#9B59B6",
+                    "#E74C3C",
                     "#26B99A",
-                    "#3498DB"
+                    "#3498DB",
+                    "#FFA500"
                 ],
                 hoverBackgroundColor: [
                     "#34495E",
                     "#B370CF",
                     "#CFD4D8",
                     "#36CAAB",
+                    "#49A9EA"
                     "#49A9EA"
                 ]
 

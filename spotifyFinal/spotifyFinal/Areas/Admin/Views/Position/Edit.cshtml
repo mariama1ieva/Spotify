@@ -14,17 +14,7 @@
                 <input asp-for="Name" class="form-control" placeholder="Add Name...">
                 <span class="text-danger mt-2" asp-validation-for="Name"></span>
             </div>
-            <div class="field item form-group">
-
-                <label class="col-form-label col-md-3 col-sm-3  label-align" style="color:#121212">Artist</label>
-                <div class="col-md-6 col-sm-6">
-
-                    <select class="form-control text-black mt-3" asp-for="ArtistIds" asp-items="@ViewBag.Artists">
-                    </select>
-                    <span class="text-danger mt-2" asp-validation-for="ArtistIds"></span>
-
-                </div>
-            </div>
+      
             <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
             <a class="btn btn-light" asp-area="Admin" asp-controller="Position" asp-action="Index">Back</a>
         </form>

@@ -36,36 +36,32 @@ namespace spotifyFinal.Areas.Admin.Controllers
             var model = await _artistService.GetAllWithDatas();
             return View(model);
         }
-        //ViewBag.Songs = await _songService.GetALlBySelectedAsync();
         public async Task<IActionResult> Create()
         {
-            ViewBag.Songs = await _songService.GetALlBySelectedAsync();
-            ViewBag.Positions = await _positionService.GetALlBySelectedAsync();
-
             ArtistCreateVM model = new ArtistCreateVM
             {
                 Positions = await _context.Positions.ToListAsync(),
-                Songs = await _context.Songs.ToListAsync(),
+
             };
             return View(model);
         }
         [HttpPost]
         public async Task<IActionResult> Create(ArtistCreateVM artistCreateVM)
         {
-            ViewBag.Songs = await _songService.GetALlBySelectedAsync();
-            ViewBag.Positions = await _positionService.GetALlBySelectedAsync();
-
             ArtistCreateVM model = new ArtistCreateVM
             {
                 Positions = await _context.Positions.ToListAsync(),
-                Songs = await _context.Songs.ToListAsync(),
-
 
             };
             if (!ModelState.IsValid) return View(model);
-            if (!ModelState.IsValid) return View(model);
+
+
+
             Artist newArtist = new Artist();
             newArtist.ArtistPositions = new List<ArtistPosition>();
+
+
+
             if (artistCreateVM.Photo == null)
             {
                 ModelState.AddModelError("Photo", "Please Input Image");
@@ -77,12 +73,14 @@ namespace spotifyFinal.Areas.Admin.Controllers
                 ModelState.AddModelError("Photo", "please input only image");
                 return View();
             }
+
             if (artistCreateVM.AboutImg == null)
             {
                 ModelState.AddModelError("AboutImg", "Please Input Image");
                 return View();
 
             }
+
             if (!artistCreateVM.AboutImg.IsImage())
             {
                 ModelState.AddModelError("AboutImg", "please input only image");
@@ -94,9 +92,7 @@ namespace spotifyFinal.Areas.Admin.Controllers
                 ArtistPosition position = new ArtistPosition()
                 {
                     PositionId = id,
-                    Artist = newArtist,
-
-
+                    Artist = newArtist
                 };
                 newArtist.ArtistPositions.Add(position);
             }
@@ -114,16 +110,43 @@ namespace spotifyFinal.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int? id)
         {
-            if (!ModelState.IsValid) return View();
+            if (id == null) return NotFound();
 
-            if (id == null) return BadRequest();
-            var song = await _artistService.GetByIdAsync((int)id);
+            var artist = await _context.Artists
+                .Include(a => a.Albums)
+                .ThenInclude(al => al.Songs)
+                .FirstOrDefaultAsync(a => a.Id == id);
 
-            if (song == null) return NotFound();
+            if (artist == null) return NotFound();
 
-            await _artistService.DeleteAsync((int)id);
-            return RedirectToAction(nameof(Index));
+            string fullpath = Path.Combine(_env.WebRootPath, "assets/images", artist.ImageUrl);
+            string aboutImg = Path.Combine(_env.WebRootPath, "assets/images", artist.AboutImg);
+
+            if (System.IO.File.Exists(fullpath))
+            {
+                System.IO.File.Delete(fullpath);
+            }
+
+            if (System.IO.File.Exists(aboutImg))
+            {
+                System.IO.File.Delete(aboutImg);
+            }
+
+            foreach (var album in artist.Albums)
+            {
+                _context.Songs.RemoveRange(album.Songs);
+            }
+
+            _context.Albums.RemoveRange(artist.Albums);
+
+            _context.Artists.Remove(artist);
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
         }
+
+
 
         [HttpGet]
         public async Task<IActionResult> Detail(int id)

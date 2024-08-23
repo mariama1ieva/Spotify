@@ -16,6 +16,7 @@ namespace Service.ViewModels.SongVMs
         [Required]
         public string Color { get; set; }
         [Required]
+        [Range(0, 5, ErrorMessage = "Rating must be between 0 and 5.")]
         public double? PointRayting { get; set; }
         [Required]
         public int CategoryId { get; set; }

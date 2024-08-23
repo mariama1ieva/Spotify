@@ -5,6 +5,11 @@
     List<Rating> ratings = ViewBag.Ratings;
     Song songc = (Song)ViewBag.Song;
 }
+<style>
+    a{
+        text-decoration:none
+    }
+</style>
 <section id="detail-area">
     <div class="content" style="background-color:@Model.Song.Color">
         <div class="left-side">
@@ -18,7 +23,7 @@
                 <div class="about-detail">
                     <div class="createdBy">
                         <div class="createdBy">
-                            <img src="assets/images/@Model.Song.ArtistSongs.FirstOrDefault()?.Artist.ImageUrl" alt="">
+                            <img src="~/assets/images/@Model.Song.ArtistSongs.FirstOrDefault()?.Artist.ImageUrl" alt="">
                             <a style="text-decoration:none;color:white" asp-controller="artist" asp-action="detail" asp-route-id="@Model.Artist.Id">
                                 <span>@Model.Song.ArtistSongs.FirstOrDefault()?.Artist.FullName</span>
                             </a>
@@ -78,15 +83,15 @@
                                         <div class="music-name">
                                             <a style="color:white" asp-controller="song" asp-action="detail" asp-route-id="@song.Id">  <p>@song.Name</p></a>
                                         </div>
-                                        <a asp-controller="artist" asp-action="detail" asp-route-id="@Model.Artist.Id" class="artist-name">
-                                            <p>@Model.Artist.FullName</p>
-                                        </a>
+                                     @*    <a asp-controller="artist" asp-action="detail" asp-route-id="@song.ArtistSongs" class="artist-name">
+                                            <p>@song.ArtistSongs</p>
+                                        </a> *@
                                     </div>
                                 </div>
                             </div>
                             <div class="right-side">
                                 <div class="albom-name">
-                                    <a>@song.Album.Name</a>
+                                    <a style="color:white" asp-controller="Album" asp-action="detail" asp-route-id="@song.AlbumId">@song.Album.Name</a>
                                 </div>
                                 <button id="wishlist" class="wish" songId="@song.Id">
                                     <i class="fa-solid fa-heart"></i>
@@ -101,7 +106,6 @@
 
             </div>
         </div>
-
         <div class="add-comment-area">
             <div class="left-side">
                 <h2>Do you want to write something?</h2>
@@ -136,9 +140,5 @@
     </div>
 </section>
 
-<script src="~/assets/js/addRating.js"></script>
-<script src="~/assets/js/activeWishlist.js"></script>
-<script src="~/assets/js/wishlist.js"></script>
-
-
+<script src="~/common/functionalities/addRating.js"></script>
 

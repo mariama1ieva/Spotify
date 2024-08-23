@@ -1,28 +1,7 @@
 ﻿@using Domain.Entities
 @model SearchArtistDetailVM
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../scss/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="./detail.js" defer></script>
-    <script defer src="~/assets/js/activeWishlist.js"></script>
-    <script defer src="~/assets/js/addRating.js"></script>
-    <script defer src="~/assets/js/wishlist.js"></script>
-    <script defer src="~/assets/js/playMusic.js"></script>
-    <script defer src="~/assets/js/playButtons.js"></script>
-    <script defer src="~/assets/js/popup.js"></script>
-    <script defer src="~/profile/navbar.js"></script>
-    <title>Artist</title>
-</head>
-@Html.Partial("_LoginAreaPartial")
 @{
-
     int count = 0;
     List<Rating> ratings = ViewBag.Ratings;
 }
@@ -38,7 +17,7 @@
         <div class="right-side">
             <p>Artist</p>
             <h1 id="page-title" style="font-size: 72px;">@Model.Artist.FullName</h1>
-
+           
         </div>
     </div>
 </section>
@@ -54,16 +33,14 @@
             <h2>Popular</h2>
             <div id="songs">
                 @foreach (var song in Model.Artist.ArtistSongs)
-
                 {
-                    if (song.Song.PointRayting > 4)
+                    if (song.Song.PointRayting > 1)
                     {
-
-                       count++;
+                        count++;
                         <div class="music-row" src="../../assets/music/@song.Song.Path" song-id="@song.Song.Id">
                             <div class="left-side">
                                 <div class="count">
-                                     <p>@count</p> 
+                                    <p>@count</p>
                                     <button class="play">
                                         <i id="play-icon" class="fa-solid fa-play"></i>
                                         <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
@@ -73,7 +50,7 @@
                                     <a asp-controller="song" asp-action="detail" asp-route-id="@song.Song.Id"><img src="~/assets/images/@song.Song.ImageUrl" alt=""></a>
                                     <div class="names" style="align-items:center;display:flex">
                                         <div class="music-name">
-                                            <a style="color:white;text-decoration:none"><p style="font-size:15px;cursor:pointer">@(song.Song.Name.Length > 20 ? song.Song.Name.Substring(0, 17) + "..." : song.Song.Name)</p></a>
+                                            <a asp-controller="song" asp-action="detail" asp-route-id="@song.Song.Id" style="color:white;text-decoration:none"><p style="font-size:15px;cursor:pointer">@(song.Song.Name.Length > 20 ? song.Song.Name.Substring(0, 17) + "..." : song.Song.Name)</p></a>
                                         </div>
                                     </div>
                                 </div>
@@ -96,7 +73,6 @@
                             </div>
                         </div>
                     }
-
                 }
             </div>
         </div>
@@ -104,7 +80,6 @@
             <h2 style="margin-bottom: 16px">Albums</h2>
             <div class="all-playlist">
                 @foreach (var album in Model.Albums)
-
                 {
                     <div class="card-container">
                         <div class="card">
@@ -131,7 +106,6 @@
             <h2 style="margin-bottom: 16px">Fans also like</h2>
             <div class="all-card">
                 @foreach (var artist in Model.SamePosition)
-
                 {
                     <div class="card-container">
                         <div class="card">
@@ -153,3 +127,4 @@
         </div>
     </div>
 </section>
+

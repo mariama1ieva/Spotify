@@ -3,7 +3,7 @@
 
         <div style="display:flex;flex-direction:column;gap:20px;position:relative">
             <div>
-                <div class="right-side" style="position:absolute;left:850px">
+                <div class="right-side" style="position:absolute;left:930px">
                     @if (!User.Identity.IsAuthenticated)
                     {
                         <a asp-action="Register" asp-controller="Account">
@@ -16,7 +16,7 @@
                     else
                     {
                         <a asp-action="Index" asp-controller="Premium">
-                           <button id="premium"><span>Explore Premium</span></button>
+                           <button id="premium"><span style="opacity:1!important" >Explore Premium</span></button>
 
                         </a>
                         <div class="setting-menu">
@@ -29,11 +29,9 @@
 
   
                             <div class="position-relative">
-                                <div style="display:flex!important;gap:5px">
-                                <h6 class=" mt-2 " style="color:white;font-size:large">@User.Identity.Name</h6>
-                                </div>
-                             
-                                    <a asp-area="Admin" asp-action="Index" asp-controller="Dashboard" style=" color:white;text-decoration:none;font-size:small" class=" position-absolute ">Admin </a>
+                              
+
+                                <a asp-area="Admin" asp-action="Index" asp-controller="Dashboard" style=" color:white;text-decoration:none;font-size:larger" class=" position-absolute "><i class="fa-solid fa-gear" style="color: #ffffff;"></i> </a>
       
                             </div>
                         }

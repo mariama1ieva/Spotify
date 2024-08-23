@@ -1,17 +1,18 @@
-﻿<section id="music-player">
+﻿
+<section id="music-player" >
     <div class="content">
         <div class="player-song">
             <div class="images">
-                <a href=""><img src="~/assets/images/DefaultMusic.png" alt="song-img"></a>
+                <a asp-action="Detail" asp-controller="Song" id="song-name"  ><img src="~/assets/images/DefaultMusic.png" alt="song-img"></a>
             </div>
             <div class="song-info">
-                <a id="song-name" href="#"><span>Music name</span></a>
+                <a id="song-name" asp-action="Detail" asp-controller="Song"><span>Music name</span></a>
                 <div class="artist-name">
-                    <a href="#"><span>Artist</span></a>
+                    <a asp-controller="Artist" asp-action="Detail" asp-route-id="Id"><span>Artist</span></a>
                 </div>
             </div>
         </div>
-        <div class="player-control">
+        <div class="player-control" style="margin-left:230px">
             <audio id="audio" src=""></audio>
             <div class="first-side">
                 <div class="left-side">
@@ -39,7 +40,7 @@
                 <span id="duration">00:00</span>
             </div>
         </div>
-        <div class="control-buttons">
+        <div class="control-buttons" style="margin-left:300px">
             <i class="fa-solid fa-volume-low"></i>
             <input type="range" id="volume" style="height: 4px;" min="0" max="1" step="0.1" value="1">
         </div>
@@ -58,7 +59,7 @@
                 </div>
             </div>
         </div>
-        <div class="right-side">
+        <div class="right-side" >
             <button class="play" id="play-pause-responsive">
                 <i id="play-icon" class="fa-solid fa-play"></i>
                 <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
@@ -66,16 +67,4 @@
         </div>
     </div>
 </div>
-<script src="~/assets/js/activeWishlist.js"></script>
-<script src="~/assets/js/sidebar.js"></script>
-<script src="~/assets/js/playMusic.js"></script>
-<script src="~/assets/js/playButtons.js"></script>
-<script src="~/assets/js/popup.js"></script>
-<script src="~/assets/js/detail.js"></script>
-<script src="~/assets/js/navbar.js"></script>
-<script src="~/assets/js/active.js"></script>
-<script src="~/assets/js/addRating.js"></script>
-<script src="~/assets/js/searchInput.js"></script>
-<script src="~/assets/js/wishlist.js"></script>
-<script src="~/assets/js/musicTime.js"></script>
-<script src="~/assets/js/playlistSearch.js"></script>
+

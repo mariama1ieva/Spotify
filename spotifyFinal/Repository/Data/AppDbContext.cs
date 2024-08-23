@@ -41,11 +41,13 @@ namespace Repository.Data
 
                  .HasForeignKey(s => s.CategoryId)
                  .OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<Song>()
-       .HasOne(s => s.Album)
-       .WithMany(a => a.Songs)
-       .HasForeignKey(s => s.AlbumId)
-       .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Artist>()
+         .HasMany(a => a.Albums)
+                .WithOne(a => a.Artist)
+                .HasForeignKey(a => a.ArtistId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

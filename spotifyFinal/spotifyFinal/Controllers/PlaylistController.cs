@@ -58,6 +58,7 @@ namespace spotifyFinal.Controllers
                 .ToListAsync(), "Id", "Name");
 
             var playlist = await _context.Playlist
+                .Include(m => m.AppUser)
                 .Include(m => m.MusicPlaylists)
                 .ThenInclude(m => m.Song)
                 .ThenInclude(m => m.ArtistSongs)
@@ -250,7 +251,11 @@ namespace spotifyFinal.Controllers
 
 
 
-
+        public async Task<IActionResult> ViewPlaylist()
+        {
+            var playlists = await _context.Playlist.Include(m => m.AppUser).OrderByDescending(a => a.Id).ToListAsync();
+            return View(playlists);
+        }
 
     }
 

@@ -20,6 +20,11 @@ namespace spotifyFinal.Controllers
             _context = context;
         }
 
+        public async Task<IActionResult> Index()
+        {
+            var Albums = await _context.Albums.Include(m => m.Category).Include(m => m.Artist).OrderByDescending(a => a.Id).ToListAsync();
+            return View(Albums);
+        }
         public async Task<IActionResult> Detail(int id)
         {
             ViewBag.TotalSongCount = await _context.Songs.CountAsync(s => s.AlbumId == id);

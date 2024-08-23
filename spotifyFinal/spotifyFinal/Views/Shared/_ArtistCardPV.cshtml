@@ -1,0 +1,17 @@
+﻿@model HomeVM
+@foreach(var artist in Model.Artists)
+{
+    <div class="card-container" style="height:226.89px;">
+        <div class="card">
+            <a asp-controller="Artist" asp-action="Detail" asp-route-id="@artist.Id" style="text-decoration:none">
+                <img style="border-radius:20%" src="~/assets/images/@artist.ImageUrl" alt="">
+            </a>
+            @* <h3>@(artist.FullName.Length > 20 ? artist.FullName.Substring(0, 18) + "..." : artist.FullName)</h3> *@
+            <p>@artist.FullName</p>
+          @*   <button class="play" id="actionbar-play">
+                <i id="play-icon" class="fa-solid fa-play"></i>
+                <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+            </button> *@
+        </div>
+    </div>
+}

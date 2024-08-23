@@ -1,0 +1,27 @@
+﻿@using Domain.Entities
+@model List<Album>
+<div class="mt-4" style="margin-left:20px;">
+    <h1 style="color:white;font-size:25px;">Albums</h1>
+
+</div>
+<section id="cards-area">
+
+    <div class="content">
+        @foreach (var album in Model)
+        {
+            <div class="card-container" style="height:226.89px;">
+                <div class="card">
+                    <a asp-controller="Album" asp-action="Detail" asp-route-id="@album.Id" style="text-decoration:none">
+                        <img  src="~/assets/images/@album.Image" alt="">
+                    </a>
+                    @* <h3>@(artist.FullName.Length > 20 ? artist.FullName.Substring(0, 18) + "..." : artist.FullName)</h3> *@
+                    <p>@album.Name</p>
+                    @*   <button class="play" id="actionbar-play">
+                <i id="play-icon" class="fa-solid fa-play"></i>
+                <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+                </button> *@
+                </div>
+            </div>
+        }
+    </div>
+</section>

@@ -53,6 +53,7 @@
         display: none; /* Hide the anti-forgery token from view */
     }
 </style>
+
 <section id="detail-area">
     <div class="content">
         <div class="left-side">
@@ -64,31 +65,37 @@
             <h1 id="page-title">@Model.Name</h1>
             <div class="about-detail">
                 <div class="createdBy">
+                   @if (User.Identity.Name == Model.AppUser.UserName) 
+                  {
                     <img src="~/assets/images/@Model.AppUser.ImageUrl" alt="">
                     <a style="text-decoration:none;color:white" asp-controller="profile" asp-action="create" asp-route-id="@Model.AppUser.Id">@Model.AppUser.Fullname</a>
+                  }
                 </div>
             </div>
         </div>
     </div>
 </section>
-<section style="margin-left:-450px">
-    <form id="add-to-playlist-form" method="post">
-        <div style="display:flex">
-            <select id="song-select" name="songId">
-                <option value="">Select a song</option>
-                @foreach (var song in ViewBag.Songs as IEnumerable<SelectListItem>)
-                {
-                    <option value="@song.Value">@song.Text</option>
-                }
-            </select>
-            <button type="button" id="add-to-playlist-button">
-                Add to Playlist
-            </button>
-            @Html.AntiForgeryToken()
-        </div>
-    </form>
 
-</section>
+@if (User.Identity.Name == Model.AppUser.UserName) 
+{
+    <section style="margin-left:-450px">
+        <form id="add-to-playlist-form" method="post">
+            <div style="display:flex">
+                <select id="song-select" name="songId">
+                    <option value="">Select a song</option>
+                    @foreach (var song in ViewBag.Songs as IEnumerable<SelectListItem>)
+                    {
+                        <option value="@song.Value">@song.Text</option>
+                    }
+                </select>
+                <button type="button" id="add-to-playlist-button">
+                    Add to Playlist
+                </button>
+                @Html.AntiForgeryToken()
+            </div>
+        </form>
+    </section>
+}
 
 <section id="top-music">
     <div class="context">
@@ -103,7 +110,6 @@
             <div id="songs">
                 @if (Model.MusicPlaylists != null)
                 {
-
                     @foreach (var song in Model.MusicPlaylists)
                     {
                         count++;
@@ -132,34 +138,33 @@
                                 <div class="albom-name">
                                     <a></a>
                                 </div>
-                                <div class="add-date">
-                                    <button id="wishlist" class="wish" songId="@song.SongId">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </button>
-                                </div>
-                                <div class="music-time" style="position:absolute;right:5px">
-                                    <p>3:49</p>
-                                </div>
-                                <div>
-                                    <button class="remove" style="border:none;height:0px;" songId="@song.Song.Id">
-                                        <i class="fa-solid fa-trash remove" style="color: grey; cursor: pointer; margin-left: 40px;" songId="@song.Id"></i>
-                                        <input type="hidden" class="playlistId" value="@song.PlaylistId" />
-
-                                    </button>
-                                </div>
-
+                                @if (User.Identity.Name == Model.AppUser.UserName) 
+                                {
+                                    <div class="add-date">
+                                        <button id="wishlist" class="wish" songId="@song.SongId">
+                                            <i class="fa-solid fa-heart"></i>
+                                        </button>
+                                    </div>
+                                    <div class="music-time" style="position:absolute;right:5px">
+                                        <p>3:49</p>
+                                    </div>
+                                    <div>
+                                        <button class="remove" style="border:none;height:0px;" songId="@song.Song.Id">
+                                            <i class="fa-solid fa-trash remove" style="color: grey; cursor: pointer; margin-left: 40px;" songId="@song.Id"></i>
+                                            <input type="hidden" class="playlistId" value="@song.PlaylistId" />
+                                        </button>
+                                    </div>
+                                }
                             </div>
                         </div>
                         <input class="playlistId" type="hidden" value="@song.PlaylistId" />
-
                     }
-
                 }
             </div>
-
         </div>
     </div>
 </section>
+
 <input class="songId" type="hidden" value="@Model.Id" /> 
 
 
@@ -264,14 +269,17 @@
                 },
                 success: function (response) {
                     if (response.success) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Added!',
-                            text: 'The song has been added to your playlist.'
-                        }).then(() => {
+                          location.reload();
+                        // // Swal.fire({
+                        // //     icon: 'success',
+                        // //     title: 'Added!',
+                        // //     text: 'The song has been added to your playlist.'
+                        // // }).then(() => {
                           
-                            $('#playlist-container').html(response.html);
-                        });
+                        //     $('#playlist-container').html(response.html);
+                        // });
+
+                      
                     } else {
                         Swal.fire({
                             icon: 'warning',

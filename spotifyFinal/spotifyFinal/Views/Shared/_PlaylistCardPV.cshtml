@@ -1,0 +1,17 @@
+﻿@model HomeVM
+@foreach (var ply in Model.Playlists)
+{
+    <div class="card-container" >
+        <div class="card">
+            <a asp-controller="Playlist" asp-action="Detail" asp-route-id="@ply.Id" style="text-decoration:none">
+                <img  src="~/assets/images/@ply.ImgUrl" alt="">
+            </a>
+            @* <h3>@(artist.FullName.Length > 20 ? artist.FullName.Substring(0, 18) + "..." : artist.FullName)</h3> *@
+            <p>@ply.Name</p>
+            @*   <button class="play" id="actionbar-play">
+        <i id="play-icon" class="fa-solid fa-play"></i>
+        <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
+        </button> *@
+        </div>
+    </div>
+}

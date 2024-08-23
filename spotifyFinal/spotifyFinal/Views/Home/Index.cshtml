@@ -25,14 +25,38 @@
 
         <div class="throwback">
             <h2><a style="cursor:none">Recently added</a></h2>
+            <a asp-controller="Album" asp-action="Index">Show all</a>
         </div>
         <div class="main-cards">
             @Html.Partial("_AlbumCardPV")
         </div>
     </div>
 </section>
-
 <section id="cards-area">
+    <div class="content">
+
+        <div class="throwback">
+            <h2><a style="cursor:none">Artists</a></h2>
+            <a asp-controller="Artist" asp-action="Index">Show all</a>
+        </div>
+        <div class="main-cards">
+            @Html.Partial("_ArtistCardPV")
+        </div>
+    </div>
+</section>
+<section id="cards-area">
+    <div class="content">
+
+        <div class="throwback">
+            <h2><a style="cursor:none">Special Playlists</a></h2>
+            <a asp-controller="Playlist" asp-action="ViewPlaylist">Show all</a>
+        </div>
+        <div class="main-cards">
+            @Html.Partial("_PlaylistCardPV")
+        </div>
+    </div>
+</section>
+@* <section id="cards-area">
     <div class="content">
         <div class="throwback">
             <h2><a style="text-decoration:none">Hip-Hop/Rap</a></h2>
@@ -42,7 +66,7 @@
             @Html.Partial("_AlbumCardPV", new HomeVM { Category = "Hip-Hop/Rap", Albums = Model.Albums })
         </div>
     </div>
-</section>
+</section> *@
 
 <section id="cards-area">
     <div class="content">
@@ -56,7 +80,7 @@
     </div>
 </section>
 
-<section id="cards-area">
+@* <section id="cards-area">
     <div class="content">
         <div class="throwback">
             <h2><a style="text-decoration:none">Rock</a></h2>
@@ -66,7 +90,7 @@
             @Html.Partial("_AlbumCardPV", new HomeVM { Category = "Rock", Albums = Model.Albums })
         </div>
     </div>
-</section>
+</section> *@
 
 <section id="cards-area">
     <div class="content">

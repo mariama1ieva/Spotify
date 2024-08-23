@@ -54,11 +54,11 @@
                                         <div class="albom-name" style="padding-left: 10px;">
                                             <a style="text-decoration:none;color:white" asp-action="Detail" asp-controller="Album" asp-route-id="@song.Song.AlbumId">@song.Song.Album.Name</a>
                                         </div>
-                                        <div class="add-date">
+                                       @*  <div class="add-date">
                                             <button id="wishlist" class="wish" songId="@song.SongId">
                                                 <i class="fa-solid fa-heart"></i>
                                             </button>
-                                        </div>
+                                        </div> *@
                                         <div class="music-time">
                                             <p></p>
                                         </div>
@@ -77,7 +77,7 @@
     {
             <div class="artist-area">
                 <h2></h2>
-                <div class="all-card">
+                <div class="all-card" >
                 @foreach (var artist in Model.Artists)
                 {
                         <div class="card-container">
@@ -105,7 +105,7 @@
 
         {
             <div class="albom-area">
-                <h2>Albums</h2>
+                <h2 style="color:white">Albums</h2>
                 <div class="all-albom">
                     @foreach (var album in Model.Albums)
                     {
@@ -128,7 +128,7 @@
         }
 
 
-        @if (Model.MusicPlaylists != null && Model.MusicPlaylists.Any())
+        @if (Model.Playlists != null && Model.Playlists.Any())
         {
             <div class="playlist-area">
                 <h2></h2>
@@ -174,11 +174,11 @@
     }
     </div>
 </section>
-    <script src="~/assets/js/search.js"></script>
+ @*    <script src="~/assets/js/search.js"></script>
     <script src="~/assets/js/searchInput.js"></script>
     <script src="~/assets/js/wishlist.js"></script>
     <script src="~/assets/js/playMusic.js"></script>
     <script src="~/assets/js/playButtons.js"></script>
     <script src="~/assets/js/activeWishlist.js"></script>
-    <script src="~/assets/js/musicTime.js"></script>
+    <script src="~/assets/js/musicTime.js"></script> *@
 

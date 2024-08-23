@@ -113,12 +113,12 @@ namespace spotifyFinal.Controllers
             }
             else if (id == 3)
             {
-                model.Albums = await _context.Albums.Include(m => m.Songs).Where(m => m.Name.ToLower().Contains(searchText.ToLower()) && !m.SoftDelete).ToListAsync();
+                model.Albums = await _context.Albums.Include(m => m.Artist).Include(m => m.Songs).Where(m => m.Name.ToLower().Contains(searchText.ToLower()) && !m.SoftDelete).ToListAsync();
                 return PartialView("_Search", model);
             }
             else if (id == 4)
             {
-                model.MusicPlaylists = await _context.MusicPlaylists.Include(m => m.Song).Include(m => m.Playlist).ThenInclude(m => m.AppUser).Where(m => m.Playlist.Name.ToLower().Contains(searchText.ToLower()) && !m.SoftDelete).ToListAsync();
+                model.Playlists = await _context.Playlist.Include(m => m.AppUser).Where(m => m.Name.ToLower().Contains(searchText.ToLower()) && !m.SoftDelete).ToListAsync();
                 return PartialView("_Search", model);
             }
 

@@ -1,18 +1,17 @@
-﻿
-<section id="music-player" >
+﻿<section id="music-player">
     <div class="content">
         <div class="player-song">
             <div class="images">
-                <a asp-action="Detail" asp-controller="Song" id="song-name"  ><img src="~/assets/images/DefaultMusic.png" alt="song-img"></a>
+                <a href=""><img src="~/assets/images/DefaultMusic.png" alt="song-img"></a>
             </div>
             <div class="song-info">
-                <a id="song-name" asp-action="Detail" asp-controller="Song"><span>Music name</span></a>
+                <a id="song-name" href="#"><span>Music name</span></a>
                 <div class="artist-name">
-                    <a asp-controller="Artist" asp-action="Detail" asp-route-id="Id"><span>Artist</span></a>
+                    <a href="#"><span>Artist</span></a>
                 </div>
             </div>
         </div>
-        <div class="player-control" style="margin-left:230px">
+        <div class="player-control">
             <audio id="audio" src=""></audio>
             <div class="first-side">
                 <div class="left-side">
@@ -40,7 +39,7 @@
                 <span id="duration">00:00</span>
             </div>
         </div>
-        <div class="control-buttons" style="margin-left:300px">
+        <div class="control-buttons">
             <i class="fa-solid fa-volume-low"></i>
             <input type="range" id="volume" style="height: 4px;" min="0" max="1" step="0.1" value="1">
         </div>
@@ -59,7 +58,7 @@
                 </div>
             </div>
         </div>
-        <div class="right-side" >
+        <div class="right-side">
             <button class="play" id="play-pause-responsive">
                 <i id="play-icon" class="fa-solid fa-play"></i>
                 <i id="pause-icon" class="fa-solid fa-pause" style="display: none;"></i>
@@ -67,4 +66,3 @@
         </div>
     </div>
 </div>
-

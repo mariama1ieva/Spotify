@@ -1,0 +1,24 @@
+﻿@using Domain.Entities
+@model List<Playlist>
+<div class="mt-4" style="margin-left:20px;margin-top:30px;">
+    <h1 style="color:white;font-size:25px;">Playlists</h1>
+
+</div>
+<section id="cards-area"style="margin-top:30px;">
+
+    <div class="content">   
+        @foreach (var ply in Model)
+        {
+            <div class="card-container" style="margin-left:10px;" >
+                <div class="card">
+                    <a asp-controller="Playlist" asp-action="Detail" asp-route-id="@ply.Id" style="text-decoration:none">
+                        <img  src="~/assets/images/@ply.ImgUrl" alt="">
+                    </a>
+                   
+                    <p>@ply.Name</p>
+                  
+                </div>
+            </div>
+        }
+    </div>
+</section>

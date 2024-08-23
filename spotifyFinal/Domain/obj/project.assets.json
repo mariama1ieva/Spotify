@@ -1089,11 +1089,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify\\spotifyFinal\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\Domain\\Domain.csproj",
+      "projectPath": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify\\spotifyFinal\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\Domain\\obj\\",
+      "outputPath": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify\\spotifyFinal\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",

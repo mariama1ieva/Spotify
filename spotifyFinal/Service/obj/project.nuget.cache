@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jm3KoozOiZ0=",
+  "dgSpecHash": "+S5ZzsSMcYM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify-master\\spotifyFinal\\Service\\Service.csproj",
+  "projectFilePath": "C:\\Users\\Asus\\OneDrive\\Desktop\\Spotify\\spotifyFinal\\Service\\Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\bouncycastle.cryptography\\2.4.0\\bouncycastle.cryptography.2.4.0.nupkg.sha512",

@@ -28,15 +28,20 @@
                 {
                     <i class="fa-regular fa-user user"></i>
                 }
-                <form asp-action="Create" method="post" enctype="multipart/form-data" id="change-photo-form">
-                    <label for="profile-photo" class="choose-photo">
-                        <i class="fa-solid fa-pen"></i>
-                        <span>Choose photo</span>
-                        <input id="submit-btn" type="submit" value="Save">
-                    </label>
-                    <input type="file" id="profile-photo" asp-for="@Model.ProfileImg" style="display: none;">
-                    <span class="text-danger my-1" asp-validation-for="ProfileImg"></span>
-                </form>
+                @if (User.Identity.Name == Model.UserName)
+                {
+                    <form asp-action="Create" method="post" enctype="multipart/form-data" id="change-photo-form">
+                        <label for="profile-photo" class="choose-photo">
+                            <i class="fa-solid fa-pen"></i>
+                            <span>Choose photo</span>
+                            <input id="submit-btn" type="submit" value="Save">
+                        </label>
+                        <input type="file" id="profile-photo" asp-for="@Model.ProfileImg" style="display: none;">
+                        <span class="text-danger my-1" asp-validation-for="ProfileImg"></span>
+                    </form>
+                }
+
+            
             </button>
         </div>
         <div class="right-side">

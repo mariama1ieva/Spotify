@@ -149,7 +149,7 @@ namespace spotifyFinal.Controllers
 
             using var smtp = new SmtpClient();
             smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-            smtp.Authenticate("maryamfa@code.edu.az", "fgwj fxfg qpul folr");
+            smtp.Authenticate("maryamfa@code.edu.az", "fcvt ualf vuql pklj");
             smtp.Send(email);
             smtp.Disconnect(true);
 
@@ -320,7 +320,7 @@ namespace spotifyFinal.Controllers
 
             using var smtp = new SmtpClient();
             smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-            smtp.Authenticate("maryamfa@code.edu.az", "fgwj fxfg qpul folr");
+            smtp.Authenticate("maryamfa@code.edu.az", "fcvt ualf vuql pklj");
             smtp.Send(email);
             smtp.Disconnect(true);
 
